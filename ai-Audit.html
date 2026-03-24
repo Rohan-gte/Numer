@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AI Digital Audit ₹199 | Numero Uno Marketing Bangalore — Find What's Costing You Customers</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="₹199 AI audit for Bangalore small businesses. Find exact Instagram, Google Business & Facebook gaps in 3 minutes. Personalised package recommendation + 10% discount code included.">
 <link rel="canonical" href="https://alphanumerouno.in/free-audit">
 <meta property="og:title" content="Free AI Digital Audit ₹199 | Find Your Growth Gaps in 90 Seconds">
@@ -18,6 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
 :root{--blk:#0A0A0A;--wht:#F5F5F5;--lime:#D4AF37;--lime2:#B38F24;--g1:#1F1F1F;--g2:#000000;--mt:#A3A3A3;--bd:rgba(212,175,55,.12);--tx:#F5F5F5;--tx2:#CCCCCC;--yellow:#D4AF37;--orange:#D4AF37;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif;--red:#FF5C5C;--green:#D4AF37;--amber:#FFAA33}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
@@ -1206,7 +1208,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <script>
 // ===== STATE =====
 const D={bizType:'',bizName:'',bizCity:'',ig:'',fb:'',gmb:'',website:'',bizAge:'',igNA:false,fbNA:false,gmbNA:false,goal:'',enquiries:'',budget:'',timeline:'',context:'',leadName:'',leadPhone:'',calltime:''};
-let reportData={}, discountCode='', quoteRef='', currentStep=1;
+let discountCode='', currentStep=1;
 
 // ===== TAG SELECT =====
 function selTag(el,group){
@@ -1276,15 +1278,18 @@ function goStep(n){
 
 // ===== PAYMENT METHODS =====
 function showPayMethod(method){
+  if(method==='card'){
+    startRazorpay();
+    return;
+  }
   const d=document.getElementById('pay-method-detail');
   d.style.display='block';
   const info={
     gpay:'Open Google Pay → Scan QR or send to <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Add note: "AI Audit" → Pay',
     phonepe:'Open PhonePe → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay',
-    paytm:'Open Paytm → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay',
-    card:'Pay via card or net banking at: <strong><a href="https://rzp.io/l/numerounoaudit" style="color:var(--lime)" target="_blank">rzp.io/l/numerounoaudit</a></strong><br>(Razorpay secure checkout · ₹199)'
+    paytm:'Open Paytm → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay'
   };
-  d.innerHTML='<strong style="color:var(--tx);display:block;margin-bottom:5px">'+(method==='card'?'Card / Net Banking':'UPI via '+method.charAt(0).toUpperCase()+method.slice(1))+'</strong>'+info[method];
+  d.innerHTML='<strong style="color:var(--tx);display:block;margin-bottom:5px">'+'UPI via '+method.charAt(0).toUpperCase()+method.slice(1)+'</strong>'+info[method];
   document.querySelectorAll('.pm-btn').forEach(b=>b.classList.remove('on'));
   event.target.classList.add('on');
 }
@@ -1913,6 +1918,24 @@ function renderResults(rd){
   document.getElementById('results').style.display='block';
   window.scrollTo({top:document.getElementById('results').offsetTop-80,behavior:'smooth'});
 
+  // Reset restricted view
+  const premiumOverlay = document.getElementById('premium-overlay');
+  const premiumSections = [
+    'platforms-grid', 'metrics-grid', 'comp-section', 'roadmap-section', 
+    'matrix-chart', 'strat-recs-block', 'pkg-rec', 'quote-box', 'missed-opps-block'
+  ];
+  
+  if(premiumOverlay) premiumOverlay.style.display = isPaid ? 'none' : 'block';
+  
+  premiumSections.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) {
+      el.style.filter = isPaid ? 'none' : 'blur(8px)';
+      el.style.pointerEvents = isPaid ? 'auto' : 'none';
+      el.style.userSelect = isPaid ? 'auto' : 'none';
+    }
+  });
+
   const score=rd.overallScore||34;
   const scoreColor=rd.scoreColor||'#FF5C5C';
   const dp=rd.dataPoints||{};
@@ -2108,8 +2131,8 @@ function renderResults(rd){
   // ── PLATFORM CARDS (premium) ──
   const pg=document.getElementById('platforms-grid');
   if(pg){
-    pg.innerHTML='';
-    (rd.platforms||[]).forEach(p=>{
+    <!-- First platform is free -->
+    (rd.platforms||[]).slice(0,1).forEach(p=>{
       const ringR=28,circ=2*Math.PI*ringR,filled=circ*(p.score/10);
       const svgRing=`<svg width="68" height="68" viewBox="0 0 68 68"><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="5"/><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="${p.color}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${filled} ${circ}" transform="rotate(-90 34 34)" style="transition:stroke-dasharray 1.2s ease .3s"/><text x="34" y="38" text-anchor="middle" font-size="15" font-weight="800" fill="${p.color}" font-family="'Plus Jakarta Sans',sans-serif">${p.score}</text><text x="34" y="48" text-anchor="middle" font-size="8" fill="#5A6278" font-family="'Nunito',sans-serif">/10</text></svg>`;
       const metrics=(p.metrics||[]).map(m=>`
@@ -2131,6 +2154,32 @@ function renderResults(rd){
         <div class="plat-findings">${findings}</div>
       </div>`;
     });
+
+    // Wrap the rest in premium-content
+    pg.innerHTML += '<div id="premium-content" style="display:contents">';
+    (rd.platforms||[]).slice(1).forEach(p=>{
+      const ringR=28,circ=2*Math.PI*ringR,filled=circ*(p.score/10);
+      const svgRing=`<svg width="68" height="68" viewBox="0 0 68 68"><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="5"/><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="${p.color}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${filled} ${circ}" transform="rotate(-90 34 34)" style="transition:stroke-dasharray 1.2s ease .3s"/><text x="34" y="38" text-anchor="middle" font-size="15" font-weight="800" fill="${p.color}" font-family="'Plus Jakarta Sans',sans-serif">${p.score}</text><text x="34" y="48" text-anchor="middle" font-size="8" fill="#5A6278" font-family="'Nunito',sans-serif">/10</text></svg>`;
+      const metrics=(p.metrics||[]).map(m=>`
+        <div class="pmr">
+          <div class="pmr-l">${m.label}</div>
+          <div class="pmr-v" style="color:${m.better?'#D4AF37':'#FF5C5C'}">${m.you}</div>
+          <div class="pmr-cmp">avg: ${m.benchmark} ${m.better?'✓':'✗'}</div>
+        </div>`).join('');
+      const findings=(p.findings||[]).map(f=>`<div class="pf-row"><span style="color:${p.color};flex-shrink:0;margin-top:1px">•</span>${f}</div>`).join('');
+      pg.innerHTML+=`<div class="plat-premium">
+        <div class="plat-score-ring">
+          <div class="plat-ring-wrap">${svgRing}</div>
+          <div>
+            <div style="font-size:15px;font-weight:700;color:var(--wht)">${p.emoji} ${p.name}</div>
+            <div style="font-size:11px;color:${p.color};font-weight:600;margin-top:2px">${p.score>=8?'Strong':p.score>=6?'Good':p.score>=4?'Needs Work':'Critical'}</div>
+          </div>
+        </div>
+        <div class="plat-metric-row">${metrics}</div>
+        <div class="plat-findings">${findings}</div>
+      </div>`;
+    });
+    pg.innerHTML += '</div>'; // close premium-content
   }
 
   // ── METRICS GRID ──
@@ -2211,6 +2260,29 @@ function renderResults(rd){
           <p>${a.desc}</p>
         </div>
       </div>`).join('');
+  }
+
+  // ── PREMIUM OVERLAY & GATE ──
+  if(!isPaid){
+    const resEl = document.getElementById('results');
+    // Ensure the overlay exists or recreate it
+    let overlay = document.getElementById('premium-overlay');
+    if(!overlay){
+      overlay = document.createElement('div');
+      overlay.id = 'premium-overlay';
+      overlay.style.cssText = 'position:relative;margin-top:-400px;background:linear-gradient(to bottom, transparent, var(--blk) 10%, var(--blk));padding:100px 24px;text-align:center;z-index:100;border-top:1px solid var(--bd)';
+      overlay.innerHTML = `
+        <div class="glass-panel" style="max-width:600px;margin:0 auto;border:2px solid var(--lime);box-shadow:0 0 50px rgba(212,175,55,.2)">
+          <div style="font-size:40px;margin-bottom:20px">🔒</div>
+          <h2 style="font-family:var(--fh);font-size:28px;font-weight:800;color:var(--wht);margin-bottom:12px">Unlock Your Full AI Audit Report</h2>
+          <p style="font-size:15px;color:var(--tx2);margin-bottom:24px;line-height:1.6">You've seen the preview. Pay ₹199 to unlock the full 13-section deep-dive report, competitor insights, and your personalized growth roadmap.</p>
+          <div style="font-family:var(--fh);font-size:48px;font-weight:800;color:var(--lime);margin-bottom:24px">₹199</div>
+          <button class="paid-btn" style="background:var(--lime);color:var(--blk);width:100%;justify-content:center;padding:18px;font-size:18px" onclick="startRazorpay()">✦ Unlock Full Report Now</button>
+          <p style="font-size:12px;color:var(--mt);margin-top:16px">Instant Unlock · PDF Download Included · 10% Discount Code</p>
+        </div>
+      `;
+      resEl.appendChild(overlay);
+    }
   }
 
   // ── STRATEGIC RECS INLINE LABELS ──
@@ -2318,9 +2390,37 @@ function sendToWA(){
 function copyQuote(){navigator.clipboard.writeText(getQuoteText()).then(()=>showToast('Quote text copied!'));}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 
-// ===== PDF GENERATION =====
-let generatedPdfBlob = null;
+// =====
+let isPaid=false;
+let reportData=null;
+let quoteRef=null;
+let generatedPdfBlob=null;
 
+function startRazorpay() {
+  const options = {
+    "key": "rzp_live_XXXXXXXXXXXXXX", // Replace with actual live key
+    "amount": "19900", // ₹199 in paise
+    "currency": "INR",
+    "name": "Numero Uno Marketing",
+    "description": "Premium AI Digital Audit Report",
+    "image": "favicon.svg",
+    "handler": function (response){
+      isPaid = true;
+      alert("✅ Payment Successful! Unlocking your full report...");
+      renderResults(reportData);
+      goStep(5);
+    },
+    "prefill": {
+      "name": document.getElementById('lead-name').value,
+      "contact": document.getElementById('lead-phone').value
+    },
+    "theme": { "color": "#D4AF37" }
+  };
+  const rzp = new Razorpay(options);
+  rzp.open();
+}
+
+// ===== PDF GENERATION =====
 function setPDFStatus(msg, show=true){
   const el = document.getElementById('pdf-status');
   el.style.display = show ? 'block' : 'none';
@@ -2633,6 +2733,11 @@ async function generatePDF() {
 }
 
 async function handlePDFDownload() {
+  if(!isPaid){
+    alert("🔒 Full PDF reports are a premium feature. Please unlock the full report to download.");
+    document.getElementById('premium-overlay')?.scrollIntoView({behavior:'smooth'});
+    return;
+  }
   const btn = document.getElementById('pdf-download-btn');
   btn.textContent = '⏳ Generating PDF…';
   btn.disabled = true;
