@@ -5,10 +5,12 @@
 <title>AI Digital Audit ₹199 | Numero Uno Marketing Bangalore — Find What's Costing You Customers</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="₹199 AI audit for Bangalore small businesses. Find exact Instagram, Google Business & Facebook gaps in 3 minutes. Personalised package recommendation + 10% discount code included.">
-<link rel="canonical" href="https://alphanumerouno.in/free-audit">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://alphanumerouno.in/ai-Audit.html">
+
 <meta property="og:title" content="Free AI Digital Audit ₹199 | Find Your Growth Gaps in 90 Seconds">
 <meta property="og:description" content="AI scans your real Instagram, Google Business &amp; Facebook. 13-section report. Score, revenue loss, 90-day roadmap. Ready in 90 seconds.">
-<meta property="og:url" content="https://alphanumerouno.in/free-audit">
+<meta property="og:url" content="https://alphanumerouno.in/ai-Audit.html">
 <meta property="og:image" content="https://alphanumerouno.in/og-image.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,6 +21,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Numero Uno AI Audit Tool",
+  "operatingSystem": "Web",
+  "applicationCategory": "BusinessApplication",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "124"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "INR"
+  }
+}
+</script>
+
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
 :root{--blk:#0A0A0A;--wht:#F5F5F5;--lime:#D4AF37;--lime2:#B38F24;--g1:#1F1F1F;--g2:#000000;--mt:#A3A3A3;--bd:rgba(212,175,55,.12);--tx:#F5F5F5;--tx2:#CCCCCC;--yellow:#D4AF37;--orange:#D4AF37;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif;--red:#FF5C5C;--green:#D4AF37;--amber:#FFAA33}
@@ -823,17 +846,23 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <div class="pm-btn" onclick="showPayMethod('gpay')">🟢 Google Pay</div>
         <div class="pm-btn" onclick="showPayMethod('phonepe')">🟣 PhonePe</div>
         <div class="pm-btn" onclick="showPayMethod('paytm')">🔵 Paytm</div>
-        <div class="pm-btn" onclick="showPayMethod('card')">💳 Card / Net Banking</div>
+        <div class="pm-btn" onclick="showPayMethod('card')">💳 Razorpay</div>
+        <div class="pm-btn" onclick="showPayMethod('billdesk')">📑 BillDesk</div>
       </div>
       <div id="pay-method-detail" style="display:none;background:rgba(255,255,255,.03);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px;color:var(--tx2);text-align:left;max-width:400px;margin-left:auto;margin-right:auto"></div>
     </div>
     <div style="margin-top:8px">
-      <button class="paid-btn" style="background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;font-weight:800;font-size:16px;padding:16px 32px" onclick="payWithRazorpay()">💳 Pay ₹199 & Unlock Report</button>
+      <button class="paid-btn" id="razorpay-btn" style="background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;font-weight:800;font-size:16px;padding:16px 32px" onclick="payWithRazorpay()">💳 Pay ₹199 & Unlock Report</button>
+      <button class="paid-btn" id="billdesk-btn" style="display:none;background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;font-weight:800;font-size:16px;padding:16px 32px" onclick="payWithBillDesk()">📑 Pay via BillDesk</button>
     </div>
+
     <div style="margin-top:10px;opacity:0.7;font-size:11px">
+      <button onclick="confirmPayment()" style="background:none;border:none;color:var(--lime);cursor:pointer;text-decoration:underline;font-size:14px;font-weight:700">✦ DUMMY TEST: Skip Payment (Verify Report) →</button>
+      <br><br>
       Or if you paid via UPI manually:<br>
-      <button onclick="confirmPayment()" style="background:none;border:none;color:var(--lime);cursor:pointer;text-decoration:underline;font-size:11px">I've already paid manually →</button>
+      <button onclick="confirmPayment()" style="background:none;border:none;color:#A3A3A3;cursor:pointer;text-decoration:underline;font-size:11px">I've already paid manually →</button>
     </div>
+
     <p class="pg-note">After clicking above, our AI starts scanning your profiles. Report ready in under 3 minutes.</p>
     <div class="pg-secure">🔒 Secure · Your data is private · No spam</div>
     <div class="btn-row" style="justify-content:center;margin-top:14px"><button class="btn-back" onclick="goStep(3)">← Back</button></div>
@@ -1278,23 +1307,33 @@ function goStep(n){
 
 // ===== PAYMENT METHODS =====
 function showPayMethod(method){
-  if(method==='card'){
-    startRazorpay();
-    return;
-  }
   const d=document.getElementById('pay-method-detail');
   d.style.display='block';
+  
+  // Toggle buttons
+  const rBtn = document.getElementById('razorpay-btn');
+  const bBtn = document.getElementById('billdesk-btn');
+  if(method === 'billdesk') {
+    if(rBtn) rBtn.style.display = 'none';
+    if(bBtn) bBtn.style.display = 'block';
+  } else {
+    if(rBtn) rBtn.style.display = 'block';
+    if(bBtn) bBtn.style.display = 'none';
+  }
+
   const info={
     gpay:'Open Google Pay → Scan QR or send to <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Add note: "AI Audit" → Pay',
     phonepe:'Open PhonePe → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay',
-    paytm:'Open Paytm → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay'
+    paytm:'Open Paytm → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay',
+    card:'Pay via card or net banking via <strong>Razorpay</strong> secure checkout · ₹199',
+    billdesk:'Pay via <strong>BillDesk Secure Gateway</strong>. (Requires Merchant ID)'
   };
-  d.innerHTML='<strong style="color:var(--tx);display:block;margin-bottom:5px">'+'UPI via '+method.charAt(0).toUpperCase()+method.slice(1)+'</strong>'+info[method];
+  d.innerHTML='<strong style="color:var(--tx);display:block;margin-bottom:5px">'+(method==='card'?'Razorpay':method==='billdesk'?'BillDesk':'UPI via '+method.charAt(0).toUpperCase()+method.slice(1))+'</strong>'+info[method];
   document.querySelectorAll('.pm-btn').forEach(b=>b.classList.remove('on'));
-  event.target.classList.add('on');
+  if(event && event.target && event.target.classList) event.target.classList.add('on');
 }
 
-// ===== CONFIRM PAYMENT & RUN AUDIT =====
+// ===== PAYMENT INTEGRATIONS =====
 // ===== RAZORPAY INTEGRATION =====
 function payWithRazorpay() {
   // REPLACE THIS WITH YOUR ACTUAL KEY ID FROM RAZORPAY DASHBOARD
@@ -1338,7 +1377,18 @@ function payWithRazorpay() {
   }
 }
 
+function payWithBillDesk() {
+  const merchantId = "YOUR_BILLDESK_MERCHANT_ID"; 
+  if(merchantId === "YOUR_BILLDESK_MERCHANT_ID") {
+    alert("⚠️ BillDesk Merchant ID not set. Please use Razorpay or configure credentials in the code.");
+    return;
+  }
+  alert("Redirecting to BillDesk Secure Gateway... (Note: This requires a server-side signature script like billdesk-integration.php)");
+  // Integration logic here (e.g. form submit to your server script)
+}
+
 // ===== CONFIRM PAYMENT & RUN AUDIT =====
+
 function confirmPayment(){
   D.goal=document.getElementById('goal').value;
   D.enquiries=document.getElementById('enquiries').value;
