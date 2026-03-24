@@ -18,10 +18,9 @@
 <meta name="twitter:title" content="Numero Uno — Bangalore's SME Digital Marketing Agency">
 <meta name="twitter:description" content="Digital marketing for dental clinics, gyms, cafés & restaurants in Bangalore. WhatsApp automation + Google Business from ₹15,000/mo.">
 <meta name="twitter:image" content="https://alphanumerouno.in/og-image.jpg">
-<meta name="theme-color" content="#2DD4C8">
-<meta name="msapplication-TileColor" content="#050507">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="theme-color" content="#D4AF37">
+<meta name="msapplication-TileColor" content="#000000">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="geo.region" content="IN-KA">
 <meta name="geo.placename" content="Bangalore">
 <link rel="canonical" href="https://alphanumerouno.in/">
@@ -36,10 +35,10 @@
    VARIABLES & RESET
    ============================ */
 :root{
-  --blk:#060E10;--wht:#EEF8F6;--lime:#2DD4C8;--lime2:#8EB69B;
-  --g1:#0C2224;--g2:#132E30;--mt:#4A7470;
-  --bd:rgba(45,212,200,.12);--tx:#D4EDEA;--tx2:#7AACA6;
-  --orange:#8EB69B;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif
+  --blk:#0A0A0A;--wht:#F5F5F5;--lime:#D4AF37;--lime2:#B38F24;
+  --g1:#1F1F1F;--g2:#000000;--mt:#A3A3A3;
+  --bd:rgba(212,175,55,.12);--tx:#F5F5F5;--tx2:#CCCCCC;
+  --yellow:#D4AF37;--orange:#D4AF37;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -51,23 +50,23 @@ a{transition:color .15s}
 /* ============================
    ANNOUNCE BAR
    ============================ */
-.ann{background:var(--yellow);color:#050507;border-bottom:2px solid var(--orange);text-align:center;padding:10px 20px;font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;position:relative;z-index:10}
-.ann a{color:#EEF8F6;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.ann{background:#000000;color:#f5f5f5;border-bottom:2px solid var(--orange);text-align:center;padding:10px 20px;font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;position:relative;z-index:10}
+.ann a{color:#ffffff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
 
 /* ============================
    NAV
    ============================ */
-.nav-wrap{position:sticky;top:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(8,10,14,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);transition:background .2s}
+.nav-wrap{position:sticky;top:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);transition:background .2s}
 .nav-logo{font-family:var(--fh);font-size:15px;font-weight:800;color:var(--wht);text-decoration:none;letter-spacing:-.012em}
 .nav-logo b{color:var(--lime)}
 .nav-links{display:flex;gap:28px}
-.nav-links a{font-size:13px;color:var(--tx2);text-decoration:none;font-weight:500}
-.nav-links a:hover,.nav-links a.active{color:#2DD4C8}
+.nav-links a{font-size:14px;color:var(--tx);text-decoration:none;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:#D4AF37}
 .nav-actions{display:flex;gap:8px;align-items:center}
-.nav-wa{display:flex;align-items:center;gap:6px;background:rgba(45,212,200,.10);border:1px solid rgba(45,212,200,.18);color:#2DD4C8;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none}
-.nav-wa:hover{background:rgba(45,212,200,.18);color:#2DD4C8}
-.nav-cta{background:linear-gradient(135deg,#2DD4C8,#8EB69B);color:#000;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none}
-.nav-cta:hover{background:linear-gradient(135deg,#8EB69B,#2DD4C8);color:#000}
+.nav-wa{display:flex;align-items:center;gap:6px;background:#1F1F1F;border:1px solid #D4AF37;color:#D4AF37;font-weight:700;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none}
+.nav-wa:hover{background:#D4AF37;color:#000000}
+.nav-cta{background:linear-gradient(135deg,#F1D06F,#D4AF37);color:#000000;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none}
+.nav-cta:hover{background:linear-gradient(135deg,#D4AF37,#F1D06F);color:#000000}
 .nav-ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none}
 .nav-ham span{width:18px;height:1.5px;background:var(--tx);display:block;border-radius:2px}
 .nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:var(--g1);border-bottom:1px solid var(--bd);z-index:199;padding:20px;flex-direction:column;gap:14px}
@@ -80,9 +79,9 @@ a{transition:color .15s}
 .container{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 section{padding:88px 0;position:relative}
 .bg-alt{background:var(--g1)}
-.section-pre{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#2DD4C8;margin-bottom:9px;display:block}
+.section-pre{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#D4AF37;margin-bottom:9px;display:block}
 .section-h2{font-family:var(--fh);font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--wht);margin-bottom:10px}
-.section-h2 em{font-style:normal;color:#2DD4C8}.hero-h1 em{color:#2DD4C8}
+.section-h2 em{font-style:normal;color:#D4AF37}.hero-h1 em{color:#D4AF37}
 .section-sub{font-size:15px;color:var(--tx2);max-width:520px;line-height:1.75}
 .section-hd{margin-bottom:48px}
 
@@ -97,10 +96,10 @@ section{padding:88px 0;position:relative}
 /* ============================
    BUTTONS
    ============================ */
-.btn-lime{background:linear-gradient(135deg,#2DD4C8,#8EB69B);color:#000;padding:14px 24px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
-.btn-lime:hover{background:var(--lime2);color:var(--blk);transform:translateY(-2px)}
-.btn-ghost{background:transparent;color:var(--wht);padding:14px 24px;border-radius:7px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid var(--bd);display:inline-flex;align-items:center;gap:7px}
-.btn-ghost:hover{border-color:rgba(255,214,0,.3);color:var(--lime)}
+.btn-lime{background:linear-gradient(135deg,#F1D06F,#D4AF37);color:#000;padding:14px 24px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.btn-lime:hover{background:#D4AF37;color:var(--blk);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#D4AF37;padding:14px 24px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid #D4AF37;display:inline-flex;align-items:center;gap:7px}
+.btn-ghost:hover{border-color:#F1D06F;background:rgba(212,175,55,.1);color:#F1D06F}
 
 /* ============================
    HERO SECTION
@@ -145,7 +144,7 @@ section{padding:88px 0;position:relative}
 .acard-loss-sub{font-size:11px;color:var(--mt)}
 .acard-ft{border-top:1px solid var(--bd);padding:13px 16px;display:flex;align-items:center;justify-content:space-between}
 .acard-ft-text{font-size:12px;color:var(--tx2)}
-.acard-ft-btn{background:linear-gradient(135deg,#2DD4C8,#8EB69B);color:#000;padding:7px 15px;border-radius:5px;font-size:12px;font-weight:700;border:none;cursor:pointer;font-family:var(--fb)}
+.acard-ft-btn{background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;padding:7px 15px;border-radius:5px;font-size:12px;font-weight:700;border:none;cursor:pointer;font-family:var(--fb)}
 .acard-ft-btn:hover{background:var(--lime2)}
 
 /* ============================
@@ -181,7 +180,7 @@ section{padding:88px 0;position:relative}
 .bento-cell:hover{background:var(--g2)}
 .bento-cell.span2{grid-column:span 2}
 .bento-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--mt);margin-bottom:10px}
-.bento-num{font-family:var(--fh);font-size:44px;font-weight:800;color:#2DD4C8;letter-spacing:-.02em;line-height:1;margin-bottom:3px}
+.bento-num{font-family:var(--fh);font-size:44px;font-weight:800;color:#D4AF37;letter-spacing:-.02em;line-height:1;margin-bottom:3px}
 .bento-desc{font-size:13px;color:var(--tx2);line-height:1.5}
 .bento-meta{font-size:11px;color:var(--mt);margin-top:6px}
 .bento-quote{font-size:13px;color:var(--tx2);line-height:1.7;font-style:italic;margin-bottom:10px;padding-left:18px;border-left:2px solid rgba(255,214,0,.3)}
@@ -294,7 +293,7 @@ section{padding:88px 0;position:relative}
 .form-input:focus{border-color:rgba(255,214,0,.4)}
 .form-input::placeholder{color:var(--mt)}
 .form-select{background:#161620;border:1px solid var(--bd);border-radius:6px;padding:11px 13px;font-size:14px;color:var(--tx2);font-family:var(--fb);outline:none;width:100%;cursor:pointer}
-.form-btn{background:linear-gradient(135deg,#2DD4C8,#8EB69B);color:#000;border:none;border-radius:7px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;display:flex;align-items:center;justify-content:center;gap:7px}
+.form-btn{background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;border:none;border-radius:7px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;display:flex;align-items:center;justify-content:center;gap:7px}
 .form-btn:hover{background:var(--lime2)}
 .form-footnote{font-size:11px;color:var(--mt);text-align:center}
 
@@ -337,10 +336,10 @@ section{padding:88px 0;position:relative}
 /* ============================
    WHATSAPP FLOAT
    ============================ */
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:195;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 4px 24px rgba(45,212,200,.30);transition:transform .25s}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:195;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 4px 24px rgba(212,175,55,.30);transition:transform .25s}
 .wa-float:hover{transform:scale(1.1)}
 
-.contact-left h2.section-h2 em{font-style:normal;color:#2DD4C8}.hero-h1 em{color:#2DD4C8}
+.contact-left h2.section-h2 em{font-style:normal;color:#D4AF37}.hero-h1 em{color:#D4AF37}
 .contact-left h2{font-family:var(--fh);font-size:clamp(24px,3.5vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--wht);margin-bottom:12px}
 footer{border-top:1px solid var(--bd);padding:48px 0 26px;background:var(--g1)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
@@ -405,24 +404,24 @@ footer{border-top:1px solid var(--bd);padding:48px 0 26px;background:var(--g1)}
 @keyframes capFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
 @keyframes graphBar{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
 @keyframes arrowRise{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(45,212,200,.3))}50%{filter:drop-shadow(0 0 18px rgba(45,212,200,.7))}}
+@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(212,175,55,.3))}50%{filter:drop-shadow(0 0 18px rgba(212,175,55,.7))}}
 @keyframes orbitDot{from{transform:rotate(0deg) translateX(42px) rotate(0deg)}to{transform:rotate(360deg) translateX(42px) rotate(-360deg)}}
-@keyframes btn-glow{0%,100%{box-shadow:0 0 0 0 rgba(45,212,200,.4)}50%{box-shadow:0 0 0 10px rgba(45,212,200,0)}}
+@keyframes btn-glow{0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,.4)}50%{box-shadow:0 0 0 10px rgba(212,175,55,0)}}
 
 /* Particle field */
 .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.p-dot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(45,212,200,.7),rgba(45,212,200,.1));animation:particleFloat linear infinite}
+.p-dot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.7),rgba(212,175,55,.1));animation:particleFloat linear infinite}
 
 /* Floating notifications */
 .hero-notifs{position:relative;display:flex;flex-direction:column;gap:8px;margin-top:14px}
-.notif-card{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(12,34,36,.9);border:1px solid rgba(45,212,200,.2);border-radius:12px;backdrop-filter:blur(8px);animation:notifSlideIn .5s ease forwards,floatY2 4s ease-in-out infinite;opacity:0}
+.notif-card{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(31,31,31,.9);border:1px solid rgba(212,175,55,.2);border-radius:12px;backdrop-filter:blur(8px);animation:notifSlideIn .5s ease forwards,floatY2 4s ease-in-out infinite;opacity:0}
 .notif-card:nth-child(1){animation-delay:.2s,0.7s}
 .notif-card:nth-child(2){animation-delay:.5s,1.2s}
 .notif-card:nth-child(3){animation-delay:.8s,2s}
 .notif-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .notif-text strong{display:block;font-size:12px;font-weight:700;color:var(--wht)}
 .notif-text span{font-size:11px;color:var(--tx2)}
-.notif-val{font-family:var(--fh);font-size:14px;font-weight:800;color:#2DD4C8;margin-left:auto;flex-shrink:0}
+.notif-val{font-family:var(--fh);font-size:14px;font-weight:800;color:#D4AF37;margin-left:auto;flex-shrink:0}
 
 /* Animated industry icons */
 .ic-svg-wrap{width:64px;height:64px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;animation:glowPulse 3s ease-in-out infinite}
@@ -449,7 +448,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0 26px;background:var(--g1)}
 
 /* Bento hover lift */
 .bento-cell{transition:transform .25s ease,border-color .25s;cursor:default}
-.bento-cell:hover{transform:translateY(-4px);border-color:rgba(45,212,200,.3)}
+.bento-cell:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.3)}
 
 /* Floating orbit ring on apromo */
 .orbit-ring{animation:spin-slow 12s linear infinite;transform-origin:center}
@@ -471,23 +470,23 @@ footer{border-top:1px solid var(--bd);padding:48px 0 26px;background:var(--g1)}
 @keyframes slideRight{0%{transform:translateX(-30px);opacity:0}100%{transform:translateX(0);opacity:1}}
 @keyframes typing{0%,100%{width:0}50%{width:100%}}
 @keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse2{0%,100%{box-shadow:0 0 0 0 rgba(45,212,200,.4)}70%{box-shadow:0 0 0 12px rgba(45,212,200,0)}}
+@keyframes pulse2{0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,.4)}70%{box-shadow:0 0 0 12px rgba(212,175,55,0)}}
 @keyframes spinGear{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes dashIn{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
 @keyframes floatStar{0%,100%{transform:translateY(0) scale(1);opacity:.7}50%{transform:translateY(-12px) scale(1.2);opacity:1}}
 
 /* Mascot wrapper */
 .mascot-wrap{position:relative;display:flex;align-items:center;justify-content:center}
-.mascot-svg{animation:mascotFloat 4s ease-in-out infinite;filter:drop-shadow(0 8px 24px rgba(45,212,200,.25))}
+.mascot-svg{animation:mascotFloat 4s ease-in-out infinite;filter:drop-shadow(0 8px 24px rgba(212,175,55,.25))}
 .mascot-hand{transform-origin:30px 35px;animation:waveHand 2s ease-in-out infinite}
 .mascot-eye{animation:mascotBlink 4s ease-in-out infinite}
 
 /* Sparkle dots */
 .spark{position:absolute;width:8px;height:8px;border-radius:50%;pointer-events:none}
-.spark1{top:10%;right:15%;background:#2DD4C8;animation:sparkle 2.2s ease-in-out infinite}
-.spark2{top:30%;left:8%;background:#8EB69B;animation:sparkle 1.8s ease-in-out infinite .5s}
-.spark3{bottom:20%;right:10%;background:#2DD4C8;animation:sparkle 2.5s ease-in-out infinite 1s}
-.spark4{bottom:35%;left:20%;background:#DAF1DE;animation:sparkle 2s ease-in-out infinite .3s;width:6px;height:6px}
+.spark1{top:10%;right:15%;background:#D4AF37;animation:sparkle 2.2s ease-in-out infinite}
+.spark2{top:30%;left:8%;background:#B38F24;animation:sparkle 1.8s ease-in-out infinite .5s}
+.spark3{bottom:20%;right:10%;background:#D4AF37;animation:sparkle 2.5s ease-in-out infinite 1s}
+.spark4{bottom:35%;left:20%;background:#D4AF37;animation:sparkle 2s ease-in-out infinite .3s;width:6px;height:6px}
 
 /* Industry character cards */
 .ic-char{display:flex;justify-content:center;margin-bottom:14px}
@@ -498,7 +497,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0 26px;background:var(--g1)}
 
 /* Robot mascot (audit promo) */
 .robot-wrap{position:relative;display:flex;justify-content:center;align-items:center;padding:20px 0}
-.robot-svg{animation:mascotFloat 3.5s ease-in-out infinite;filter:drop-shadow(0 12px 32px rgba(45,212,200,.3))}
+.robot-svg{animation:mascotFloat 3.5s ease-in-out infinite;filter:drop-shadow(0 12px 32px rgba(212,175,55,.3))}
 .robot-gear{animation:spinGear 4s linear infinite;transform-origin:center}
 .robot-screen-text{animation:pulse2 2s ease-in-out infinite}
 
@@ -509,7 +508,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0 26px;background:var(--g1)}
 
 /* CTA pulse ring */
 .cta-pulse{position:relative;display:inline-block}
-.cta-pulse::after{content:'';position:absolute;inset:-4px;border-radius:inherit;border:2px solid rgba(45,212,200,.4);animation:pulse2 2s ease-in-out infinite;pointer-events:none}
+.cta-pulse::after{content:'';position:absolute;inset:-4px;border-radius:inherit;border:2px solid rgba(212,175,55,.4);animation:pulse2 2s ease-in-out infinite;pointer-events:none}
 
 /* Floating stars on bento numbers */
 .bento-star{position:absolute;top:-8px;right:-8px;font-size:18px;animation:floatStar 2.5s ease-in-out infinite}
@@ -546,7 +545,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0 26px;background:var(--g1)}
   nav{padding:0 16px}
 }
 /* Smooth scrolling & tap highlight */
-html{-webkit-tap-highlight-color:rgba(45,212,200,.15);scroll-behavior:smooth}
+html{-webkit-tap-highlight-color:rgba(212,175,55,.15);scroll-behavior:smooth}
 /* Prevent iOS font size adjustment */
 body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 </style>
@@ -554,7 +553,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <body>
 
 <!-- ===== ANNOUNCE BAR ===== -->
-<div class="ann">🎯 AI Audit ₹199 — See your exact gaps + <strong>unlock 10% off</strong> any package &nbsp;<a href="ai-Audit.html">Get My Audit →</a></div>
+<div class="ann">🎯 AI Audit ₹199 — See your exact gaps + <strong>unlock 10% off</strong> any package &nbsp;<a href="free-audit.html">Get My Audit →</a></div>
 
 <!-- ===== NAV ===== -->
 <header class="nav-wrap" id="main-nav">
@@ -563,11 +562,11 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <a href="index.html" class="active">Home</a>
     <a href="services.html">Services & Pricing</a>
     <a href="clients.html">Client Results</a>
-    <a href="ai-Audit.html">AI Audit — ₹199</a>
+    <a href="free-audit.html">AI Audit — ₹199</a>
   </nav>
   <div class="nav-actions">
     <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online.+Can+we+talk%3F" class="nav-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
-    <a href="ai-Audit.html" class="nav-cta">AI Audit — ₹199</a>
+    <a href="free-audit.html" class="nav-cta">AI Audit — ₹199</a>
   </div>
   <button class="nav-ham" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -577,14 +576,14 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   <a href="index.html">Home</a>
   <a href="services.html">Services & Pricing</a>
   <a href="clients.html">Client Results</a>
-  <a href="ai-Audit.html">AI Audit — ₹199</a>
-  <a href="https://wa.me/919632091371" style="color:#2DD4C8;font-weight:600">💬 WhatsApp Us Now</a>
+  <a href="free-audit.html">AI Audit — ₹199</a>
+  <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
 </div>
 
 <!-- ===== FIXED SIDE LEAD TABS (desktop) ===== -->
 <div class="side-tabs">
   <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="side-tab side-tab-wa" target="_blank">💬 WhatsApp Us</a>
-  <a href="ai-Audit.html" class="side-tab side-tab-audit">Get AI Audit</a>
+  <a href="free-audit.html" class="side-tab side-tab-audit">Get AI Audit</a>
   <button class="side-tab side-tab-consult" onclick="document.getElementById('popup-overlay').classList.add('open')">Free Consultation</button>
 </div>
 
@@ -596,7 +595,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   <div class="smb-text"><strong>Get more customers now</strong>Free consultation · Live in 7 days</div>
   <div class="smb-btns">
     <a href="https://wa.me/919632091371" class="smb-wa" target="_blank">💬</a>
-    <a href="ai-Audit.html" class="smb-audit">Audit ₹199</a>
+    <a href="free-audit.html" class="smb-audit">Audit ₹199</a>
   </div>
 </div>
 
@@ -627,25 +626,25 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <!-- ░░ HERO PARTICLES + BACKGROUND ░░ -->
 <div class="particles" id="hero-particles"></div>
-<!-- Animated teal grid background -->
-<svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.12" preserveAspectRatio="xMidYMid slice">
+<!-- Premium dot matrix background -->
+<svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.25" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#2DD4C8" stroke-width=".5"/>
+    <pattern id="dot-matrix" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.5" fill="#D4AF37" opacity=".35"/>
     </pattern>
   </defs>
-  <rect width="100%" height="100%" fill="url(#grid)"/>
+  <rect width="100%" height="100%" fill="url(#dot-matrix)"/>
 </svg>
 <!-- Floating teal orbs -->
-<div style="position:absolute;top:15%;left:8%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,200,.08) 0%,transparent 70%);animation:floatY 7s ease-in-out infinite;pointer-events:none"></div>
-<div style="position:absolute;top:50%;right:5%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(142,182,155,.06) 0%,transparent 70%);animation:floatY 9s ease-in-out infinite reverse;pointer-events:none"></div>
-<div style="position:absolute;bottom:10%;left:30%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,200,.05) 0%,transparent 70%);animation:floatY 5s ease-in-out infinite;pointer-events:none"></div>
+<div style="position:absolute;top:15%;left:8%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.08) 0%,transparent 70%);animation:floatY 7s ease-in-out infinite;pointer-events:none"></div>
+<div style="position:absolute;top:50%;right:5%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(179,143,36,.06) 0%,transparent 70%);animation:floatY 9s ease-in-out infinite reverse;pointer-events:none"></div>
+<div style="position:absolute;bottom:10%;left:30%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.05) 0%,transparent 70%);animation:floatY 5s ease-in-out infinite;pointer-events:none"></div>
   <div class="container">
     <div class="hero-grid">
       <!-- Left -->
       <div>
         <div class="hero-pill rv"><div class="hero-pulse"></div>Bangalore's SME Growth Agency · Est. 2022</div>
-        <h1 class="hero-h1 rv d1">Stop Losing Customers<br>to Competitors Who<br><em>Show Up Online. You Will.</em></h1>
+        <h1 class="hero-h1 rv d1">Unbeatable Rankings.<br><em>Real Business Growth.</em></h1>
         <p class="hero-sub rv d2">We help dental clinics, gyms, cafés, restaurants and schools in Bangalore get <strong>15–40 new customer enquiries every month</strong> — through Instagram, Google Business and WhatsApp automation. Starting from ₹15,000/month.</p>
         <div class="hero-chips rv d2">
           <span class="hero-chip">🦷 Dental Clinics</span>
@@ -657,7 +656,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           <span class="hero-chip">🏨 Hotels</span>
         </div>
         <div class="hero-btns rv d3">
-          <span class="cta-pulse"><a href="ai-Audit.html" class="btn-lime">✦ Get AI Audit — ₹199</a></span>
+          <span class="cta-pulse"><a href="free-audit.html" class="btn-lime">✦ Get AI Audit — ₹199</a></span>
           <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+book+a+free+strategy+call" class="btn-ghost" target="_blank">💬 Free Strategy Call</a>
         </div>
         <div class="hero-trust rv d4">
@@ -670,64 +669,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           <span class="hero-trust-item"><strong>7 days</strong> to go live</span>
         </div>
       </div>
-
-        <!-- ░░ ANIMATED FLOATING NOTIFICATIONS ░░ -->
-        <div class="hero-notifs">
-          <div class="notif-card">
-            <div class="notif-icon" style="background:rgba(45,212,200,.15)">📍</div>
-            <div class="notif-text"><strong>Google Maps · Koramangala</strong><span>Ranked #1 · "dentist near me"</span></div>
-            <div class="notif-val">↑ #1</div>
-          </div>
-          <div class="notif-card">
-            <div class="notif-icon" style="background:rgba(37,211,102,.15)">💬</div>
-            <div class="notif-text"><strong>WhatsApp · New booking</strong><span>Appointment confirmed · 11:43 PM</span></div>
-            <div class="notif-val">+1 🔔</div>
-          </div>
-          <div class="notif-card">
-            <div class="notif-icon" style="background:rgba(225,48,108,.15)">📸</div>
-            <div class="notif-text"><strong>Instagram Reel · Viral</strong><span>8,240 accounts reached today</span></div>
-            <div class="notif-val">8.2K</div>
-          </div>
-        </div>
-
-        <!-- ░░ HERO MASCOT CHARACTER ░░ -->
-        <div class="mascot-wrap" style="position:absolute;bottom:-30px;right:10px;z-index:2;display:none" id="hero-mascot" style="position:absolute;bottom:-30px;right:10px;z-index:2">
-          <svg class="mascot-svg" width="90" height="90" viewBox="0 0 90 90" fill="none">
-            <!-- Body -->
-            <ellipse cx="45" cy="58" rx="22" ry="26" fill="#0C3A3A"/>
-            <ellipse cx="45" cy="58" rx="19" ry="22" fill="#0F4444"/>
-            <!-- Head -->
-            <circle cx="45" cy="32" r="20" fill="#0C3A3A"/>
-            <circle cx="45" cy="32" r="17" fill="#1A5252"/>
-            <!-- Eyes -->
-            <ellipse cx="38" cy="30" rx="5" ry="6" fill="#2DD4C8"/>
-            <ellipse cx="52" cy="30" rx="5" ry="6" fill="#2DD4C8"/>
-            <circle class="mascot-eye" cx="39" cy="30" r="3" fill="#060E10"/>
-            <circle class="mascot-eye" cx="53" cy="30" r="3" fill="#060E10"/>
-            <circle cx="40" cy="29" r="1" fill="white"/>
-            <circle cx="54" cy="29" r="1" fill="white"/>
-            <!-- Smile -->
-            <path d="M38 38 Q45 44 52 38" stroke="#2DD4C8" stroke-width="2" stroke-linecap="round" fill="none"/>
-            <!-- Antenna -->
-            <line x1="45" y1="12" x2="45" y2="4" stroke="#2DD4C8" stroke-width="2"/>
-            <circle cx="45" cy="3" r="3" fill="#2DD4C8"/>
-            <!-- Hands -->
-            <ellipse cx="22" cy="58" rx="6" ry="8" fill="#0C3A3A"/>
-            <ellipse cx="68" cy="55" rx="6" ry="8" fill="#0C3A3A" class="mascot-hand"/>
-            <!-- Phone in right hand -->
-            <rect x="62" y="46" width="10" height="16" rx="2" fill="#2DD4C8"/>
-            <rect x="63.5" y="48" width="7" height="10" rx="1" fill="#060E10"/>
-            <text x="65" y="56" font-size="5" fill="#2DD4C8">📈</text>
-            <!-- Teal shirt detail -->
-            <path d="M30 52 Q45 60 60 52" stroke="#2DD4C8" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"/>
-            <!-- Legs -->
-            <rect x="36" y="78" width="9" height="10" rx="3" fill="#0C3A3A"/>
-            <rect x="47" y="78" width="9" height="10" rx="3" fill="#0C3A3A"/>
-          </svg>
-          <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#2DD4C8;color:#051F20;font-size:9px;font-weight:800;padding:3px 8px;border-radius:8px;white-space:nowrap;animation:bounce2 2s ease-in-out infinite">
-            I scan profiles! 🔍
-          </div>
-        </div>
+      <div class="hero-right" style="display:flex;flex-direction:column;gap:30px;">
       <!-- Right — Sample Audit Card -->
       <div class="audit-card rv d2">
         <div class="acard-hdr">
@@ -758,7 +700,67 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="acard-ft">
           <div class="acard-ft-text">Run your real report — ₹199</div>
-          <button class="acard-ft-btn" onclick="location.href='ai-Audit.html'">Start Now →</button>
+          <button class="acard-ft-btn" onclick="location.href='free-audit.html'">Start Now →</button>
+        </div>
+      </div>
+
+
+        <!-- ░░ ANIMATED FLOATING NOTIFICATIONS ░░ -->
+        <div class="hero-notifs">
+          <div class="notif-card">
+            <div class="notif-icon" style="background:rgba(212,175,55,.15)">📍</div>
+            <div class="notif-text"><strong>Google Maps · Koramangala</strong><span>Ranked #1 · "dentist near me"</span></div>
+            <div class="notif-val">↑ #1</div>
+          </div>
+          <div class="notif-card">
+            <div class="notif-icon" style="background:rgba(37,211,102,.15)">💬</div>
+            <div class="notif-text"><strong>WhatsApp · New booking</strong><span>Appointment confirmed · 11:43 PM</span></div>
+            <div class="notif-val">+1 🔔</div>
+          </div>
+          <div class="notif-card">
+            <div class="notif-icon" style="background:rgba(225,48,108,.15)">📸</div>
+            <div class="notif-text"><strong>Instagram Reel · Viral</strong><span>8,240 accounts reached today</span></div>
+            <div class="notif-val">8.2K</div>
+          </div>
+        </div>
+
+        <!-- ░░ HERO MASCOT CHARACTER ░░ -->
+        <div class="mascot-wrap" style="position:absolute;bottom:-30px;right:10px;z-index:2;display:none" id="hero-mascot" style="position:absolute;bottom:-30px;right:10px;z-index:2">
+          <svg class="mascot-svg" width="90" height="90" viewBox="0 0 90 90" fill="none">
+            <!-- Body -->
+            <ellipse cx="45" cy="58" rx="22" ry="26" fill="#1F1F1F"/>
+            <ellipse cx="45" cy="58" rx="19" ry="22" fill="#2A2A2A"/>
+            <!-- Head -->
+            <circle cx="45" cy="32" r="20" fill="#1F1F1F"/>
+            <circle cx="45" cy="32" r="17" fill="#333333"/>
+            <!-- Eyes -->
+            <ellipse cx="38" cy="30" rx="5" ry="6" fill="#D4AF37"/>
+            <ellipse cx="52" cy="30" rx="5" ry="6" fill="#D4AF37"/>
+            <circle class="mascot-eye" cx="39" cy="30" r="3" fill="#0A0A0A"/>
+            <circle class="mascot-eye" cx="53" cy="30" r="3" fill="#0A0A0A"/>
+            <circle cx="40" cy="29" r="1" fill="white"/>
+            <circle cx="54" cy="29" r="1" fill="white"/>
+            <!-- Smile -->
+            <path d="M38 38 Q45 44 52 38" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <!-- Antenna -->
+            <line x1="45" y1="12" x2="45" y2="4" stroke="#D4AF37" stroke-width="2"/>
+            <circle cx="45" cy="3" r="3" fill="#D4AF37"/>
+            <!-- Hands -->
+            <ellipse cx="22" cy="58" rx="6" ry="8" fill="#1F1F1F"/>
+            <ellipse cx="68" cy="55" rx="6" ry="8" fill="#1F1F1F" class="mascot-hand"/>
+            <!-- Phone in right hand -->
+            <rect x="62" y="46" width="10" height="16" rx="2" fill="#D4AF37"/>
+            <rect x="63.5" y="48" width="7" height="10" rx="1" fill="#0A0A0A"/>
+            <text x="65" y="56" font-size="5" fill="#D4AF37">📈</text>
+            <!-- Teal shirt detail -->
+            <path d="M30 52 Q45 60 60 52" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"/>
+            <!-- Legs -->
+            <rect x="36" y="78" width="9" height="10" rx="3" fill="#1F1F1F"/>
+            <rect x="47" y="78" width="9" height="10" rx="3" fill="#1F1F1F"/>
+          </svg>
+          <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#D4AF37;color:#000000;font-size:9px;font-weight:800;padding:3px 8px;border-radius:8px;white-space:nowrap;animation:bounce2 2s ease-in-out infinite">
+            I scan profiles! 🔍
+          </div>
         </div>
       </div>
     </div>
@@ -801,16 +803,16 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <div class="industry-card">
         <div class="ic-svg-wrap">
 <svg viewBox="0 0 64 64" width="64" height="64" style="animation:toothBounce 3s ease-in-out infinite">
-  <defs><radialGradient id="tg" cx="50%" cy="30%"><stop offset="0%" stop-color="#EEF8F6"/><stop offset="100%" stop-color="#2DD4C8"/></radialGradient></defs>
+  <defs><radialGradient id="tg" cx="50%" cy="30%"><stop offset="0%" stop-color="#F5F5F5"/><stop offset="100%" stop-color="#D4AF37"/></radialGradient></defs>
   <!-- Tooth body -->
-  <path d="M20,14 C14,14 12,20 12,26 C12,34 16,44 20,52 C21,55 23,55 24,52 C26,46 28,42 32,42 C36,42 38,46 40,52 C41,55 43,55 44,52 C48,44 52,34 52,26 C52,20 50,14 44,14 C40,14 36,16 32,16 C28,16 24,14 20,14Z" fill="url(#tg)" stroke="#2DD4C8" stroke-width="1.5"/>
+  <path d="M20,14 C14,14 12,20 12,26 C12,34 16,44 20,52 C21,55 23,55 24,52 C26,46 28,42 32,42 C36,42 38,46 40,52 C41,55 43,55 44,52 C48,44 52,34 52,26 C52,20 50,14 44,14 C40,14 36,16 32,16 C28,16 24,14 20,14Z" fill="url(#tg)" stroke="#D4AF37" stroke-width="1.5"/>
   <!-- Roots outline -->
-  <path d="M26,42 L24,56 M38,42 L40,56" stroke="rgba(45,212,200,.4)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M26,42 L24,56 M38,42 L40,56" stroke="rgba(212,175,55,.4)" stroke-width="1.5" stroke-linecap="round"/>
   <!-- Sparkle stars -->
   <g style="animation:glowPulse 2s ease-in-out infinite">
-    <text x="6" y="18" font-size="8" fill="#2DD4C8" opacity=".9">✦</text>
-    <text x="50" y="22" font-size="6" fill="#8EB69B" opacity=".8">✦</text>
-    <text x="10" y="38" font-size="5" fill="#2DD4C8" opacity=".7">✦</text>
+    <text x="6" y="18" font-size="8" fill="#D4AF37" opacity=".9">✦</text>
+    <text x="50" y="22" font-size="6" fill="#B38F24" opacity=".8">✦</text>
+    <text x="10" y="38" font-size="5" fill="#D4AF37" opacity=".7">✦</text>
   </g>
 </svg></div>
         <div class="ic-name">Dental Clinics</div>
@@ -821,25 +823,25 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <div class="industry-card">
         <div class="ic-svg-wrap">
 <svg viewBox="0 0 64 64" width="64" height="64" style="animation:dumbbellLift 2.5s ease-in-out infinite">
-  <defs><linearGradient id="dbg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#2DD4C8"/><stop offset="100%" stop-color="#8EB69B"/></linearGradient></defs>
+  <defs><linearGradient id="dbg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#B38F24"/></linearGradient></defs>
   <!-- Left plate outer -->
   <rect x="6" y="22" width="10" height="20" rx="3" fill="url(#dbg)" opacity=".9"/>
   <!-- Left plate inner -->
-  <rect x="10" y="25" width="4" height="14" rx="2" fill="#060E10" opacity=".5"/>
+  <rect x="10" y="25" width="4" height="14" rx="2" fill="#0A0A0A" opacity=".5"/>
   <!-- Right plate outer -->
   <rect x="48" y="22" width="10" height="20" rx="3" fill="url(#dbg)" opacity=".9"/>
-  <rect x="50" y="25" width="4" height="14" rx="2" fill="#060E10" opacity=".5"/>
+  <rect x="50" y="25" width="4" height="14" rx="2" fill="#0A0A0A" opacity=".5"/>
   <!-- Bar -->
-  <rect x="16" y="30" width="32" height="4" rx="2" fill="#2DD4C8"/>
+  <rect x="16" y="30" width="32" height="4" rx="2" fill="#D4AF37"/>
   <!-- Handle grip lines -->
   <line x1="24" y1="30" x2="24" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5"/>
   <line x1="30" y1="30" x2="30" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5"/>
   <line x1="36" y1="30" x2="36" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5"/>
   <line x1="42" y1="30" x2="42" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5"/>
   <!-- Energy lines -->
-  <line x1="32" y1="14" x2="32" y2="20" stroke="#2DD4C8" stroke-width="1.5" stroke-linecap="round" opacity=".7" style="animation:arrowRise 1.5s ease-in-out infinite"/>
-  <line x1="26" y1="16" x2="26" y2="20" stroke="#8EB69B" stroke-width="1" stroke-linecap="round" opacity=".5" style="animation:arrowRise 1.5s ease-in-out infinite;animation-delay:.2s"/>
-  <line x1="38" y1="16" x2="38" y2="20" stroke="#8EB69B" stroke-width="1" stroke-linecap="round" opacity=".5" style="animation:arrowRise 1.5s ease-in-out infinite;animation-delay:.4s"/>
+  <line x1="32" y1="14" x2="32" y2="20" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" opacity=".7" style="animation:arrowRise 1.5s ease-in-out infinite"/>
+  <line x1="26" y1="16" x2="26" y2="20" stroke="#B38F24" stroke-width="1" stroke-linecap="round" opacity=".5" style="animation:arrowRise 1.5s ease-in-out infinite;animation-delay:.2s"/>
+  <line x1="38" y1="16" x2="38" y2="20" stroke="#B38F24" stroke-width="1" stroke-linecap="round" opacity=".5" style="animation:arrowRise 1.5s ease-in-out infinite;animation-delay:.4s"/>
 </svg></div>
         <div class="ic-name">Gyms & Fitness Studios</div>
         <div class="ic-desc">Membership decisions happen on Instagram Reels at 10PM. We create the content that stops the scroll and the WhatsApp automation that converts viewers into paid members by morning.</div>
@@ -849,23 +851,23 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <div class="industry-card">
         <div class="ic-svg-wrap">
 <svg viewBox="0 0 64 64" width="64" height="64">
-  <defs><linearGradient id="cg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#2DD4C8"/><stop offset="100%" stop-color="#0C2224"/></linearGradient></defs>
+  <defs><linearGradient id="cg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#1F1F1F"/></linearGradient></defs>
   <!-- Cup body -->
-  <path d="M14,24 L18,54 Q18,58 22,58 L42,58 Q46,58 46,54 L50,24Z" fill="url(#cg)" stroke="#2DD4C8" stroke-width="1.5"/>
+  <path d="M14,24 L18,54 Q18,58 22,58 L42,58 Q46,58 46,54 L50,24Z" fill="url(#cg)" stroke="#D4AF37" stroke-width="1.5"/>
   <!-- Cup highlight -->
   <path d="M16,24 L18,40" stroke="rgba(255,255,255,.2)" stroke-width="3" stroke-linecap="round"/>
   <!-- Handle -->
-  <path d="M50,32 Q60,32 60,42 Q60,52 50,52" fill="none" stroke="#2DD4C8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M50,32 Q60,32 60,42 Q60,52 50,52" fill="none" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/>
   <!-- Coffee surface -->
-  <ellipse cx="32" cy="24" rx="18" ry="4" fill="#8EB69B" opacity=".6"/>
+  <ellipse cx="32" cy="24" rx="18" ry="4" fill="#B38F24" opacity=".6"/>
   <!-- Saucer -->
-  <ellipse cx="32" cy="58" rx="22" ry="3" fill="rgba(45,212,200,.3)"/>
+  <ellipse cx="32" cy="58" rx="22" ry="3" fill="rgba(212,175,55,.3)"/>
   <!-- Steam 1 -->
-  <path d="M24,18 Q26,12 24,8" fill="none" stroke="#2DD4C8" stroke-width="2" stroke-linecap="round" style="animation:steamRise 2s ease-in-out infinite"/>
+  <path d="M24,18 Q26,12 24,8" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" style="animation:steamRise 2s ease-in-out infinite"/>
   <!-- Steam 2 -->
-  <path d="M32,16 Q34,10 32,6" fill="none" stroke="#8EB69B" stroke-width="2" stroke-linecap="round" style="animation:steamRise 2s ease-in-out infinite;animation-delay:.5s"/>
+  <path d="M32,16 Q34,10 32,6" fill="none" stroke="#B38F24" stroke-width="2" stroke-linecap="round" style="animation:steamRise 2s ease-in-out infinite;animation-delay:.5s"/>
   <!-- Steam 3 -->
-  <path d="M40,18 Q42,12 40,8" fill="none" stroke="#2DD4C8" stroke-width="2" stroke-linecap="round" style="animation:steamRise 2s ease-in-out infinite;animation-delay:1s"/>
+  <path d="M40,18 Q42,12 40,8" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" style="animation:steamRise 2s ease-in-out infinite;animation-delay:1s"/>
 </svg></div>
         <div class="ic-name">Cafés & Restaurants</div>
         <div class="ic-desc">Customers find cafés through Instagram Reels and Google reviews. We drive footfall, fill slow weekdays and build the direct WhatsApp ordering system that replaces Zomato commission permanently.</div>
@@ -875,20 +877,20 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <div class="industry-card">
         <div class="ic-svg-wrap">
 <svg viewBox="0 0 64 64" width="64" height="64" style="animation:capFloat 3.5s ease-in-out infinite">
-  <defs><linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2DD4C8"/><stop offset="100%" stop-color="#8EB69B"/></linearGradient></defs>
+  <defs><linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#B38F24"/></linearGradient></defs>
   <!-- Diamond/board top -->
   <polygon points="32,10 58,22 32,34 6,22" fill="url(#gg)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
   <!-- Cap crown -->
-  <rect x="22" y="22" width="20" height="16" rx="2" fill="#0C2224" stroke="#2DD4C8" stroke-width="1.5"/>
+  <rect x="22" y="22" width="20" height="16" rx="2" fill="#1F1F1F" stroke="#D4AF37" stroke-width="1.5"/>
   <!-- Cap top shine -->
-  <rect x="22" y="22" width="20" height="4" rx="2" fill="rgba(45,212,200,.4)"/>
+  <rect x="22" y="22" width="20" height="4" rx="2" fill="rgba(212,175,55,.4)"/>
   <!-- Tassel string -->
-  <line x1="50" y1="22" x2="52" y2="38" stroke="#2DD4C8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="50" y1="22" x2="52" y2="38" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
   <!-- Tassel end -->
-  <circle cx="52" cy="40" r="4" fill="#8EB69B"/>
+  <circle cx="52" cy="40" r="4" fill="#B38F24"/>
   <!-- Stars -->
-  <text x="26" y="42" font-size="7" fill="#2DD4C8" style="animation:pulse-dot 2s ease-in-out infinite">★</text>
-  <text x="36" y="42" font-size="5" fill="#8EB69B" style="animation:pulse-dot 2s ease-in-out infinite;animation-delay:.4s">★</text>
+  <text x="26" y="42" font-size="7" fill="#D4AF37" style="animation:pulse-dot 2s ease-in-out infinite">★</text>
+  <text x="36" y="42" font-size="5" fill="#B38F24" style="animation:pulse-dot 2s ease-in-out infinite;animation-delay:.4s">★</text>
 </svg></div>
         <div class="ic-name">Schools & Coaching Centres</div>
         <div class="ic-desc">Parents research schools online for weeks before calling. We build your Google star rating, Instagram credibility and WhatsApp parent funnel so you top every admission season shortlist.</div>
@@ -909,26 +911,26 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     
 <!-- ░░ ANIMATED RESULTS GRAPH ░░ -->
 <div class="rv" style="margin-bottom:32px">
-  <div style="background:var(--g1);border:1px solid rgba(45,212,200,.15);border-radius:16px;padding:20px 24px;position:relative;overflow:hidden">
-    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#2DD4C8,#8EB69B)"></div>
+  <div style="background:var(--g1);border:1px solid rgba(212,175,55,.15);border-radius:16px;padding:20px 24px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#D4AF37,#B38F24)"></div>
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:4px;margin-bottom:10px">
       <div style="font-size:11px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.08em">Client Growth · Avg. enquiries/month</div>
-      <div style="font-size:11px;color:#2DD4C8;font-weight:700">📈 +380% avg</div>
+      <div style="font-size:11px;color:#D4AF37;font-weight:700">📈 +380% avg</div>
     </div>
     <svg viewBox="0 0 560 100" width="100%" style="overflow:visible">
       <!-- Grid lines -->
-      <line x1="0" y1="20" x2="560" y2="20" stroke="rgba(45,212,200,.08)" stroke-width="1"/>
-      <line x1="0" y1="50" x2="560" y2="50" stroke="rgba(45,212,200,.08)" stroke-width="1"/>
-      <line x1="0" y1="80" x2="560" y2="80" stroke="rgba(45,212,200,.08)" stroke-width="1"/>
+      <line x1="0" y1="20" x2="560" y2="20" stroke="rgba(212,175,55,.08)" stroke-width="1"/>
+      <line x1="0" y1="50" x2="560" y2="50" stroke="rgba(212,175,55,.08)" stroke-width="1"/>
+      <line x1="0" y1="80" x2="560" y2="80" stroke="rgba(212,175,55,.08)" stroke-width="1"/>
       <!-- Defs -->
       <defs>
         <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#2DD4C8" stop-opacity=".9"/>
-          <stop offset="100%" stop-color="#0C2224" stop-opacity=".3"/>
+          <stop offset="0%" stop-color="#D4AF37" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#1F1F1F" stop-opacity=".3"/>
         </linearGradient>
         <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#8EB69B" stop-opacity=".9"/>
-          <stop offset="100%" stop-color="#0C2224" stop-opacity=".3"/>
+          <stop offset="0%" stop-color="#B38F24" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#1F1F1F" stop-opacity=".3"/>
         </linearGradient>
         <clipPath id="barClip1"><rect x="20" y="0" width="60" height="100"/></clipPath>
         <clipPath id="barClip2"><rect x="115" y="0" width="60" height="100"/></clipPath>
@@ -938,12 +940,12 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <clipPath id="barClip6"><rect x="480" y="0" width="60" height="100"/></clipPath>
       </defs>
       <!-- Before bars (light) -->
-      <rect x="20" y="72" width="28" height="28" rx="4" fill="rgba(45,212,200,.2)" class="hero-graph-bar"/>
-      <rect x="115" y="65" width="28" height="35" rx="4" fill="rgba(45,212,200,.2)" class="hero-graph-bar"/>
-      <rect x="210" y="68" width="28" height="32" rx="4" fill="rgba(45,212,200,.2)" class="hero-graph-bar"/>
-      <rect x="305" y="70" width="28" height="30" rx="4" fill="rgba(45,212,200,.2)" class="hero-graph-bar"/>
-      <rect x="400" y="67" width="28" height="33" rx="4" fill="rgba(45,212,200,.2)" class="hero-graph-bar"/>
-      <rect x="480" y="64" width="28" height="36" rx="4" fill="rgba(45,212,200,.2)" class="hero-graph-bar"/>
+      <rect x="20" y="72" width="28" height="28" rx="4" fill="rgba(212,175,55,.2)" class="hero-graph-bar"/>
+      <rect x="115" y="65" width="28" height="35" rx="4" fill="rgba(212,175,55,.2)" class="hero-graph-bar"/>
+      <rect x="210" y="68" width="28" height="32" rx="4" fill="rgba(212,175,55,.2)" class="hero-graph-bar"/>
+      <rect x="305" y="70" width="28" height="30" rx="4" fill="rgba(212,175,55,.2)" class="hero-graph-bar"/>
+      <rect x="400" y="67" width="28" height="33" rx="4" fill="rgba(212,175,55,.2)" class="hero-graph-bar"/>
+      <rect x="480" y="64" width="28" height="36" rx="4" fill="rgba(212,175,55,.2)" class="hero-graph-bar"/>
       <!-- After bars (bright) -->
       <rect x="52" y="15" width="28" height="85" rx="4" fill="url(#barGrad)" class="hero-graph-bar"/>
       <rect x="147" y="8" width="28" height="92" rx="4" fill="url(#barGrad)" class="hero-graph-bar"/>
@@ -952,17 +954,17 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <rect x="432" y="10" width="28" height="90" rx="4" fill="url(#barGrad2)" class="hero-graph-bar"/>
       <rect x="512" y="2" width="28" height="98" rx="4" fill="url(#barGrad2)" class="hero-graph-bar"/>
       <!-- Labels -->
-      <text x="34" y="98" text-anchor="middle" font-size="8" fill="#4A7470" font-family="Nunito,sans-serif">Dental 1</text>
-      <text x="131" y="98" text-anchor="middle" font-size="8" fill="#4A7470" font-family="Nunito,sans-serif">Gym 1</text>
-      <text x="226" y="98" text-anchor="middle" font-size="8" fill="#4A7470" font-family="Nunito,sans-serif">Dental 2</text>
-      <text x="321" y="98" text-anchor="middle" font-size="8" fill="#4A7470" font-family="Nunito,sans-serif">Gym 2</text>
-      <text x="416" y="98" text-anchor="middle" font-size="8" fill="#4A7470" font-family="Nunito,sans-serif">Café</text>
-      <text x="498" y="98" text-anchor="middle" font-size="8" fill="#4A7470" font-family="Nunito,sans-serif">School</text>
+      <text x="34" y="98" text-anchor="middle" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">Dental 1</text>
+      <text x="131" y="98" text-anchor="middle" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">Gym 1</text>
+      <text x="226" y="98" text-anchor="middle" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">Dental 2</text>
+      <text x="321" y="98" text-anchor="middle" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">Gym 2</text>
+      <text x="416" y="98" text-anchor="middle" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">Café</text>
+      <text x="498" y="98" text-anchor="middle" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">School</text>
       <!-- Before/After legend -->
-      <rect x="0" y="108" width="10" height="6" rx="2" fill="rgba(45,212,200,.25)"/>
-      <text x="14" y="115" font-size="8" fill="#4A7470" font-family="Nunito,sans-serif">Before Numero Uno</text>
-      <rect x="120" y="108" width="10" height="6" rx="2" fill="#2DD4C8"/>
-      <text x="134" y="115" font-size="8" fill="#2DD4C8" font-family="Nunito,sans-serif">After Numero Uno</text>
+      <rect x="0" y="108" width="10" height="6" rx="2" fill="rgba(212,175,55,.25)"/>
+      <text x="14" y="115" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">Before Numero Uno</text>
+      <rect x="120" y="108" width="10" height="6" rx="2" fill="#D4AF37"/>
+      <text x="134" y="115" font-size="8" fill="#D4AF37" font-family="Nunito,sans-serif">After Numero Uno</text>
     </svg>
   </div>
 </div>
@@ -1008,22 +1010,22 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <div class="rv" style="display:flex;justify-content:center;margin-bottom:32px">
   <svg viewBox="0 0 160 80" width="200" height="100" style="overflow:visible">
     <!-- Orbit ring -->
-    <ellipse cx="80" cy="40" rx="70" ry="30" fill="none" stroke="rgba(45,212,200,.15)" stroke-width="1" stroke-dasharray="4 4" class="orbit-ring"/>
+    <ellipse cx="80" cy="40" rx="70" ry="30" fill="none" stroke="rgba(212,175,55,.15)" stroke-width="1" stroke-dasharray="4 4" class="orbit-ring"/>
     <!-- Center -->
-    <circle cx="80" cy="40" r="16" fill="rgba(45,212,200,.1)" stroke="#2DD4C8" stroke-width="1.5"/>
-    <text x="80" y="45" text-anchor="middle" font-size="13" font-family="Nunito,sans-serif" fill="#2DD4C8" font-weight="800">NU</text>
+    <circle cx="80" cy="40" r="16" fill="rgba(212,175,55,.1)" stroke="#D4AF37" stroke-width="1.5"/>
+    <text x="80" y="45" text-anchor="middle" font-size="13" font-family="Nunito,sans-serif" fill="#D4AF37" font-weight="800">NU</text>
     <!-- Orbiting dots -->
     <g transform="translate(80,40)">
-      <circle cx="0" cy="-42" r="6" fill="#2DD4C8" style="animation:orbitDot 5s linear infinite"/>
+      <circle cx="0" cy="-42" r="6" fill="#D4AF37" style="animation:orbitDot 5s linear infinite"/>
     </g>
     <g transform="translate(80,40)">
-      <circle cx="0" cy="42" r="4" fill="#8EB69B" style="animation:orbitDot 5s linear infinite reverse;animation-delay:-2.5s"/>
+      <circle cx="0" cy="42" r="4" fill="#B38F24" style="animation:orbitDot 5s linear infinite reverse;animation-delay:-2.5s"/>
     </g>
     <!-- Labels -->
-    <text x="12" y="20" font-size="7" fill="#7AACA6" font-family="Nunito,sans-serif">WhatsApp</text>
-    <text x="114" y="20" font-size="7" fill="#7AACA6" font-family="Nunito,sans-serif">Instagram</text>
-    <text x="2" y="65" font-size="7" fill="#7AACA6" font-family="Nunito,sans-serif">Google</text>
-    <text x="118" y="65" font-size="7" fill="#7AACA6" font-family="Nunito,sans-serif">Website</text>
+    <text x="12" y="20" font-size="7" fill="#CCCCCC" font-family="Nunito,sans-serif">WhatsApp</text>
+    <text x="114" y="20" font-size="7" fill="#CCCCCC" font-family="Nunito,sans-serif">Instagram</text>
+    <text x="2" y="65" font-size="7" fill="#CCCCCC" font-family="Nunito,sans-serif">Google</text>
+    <text x="118" y="65" font-size="7" fill="#CCCCCC" font-family="Nunito,sans-serif">Website</text>
   </svg>
 </div>
 <div class="why-list rv">
@@ -1126,7 +1128,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
             <span class="apromo-save">96% off</span>
           </div>
           <div class="apromo-note">One-time payment · No subscription ever · Report in 90 seconds · All 28 states + UTs covered</div>
-          <a href="ai-Audit.html" class="btn-lime">✦ Get My AI Audit — ₹199</a>
+          <a href="free-audit.html" class="btn-lime">✦ Get My AI Audit — ₹199</a>
         </div>
         <div class="apromo-right">
         <!-- ░░ AI ROBOT MASCOT ░░ -->
@@ -1134,79 +1136,79 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           <div style="position:relative">
             <svg class="robot-svg" width="140" height="160" viewBox="0 0 140 160" fill="none">
               <!-- Teal glow base -->
-              <ellipse cx="70" cy="148" rx="38" ry="8" fill="rgba(45,212,200,.15)"/>
+              <ellipse cx="70" cy="148" rx="38" ry="8" fill="rgba(212,175,55,.15)"/>
               <!-- Body -->
-              <rect x="30" y="80" width="80" height="60" rx="14" fill="#0C3A3A"/>
-              <rect x="34" y="84" width="72" height="52" rx="10" fill="#132E30"/>
+              <rect x="30" y="80" width="80" height="60" rx="14" fill="#1F1F1F"/>
+              <rect x="34" y="84" width="72" height="52" rx="10" fill="#000000"/>
               <!-- Chest screen -->
-              <rect x="40" y="90" width="60" height="36" rx="6" fill="#060E10"/>
+              <rect x="40" y="90" width="60" height="36" rx="6" fill="#0A0A0A"/>
               <rect x="42" y="92" width="56" height="32" rx="5" fill="#0A1E1F"/>
               <!-- Screen graph animation -->
-              <rect x="46" y="114" width="6" height="6" rx="1" fill="#2DD4C8" opacity=".7"/>
-              <rect x="54" y="108" width="6" height="12" rx="1" fill="#2DD4C8" opacity=".85"/>
-              <rect x="62" y="104" width="6" height="16" rx="1" fill="#2DD4C8"/>
-              <rect x="70" y="100" width="6" height="20" rx="1" fill="#8EB69B"/>
-              <rect x="78" y="97" width="6" height="23" rx="1" fill="#2DD4C8"/>
-              <rect x="86" y="93" width="6" height="27" rx="1" fill="#2DD4C8"/>
+              <rect x="46" y="114" width="6" height="6" rx="1" fill="#D4AF37" opacity=".7"/>
+              <rect x="54" y="108" width="6" height="12" rx="1" fill="#D4AF37" opacity=".85"/>
+              <rect x="62" y="104" width="6" height="16" rx="1" fill="#D4AF37"/>
+              <rect x="70" y="100" width="6" height="20" rx="1" fill="#B38F24"/>
+              <rect x="78" y="97" width="6" height="23" rx="1" fill="#D4AF37"/>
+              <rect x="86" y="93" width="6" height="27" rx="1" fill="#D4AF37"/>
               <!-- Screen label -->
-              <text x="70" y="102" font-size="6" fill="#2DD4C8" text-anchor="middle" opacity=".6">AUDIT SCORE</text>
+              <text x="70" y="102" font-size="6" fill="#D4AF37" text-anchor="middle" opacity=".6">AUDIT SCORE</text>
               <!-- Body buttons -->
-              <circle cx="50" cy="134" r="5" fill="#0C2828" stroke="#2DD4C8" stroke-width="1.2"/>
-              <circle cx="65" cy="134" r="5" fill="#2DD4C8" class="robot-screen-text"/>
-              <circle cx="80" cy="134" r="5" fill="#0C2828" stroke="#8EB69B" stroke-width="1.2"/>
-              <circle cx="95" cy="134" r="5" fill="#0C2828" stroke="#2DD4C8" stroke-width="1.2"/>
+              <circle cx="50" cy="134" r="5" fill="#0C2828" stroke="#D4AF37" stroke-width="1.2"/>
+              <circle cx="65" cy="134" r="5" fill="#D4AF37" class="robot-screen-text"/>
+              <circle cx="80" cy="134" r="5" fill="#0C2828" stroke="#B38F24" stroke-width="1.2"/>
+              <circle cx="95" cy="134" r="5" fill="#0C2828" stroke="#D4AF37" stroke-width="1.2"/>
               <!-- Head -->
-              <rect x="22" y="26" width="96" height="58" rx="18" fill="#0C3A3A"/>
-              <rect x="26" y="30" width="88" height="50" rx="14" fill="#1A5252"/>
+              <rect x="22" y="26" width="96" height="58" rx="18" fill="#1F1F1F"/>
+              <rect x="26" y="30" width="88" height="50" rx="14" fill="#333333"/>
               <!-- Visor/eyes area -->
-              <rect x="30" y="36" width="80" height="30" rx="10" fill="#060E10"/>
+              <rect x="30" y="36" width="80" height="30" rx="10" fill="#0A0A0A"/>
               <rect x="32" y="38" width="76" height="26" rx="8" fill="#081818"/>
               <!-- Left eye -->
               <rect x="36" y="42" width="28" height="18" rx="8" fill="#0C2828"/>
-              <circle cx="50" cy="51" r="7" fill="#2DD4C8" opacity=".9"/>
-              <circle cx="50" cy="51" r="4" fill="#060E10"/>
+              <circle cx="50" cy="51" r="7" fill="#D4AF37" opacity=".9"/>
+              <circle cx="50" cy="51" r="4" fill="#0A0A0A"/>
               <circle cx="52" cy="49" r="1.5" fill="white"/>
               <!-- Right eye -->
               <rect x="76" y="42" width="28" height="18" rx="8" fill="#0C2828"/>
-              <circle cx="90" cy="51" r="7" fill="#2DD4C8" opacity=".9"/>
-              <circle cx="90" cy="51" r="4" fill="#060E10"/>
+              <circle cx="90" cy="51" r="7" fill="#D4AF37" opacity=".9"/>
+              <circle cx="90" cy="51" r="4" fill="#0A0A0A"/>
               <circle cx="92" cy="49" r="1.5" fill="white"/>
               <!-- Mouth LED strip -->
               <rect x="38" y="72" width="64" height="6" rx="3" fill="#0C2828"/>
-              <rect x="40" y="73" width="20" height="4" rx="2" fill="#2DD4C8" opacity=".8"/>
-              <rect x="62" y="73" width="8" height="4" rx="2" fill="#8EB69B" opacity=".6"/>
-              <rect x="72" y="73" width="16" height="4" rx="2" fill="#2DD4C8" opacity=".8"/>
+              <rect x="40" y="73" width="20" height="4" rx="2" fill="#D4AF37" opacity=".8"/>
+              <rect x="62" y="73" width="8" height="4" rx="2" fill="#B38F24" opacity=".6"/>
+              <rect x="72" y="73" width="16" height="4" rx="2" fill="#D4AF37" opacity=".8"/>
               <!-- Antenna -->
-              <line x1="70" y1="26" x2="70" y2="10" stroke="#2DD4C8" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="70" cy="8" r="5" fill="#2DD4C8"/>
-              <circle cx="70" cy="8" r="2.5" fill="#060E10"/>
+              <line x1="70" y1="26" x2="70" y2="10" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="70" cy="8" r="5" fill="#D4AF37"/>
+              <circle cx="70" cy="8" r="2.5" fill="#0A0A0A"/>
               <!-- Side ear panels -->
-              <rect x="10" y="38" width="12" height="28" rx="6" fill="#0C3A3A"/>
-              <rect x="12" y="42" width="8" height="20" rx="4" fill="#132E30"/>
-              <rect x="118" y="38" width="12" height="28" rx="6" fill="#0C3A3A"/>
-              <rect x="118" y="42" width="8" height="20" rx="4" fill="#132E30"/>
+              <rect x="10" y="38" width="12" height="28" rx="6" fill="#1F1F1F"/>
+              <rect x="12" y="42" width="8" height="20" rx="4" fill="#000000"/>
+              <rect x="118" y="38" width="12" height="28" rx="6" fill="#1F1F1F"/>
+              <rect x="118" y="42" width="8" height="20" rx="4" fill="#000000"/>
               <!-- Gear on ear -->
-              <circle cx="16" cy="52" r="4" fill="none" stroke="#2DD4C8" stroke-width="1.5" class="robot-gear"/>
+              <circle cx="16" cy="52" r="4" fill="none" stroke="#D4AF37" stroke-width="1.5" class="robot-gear"/>
               <!-- Arms -->
-              <rect x="8" y="88" width="22" height="42" rx="10" fill="#0C3A3A"/>
-              <rect x="10" y="90" width="18" height="38" rx="8" fill="#132E30"/>
-              <rect x="110" y="88" width="22" height="42" rx="10" fill="#0C3A3A"/>
-              <rect x="112" y="90" width="18" height="38" rx="8" fill="#132E30"/>
+              <rect x="8" y="88" width="22" height="42" rx="10" fill="#1F1F1F"/>
+              <rect x="10" y="90" width="18" height="38" rx="8" fill="#000000"/>
+              <rect x="110" y="88" width="22" height="42" rx="10" fill="#1F1F1F"/>
+              <rect x="112" y="90" width="18" height="38" rx="8" fill="#000000"/>
               <!-- Left hand holding magnifier -->
-              <circle cx="19" cy="122" r="9" fill="none" stroke="#2DD4C8" stroke-width="2.5"/>
+              <circle cx="19" cy="122" r="9" fill="none" stroke="#D4AF37" stroke-width="2.5"/>
               <circle cx="19" cy="122" r="5" fill="#0A1E1F"/>
-              <line x1="26" y1="129" x2="32" y2="135" stroke="#2DD4C8" stroke-width="3" stroke-linecap="round"/>
+              <line x1="26" y1="129" x2="32" y2="135" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/>
               <!-- Right hand thumbs up -->
-              <ellipse cx="121" cy="126" rx="7" ry="9" fill="#0C3A3A"/>
-              <path d="M116 120 Q114 116 118 114 Q122 112 123 116 L123 118 Q126 116 127 120 L127 128 Q124 130 118 130 L116 128 Z" fill="#1A5252"/>
+              <ellipse cx="121" cy="126" rx="7" ry="9" fill="#1F1F1F"/>
+              <path d="M116 120 Q114 116 118 114 Q122 112 123 116 L123 118 Q126 116 127 120 L127 128 Q124 130 118 130 L116 128 Z" fill="#333333"/>
               <!-- Legs -->
-              <rect x="42" y="138" width="22" height="20" rx="8" fill="#0C3A3A"/>
-              <rect x="76" y="138" width="22" height="20" rx="8" fill="#0C3A3A"/>
-              <rect x="38" y="154" width="28" height="6" rx="3" fill="#132E30"/>
-              <rect x="74" y="154" width="28" height="6" rx="3" fill="#132E30"/>
+              <rect x="42" y="138" width="22" height="20" rx="8" fill="#1F1F1F"/>
+              <rect x="76" y="138" width="22" height="20" rx="8" fill="#1F1F1F"/>
+              <rect x="38" y="154" width="28" height="6" rx="3" fill="#000000"/>
+              <rect x="74" y="154" width="28" height="6" rx="3" fill="#000000"/>
             </svg>
             <!-- Speech bubble -->
-            <div style="position:absolute;top:-8px;right:-15px;background:#2DD4C8;color:#051F20;font-size:10px;font-weight:800;padding:6px 10px;border-radius:10px 10px 10px 2px;animation:bounce2 2s ease-in-out infinite;white-space:nowrap;line-height:1.4">
+            <div style="position:absolute;top:-8px;right:-15px;background:#D4AF37;color:#000000;font-size:10px;font-weight:800;padding:6px 10px;border-radius:10px 10px 10px 2px;animation:bounce2 2s ease-in-out infinite;white-space:nowrap;line-height:1.4">
               Scanning<br>your profiles… 🔍
             </div>
             <!-- Sparkles around robot -->
@@ -1341,10 +1343,10 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <span class="section-pre">Your competitors are growing. Let's close the gap.</span>
         <h2 class="section-h2">Speak to Our Founder —<br>Not a <em>Sales Script.</em></h2>
         <p>Tell us about your business. We give you an honest, specific assessment of what will actually work for your industry, your city, and your budget. No pitch decks. No generic advice. No pressure. Most clients see first results within 3 weeks of going live.</p>
-        <p style="font-size:13px;color:#2DD4C8;margin-bottom:22px;font-weight:600">⚡ Maximum 3 new clients per month — not as a marketing trick, but because Month 1 requires founder-level attention. If you're reading this today, there may be a slot available.</p>
+        <p style="font-size:13px;color:#D4AF37;margin-bottom:22px;font-weight:600">⚡ Maximum 3 new clients per month — not as a marketing trick, but because Month 1 requires founder-level attention. If you're reading this today, there may be a slot available.</p>
         <div class="contact-channels">
           <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="channel-link" target="_blank" rel="noopener">
-            <div class="channel-icon" style="background:rgba(45,212,200,.10)">💬</div>
+            <div class="channel-icon" style="background:rgba(212,175,55,.10)">💬</div>
             <div class="channel-text"><strong>WhatsApp — always the fastest response</strong><span>+91 96320 91371 · We reply in 30 minutes or less</span></div>
           </a>
           <a href="tel:+919632091371" class="channel-link">
@@ -1394,7 +1396,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <div style="display:flex;gap:10px;margin-top:14px">
           <a href="https://www.instagram.com/numero.uno_1" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid var(--bd);font-size:15px;text-decoration:none" aria-label="Instagram">📸</a>
           <a href="https://www.linkedin.com/company/numero-uno-marketing-private-limited/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid var(--bd);font-size:15px;text-decoration:none" aria-label="LinkedIn">💼</a>
-          <a href="https://wa.me/919632091371" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:6px;background:rgba(45,212,200,.10);border:1px solid rgba(45,212,200,.18);font-size:15px;text-decoration:none" aria-label="WhatsApp">💬</a>
+          <a href="https://wa.me/919632091371" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:6px;background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.18);font-size:15px;text-decoration:none" aria-label="WhatsApp">💬</a>
         </div>
       </div>
       <div class="footer-col">
@@ -1404,7 +1406,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
           <li><a href="services.html#social">Social Media Mgmt</a></li>
           <li><a href="services.html#launch">Digital Business Launch</a></li>
           <li><a href="services.html#ads">Performance Marketing</a></li>
-          <li><a href="ai-Audit.html">AI Audit — ₹199</a></li>
+          <li><a href="free-audit.html">AI Audit — ₹199</a></li>
         </ul>
       </div>
       <div class="footer-col">
