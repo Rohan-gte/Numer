@@ -417,17 +417,18 @@
     }
 
     .s-circle {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       position: relative;
       z-index: 1;
-      transition: all .3s
+      transition: all .3s;
+      flex-shrink: 0
     }
 
     .step.done .s-circle {
@@ -2076,17 +2077,14 @@
         grid-template-columns: 1fr !important
       }
 
-      #rpt-header .c>div:first-child>div:last-child {
-        text-align: left
+      .res-meta {
+        text-align: left;
+        margin-top: 10px
       }
 
-      .rpt-kpi-v {
-        font-size: 18px
-      }
-
-      #comp-tbody td {
-        padding: 8px 6px;
-        font-size: 11px
+      .res-top {
+        flex-direction: column;
+        align-items: flex-start
       }
     }
 
@@ -2163,7 +2161,81 @@
       }
 
       .s-lbl {
-        display: none
+        display: block;
+        font-size: 8px;
+        opacity: 0.8
+      }
+
+      .step:not(:last-child)::after {
+        left: calc(50% + 12px);
+        right: calc(-50% + 12px)
+      }
+
+      .ig-proof {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px !important
+      }
+
+      .ig-proof-txt {
+        max-width: 100% !important;
+        font-size: 12px !important
+      }
+
+      .social-row {
+        flex-direction: column;
+        align-items: stretch
+      }
+
+      .social-row .na-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 4px
+      }
+
+      .audit-hero h1 {
+        font-size: 32px
+      }
+
+      .audit-hero p {
+        font-size: 14px;
+        padding: 0 10px
+      }
+
+      .card {
+        padding: 20px 16px
+      }
+
+      .c {
+        padding: 0 16px
+      }
+
+      .hs-plans {
+        grid-template-columns: 1fr;
+        gap: 12px
+      }
+
+      .pkg-rec {
+        padding: 16px
+      }
+
+      .pr-name {
+        font-size: 18px
+      }
+
+      .pr-price {
+        font-size: 26px
+      }
+
+      .disc-code-box {
+        padding: 16px
+      }
+
+      .dc-code {
+        font-size: 20px;
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center
       }
     }
 
