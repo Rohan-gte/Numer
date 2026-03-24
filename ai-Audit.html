@@ -826,7 +826,11 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <div id="pay-method-detail" style="display:none;background:rgba(255,255,255,.03);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px;color:var(--tx2);text-align:left;max-width:400px;margin-left:auto;margin-right:auto"></div>
     </div>
     <div style="margin-top:8px">
-      <button class="paid-btn" style="background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;font-weight:800;font-size:16px;padding:16px 32px" onclick="confirmPayment()">✓ I've Paid — Unlock My Report</button>
+      <button class="paid-btn" style="background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;font-weight:800;font-size:16px;padding:16px 32px" onclick="payWithRazorpay()">💳 Pay ₹199 & Unlock Report</button>
+    </div>
+    <div style="margin-top:10px;opacity:0.7;font-size:11px">
+      Or if you paid via UPI manually:<br>
+      <button onclick="confirmPayment()" style="background:none;border:none;color:var(--lime);cursor:pointer;text-decoration:underline;font-size:11px">I've already paid manually →</button>
     </div>
     <p class="pg-note">After clicking above, our AI starts scanning your profiles. Report ready in under 3 minutes.</p>
     <div class="pg-secure">🔒 Secure · Your data is private · No spam</div>
@@ -1251,6 +1255,14 @@ function goStep(n){
     if(!D.bizName){alert('Please enter your business name.');return;}
     if(!stateEl||!stateEl.value){alert('Please select your state.');return;}
   }
+  if(n===3){
+    D.goal=document.getElementById('goal').value;
+    D.enquiries=document.getElementById('enquiries').value;
+    D.budget=document.getElementById('budget').value;
+    D.timeline=document.getElementById('timeline').value;
+    D.context=document.getElementById('context').value.trim();
+    if(!D.goal || !D.budget){alert('Please select your primary goal and budget.');return;}
+  }
   if(n===4){
     D.leadName=document.getElementById('lead-name').value.trim();
     D.leadPhone=document.getElementById('lead-phone').value.trim();
@@ -1260,7 +1272,6 @@ function goStep(n){
   currentStep=n;
   if(n<=4)document.getElementById('step'+n).style.display='block';
   updateStepUI(n);
-  window.scrollTo({top:document.getElementById('step-indicator')?.offsetTop-80||0,behavior:'smooth'});
 }
 
 // ===== PAYMENT METHODS =====
@@ -1276,6 +1287,50 @@ function showPayMethod(method){
   d.innerHTML='<strong style="color:var(--tx);display:block;margin-bottom:5px">'+(method==='card'?'Card / Net Banking':'UPI via '+method.charAt(0).toUpperCase()+method.slice(1))+'</strong>'+info[method];
   document.querySelectorAll('.pm-btn').forEach(b=>b.classList.remove('on'));
   event.target.classList.add('on');
+}
+
+// ===== CONFIRM PAYMENT & RUN AUDIT =====
+// ===== RAZORPAY INTEGRATION =====
+function payWithRazorpay() {
+  // REPLACE THIS WITH YOUR ACTUAL KEY ID FROM RAZORPAY DASHBOARD
+  const KEY_ID = 'rzp_test_YOUR_KEY_ID'; 
+
+  if(KEY_ID.includes('YOUR_KEY_ID')) {
+    alert('⚠️ Razorpay Key ID not set.\n\nPlease replace "rzp_test_YOUR_KEY_ID" in the code with your actual Key ID from the Razorpay Dashboard to enable live payments.');
+    return;
+  }
+
+  const options = {
+    "key": KEY_ID,
+    "amount": "19900", // ₹199.00
+    "currency": "INR",
+    "name": "Numero Uno Marketing",
+    "description": "AI Digital Audit Report",
+    "image": "https://alphanumerouno.in/favicon.png",
+    "handler": function (response) {
+      console.log("Payment Success!", response.razorpay_payment_id);
+      confirmPayment();
+    },
+    "prefill": {
+      "name": D.leadName || "",
+      "contact": D.leadPhone || ""
+    },
+    "notes": {
+      "business_name": D.bizName,
+      "location": D.bizCity
+    },
+    "theme": {
+      "color": "#2DD4C8"
+    }
+  };
+
+  try {
+    const rzp = new Razorpay(options);
+    rzp.open();
+  } catch (err) {
+    console.error("Razorpay Modal Error:", err);
+    alert("Payment Window failed to open. Please check your internet or try manual UPI below.");
+  }
 }
 
 // ===== CONFIRM PAYMENT & RUN AUDIT =====
