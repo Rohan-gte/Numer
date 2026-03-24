@@ -72,6 +72,7 @@ tr:hover{background:rgba(255,255,255,0.02)}
     <a href="#" class="nav-item"><span>📦 Packages</span></a>
     <a href="#" class="nav-item"><span>📈 Analytics</span></a>
     <a href="#" class="nav-item"><span>⚙️ Settings</span></a>
+    <a href="#" class="nav-item" onclick="logout()" style="margin-top:auto;color:#FF5C5C"><span>🚪 Logout</span></a>
   </nav>
 </div>
 
@@ -153,6 +154,16 @@ tr:hover{background:rgba(255,255,255,0.02)}
 </div>
 
 <script>
+// ADMIN AUTH CHECK
+if(sessionStorage.getItem('adminAuth') !== 'true') {
+  window.location.href = 'login.html';
+}
+
+function logout() {
+  sessionStorage.removeItem('adminAuth');
+  window.location.href = 'login.html';
+}
+
 document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
 // In a real app, you'd fetch data here.
