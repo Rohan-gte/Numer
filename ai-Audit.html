@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AI Digital Audit ₹199 | Numero Uno Marketing Bangalore — Find What's Costing You Customers</title>
-<meta name="description" content="₹199 AI audit for Bangalore small businesses. Find exact Instagram, Google Business & Facebook gaps in 3 minutes. Personalised package recommendation + 10% discount code included.">
+<title>Free AI Digital Marketing Audit | Numero Uno Marketing Bangalore</title>
+<meta name="description" content="Get a free AI-powered digital marketing audit for your dental clinic, gym, café or restaurant in Bangalore. Score your profile vs competitors and unlock 10% off.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
 <link rel="canonical" href="https://alphanumerouno.in/free-audit">
 <meta property="og:title" content="Free AI Digital Audit ₹199 | Find Your Growth Gaps in 90 Seconds">
 <meta property="og:description" content="AI scans your real Instagram, Google Business &amp; Facebook. 13-section report. Score, revenue loss, 90-day roadmap. Ready in 90 seconds.">
@@ -18,6 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
 :root{--blk:#060E10;--wht:#EEF8F6;--lime:#2DD4C8;--lime2:#8EB69B;--g1:#0C2224;--g2:#132E30;--mt:#4A7470;--bd:rgba(45,212,200,.12);--tx:#D4EDEA;--tx2:#7AACA6;--orange:#8EB69B;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif;--red:#FF5C5C;--green:#2DD4C8;--amber:#FFAA33}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
@@ -82,8 +85,8 @@ nav{position:sticky;top:0;z-index:200;height:64px;display:flex;align-items:cente
 .tag.on{background:rgba(255,214,0,.1);border-color:rgba(255,214,0,.35);color:var(--lime);font-weight:600}
 /* RANGE SLIDER */
 .slider-wrap{position:relative}
-input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;background:rgba(255,255,255,.08);outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--lime);cursor:pointer;border:2px solid var(--blk);box-shadow:0 0 0 2px rgba(255,214,0,.3)}
+input[type=range]{width:100%;-webkit-appearance:none;-moz-appearance:none;appearance:none;height:4px;border-radius:2px;background:rgba(255,255,255,.08);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--lime);cursor:pointer;border:2px solid var(--blk);box-shadow:0 0 0 2px rgba(255,214,0,.3)}
 .slider-labels{display:flex;justify-content:space-between;margin-top:6px}
 .slider-labels span{font-size:11px;color:var(--mt)}
 .slider-val{text-align:center;font-family:var(--fh);font-size:20px;font-weight:800;color:var(--lime);letter-spacing:-.015em;margin-bottom:8px}
@@ -407,11 +410,11 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <div class="ann">🎯 ₹199 AI Audit → Instant report + <strong>10% off</strong> any package &nbsp;<a href="#start">Start Audit ↓</a></div>
 <nav>
   <a href="index.html" class="logo">Numero <b>Uno</b></a>
-  <div class="nm"><a href="index.html">Home</a><a href="services.html">Services & Pricing</a><a href="clients.html">Clients</a><a href="free-audit.html" class="on">AI Audit — ₹199</a></div>
+  <div class="nm"><a href="index.html">Home</a><a href="services.html">Services & Pricing</a><a href="clients.html">Clients</a><a href="ai-Audit.html" class="on">AI Audit — ₹199</a></div>
   <div class="nr"><a href="https://wa.me/919632091371" class="nwa" target="_blank">💬 WhatsApp</a></div>
   <button class="ham" onclick="document.getElementById('mm').classList.toggle('on')"><span></span><span></span><span></span></button>
 </nav>
-<div class="mm" id="mm"><a href="index.html">Home</a><a href="services.html">Services</a><a href="clients.html">Clients</a><a href="free-audit.html">AI Audit</a><a href="https://wa.me/919632091371" style="color:#2DD4C8;font-weight:600">💬 WhatsApp</a></div>
+<div class="mm" id="mm"><a href="index.html">Home</a><a href="services.html">Services</a><a href="clients.html">Clients</a><a href="ai-Audit.html">AI Audit</a><a href="https://wa.me/919632091371" style="color:#2DD4C8;font-weight:600">💬 WhatsApp</a></div>
 <a href="https://wa.me/919632091371" class="waf" target="_blank">💬</a>
 <div id="toast" class="toast">Copied!</div>
 
@@ -1202,7 +1205,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <script>
 // ===== STATE =====
 const D={bizType:'',bizName:'',bizCity:'',ig:'',fb:'',gmb:'',website:'',bizAge:'',igNA:false,fbNA:false,gmbNA:false,goal:'',enquiries:'',budget:'',timeline:'',context:'',leadName:'',leadPhone:'',calltime:''};
-let reportData={}, discountCode='', quoteRef='', currentStep=1;
+let reportData={}, discountCode='', quoteRef='', currentStep=1, isPaid=false;
 
 // ===== TAG SELECT =====
 function selTag(el,group){
@@ -1255,6 +1258,16 @@ function goStep(n){
     D.leadName=document.getElementById('lead-name').value.trim();
     D.leadPhone=document.getElementById('lead-phone').value.trim();
     if(!D.leadName||!D.leadPhone){alert('Please enter your name and WhatsApp number.');return;}
+    // Skip step 4 (mandatory pay) and run audit for free (limited access)
+    goStep(5);
+    runAudit();
+    return;
+  }
+  if(n===5){
+    document.getElementById('step'+currentStep).style.display='none';
+    currentStep=5;
+    updateStepUI(5);
+    return;
   }
   document.getElementById('step'+currentStep).style.display='none';
   currentStep=n;
@@ -1279,17 +1292,48 @@ function showPayMethod(method){
 }
 
 // ===== CONFIRM PAYMENT & RUN AUDIT =====
+function startRazorpay(){
+  const options = {
+    "key": "rzp_live_XXXXXXXXXXXXXX", // User will need to replace this
+    "amount": "19900", // Amount in paise
+    "currency": "INR",
+    "name": "Numero Uno Marketing",
+    "description": "Premium AI Audit Report Unlock",
+    "image": "https://alphanumerouno.in/assets/img/logo.png",
+    "handler": function (response){
+      isPaid = true;
+      showToast("✓ Payment Successful! Unlocking full report...");
+      renderResults(reportData);
+      // Capture lead data on payment success too
+      sendToWA(true);
+    },
+    "prefill": {
+      "name": D.leadName,
+      "contact": D.leadPhone
+    },
+    "theme": {
+      "color": "#2DD4C8"
+    }
+  };
+  const rzp1 = new Razorpay(options);
+  rzp1.on('payment.failed', function (response){
+    alert("Payment failed: " + response.error.description);
+  });
+  rzp1.open();
+}
+
+function sendToWA(paid = false){
+  const score = reportData.overallScore || 0;
+  const msg = paid 
+    ? `Hi! I've just paid for the Premium AI Audit Unlock (₹199).\n\nDetails:\n- Business: ${D.bizName}\n- Score: ${score}/100\n- Ref: ${quoteRef}\n\nPlease let's discuss further.`
+    : `Hi! I've just generated a free AI Audit summary.\n\nDetails:\n- Business: ${D.bizName}\n- Score: ${score}/100\n- Contact: ${D.leadName} (${D.leadPhone})\n\nI'm interested in the full report.`;
+  window.open('https://wa.me/919632091371?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// ===== CONFIRM PAYMENT & RUN AUDIT =====
 function confirmPayment(){
-  D.goal=document.getElementById('goal').value;
-  D.enquiries=document.getElementById('enquiries').value;
-  D.budget=document.getElementById('budget').value;
-  D.timeline=document.getElementById('timeline').value;
-  D.context=document.getElementById('context').value.trim();
-  D.leadName=document.getElementById('lead-name').value.trim();
-  D.leadPhone=document.getElementById('lead-phone').value.trim();
-  document.getElementById('step4').style.display='none';
-  updateStepUI(5);
-  runAudit();
+  // This is now used for the "Unlock Full Report" button
+  startRazorpay();
 }
 
 // ===== LOADING ANIMATION =====
@@ -1424,6 +1468,9 @@ function buildFallback(){
       impact:'This suggests potential customers who visit the profile or website are not converting at the rate they could — an estimated 30–45% lower conversion rate vs category leaders is typical for businesses at this digital maturity level.'
     },
 
+    reportGated: true, // Internal flag for gating logic
+
+
     missedOpportunities:[
       {area:'Google Maps Visibility',description:'This business is not appearing in the top 3 Google Maps results for "'+bizType+' near me" searches — which capture 68% of all local service bookings in '+bizCity+'. This indicates a significant volume of high-intent customers are being lost daily.',estimatedMonthlyLoss:'₹48,000',urgency:'Critical'},
       {area:'WhatsApp Lead Capture',description:'The absence of an automated WhatsApp funnel indicates that overnight and weekend enquiries (typically 40% of total volume) are going unanswered. Industry data shows automated responses convert at 23% vs 4% for cold follow-ups the next morning.',estimatedMonthlyLoss:'₹36,000',urgency:'High'},
@@ -1490,6 +1537,10 @@ function buildFallback(){
 // ===== MAIN AUDIT FUNCTION =====
 async function runAudit(){
   startLoading();
+  // Capture lead for WhatsApp (Basic lead capture)
+  setTimeout(() => {
+    console.log("Lead captured for:", D.leadName, D.leadPhone);
+  }, 1000);
 
   const igInfo=D.igNA?'NOT ON INSTAGRAM (critical gap — no presence)':D.ig?'Instagram: '+D.ig:'Instagram: not provided';
   const fbInfo=D.fbNA?'NOT ON FACEBOOK (critical gap — no presence)':D.fb?'Facebook: '+D.fb:'Facebook: not provided';
@@ -1856,15 +1907,34 @@ function drawMatrix(opps){
 // ===== RENDER RESULTS =====
 function renderResults(rd){
   document.getElementById('results').style.display='block';
-  window.scrollTo({top:document.getElementById('results').offsetTop-80,behavior:'smooth'});
+  if(!isPaid) {
+    // Scroll to top of results
+    window.scrollTo({top:document.getElementById('results').offsetTop-80,behavior:'smooth'});
+  }
 
   const score=rd.overallScore||34;
   const scoreColor=rd.scoreColor||'#FF5C5C';
   const dp=rd.dataPoints||{};
   const bm=rd.benchmarks||{};
   const now=new Date();
-  const refNum='NU-'+Math.floor(1000+Math.random()*9000);
+  const refNum=quoteRef || 'NU-'+Math.floor(1000+Math.random()*9000);
   quoteRef=refNum;
+
+  // Toggle restricted visibility
+  const restrictedBody = document.getElementById('report-body-restricted');
+  const lockOverlay = document.getElementById('report-lock-overlay');
+  if(restrictedBody) restrictedBody.style.filter = isPaid ? 'none' : 'blur(8px)';
+  if(restrictedBody) restrictedBody.style.pointerEvents = isPaid ? 'auto' : 'none';
+  if(lockOverlay) lockOverlay.style.display = isPaid ? 'none' : 'flex';
+  
+  // PDF download button state
+  const pdfBtn = document.getElementById('pdf-download-btn');
+  if(pdfBtn) {
+    pdfBtn.disabled = !isPaid;
+    pdfBtn.style.opacity = isPaid ? '1' : '0.5';
+    pdfBtn.innerHTML = isPaid ? '📄 Download Your Full AI Audit Report (PDF)' : '🔒 PDF Locked (Unlock with Premium)';
+    pdfBtn.onclick = isPaid ? handlePDFDownload : () => { showToast('Please unlock the premium report first.'); startRazorpay(); };
+  }
 
   // ── REPORT HEADER ──
   const setText=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
@@ -2527,6 +2597,10 @@ function buildPDFTemplate(){
 
 async function generatePDF() {
   setPDFStatus('⏳ Generating your PDF report…');
+  
+  // Ensure we are at top to avoid html2canvas offset issues
+  const scrollPos = window.scrollY;
+  window.scrollTo(0, 0);
 
   // Remove any existing template
   const old = document.getElementById('pdf-report-template');
@@ -2536,6 +2610,9 @@ async function generatePDF() {
   document.body.insertAdjacentHTML('beforeend', buildPDFTemplate());
   const template = document.getElementById('pdf-report-template');
 
+  // Wait a bit for layout
+  await new Promise(r => setTimeout(r, 500));
+
   try {
     const canvas = await html2canvas(template, {
       scale: 2,
@@ -2543,6 +2620,7 @@ async function generatePDF() {
       logging: false,
       backgroundColor: '#ffffff',
       width: 794,
+      windowWidth: 794
     });
 
     const { jsPDF } = window.jspdf;
@@ -2568,10 +2646,12 @@ async function generatePDF() {
     generatedPdfBlob = pdfBlob;
     template.remove();
     setPDFStatus('');
+    window.scrollTo(0, scrollPos); // Restore scroll
     return pdfBlob;
   } catch(err) {
-    template.remove();
+    if(template) template.remove();
     setPDFStatus('');
+    window.scrollTo(0, scrollPos);
     console.error('PDF error:', err);
     return null;
   }
