@@ -219,11 +219,15 @@
     }
 
     .c {
-      max-width: 760px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 0 24px;
       position: relative;
       z-index: 1
+    }
+
+    #ig-top .c {
+      max-width: 1200px
     }
 
     /* HERO */
@@ -610,6 +614,7 @@
     input[type=range] {
       width: 100%;
       -webkit-appearance: none;
+      appearance: none;
       height: 4px;
       border-radius: 2px;
       background: rgba(255, 255, 255, .08);
@@ -619,6 +624,7 @@
 
     input[type=range]::-webkit-slider-thumb {
       -webkit-appearance: none;
+      appearance: none;
       width: 18px;
       height: 18px;
       border-radius: 50%;
@@ -1205,6 +1211,40 @@
       line-height: 1.5
     }
 
+    @media (max-width: 768px) {
+      .platforms, .grid-2, .pkg-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #score-dash, .brand-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #metrics-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .res-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .res-meta {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #metrics-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .pkg-price {
+        font-size: 24px !important;
+      }
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
     .action-icon {
       flex-shrink: 0;
       width: 22px;
@@ -1225,6 +1265,20 @@
       margin-bottom: 12px;
       position: relative;
       overflow: hidden
+    }
+
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 14px
+    }
+
+    @media (max-width: 600px) {
+      .pkg-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
 
     .pkg-rec::before {
@@ -2484,11 +2538,21 @@
     }
 
     .ig-props {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
       animation: instaFadeUp .6s ease .35s both
+    }
+
+    .ig-desktop-only {
+      display: none
+    }
+
+    @media (min-width: 992px) {
+      .ig-desktop-only {
+        display: block
+      }
     }
 
     .ig-prop {
@@ -3021,20 +3085,17 @@
 
             <div class="ig-cta-sub">🔒 One-time ₹199 · No subscription ever · Report in 90 seconds · 10% discount code included</div>
             
-            <div class="hero-trust" style="margin-top:24px;justify-content:flex-start;padding:0">
+            <div class="hero-trust" style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:15px;padding:0">
               <span class="hero-trust-item"><strong>17+</strong> brands scaled</span>
-              <div class="hero-trust-sep"></div>
-              <span class="hero-trust-item"><strong>10₹10Cr+</strong> revenue generated</span>
-              <div class="hero-trust-sep"></div>
+              <span class="hero-trust-item"><strong>₹10Cr+</strong> revenue generated</span>
               <span class="hero-trust-item"><strong>5.0/5</strong> client rating</span>
-              <div class="hero-trust-sep"></div>
               <span class="hero-trust-item"><strong>7 days</strong> to go live</span>
             </div>
           </div>
         </div>
 
         <!-- Right: sample preview (desktop only) -->
-        <div id="ig-right-panel" style="display:none">
+        <div id="ig-right-panel" class="ig-desktop-only">
           <div style="position:sticky;top:90px">
             <div class="ig-report-preview">
               <div class="ig-rp-row">
@@ -3521,6 +3582,8 @@
               <div class="pm-btn" onclick="showPayMethod('gpay')">🟢 Google Pay</div>
               <div class="pm-btn" onclick="showPayMethod('phonepe')">🟣 PhonePe</div>
               <div class="pm-btn" onclick="showPayMethod('paytm')">🔵 Paytm</div>
+              <div class="pm-btn" onclick="showPayMethod('debit')">💳 Debit Card</div>
+              <div class="pm-btn" onclick="showPayMethod('credit')">💳 Credit Card</div>
               <div class="pm-btn" onclick="showPayMethod('card')">💳 Razorpay</div>
               <div class="pm-btn" onclick="showPayMethod('billdesk')">📑 BillDesk</div>
             </div>
@@ -3792,7 +3855,7 @@
             Brand Positioning Analysis</div>
           <div id="brand-positioning-block"></div>
         </div>
-        <div id="platforms-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px"></div>
+        <div id="platforms-grid" class="platforms" style="margin-bottom:8px"></div>
 
         <!-- ④  METRICS vs BENCHMARK -->
         <div class="rpt-sec-hd">📐 Your Numbers vs What Top Businesses in Your Area Are Hitting</div>
@@ -3916,8 +3979,7 @@
             Based on our analysis of your digital presence gaps, competitor landscape, and stated growth goals, our AI
             recommends the following as the most efficient path to measurable results.
           </div>
-          <div
-            style="display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;margin-bottom:14px;flex-wrap:wrap">
+          <div class="pkg-grid">
             <div>
               <div
                 style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#D4AF37;margin-bottom:5px">
@@ -4223,12 +4285,27 @@
         gpay: 'Open Google Pay → Scan QR or send to <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Add note: "AI Audit" → Pay',
         phonepe: 'Open PhonePe → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay',
         paytm: 'Open Paytm → Pay UPI ID → Enter <strong>numerounomarketing@upi</strong> → Amount: ₹199 → Pay',
+        debit: 'Pay via <strong>Debit Card</strong> using Razorpay secure checkout · ₹199',
+        credit: 'Pay via <strong>Credit Card</strong> using Razorpay secure checkout · ₹199',
         card: 'Pay via card or net banking via <strong>Razorpay</strong> secure checkout · ₹199',
         billdesk: 'Pay via <strong>BillDesk Secure Gateway</strong>. (Requires Merchant ID)'
       };
-      d.innerHTML = '<strong style="color:var(--tx);display:block;margin-bottom:5px">' + (method === 'card' ? 'Razorpay' : method === 'billdesk' ? 'BillDesk' : 'UPI via ' + method.charAt(0).toUpperCase() + method.slice(1)) + '</strong>' + info[method];
+
+      const titles = {
+        gpay: 'Google Pay',
+        phonepe: 'PhonePe',
+        paytm: 'Paytm',
+        debit: 'Debit Card',
+        credit: 'Credit Card',
+        card: 'Razorpay',
+        billdesk: 'BillDesk'
+      };
+
+      const title = titles[method] || method.charAt(0).toUpperCase() + method.slice(1);
+      d.innerHTML = '<strong style="color:var(--tx);display:block;margin-bottom:5px">' + title + '</strong>' + info[method];
       document.querySelectorAll('.pm-btn').forEach(b => b.classList.remove('on'));
-      if (event && event.target && event.target.classList) event.target.classList.add('on');
+      const targetBtn = event && event.target ? event.target.closest('.pm-btn') : null;
+      if (targetBtn) targetBtn.classList.add('on');
     }
 
     // ===== PAYMENT INTEGRATIONS =====
@@ -4956,7 +5033,7 @@
       if (brandBlock && rd.brandPositioning) {
         const bp = rd.brandPositioning;
         brandBlock.innerHTML = `
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+      <div class="brand-grid">
         <div style="background:#0A2020;border:1px solid rgba(212,175,55,.15);border-radius:10px;padding:14px">
           <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#D4AF37;margin-bottom:6px">Current Positioning</div>
           <div style="font-size:12.5px;color:#F5F5F5;line-height:1.6">${bp.assessment || 'Brand positioning analysis pending live data scan.'}</div>
