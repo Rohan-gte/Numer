@@ -104,14 +104,18 @@ function handleLogin() {
   const p = document.getElementById('password').value;
   const err = document.getElementById('error-msg');
   
-  // SECURE enough for a simple dashboard redirect
-  // For production, this should ideally be handled via a backend
-  if(u === 'admin' && p === 'numero-uno') {
+  // Check localStorage for updated credentials, fallback to defaults
+  const ADMIN_KEY = 'NUMER_ADMIN_CONFIG';
+  const def = { username: 'admin', password: 'numero-uno' };
+  const admin = JSON.parse(localStorage.getItem(ADMIN_KEY) || JSON.stringify(def));
+
+  if(u === admin.username && p === admin.password) {
     sessionStorage.setItem('adminAuth', 'true');
     location.href = 'admin/';
   } else {
     err.style.display = 'block';
   }
+
 }
 
 // Allow Enter key to submit

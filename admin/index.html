@@ -338,7 +338,7 @@
       <a href="javascript:void(0)" class="nav-item active" onclick="showSection('dashboard', this)"><span>📊 Dashboard</span></a>
       <a href="javascript:void(0)" class="nav-item" onclick="showSection('leads', this)"><span>📋 Audit Leads</span></a>
       <a href="javascript:void(0)" class="nav-item" onclick="showSection('payments', this)"><span>💳 Payments</span></a>
-      <a href="#" class="nav-item"><span>⚙️ Settings</span></a>
+      <a href="javascript:void(0)" class="nav-item" id="nav-settings" onclick="showSection('settings', this)"><span>⚙️ Settings</span></a>
       <a href="#" class="nav-item" onclick="logout()" style="margin-top:auto;color:#FF5C5C"><span>🚪 Logout</span></a>
     </nav>
   </div>
@@ -461,6 +461,36 @@
         </table>
       </div>
     </div>
+
+    <div id="settings-section" style="display:none">
+      <div class="table-container" style="max-width:600px">
+        <div class="table-header">
+          <h2>Admin Profile Settings</h2>
+          <div style="font-size:12px;color:var(--mt)">Manage your credentials and contact info</div>
+        </div>
+        <div style="padding:30px">
+          <div style="margin-bottom:20px">
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--mt);margin-bottom:8px;text-transform:uppercase">Full Name</label>
+            <input type="text" id="set-name" style="width:100%;background:var(--g1);border:1px solid var(--bd);padding:12px;border-radius:10px;color:var(--wht)">
+          </div>
+          <div style="margin-bottom:20px">
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--mt);margin-bottom:8px;text-transform:uppercase">Email Address</label>
+            <input type="email" id="set-email" style="width:100%;background:var(--g1);border:1px solid var(--bd);padding:12px;border-radius:10px;color:var(--wht)">
+          </div>
+          <div style="margin-bottom:20px">
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--mt);margin-bottom:8px;text-transform:uppercase">Phone Number</label>
+            <input type="text" id="set-phone" style="width:100%;background:var(--g1);border:1px solid var(--bd);padding:12px;border-radius:10px;color:var(--wht)">
+          </div>
+          <div style="margin-bottom:25px;padding-top:15px;border-top:1px solid var(--bd)">
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--mt);margin-bottom:8px;text-transform:uppercase">Change Password</label>
+            <input type="password" id="set-pass" placeholder="Enter new password (optional)" style="width:100%;background:var(--g1);border:1px solid var(--bd);padding:12px;border-radius:10px;color:var(--wht)">
+          </div>
+          <button class="action-btn" onclick="saveSettings()" style="background:var(--lime);color:var(--blk);font-weight:800;padding:12px 24px;border:none">Save All Settings</button>
+          <div id="set-msg" style="margin-top:15px;font-size:13px;font-weight:600"></div>
+        </div>
+      </div>
+    </div>
+
   </div> <!-- main -->
 
   <script>
@@ -473,13 +503,19 @@
       document.getElementById('dashboard-section').style.display = id === 'dashboard' ? 'block' : 'none';
       document.getElementById('leads-section').style.display = id === 'leads' ? 'block' : 'none';
       document.getElementById('payments-section').style.display = id === 'payments' ? 'block' : 'none';
+      document.getElementById('settings-section').style.display = id === 'settings' ? 'block' : 'none';
       
-      const titles = { dashboard: 'Welcome back, Admin', leads: 'Audit Leads', payments: 'Recent Payments' };
+      const adminName = getAdmin().name || 'Admin';
+      const titles = { dashboard: 'Welcome back, ' + adminName, leads: 'Audit Leads', payments: 'Recent Payments', settings: 'Settings' };
       document.getElementById('page-title').textContent = titles[id] || 'Admin Panel';
+
       
+      if (id === 'settings') loadAdminDetails();
+
       document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
     }
+
 
     function logout() {
       sessionStorage.removeItem('adminAuth');
@@ -497,7 +533,48 @@
 
     document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
+    const ADMIN_KEY = 'NUMER_ADMIN_CONFIG';
+    function getAdmin() {
+      const def = { username: 'admin', password: 'numero-uno', name: 'Admin', email: 'admin@numerouno.in', phone: '9632091371' };
+      const saved = localStorage.getItem(ADMIN_KEY);
+      return saved ? JSON.parse(saved) : def;
+    }
+
+    function loadAdminDetails() {
+      const a = getAdmin();
+      document.getElementById('set-name').value = a.name;
+      document.getElementById('set-email').value = a.email;
+      document.getElementById('set-phone').value = a.phone;
+      document.getElementById('set-pass').value = ''; 
+    }
+
+    function saveSettings() {
+      const a = getAdmin();
+      const newName = document.getElementById('set-name').value.trim();
+      const newEmail = document.getElementById('set-email').value.trim();
+      const newPhone = document.getElementById('set-phone').value.trim();
+      const newPass = document.getElementById('set-pass').value.trim();
+      const msg = document.getElementById('set-msg');
+
+      if (!newName || !newEmail) {
+        msg.style.color = '#FF5C5C';
+        msg.textContent = '❌ Name and Email are required.';
+        return;
+      }
+
+      a.name = newName;
+      a.email = newEmail;
+      a.phone = newPhone;
+      if (newPass) a.password = newPass;
+
+      localStorage.setItem(ADMIN_KEY, JSON.stringify(a));
+      msg.style.color = 'var(--lime)';
+      msg.textContent = '✅ Settings saved successfully!';
+      setTimeout(() => msg.textContent = '', 3000);
+    }
+
     const STORAGE_KEY = 'NUMER_LEADS_DATA';
+
 
     function seedDemoData() {
       if (localStorage.getItem(STORAGE_KEY)) return;
@@ -577,7 +654,14 @@
       setTimeout(() => btn.innerHTML = oldTxt, 2000);
     };
 
-    loadLeads();
+    function initDashboard() {
+      const a = getAdmin();
+      const adminName = a.name || 'Admin';
+      document.getElementById('page-title').textContent = 'Welcome back, ' + adminName;
+      loadLeads();
+    }
+    initDashboard();
+
   </script>
 
 </body>
