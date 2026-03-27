@@ -21,73 +21,28 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg-dark: #020617;
-  --bg-navy: #0B1F3A;
-  --gradient-start: #0A2540;
-  --gradient-end: #0F3B6E;
-
-  --primary: #2563EB;
-  --primary-bright: #3B82F6;
-  --primary-soft: #60A5FA;
-
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-
-  --text-main: #E2E8F0;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-
-  --success: #22C55E;
-  --danger: #EF4444;
-  --warning: #F97316;
-  --accent: #FACC15;
-
-  /* Legacy compatibility mappings */
-  --blk: var(--bg-dark);
-  --wht: var(--text-main);
-  --lime: var(--primary);
-  --lime2: var(--primary-bright);
-  --g1: var(--bg-navy);
-  --g2: #0F172A;
-  --mt: var(--text-muted);
-  --bd: var(--glass-border);
-  --tx: var(--text-main);
-  --tx2: var(--text-secondary);
-  --fh: 'Plus Jakarta Sans', sans-serif;
-  --fb: 'Nunito', sans-serif
-}
+:root{--blk:#0A0A0A;--wht:#F5F5F5;--lime:#D4AF37;--lime2:#B38F24;--g1:#1F1F1F;--g2:#000000;--mt:#A3A3A3;--bd:rgba(212,175,55,.12);--tx:#F5F5F5;--tx2:#CCCCCC;--yellow:#D4AF37;--orange:#D4AF37;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body {
-  font-family: var(--fb);
-  background: var(--bg-dark);
-  background-image: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-                    radial-gradient(circle at 100% 100%, rgba(15, 59, 110, 0.1) 0%, transparent 50%);
-  color: var(--text-main);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.7
-}
-    .ann { background: var(--bg-dark); color: var(--text-main); border-bottom: 1px solid var(--glass-border); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
+body{font-family:var(--fb);background:var(--blk);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7}
+    .ann { background: #000; color: #f5f5f5; border-bottom: 2px solid var(--orange); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
     .ann a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 2px }
-    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border); transition: all 0.3s ease }
-    .nav-logo { font-family: var(--fh); font-size: 22px; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -.02em }
-    .nav-logo em { font-style: normal; color: var(--primary-bright); }
+    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(10, 10, 10, .92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--bd); transition: background .2s }
+    .nav-logo { font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--wht); text-decoration: none; letter-spacing: -.012em }
+    .nav-logo b { color: var(--lime) }
     .nav-links { display: flex; gap: 28px }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: all 0.2s }
-    .nav-links a:hover { color: var(--primary-soft) }
-    .nav-links a.active { color: var(--primary-bright); font-weight: 700 }
+    .nav-links a { font-size: 14px; color: var(--tx); text-decoration: none; font-weight: 500 }
+    .nav-links a:hover, .nav-links a.active { color: #D4AF37 }
     .nav-actions { display: flex; gap: 8px; align-items: center }
-    .nav-wa { color: var(--text-main); background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 10px 18px; border-radius: 99px; font-size: 13.5px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 7px; transition: all 0.3s ease }
-    .nav-wa:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-    .nav-cta { background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 99px; font-size: 13.5px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); transition: all 0.3s ease }
-    .nav-cta:hover { background: var(--primary-bright); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
+    .nav-wa { display: flex; align-items: center; gap: 6px; background: #1F1F1F; border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none }
+    .nav-wa:hover { background: #D4AF37; color: #000 }
+    .nav-cta { background: linear-gradient(135deg, #F1D06F, #D4AF37); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
+    .nav-cta:hover { background: linear-gradient(135deg, #D4AF37, #F1D06F); color: #000 }
     .nav-ham { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 6px; background: none; border: none }
     .nav-ham span { width: 18px; height: 1.5px; background: var(--tx); display: block; border-radius: 2px }
     .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
     .nav-mobile.open { display: flex }
     .nav-mobile a { color: var(--tx2); text-decoration: none; font-size: 15px; font-weight: 500 }
-.c{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.container{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 section{padding:80px 0;position:relative}.alt{background:var(--g1)}
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.08s!important}.d2{transition-delay:.17s!important}.d3{transition-delay:.26s!important}
@@ -96,32 +51,32 @@ section{padding:80px 0;position:relative}.alt{background:var(--g1)}
 .ph h1{font-family:var(--fh);font-size:clamp(30px,4.5vw,56px);font-weight:800;letter-spacing:-.02em;line-height:1.04;color:var(--wht);margin-bottom:12px}
 .ph h1 em{font-style:normal;color:var(--lime)}
 .ph p{font-size:15px;color:var(--tx2);max-width:500px;margin:0 auto 20px;line-height:1.75}
-.ph-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(37, 99, 235, 0.1);border:1px solid rgba(37, 99, 235, 0.2);border-radius:6px;font-size:13px;color:var(--primary-soft);font-weight:600;margin-bottom:10px;backdrop-filter:blur(4px)}
+.ph-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.2);border-radius:6px;font-size:13px;color:var(--lime);font-weight:600;margin-bottom:10px}
 /* CATEGORY */
 .cat-hd{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--bd);margin-bottom:24px}
 .cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .cat-title{font-family:var(--fh);font-size:18px;font-weight:800;letter-spacing:-.012em;color:var(--wht)}
 .cat-sub{font-size:13px;color:var(--mt);margin-left:auto}
 /* INSIGHT BOX */
-.ib{background:rgba(37, 99, 235, 0.05);border:1px solid rgba(255, 255, 255, 0.1);border-radius:12px;padding:20px 24px;margin-bottom:24px;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
-.ib::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--primary-bright))}
+.ib{background:rgba(255,214,0,.05);border:1px solid rgba(255,214,0,.15);border-radius:12px;padding:20px 24px;margin-bottom:24px;position:relative;overflow:hidden}
+.ib::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),#FF6B1A)}
 .ib-title{font-size:13px;font-weight:600;color:var(--wht);margin-bottom:5px}
 .ib-text{font-size:13px;color:var(--tx2);line-height:1.65;margin-bottom:8px}
 .ib-tags{display:flex;flex-wrap:wrap;gap:5px}
 .ib-tag{font-size:11.5px;color:rgba(255,214,0,.6);font-weight:500}
 /* PACKAGE GRID */
 .pkg-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.pk{background:rgba(15, 23, 42, 0.4);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:all 0.3s ease;backdrop-filter:blur(10px)}
-.pk.feat{border-color:rgba(37, 99, 235, 0.4);background:rgba(37, 99, 235, 0.05)}
-.pk.hot{border-color:rgba(239, 68, 68, 0.3)}
-.pk:hover{transform:translateY(-6px);border-color:rgba(37, 99, 235, 0.3);box-shadow:0 15px 30px rgba(0,0,0,0.3)}
+.pk{background:var(--g1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:all .2s}
+.pk.feat{border-color:rgba(255,214,0,.4);background:rgba(255,214,0,.03)}
+.pk.hot{border-color:rgba(255,96,64,.3)}
+.pk:hover{transform:translateY(-4px);border-color:rgba(255,214,0,.25)}
 .pk-top{padding:20px 20px 0}
 .pk-badges{display:flex;gap:5px;margin-bottom:9px;min-height:20px;flex-wrap:wrap}
 .badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px}
 .bg{background:rgba(255,255,255,.06);color:var(--tx2)}
-.bl{background:rgba(37,99,235,0.1);color:var(--primary-soft);border:1px solid rgba(37,99,235,0.2)}
-.ba{background:rgba(249,115,22,0.1);color:var(--warning);border:1px solid rgba(249,115,22,0.2)}
-.bt{background:rgba(34,197,94,0.08);color:var(--success);border:1px solid rgba(34,197,94,0.2)}
+.bl{background:rgba(255,214,0,.1);color:var(--lime);border:1px solid rgba(255,214,0,.2)}
+.ba{background:rgba(255,180,55,.1);color:#FFAA33;border:1px solid rgba(255,180,55,.2)}
+.bt{background:rgba(46,232,208,.08);color:#4AFFE4;border:1px solid rgba(46,232,208,.2)}
 .pk-nm{font-family:var(--fh);font-size:15px;font-weight:800;letter-spacing:-.012em;margin-bottom:4px;color:var(--wht)}
 .pk-tg{font-size:12px;color:var(--mt);margin-bottom:12px;line-height:1.45}
 .pk-pr{padding:11px 20px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
@@ -136,16 +91,15 @@ section{padding:80px 0;position:relative}.alt{background:var(--g1)}
 .pk-ft{padding:12px 20px 18px;border-top:1px solid var(--bd)}
 .pk-note{font-size:11px;color:var(--mt);margin-bottom:7px;line-height:1.45}
 .pk-note.g{color:rgba(255,214,0,.65)}
-.pk-note.w{color:rgba(255,180,55,.75)}
-.pk-disc{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--lime);background:rgba(255,214,0,.08);padding:3px 9px;border-radius:3px;border:1px solid rgba(255,214,0,.15);margin-bottom:8px}
-.pk-orig{font-size:11px;color:var(--mt);text-decoration:line-through;margin-left:4px}
-.btn-cta{display:block;text-align:center;padding:11px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--fb);width:100%;transition:all .2s}
-.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-bright);box-shadow:0 4px 15px rgba(37, 99, 235, 0.3)}
-.btn-default{background:var(--glass-bg);color:var(--text-main);border:1px solid var(--glass-border);backdrop-filter:blur(4px)}.btn-default:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.08)}
-.btn-amber{background:rgba(249,115,22,0.12);color:var(--warning);border:1px solid rgba(249,115,22,0.25)}.btn-amber:hover{background:rgba(249,115,22,0.22)}
+.btn-lime{background:linear-gradient(135deg,#F1D06F,#D4AF37);color:#000;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;border:none;cursor:pointer;font-family:var(--fb);width:100%}
+.btn-lime:hover{background:#D4AF37;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#D4AF37;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid #D4AF37;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;cursor:pointer;font-family:var(--fb);width:100%}
+.btn-ghost:hover{background:rgba(212,175,55,.1);transform:translateY(-2px)}
+.btn-amber{background:rgba(255,180,55,.12);color:#FFAA33;border:1px solid rgba(255,180,55,.25);padding:12px 24px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:all .2s;width:100%}
+.btn-amber:hover{background:rgba(255,180,55,.22);transform:translateY(-2px)}
 /* DISCOUNT CALLOUT */
 .disc-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:12px;margin-bottom:24px;flex-wrap:wrap}
-.db-text h4{font-family:var(--fh);font-size:15px;font-weight:800;letter-spacing:-.02em;color:#3B82F6;margin-bottom:3px}
+.db-text h4{font-family:var(--fh);font-size:15px;font-weight:800;letter-spacing:-.02em;color:#D4AF37;margin-bottom:3px}
 .db-text p{font-size:13px;color:var(--tx2)}
 .db-cta{background:var(--lime);color:var(--blk);padding:10px 20px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0}
 /* GUARANTEE */
@@ -167,14 +121,14 @@ section{padding:80px 0;position:relative}.alt{background:var(--g1)}
     .smb-btns { display: flex; gap: 7px; flex-shrink: 0 }
     .smb-wa { background: #25D366; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none }
     .smb-audit { background: var(--lime); color: var(--blk); padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
-    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(37, 99, 235, .30); transition: transform .25s }
+    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(212, 175, 55, .30); transition: transform .25s }
     .wa-float:hover { transform: scale(1.1) }
 @media(max-width:768px) {
   .nav-links, .nav-actions { display: none }
   .nav-ham { display: flex }
   .pkg-g{grid-template-columns:1fr}
 }
-@media(max-width:768px){section{padding:52px 0}.c{padding:0 16px}.sb{display:flex}}
+@media(max-width:768px){section{padding:52px 0}.container{padding:0 16px}.sb{display:flex}}
 
 /* ── MOBILE TOUCH & RESPONSIVE FIXES ── */
 @media(max-width:768px){
@@ -209,78 +163,103 @@ section{padding:80px 0;position:relative}.alt{background:var(--g1)}
 html{-webkit-tap-highlight-color:rgba(212,175,55,.15);scroll-behavior:smooth}
 /* Prevent iOS font size adjustment */
 body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    /* ============================
+   FOOTER
+   ============================ */
+    footer { border-top: 1px solid var(--bd); padding: 48px 0 26px; background: var(--g1) }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 32px }
+    .footer-logo { font-family: var(--fh); font-size: 17px; font-weight: 800; color: var(--wht); text-decoration: none; letter-spacing: -.012em; display: block; margin-bottom: 9px }
+    .footer-logo b { color: var(--lime) }
+    .footer-desc { font-size: 13px; color: var(--tx2); line-height: 1.7; max-width: 255px; margin-bottom: 14px }
+    .footer-contact { font-size: 12.5px; color: var(--tx2); line-height: 1.9 }
+    .footer-contact a { color: var(--lime); text-decoration: none }
+    .footer-col h5 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--mt); margin-bottom: 11px }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px }
+    .footer-col a { font-size: 13px; color: var(--tx2); text-decoration: none }
+    .footer-col a:hover { color: var(--lime) }
+    .footer-bottom { border-top: 1px solid var(--bd); padding-top: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px }
+    .footer-bottom p { font-size: 12px; color: var(--mt) }
+    .footer-legal { display: flex; gap: 14px }
+    .footer-legal a { font-size: 12px; color: var(--mt); text-decoration: none }
+
+    @media(max-width:1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr }
+    }
+    @media(max-width:768px) {
+      .footer-grid { grid-template-columns: 1fr }
+    }
 </style>
+
 </head>
 <body>
-<!-- ===== ANNOUNCE BAR ===== -->
-<div class="ann">🎯 AI Audit ₹199 — See your exact gaps + <strong>unlock 10% off</strong> any package &nbsp;<a
-    href="ai-Audit.html">Get My Audit →</a></div>
+  <!-- ===== ANNOUNCE BAR ===== -->
+  <div class="ann">🎯 AI Audit ₹199 — See your exact gaps + <strong>unlock 10% off</strong> any package &nbsp;<a
+      href="ai-Audit.html">Get My Audit →</a></div>
 
-<!-- ===== NAV ===== -->
-<header class="nav-wrap" id="main-nav">
-  <a href="index.html" class="nav-logo">Numero <em>Uno</em></a>
-  <nav class="nav-links" aria-label="Main navigation">
+  <!-- ===== NAV ===== -->
+  <header class="nav-wrap" id="main-nav">
+    <a href="index.html" class="nav-logo">Numero <b>Uno</b></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services & Pricing</a>
+      <a href="clients.html">Client Results</a>
+      <a href="ai-Audit.html">AI Audit — ₹199</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online.+Can+we+talk%3F" class="nav-wa"
+        target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a href="ai-Audit.html" class="nav-cta">AI Audit — ₹199</a>
+    </div>
+    <button class="nav-ham" aria-label="Open menu"
+      onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="nav-mobile" id="mobile-nav">
     <a href="index.html">Home</a>
     <a href="services.html" class="active">Services & Pricing</a>
     <a href="clients.html">Client Results</a>
-    <a href="ai-Audit.html">AI Audit — ₹199</a>
-  </nav>
-  <div class="nav-actions">
-    <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online.+Can+we+talk%3F" class="nav-wa"
-      target="_blank" rel="noopener">💬 WhatsApp</a>
-    <a href="ai-Audit.html" class="nav-cta">AI Audit — ₹199</a>
+    <a href="ai-Audit.html" class="active">AI Audit — ₹199</a>
+    <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
   </div>
-  <button class="nav-ham" aria-label="Open menu"
-    onclick="document.getElementById('mobile-nav').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-<div class="nav-mobile" id="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services & Pricing</a>
-  <a href="clients.html">Client Results</a>
-  <a href="ai-Audit.html">AI Audit — ₹199</a>
-  <a href="https://wa.me/919632091371" style="color:#3B82F6;font-weight:600">💬 WhatsApp Us Now</a>
-</div>
-<!-- ===== WA FLOAT (desktop) ===== -->
+
 <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="wa-float" target="_blank"
-  rel="noopener" aria-label="WhatsApp">
-  <svg width="34" height="34" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd"
-      d="M12.031 2C6.49 2 2 6.49 2 12.031C2 13.805 2.463 15.512 3.342 17.031L2.031 22L7.142 20.689C8.583 21.492 10.232 21.969 12.031 21.969C17.572 21.969 22.062 17.479 22.062 12.031C22.062 6.583 17.572 2.094 12.031 2.094L12.031 2ZM12.031 3.531C16.732 3.531 20.562 7.361 20.562 12.031C20.562 16.701 16.732 20.531 12.031 20.531C10.457 20.531 9.006 20.1 7.781 19.351L7.49 19.172L4.621 19.922L5.381 17.102L5.192 16.81C4.341 15.46 3.861 13.85 3.861 12.031C3.861 7.361 7.691 3.531 12.031 3.531ZM15.421 13.582C15.231 13.487 14.302 13.028 14.122 12.963C13.952 12.898 13.822 12.868 13.702 13.058C13.582 13.248 13.232 13.658 13.132 13.783C13.032 13.908 12.932 13.923 12.742 13.828C12.552 13.733 11.942 13.528 11.212 12.878C10.642 12.368 10.262 11.738 10.152 11.548C10.042 11.358 10.142 11.253 10.232 11.158C10.322 11.063 10.422 10.938 10.512 10.828C10.602 10.718 10.632 10.638 10.692 10.513C10.752 10.388 10.722 10.278 10.672 10.183C10.622 10.088 10.272 9.228 10.132 8.878C9.991 8.538 9.851 8.588 9.741 8.588C9.641 8.588 9.531 8.588 9.421 8.588C9.311 8.588 9.131 8.628 8.981 8.788C8.831 8.948 8.421 9.338 8.421 10.118C8.421 10.898 8.991 11.643 9.071 11.753C9.151 11.863 10.182 13.461 11.782 14.153C12.162 14.318 12.452 14.413 12.682 14.488C13.062 14.608 13.412 14.588 13.692 14.548C14.002 14.503 14.642 14.153 14.772 13.783C14.902 13.413 14.902 13.093 14.862 13.028C14.822 12.963 14.712 12.933 14.522 12.838L15.421 13.582Z"
-      fill="white" />
+    rel="noopener" aria-label="WhatsApp">
+
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.031 2C6.49 2 2 6.49 2 12.031C2 13.805 2.463 15.512 3.342 17.031L2.031 22L7.142 20.689C8.583 21.492 10.232 21.969 12.031 21.969C17.572 21.969 22.062 17.479 22.062 12.031C22.062 6.583 17.572 2.094 12.031 2.094L12.031 2ZM12.031 3.531C16.732 3.531 20.562 7.361 20.562 12.031C20.562 16.701 16.732 20.531 12.031 20.531C10.457 20.531 9.006 20.1 7.781 19.351L7.49 19.172L4.621 19.922L5.381 17.102L5.192 16.81C4.341 15.46 3.861 13.85 3.861 12.031C3.861 7.361 7.691 3.531 12.031 3.531ZM15.421 13.582C15.231 13.487 14.302 13.028 14.122 12.963C13.952 12.898 13.822 12.868 13.702 13.058C13.582 13.248 13.232 13.658 13.132 13.783C13.032 13.908 12.932 13.923 12.742 13.828C12.552 13.733 11.942 13.528 11.212 12.878C10.642 12.368 10.262 11.738 10.152 11.548C10.042 11.358 10.142 11.253 10.232 11.158C10.322 11.063 10.422 10.938 10.512 10.828C10.602 10.718 10.632 10.638 10.692 10.513C10.752 10.388 10.722 10.278 10.672 10.183C10.622 10.088 10.272 9.228 10.132 8.878C9.991 8.538 9.851 8.588 9.741 8.588C9.641 8.588 9.531 8.588 9.421 8.588C9.311 8.588 9.131 8.628 8.981 8.788C8.831 8.948 8.421 9.338 8.421 10.118C8.421 10.898 8.991 11.643 9.071 11.753C9.151 11.863 10.182 13.461 11.782 14.153C12.162 14.318 12.452 14.413 12.682 14.488C13.062 14.608 13.412 14.588 13.692 14.548C14.002 14.503 14.642 14.153 14.772 13.783C14.902 13.413 14.902 13.093 14.862 13.028C14.822 12.963 14.712 12.933 14.522 12.838L15.421 13.582Z" fill="white"/>
   </svg>
 </a>
-
-<!-- ===== STICKY MOBILE BAR ===== -->
-<div class="sticky-mobile-bar">
-  <div class="smb-text"><strong>Get 10% off any package</strong>Run ₹199 AI audit first</div>
-  <div class="smb-btns">
-    <a href="https://wa.me/919632091371" class="smb-wa" target="_blank">💬</a>
-    <a href="ai-Audit.html" class="smb-audit">Audit ₹199</a>
+  <!-- ===== STICKY MOBILE BAR ===== -->
+  <div class="sticky-mobile-bar">
+    <div class="smb-text"><strong>Get more customers now</strong>Free consultation · Live in 7 days</div>
+    <div class="smb-btns">
+      <a href="https://wa.me/919632091371" class="smb-wa" target="_blank">💬</a>
+      <a href="ai-Audit.html" class="smb-audit">Audit ₹199</a>
+    </div>
   </div>
-</div>
+
 
 <div class="ph">
-  <div class="c">
+  <div class="container">
     <span class="sp" style="justify-content:center;text-align:center">All packages · Transparent pricing</span>
     <h1 class="rv">4 Services. 12 Packages.<br><em>One Goal: More Customers.</em></h1>
     <p class="rv">Every plan includes WhatsApp lead automation — the feature no other Bangalore agency at this price includes.</p>
     <div class="ph-pill rv">✦ Run ₹199 AI audit first → unlock 10% off any package automatically</div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px" class="rv">
       <a href="ai-Audit.html" style="background:var(--lime);color:var(--blk);padding:11px 22px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none">✦ Get AI Audit — ₹199</a>
-      <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+know+which+package+is+right+for+me" style="background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.18);color:#3B82F6;padding:11px 22px;border-radius:7px;font-size:13px;font-weight:500;text-decoration:none" target="_blank">💬 Ask on WhatsApp</a>
+      <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+know+which+package+is+right+for+me" style="background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.18);color:#D4AF37;padding:11px 22px;border-radius:7px;font-size:13px;font-weight:500;text-decoration:none" target="_blank">💬 Ask on WhatsApp</a>
     </div>
   </div>
 </div>
 
 <!-- WEBSITE -->
 <section id="website">
-  <div class="c">
+  <div class="container">
     <div class="cat-hd rv"><div class="cat-dot" style="background:#4AFFE4"></div><div class="cat-title">Website Development — Your 24/7 Sales Machine</div><div class="cat-sub">One-time · Live in 7 days</div></div>
     <div class="disc-banner rv">
       <div class="db-text"><h4>🎯 Run AI Audit first → save 10% on this package</h4><p>Get your audit report for ₹199 and unlock a guaranteed 10% discount code applied at checkout.</p></div>
-      <a href="ai-Audit.html" class="db-cta">Get 10% Off — Run Audit →</a>
+      <a href="ai-Audit.html" class="btn-lime" style="width:auto">Get 10% Off — Run Audit →</a>
     </div>
     <div class="ib rv"><div class="ib-title">Why your website is your most important sales tool in 2026</div><div class="ib-text">92% of Bangalore customers check a business online before calling or visiting. An amateur website or no website = invisible to your best customers before the conversation even starts. WhatsApp chat integration turns every page visitor into a potential lead.</div><div class="ib-tags"><span class="ib-tag">#WebsiteDesignBangalore</span><span class="ib-tag">#MobileFirstWebsite</span><span class="ib-tag">#SEOBangalore</span><span class="ib-tag">#LocalBusinessWebsite</span><span class="ib-tag">#WhatsAppWebsite</span></div></div>
     <div class="pkg-g">
@@ -298,7 +277,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">Run AI audit → pay <span style="font-family:var(--fh);font-size:12px">₹9,000</span><span class="pk-orig">₹10,000</span></div>
-          <button class="btn-cta btn-default" onclick="wa('Website Launch Starter')">Enquire on WhatsApp →</button>
+          <button class="btn-cta btn-ghost" onclick="wa('Website Launch Starter')">Enquire on WhatsApp →</button>
         </div>
       </div>
       <div class="pk feat rv d2">
@@ -315,7 +294,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">Run AI audit → pay <span style="font-family:var(--fh);font-size:12px">₹15,300</span><span class="pk-orig">₹17,000</span></div>
-          <button class="btn-cta btn-primary" onclick="wa('Website Business Essential')">Book Free Call →</button>
+          <button class="btn-cta btn-lime" onclick="wa('Website Business Essential')">Book Free Call →</button>
         </div>
       </div>
       <div class="pk rv d3">
@@ -332,7 +311,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">Run AI audit → pay <span style="font-family:var(--fh);font-size:12px">₹27,000</span><span class="pk-orig">₹30,000</span></div>
-          <button class="btn-cta btn-default" onclick="wa('Website Growth')">Enquire on WhatsApp →</button>
+          <button class="btn-cta btn-ghost" onclick="wa('Website Growth')">Enquire on WhatsApp →</button>
         </div>
       </div>
     </div>
@@ -341,11 +320,11 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <!-- SOCIAL MEDIA -->
 <section id="social" class="alt">
-  <div class="c">
+  <div class="container">
     <div class="cat-hd rv"><div class="cat-dot" style="background:var(--lime)"></div><div class="cat-title">Website + Social Media Management — Instagram That Brings Enquiries, Not Just Likes</div><div class="cat-sub">Monthly retainer · Website included</div></div>
     <div class="disc-banner rv">
       <div class="db-text"><h4>🎯 AI audit first → 10% off this package every month</h4><p>Run the ₹199 audit, get your gap report, and your 10% discount applies to all future monthly payments.</p></div>
-      <a href="ai-Audit.html" class="db-cta">Get 10% Off Forever →</a>
+      <a href="ai-Audit.html" class="btn-lime" style="width:auto">Get 10% Off Forever →</a>
     </div>
     <div class="ib rv"><div class="ib-title">Why we beat every freelancer in Bangalore at this price</div><div class="ib-text">A freelance social media manager charges ₹8,000–12,000/month for Instagram alone — no website, no Google Business, no WhatsApp automation. Our Launch Starter gives you 5 services for ₹15,000/month. That's why we don't lose clients.</div><div class="ib-tags"><span class="ib-tag">#SocialMediaMarketingBangalore</span><span class="ib-tag">#InstagramMarketingBangalore</span><span class="ib-tag">#WhatsAppBusiness</span><span class="ib-tag">#GoogleBusinessOptimization</span><span class="ib-tag">#ContentMarketing</span></div></div>
     <div class="pkg-g">
@@ -364,7 +343,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">With AI audit → <span style="font-family:var(--fh);font-size:12px">₹13,500/mo</span><span class="pk-orig">₹15,000</span></div>
-          <button class="btn-cta btn-default" onclick="wa('Social Launch Starter')">Enquire on WhatsApp →</button>
+          <button class="btn-cta btn-ghost" onclick="wa('Social Launch Starter')">Enquire on WhatsApp →</button>
         </div>
       </div>
       <div class="pk feat rv d2">
@@ -382,7 +361,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">With AI audit → <span style="font-family:var(--fh);font-size:12px">₹19,800/mo</span><span class="pk-orig">₹22,000</span></div>
-          <button class="btn-cta btn-primary" onclick="wa('Social Business Essential')">Book Free Call →</button>
+          <button class="btn-cta btn-lime" onclick="wa('Social Business Essential')">Book Free Call →</button>
         </div>
       </div>
       <div class="pk rv d3">
@@ -399,7 +378,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">With AI audit → <span style="font-family:var(--fh);font-size:12px">₹24,300/mo</span><span class="pk-orig">₹27,000</span></div>
-          <button class="btn-cta btn-default" onclick="wa('Social Growth')">Enquire on WhatsApp →</button>
+          <button class="btn-cta btn-ghost" onclick="wa('Social Growth')">Enquire on WhatsApp →</button>
         </div>
       </div>
     </div>
@@ -409,11 +388,11 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <!-- DIGITAL BUSINESS LAUNCH -->
 <section id="launch">
-  <div class="c">
+  <div class="container">
     <div class="cat-hd rv"><div class="cat-dot" style="background:#FFAA33"></div><div class="cat-title">Digital Business Launch — From Zero to Fully Operational in 90 Days</div><div class="cat-sub">3-month complete setup · Zero to digital in 90 days</div></div>
     <div class="disc-banner rv">
       <div class="db-text"><h4>🎯 AI audit → 10% off your entire 3-month programme</h4><p>₹199 audit saves you ₹4,000–₹7,500 on the programme cost instantly.</p></div>
-      <a href="ai-Audit.html" class="db-cta">Save ₹4,000–₹7,500 →</a>
+      <a href="ai-Audit.html" class="btn-lime" style="width:auto">Save ₹4,000–₹7,500 →</a>
     </div>
     <div class="ib rv"><div class="ib-title">Starting from zero? This programme is built specifically for you.</div><div class="ib-text">Most agencies take 4–6 weeks to onboard. We build your entire digital identity in 3 months — website, Instagram, Facebook, Google Business, WhatsApp automation. You focus on running your business. We handle everything from design to delivery.</div><div class="ib-tags"><span class="ib-tag">#NewBusinessBangalore</span><span class="ib-tag">#StartupMarketing</span><span class="ib-tag">#BusinessLaunch</span><span class="ib-tag">#DigitalPresence</span><span class="ib-tag">#MSMEMarketing</span><span class="ib-tag">#SMEIndia</span></div></div>
     <div class="pkg-g">
@@ -432,7 +411,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">With AI audit → <span style="font-family:var(--fh);font-size:12px">₹36,000</span><span class="pk-orig">₹40,000</span></div>
-          <button class="btn-cta btn-default" onclick="wa('Digital Launch Starter')">Enquire on WhatsApp →</button>
+          <button class="btn-cta btn-ghost" onclick="wa('Digital Launch Starter')">Enquire on WhatsApp →</button>
         </div>
       </div>
       <div class="pk feat rv d2">
@@ -468,7 +447,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         </div>
         <div class="pk-ft">
           <div class="pk-disc">With AI audit → <span style="font-family:var(--fh);font-size:12px">₹67,500</span><span class="pk-orig">₹75,000</span></div>
-          <button class="btn-cta btn-default" onclick="wa('Digital Launch Growth')">Enquire on WhatsApp →</button>
+          <button class="btn-cta btn-ghost" onclick="wa('Digital Launch Growth')">Enquire on WhatsApp →</button>
         </div>
       </div>
     </div>
@@ -477,11 +456,11 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <!-- PERFORMANCE ADS -->
 <section id="ads" class="alt">
-  <div class="c">
+  <div class="container">
     <div class="cat-hd rv"><div class="cat-dot" style="background:#9B6DFF"></div><div class="cat-title">Performance Marketing — Pay for Leads, Not Impressions — Paid Ads</div><div class="cat-sub">Monthly · Management + ad spend · Google + Meta</div></div>
     <div class="disc-banner rv">
       <div class="db-text"><h4>🎯 AI audit → 10% off management fee every month</h4><p>Reduce your monthly management cost permanently by running the ₹199 audit before signing up.</p></div>
-      <a href="ai-Audit.html" class="db-cta">Save ₹1,500–₹3,500/mo →</a>
+      <a href="ai-Audit.html" class="btn-lime" style="width:auto">Save ₹1,500–₹3,500/mo →</a>
     </div>
     <div class="ib rv"><div class="ib-title">Why Performance Pro (₹5K spend) beats Starter (₹7K spend) every single month</div><div class="ib-text">Starter runs 1 platform with basic text ads — cost per lead: ₹390–580. Performance Pro runs Google + Meta with custom creatives, A/B testing and WhatsApp integration — cost per lead: ₹143–227. Expert dual-platform management makes ₹5K outperform ₹7K on ad spend every time.</div><div class="ib-tags"><span class="ib-tag">#GoogleAdsBangalore</span><span class="ib-tag">#MetaAdsBangalore</span><span class="ib-tag">#FacebookAds</span><span class="ib-tag">#PerformanceMarketing</span><span class="ib-tag">#ROASIndia</span><span class="ib-tag">#LeadGeneration</span></div></div>
     <div class="pkg-g">
@@ -500,7 +479,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <div class="pk-ft">
           <div class="pk-note">₹22K total · CPL: ₹390–580</div>
           <div class="pk-disc">With AI audit → mgmt <span style="font-family:var(--fh);font-size:12px">₹13,500/mo</span></div>
-          <button class="btn-cta btn-default" onclick="wa('Ads Starter')">Enquire on WhatsApp →</button>
+          <button class="btn-cta btn-ghost" onclick="wa('Ads Starter')">Enquire on WhatsApp →</button>
         </div>
       </div>
       <div class="pk feat rv d2">
@@ -519,7 +498,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <div class="pk-ft">
           <div class="pk-note g">₹26K total · CPL: ₹143–227 · Best value</div>
           <div class="pk-disc">With AI audit → mgmt <span style="font-family:var(--fh);font-size:12px">₹18,900/mo</span></div>
-          <button class="btn-cta btn-primary" onclick="wa('Performance Pro')">Book Free Call →</button>
+          <button class="btn-cta btn-lime" onclick="wa('Performance Pro')">Book Free Call →</button>
         </div>
       </div>
       <div class="pk hot rv d3">
@@ -560,20 +539,68 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <!-- GUARANTEE -->
 <section>
-  <div class="c">
+  <div class="container">
     <div class="guarantee rv">
       <div class="g-text"><strong>Our Written Results Guarantee — In the Signed Contract.</strong> If you don't see measurable improvement in customer enquiries by Month 3, Month 4 is completely free. This is a clause in every signed agreement — not just a promise in the pitch. We've never had to honour it. Because the system works. We've never had to honour it — but it's in the contract.</div>
-      <a href="ai-Audit.html" class="g-cta">✦ Start with AI Audit — ₹199</a>
+      <a href="ai-Audit.html" class="btn-lime">✦ Start with AI Audit — ₹199</a>
     </div>
   </div>
 </section>
 
-<footer style="border-top:1px solid var(--bd);padding:32px 0;background:var(--g1)">
-  <div class="c" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
-    <div><a href="index.html" style="font-family:var(--fh);font-size:15px;font-weight:800;color:var(--wht);text-decoration:none">Numero <b style="color:var(--lime)">Uno</b> Marketing</a><div style="font-size:12px;color:var(--mt);margin-top:3px">© 2026 Numero Uno Marketing Pvt. Ltd. · Bangalore</div></div>
-    <div style="display:flex;gap:18px;flex-wrap:wrap"><a href="index.html" style="font-size:13px;color:var(--tx2);text-decoration:none">Home</a><a href="services.html" style="font-size:13px;color:var(--lime);text-decoration:none">Services</a><a href="clients.html" style="font-size:13px;color:var(--tx2);text-decoration:none">Clients</a><a href="ai-Audit.html" style="font-size:13px;color:var(--tx2);text-decoration:none">AI Audit</a><a href="https://wa.me/919632091371" style="font-size:13px;color:var(--lime);text-decoration:none">+91 96320 91371</a></div>
-  </div>
-</footer>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">Numero <b>Uno</b> Marketing</a>
+          <p class="footer-desc">Bangalore's #1 growth agency for local service businesses. We turn dental clinics,
+            gyms, cafés, restaurants and schools into the most visible, most-booked business in their area. Results
+            guaranteed by Month 3.</p>
+          <div class="footer-contact">
+            <div>📍 No.63, Katha No.6, Agara, Thataguni, Bangalore 560082</div>
+            <div>📞 <a href="tel:+919632091371">+91 96320 91371</a></div>
+            <div>✉ <a href="mailto:contact@alphanumerouno.digital">contact@alphanumerouno.digital</a></div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="services.html#website">Website Development</a></li>
+            <li><a href="services.html#social">Social Media Mgmt</a></li>
+            <li><a href="services.html#launch">Digital Business Launch</a></li>
+            <li><a href="services.html#ads">Performance Marketing</a></li>
+            <li><a href="ai-Audit.html">AI Audit — ₹199</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Industries</h5>
+          <ul>
+            <li><a href="clients.html#dental">Dental Clinics Bangalore</a></li>
+            <li><a href="clients.html#fitness">Gyms & Fitness Studios</a></li>
+            <li><a href="clients.html#restaurant">Cafés & Restaurants</a></li>
+            <li><a href="clients.html#education">Schools & Coaching</a></li>
+            <li><a href="clients.html">Salons & Beauty</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Locations</h5>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/digital+marketing+agency+koramangala+bangalore" target="_blank" rel="noopener">Koramangala</a></li>
+            <li><a href="https://www.google.com/maps/search/digital+marketing+agency+indiranagar+bangalore" target="_blank" rel="noopener">Indiranagar</a></li>
+            <li><a href="https://www.google.com/maps/search/digital+marketing+agency+hsr+layout+bangalore" target="_blank" rel="noopener">HSR Layout</a></li>
+            <li><a href="https://www.google.com/maps/search/digital+marketing+agency+whitefield+bangalore" target="_blank" rel="noopener">Whitefield</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Numero Uno Marketing Pvt. Ltd. · Bangalore</p>
+        <div class="footer-legal">
+          <a href="https://wa.me/919632091371?text=Hi%2C+I+have+a+question+about+your+privacy+policy" target="_blank">Privacy Policy</a>
+          <a href="https://wa.me/919632091371?text=Hi%2C+I+have+a+question+about+your+terms+of+service" target="_blank">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 <script>
 const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('.rv').forEach(el=>ro.observe(el));

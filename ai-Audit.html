@@ -50,43 +50,23 @@
 </script>
   <style>
     :root {
-      --bg-dark: #020617;
-      --bg-navy: #0B1F3A;
-      --gradient-start: #0A2540;
-      --gradient-end: #0F3B6E;
-
-      --primary: #2563EB;
-      --primary-bright: #3B82F6;
-      --primary-soft: #60A5FA;
-
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-
-      --text-main: #E2E8F0;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
-
-      --success: #22C55E;
-      --danger: #EF4444;
-      --warning: #F97316;
-      --accent: #FACC15;
-
-      /* Legacy compatibility mappings */
-      --blk: var(--bg-dark);
-      --wht: var(--text-main);
-      --lime: var(--primary);
-      --lime2: var(--primary-bright);
-      --g1: var(--bg-navy);
-      --g2: #0F172A;
-      --mt: var(--text-muted);
-      --bd: var(--glass-border);
-      --tx: var(--text-main);
-      --tx2: var(--text-secondary);
+      --blk: #0A0A0A;
+      --wht: #F5F5F5;
+      --lime: #D4AF37;
+      --lime2: #B38F24;
+      --g1: #1F1F1F;
+      --g2: #000000;
+      --mt: #A3A3A3;
+      --bd: rgba(212, 175, 55, .12);
+      --tx: #F5F5F5;
+      --tx2: #CCCCCC;
+      --yellow: #D4AF37;
+      --orange: #D4AF37;
       --fh: 'Plus Jakarta Sans', sans-serif;
       --fb: 'Nunito', sans-serif;
-      --red: #EF4444;
-      --green: #22C55E;
-      --amber: #F97316
+      --red: #FF5C5C;
+      --green: #D4AF37;
+      --amber: #FFAA33
     }
 
     * {
@@ -101,29 +81,26 @@
 
     body {
       font-family: var(--fb);
-      background: var(--bg-dark);
-      background-image: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 100% 100%, rgba(15, 59, 110, 0.1) 0%, transparent 50%);
-      color: var(--text-main);
+      background: var(--blk);
+      color: var(--tx);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       line-height: 1.7
     }
 
-        .ann { background: var(--bg-dark); color: var(--text-main); border-bottom: 1px solid var(--glass-border); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
+        .ann { background: #000; color: #f5f5f5; border-bottom: 2px solid var(--orange); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
     .ann a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 2px }
-    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border); transition: all 0.3s ease }
-    .nav-logo { font-family: var(--fh); font-size: 22px; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -.02em }
-    .nav-logo em { font-style: normal; color: var(--primary-bright); }
+    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(10, 10, 10, .92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--bd); transition: background .2s }
+    .nav-logo { font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--wht); text-decoration: none; letter-spacing: -.012em }
+    .nav-logo b { color: var(--lime) }
     .nav-links { display: flex; gap: 28px }
-    .nav-links a { font-size: 14.5px; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: all 0.2s }
-    .nav-links a:hover { color: var(--primary-soft) }
-    .nav-links a.active { color: var(--primary-bright); font-weight: 700 }
+    .nav-links a { font-size: 14px; color: var(--tx); text-decoration: none; font-weight: 500 }
+    .nav-links a:hover, .nav-links a.active { color: #D4AF37 }
     .nav-actions { display: flex; gap: 8px; align-items: center }
-    .nav-wa { color: var(--text-main); background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 10px 18px; border-radius: 99px; font-size: 13.5px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 7px; transition: all 0.3s ease }
-    .nav-wa:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-    .nav-cta { background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 99px; font-size: 13.5px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); transition: all 0.3s ease }
-    .nav-cta:hover { background: var(--primary-bright); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
+    .nav-wa { display: flex; align-items: center; gap: 6px; background: #1F1F1F; border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none }
+    .nav-wa:hover { background: #D4AF37; color: #000 }
+    .nav-cta { background: linear-gradient(135deg, #F1D06F, #D4AF37); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
+    .nav-cta:hover { background: linear-gradient(135deg, #D4AF37, #F1D06F); color: #000 }
     .nav-ham { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 6px; background: none; border: none }
     .nav-ham span { width: 18px; height: 1.5px; background: var(--tx); display: block; border-radius: 2px }
     .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
@@ -198,7 +175,7 @@
 
     .audit-hero h1 em {
       font-style: normal;
-      color: var(--primary-bright)
+      color: var(--lime)
     }
 
     .audit-hero p {
@@ -439,21 +416,21 @@
     }
 
     .fi:focus {
-      border-color: rgba(37, 99, 235, 0.4);
-      background: rgba(37, 99, 235, 0.05)
+      border-color: rgba(255, 214, 0, .4);
+      background: rgba(255, 214, 0, .03)
     }
 
     .fi::placeholder {
-      color: var(--text-muted)
+      color: var(--mt)
     }
 
     .fs {
-      background: var(--bg-navy);
-      border: 1px solid var(--glass-border);
+      background: #161620;
+      border: 1px solid var(--bd);
       border-radius: 8px;
       padding: 11px 13px;
       font-size: 14px;
-      color: var(--text-secondary);
+      color: var(--tx2);
       font-family: var(--fb);
       outline: none;
       width: 100%;
@@ -516,13 +493,13 @@
     }
 
     .ms-box:hover {
-      border-color: rgba(37, 99, 235, 0.3);
-      box-shadow: 0 0 15px rgba(37, 99, 235, 0.05);
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
     }
 
     .ms-box.open {
-      border-color: var(--primary);
-      box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+      border-color: var(--lime);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -540,7 +517,7 @@
 
     .ms-box.open::after {
       transform: translateY(-50%) rotate(180deg);
-      color: var(--primary);
+      color: var(--lime);
     }
 
     .ms-placeholder {
@@ -556,9 +533,9 @@
     }
 
     .ms-chip {
-      background: rgba(37, 99, 235, 0.1);
-      border: 1px solid rgba(37, 99, 235, 0.3);
-      color: var(--primary-soft);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--lime);
       padding: 4px 10px;
       border-radius: 8px;
       font-size: 13px;
@@ -585,8 +562,8 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: #111827;
-      border: 1px solid var(--primary);
+      background: #161620;
+      border: 1px solid var(--lime);
       border-top: none;
       border-bottom-left-radius: 12px;
       border-bottom-right-radius: 12px;
@@ -624,14 +601,14 @@
     }
 
     .ms-option:hover {
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--text-main);
+      background: rgba(212, 175, 55, 0.05);
+      color: var(--wht);
       padding-left: 20px;
     }
 
     .ms-option.selected {
-      background: rgba(37, 99, 235, 0.15);
-      color: var(--primary-bright);
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--lime);
       font-weight: 600;
     }
 
@@ -648,11 +625,11 @@
       background: transparent;
     }
     .ms-dropdown::-webkit-scrollbar-thumb {
-      background: rgba(37, 99, 235, 0.2);
+      background: rgba(212, 175, 55, 0.2);
       border-radius: 10px;
     }
     .ms-dropdown::-webkit-scrollbar-thumb:hover {
-      background: rgba(37, 99, 235, 0.4);
+      background: rgba(212, 175, 55, 0.4);
     }
 
     /* Keep old tag grid styles just in case, but hid them */
@@ -742,8 +719,8 @@
       font-family: var(--fh);
       font-size: 56px;
       font-weight: 800;
-      color: #3B82F6;
-      text-shadow: 0 0 30px rgba(37, 99, 235, .40);
+      color: #D4AF37;
+      text-shadow: 0 0 30px rgba(212, 175, 55, .40);
       letter-spacing: -.012em;
       line-height: 1;
       margin-bottom: 4px
@@ -1445,7 +1422,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: #3B82F6;
+      color: #D4AF37;
       margin-bottom: 8px
     }
 
@@ -1852,7 +1829,7 @@
     }
 
     .kpi-grn {
-      color: #3B82F6 !important
+      color: #D4AF37 !important
     }
 
     .kpi-amber {
@@ -1952,7 +1929,7 @@
     }
 
     .mcomp.ahead {
-      border-left-color: #3B82F6
+      border-left-color: #D4AF37
     }
 
     .mcomp.behind {
@@ -2201,7 +2178,7 @@
     .smb-btns { display: flex; gap: 7px; flex-shrink: 0 }
     .smb-wa { background: #25D366; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none }
     .smb-audit { background: var(--lime); color: var(--blk); padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
-    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(37, 99, 235, .30); transition: transform .25s }
+    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(212, 175, 55, .30); transition: transform .25s }
     .wa-float:hover { transform: scale(1.1) }
 
     .toast {
@@ -2430,11 +2407,11 @@
 
       0%,
       100% {
-        box-shadow: 0 0 0 0 rgba(37, 99, 235, .5)
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, .5)
       }
 
       70% {
-        box-shadow: 0 0 0 16px rgba(37, 99, 235, 0)
+        box-shadow: 0 0 0 16px rgba(212, 175, 55, 0)
       }
     }
 
@@ -2483,7 +2460,7 @@
     .ig-grid-bg {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(37, 99, 235, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, .05) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(212, 175, 55, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, .05) 1px, transparent 1px);
       background-size: 40px 40px;
       pointer-events: none
     }
@@ -2495,7 +2472,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 300px;
-      background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, .14) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, .14) 0%, transparent 70%);
       pointer-events: none
     }
 
@@ -2537,7 +2514,7 @@
     }
 
     .ig-h1 .ig-yel {
-      background: linear-gradient(135deg, #3B82F6, #2563EB);
+      background: linear-gradient(135deg, #D4AF37, #B38F24);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text
@@ -2552,8 +2529,8 @@
       align-items: center;
       gap: 8px;
       padding: 10px 16px;
-      background: rgba(37, 99, 235, .06);
-      border: 1px solid rgba(37, 99, 235, .15);
+      background: rgba(212, 175, 55, .06);
+      border: 1px solid rgba(212, 175, 55, .15);
       border-radius: 8px;
       margin-bottom: 18px;
       animation: instaFadeUp .6s ease .3s both;
@@ -2579,7 +2556,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 14px;
       font-weight: 800;
-      color: #3B82F6
+      color: #D4AF37
     }
 
     .ig-props {
@@ -2606,7 +2583,7 @@
       gap: 5px;
       padding: 5px 12px;
       background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(37, 99, 235, .12);
+      border: 1px solid rgba(212, 175, 55, .12);
       border-radius: 20px;
       font-size: 12px;
       color: var(--tx2);
@@ -2629,7 +2606,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 48px;
       font-weight: 800;
-      color: #3B82F6;
+      color: #D4AF37;
       letter-spacing: -.04em;
       line-height: 1
     }
@@ -2641,7 +2618,7 @@
     }
 
     .ig-price-save {
-      background: linear-gradient(135deg, #3B82F6, #2563EB);
+      background: linear-gradient(135deg, #D4AF37, #B38F24);
       color: #000000;
       font-size: 11px;
       font-weight: 800;
@@ -2652,7 +2629,7 @@
     .ig-cta-btn {
       width: 100%;
       padding: 18px 24px;
-      background: linear-gradient(135deg, #3B82F6, #1BA89E);
+      background: linear-gradient(135deg, #D4AF37, #1BA89E);
       color: #000000;
       border: none;
       border-radius: 12px;
@@ -2692,9 +2669,9 @@
       align-items: center;
       gap: 10px;
       padding: 12px 16px;
-      background: rgba(37, 99, 235, .04);
+      background: rgba(212, 175, 55, .04);
       border-radius: 8px;
-      border: 1px solid rgba(37, 99, 235, .1);
+      border: 1px solid rgba(212, 175, 55, .1);
       animation: instaFadeUp .7s ease .5s both;
       margin-bottom: 18px
     }
@@ -2749,12 +2726,12 @@
 
     .ig-mascot-mini {
       animation: instaBounce 3s ease-in-out infinite;
-      filter: drop-shadow(0 8px 20px rgba(37, 99, 235, .25))
+      filter: drop-shadow(0 8px 20px rgba(212, 175, 55, .25))
     }
 
     .ig-report-preview {
       background: var(--g1);
-      border: 1px solid rgba(37, 99, 235, .2);
+      border: 1px solid rgba(212, 175, 55, .2);
       border-radius: 16px;
       padding: 16px;
       margin-bottom: 14px
@@ -2832,8 +2809,8 @@
     }
 
     .badge-grn {
-      background: rgba(37, 99, 235, .15);
-      color: #3B82F6
+      background: rgba(212, 175, 55, .15);
+      color: #D4AF37
     }
 
     .ig-two-col {
@@ -2968,7 +2945,7 @@
 
     /* Smooth scrolling & tap highlight */
     html {
-      -webkit-tap-highlight-color: rgba(37, 99, 235, .15);
+      -webkit-tap-highlight-color: rgba(212, 175, 55, .15);
       scroll-behavior: smooth
     }
 
@@ -2987,7 +2964,7 @@
 
 <!-- ===== NAV ===== -->
 <header class="nav-wrap" id="main-nav">
-  <a href="index.html" class="nav-logo">Numero <em>Uno</em></a>
+  <a href="index.html" class="nav-logo">Numero <b>Uno</b></a>
   <nav class="nav-links" aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="services.html">Services & Pricing</a>
@@ -3009,7 +2986,7 @@
   <a href="services.html">Services & Pricing</a>
   <a href="clients.html">Client Results</a>
   <a href="ai-Audit.html">AI Audit — ₹199</a>
-  <a href="https://wa.me/919632091371" style="color:#3B82F6;font-weight:600">💬 WhatsApp Us Now</a>
+  <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
 </div>
 <!-- ===== WA FLOAT (desktop) ===== -->
 <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="wa-float" target="_blank"
@@ -3054,28 +3031,28 @@
           <rect x="34" y="84" width="72" height="52" rx="10" fill="#000000" />
           <rect x="40" y="90" width="60" height="36" rx="6" fill="#0A0A0A" />
           <rect x="42" y="92" width="56" height="32" rx="5" fill="#0A1E1F" />
-          <rect x="46" y="114" width="6" height="6" rx="1" fill="#3B82F6" opacity=".7" />
-          <rect x="54" y="108" width="6" height="12" rx="1" fill="#3B82F6" opacity=".85" />
-          <rect x="62" y="104" width="6" height="16" rx="1" fill="#3B82F6" />
-          <rect x="70" y="100" width="6" height="20" rx="1" fill="#2563EB" />
-          <rect x="78" y="97" width="6" height="23" rx="1" fill="#3B82F6" />
-          <circle cx="65" cy="134" r="5" fill="#3B82F6" />
+          <rect x="46" y="114" width="6" height="6" rx="1" fill="#D4AF37" opacity=".7" />
+          <rect x="54" y="108" width="6" height="12" rx="1" fill="#D4AF37" opacity=".85" />
+          <rect x="62" y="104" width="6" height="16" rx="1" fill="#D4AF37" />
+          <rect x="70" y="100" width="6" height="20" rx="1" fill="#B38F24" />
+          <rect x="78" y="97" width="6" height="23" rx="1" fill="#D4AF37" />
+          <circle cx="65" cy="134" r="5" fill="#D4AF37" />
           <rect x="22" y="26" width="96" height="58" rx="18" fill="#1F1F1F" />
           <rect x="26" y="30" width="88" height="50" rx="14" fill="#333333" />
           <rect x="30" y="36" width="80" height="30" rx="10" fill="#0A0A0A" />
           <rect x="32" y="38" width="76" height="26" rx="8" fill="#081818" />
           <rect x="36" y="42" width="28" height="18" rx="8" fill="#0C2828" />
-          <circle cx="50" cy="51" r="7" fill="#3B82F6" opacity=".9" />
+          <circle cx="50" cy="51" r="7" fill="#D4AF37" opacity=".9" />
           <circle cx="50" cy="51" r="4" fill="#0A0A0A" />
           <circle cx="52" cy="49" r="1.5" fill="white" />
           <rect x="76" y="42" width="28" height="18" rx="8" fill="#0C2828" />
-          <circle cx="90" cy="51" r="7" fill="#3B82F6" opacity=".9" />
+          <circle cx="90" cy="51" r="7" fill="#D4AF37" opacity=".9" />
           <circle cx="90" cy="51" r="4" fill="#0A0A0A" />
           <circle cx="92" cy="49" r="1.5" fill="white" />
           <rect x="38" y="72" width="64" height="6" rx="3" fill="#0C2828" />
-          <rect x="40" y="73" width="30" height="4" rx="2" fill="#3B82F6" opacity=".8" />
-          <line x1="70" y1="26" x2="70" y2="10" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" />
-          <circle cx="70" cy="8" r="5" fill="#3B82F6" />
+          <rect x="40" y="73" width="30" height="4" rx="2" fill="#D4AF37" opacity=".8" />
+          <line x1="70" y1="26" x2="70" y2="10" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="70" cy="8" r="5" fill="#D4AF37" />
           <rect x="8" y="88" width="22" height="42" rx="10" fill="#1F1F1F" />
           <rect x="110" y="88" width="22" height="42" rx="10" fill="#1F1F1F" />
           <rect x="42" y="138" width="22" height="20" rx="8" fill="#1F1F1F" />
@@ -3207,7 +3184,7 @@
               </div>
               <div style="font-size:12.5px;color:var(--tx2);line-height:1.6">"The audit showed me I had 8 Google reviews
                 vs the area average of 82. That one gap was costing me ₹1.2L/month in lost patients. Fixed it. Now at
-                <strong style="color:#3B82F6">38 new patient enquiries/month.</strong>"
+                <strong style="color:#D4AF37">38 new patient enquiries/month.</strong>"
               </div>
               <div style="margin-top:8px;font-size:14px">⭐⭐⭐⭐⭐</div>
             </div>
@@ -3226,16 +3203,16 @@
     <div style="display:flex;justify-content:center;margin:20px 0 10px;position:relative">
       <svg viewBox="0 0 320 160" width="320" height="160" class="audit-scan-svg">
         <!-- Phone outline -->
-        <rect x="110" y="10" width="100" height="140" rx="14" fill="none" stroke="#3B82F6" stroke-width="1.5"
+        <rect x="110" y="10" width="100" height="140" rx="14" fill="none" stroke="#D4AF37" stroke-width="1.5"
           opacity=".6" />
         <rect x="118" y="24" width="84" height="112" rx="6" fill="rgba(31,31,31,.8)" />
         <!-- Home button -->
-        <circle cx="160" cy="148" r="4" fill="none" stroke="#3B82F6" stroke-width="1" opacity=".5" />
+        <circle cx="160" cy="148" r="4" fill="none" stroke="#D4AF37" stroke-width="1" opacity=".5" />
         <!-- Screen content: score gauge mini -->
         <circle cx="160" cy="65" r="28" fill="none" stroke="rgba(212,175,55,.2)" stroke-width="5" />
-        <circle cx="160" cy="65" r="28" fill="none" stroke="#3B82F6" stroke-width="5" stroke-dasharray="63 88"
+        <circle cx="160" cy="65" r="28" fill="none" stroke="#D4AF37" stroke-width="5" stroke-dasharray="63 88"
           stroke-linecap="round" transform="rotate(-130 160 65)" />
-        <text x="160" y="70" text-anchor="middle" font-size="14" font-weight="800" fill="#3B82F6"
+        <text x="160" y="70" text-anchor="middle" font-size="14" font-weight="800" fill="#D4AF37"
           font-family="Plus Jakarta Sans,sans-serif">34</text>
         <text x="160" y="80" text-anchor="middle" font-size="7" fill="#A3A3A3"
           font-family="Nunito,sans-serif">/100</text>
@@ -3251,14 +3228,14 @@
         <g opacity=".8">
           <rect x="10" y="20" width="80" height="24" rx="6" fill="rgba(31,31,31,.9)" stroke="rgba(212,175,55,.3)"
             stroke-width="1" />
-          <text x="50" y="36" text-anchor="middle" font-size="8" fill="#3B82F6" font-family="Nunito,sans-serif"
+          <text x="50" y="36" text-anchor="middle" font-size="8" fill="#D4AF37" font-family="Nunito,sans-serif"
             font-weight="700">📍 Google: 8 reviews</text>
           <line x1="90" y1="32" x2="110" y2="40" stroke="rgba(212,175,55,.3)" stroke-width="1" stroke-dasharray="3 2" />
         </g>
         <g opacity=".8" style="animation-delay:.5s">
           <rect x="10" y="60" width="80" height="24" rx="6" fill="rgba(31,31,31,.9)" stroke="rgba(212,175,55,.3)"
             stroke-width="1" />
-          <text x="50" y="76" text-anchor="middle" font-size="8" fill="#2563EB" font-family="Nunito,sans-serif"
+          <text x="50" y="76" text-anchor="middle" font-size="8" fill="#B38F24" font-family="Nunito,sans-serif"
             font-weight="700">📸 IG: 342 followers</text>
           <line x1="90" y1="72" x2="110" y2="65" stroke="rgba(179,143,36,.3)" stroke-width="1" stroke-dasharray="3 2" />
         </g>
@@ -3275,7 +3252,7 @@
         <g opacity=".8">
           <rect x="230" y="30" width="82" height="24" rx="6" fill="rgba(31,31,31,.9)" stroke="rgba(212,175,55,.3)"
             stroke-width="1" />
-          <text x="271" y="46" text-anchor="middle" font-size="8" fill="#3B82F6" font-family="Nunito,sans-serif"
+          <text x="271" y="46" text-anchor="middle" font-size="8" fill="#D4AF37" font-family="Nunito,sans-serif"
             font-weight="700">Score: 34/100</text>
           <line x1="210" y1="36" x2="230" y2="40" stroke="rgba(212,175,55,.3)" stroke-width="1"
             stroke-dasharray="3 2" />
@@ -3290,19 +3267,19 @@
         <g opacity=".8">
           <rect x="230" y="110" width="82" height="24" rx="6" fill="rgba(31,31,31,.9)" stroke="rgba(179,143,36,.3)"
             stroke-width="1" />
-          <text x="271" y="126" text-anchor="middle" font-size="7.5" fill="#2563EB" font-family="Nunito,sans-serif"
+          <text x="271" y="126" text-anchor="middle" font-size="7.5" fill="#B38F24" font-family="Nunito,sans-serif"
             font-weight="700">10% OFF unlocked</text>
           <line x1="210" y1="116" x2="230" y2="120" stroke="rgba(179,143,36,.3)" stroke-width="1"
             stroke-dasharray="3 2" />
         </g>
 
         <!-- Blip dots -->
-        <circle cx="110" cy="40" r="3" fill="#3B82F6" class="blip-dot" />
-        <circle cx="110" cy="65" r="3" fill="#2563EB" class="blip-dot" style="animation-delay:.5s" />
+        <circle cx="110" cy="40" r="3" fill="#D4AF37" class="blip-dot" />
+        <circle cx="110" cy="65" r="3" fill="#B38F24" class="blip-dot" style="animation-delay:.5s" />
         <circle cx="110" cy="100" r="3" fill="#FF6868" class="blip-dot" style="animation-delay:1s" />
-        <circle cx="210" cy="40" r="3" fill="#3B82F6" class="blip-dot" style="animation-delay:.3s" />
+        <circle cx="210" cy="40" r="3" fill="#D4AF37" class="blip-dot" style="animation-delay:.3s" />
         <circle cx="210" cy="76" r="3" fill="#FF6868" class="blip-dot" style="animation-delay:.8s" />
-        <circle cx="210" cy="116" r="3" fill="#2563EB" class="blip-dot" style="animation-delay:1.3s" />
+        <circle cx="210" cy="116" r="3" fill="#B38F24" class="blip-dot" style="animation-delay:1.3s" />
       </svg>
     </div>
 
@@ -3671,10 +3648,10 @@
           </div>
           <div style="margin-top:8px">
             <button class="paid-btn" id="razorpay-btn"
-              style="background:linear-gradient(135deg,#3B82F6,#2563EB);color:#000;font-weight:800;font-size:16px;padding:16px 32px"
+              style="background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;font-weight:800;font-size:16px;padding:16px 32px"
               onclick="payWithRazorpay()">💳 Pay ₹199 & Unlock Report</button>
             <button class="paid-btn" id="billdesk-btn"
-              style="display:none;background:linear-gradient(135deg,#3B82F6,#2563EB);color:#000;font-weight:800;font-size:16px;padding:16px 32px"
+              style="display:none;background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;font-weight:800;font-size:16px;padding:16px 32px"
               onclick="payWithBillDesk()">📑 Pay via BillDesk</button>
           </div>
 
@@ -3728,7 +3705,7 @@
       <div
         style="background:linear-gradient(135deg,#080B0F 0%,#0F1A0C 100%);border-bottom:1px solid var(--bd);padding:28px 0 0;position:relative;overflow:hidden">
         <div
-          style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3B82F6,#FF6B1A,#3B82F6)">
+          style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#D4AF37,#FF6B1A,#D4AF37)">
         </div>
         <div
           style="position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,214,0,.05) 0%,transparent 65%);pointer-events:none">
@@ -3753,7 +3730,7 @@
               <div
                 style="display:flex;align-items:center;gap:5px;margin-top:6px;padding:4px 9px;background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.15);border-radius:4px">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#3B82F6" stroke-width="2.5"
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#D4AF37" stroke-width="2.5"
                     stroke-linecap="round" />
                 </svg>
                 <span style="font-size:10px;font-weight:600;color:var(--lime)">Independent review by Claude AI ·
@@ -3812,19 +3789,19 @@
                   <stop offset="0%" stop-color="#FF5C5C" />
                   <stop offset="40%" stop-color="#FFAA33" />
                   <stop offset="75%" stop-color="#FF6B1A" />
-                  <stop offset="100%" stop-color="#3B82F6" />
+                  <stop offset="100%" stop-color="#D4AF37" />
                 </linearGradient>
               </defs>
               <path d="M26,125 A74,74 0 0,1 174,125" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="20"
                 stroke-linecap="round" />
               <path d="M26,125 A74,74 0 0,1 174,125" fill="none" stroke="url(#gZone)" stroke-width="20"
                 stroke-linecap="round" opacity=".18" />
-              <path id="gauge-fill" d="M26,125 A74,74 0 0,1 174,125" fill="none" stroke="#3B82F6" stroke-width="20"
+              <path id="gauge-fill" d="M26,125 A74,74 0 0,1 174,125" fill="none" stroke="#D4AF37" stroke-width="20"
                 stroke-linecap="round" stroke-dasharray="0 232"
                 style="transition:stroke-dasharray 1.6s cubic-bezier(.4,0,.2,1)" />
-              <circle id="gauge-dot" cx="26" cy="125" r="8" fill="#3B82F6" stroke="#000000" stroke-width="2"
+              <circle id="gauge-dot" cx="26" cy="125" r="8" fill="#D4AF37" stroke="#000000" stroke-width="2"
                 style="transition:all 1.6s cubic-bezier(.4,0,.2,1)" />
-              <text id="gauge-num" x="100" y="108" text-anchor="middle" font-size="56" font-weight="800" fill="#3B82F6"
+              <text id="gauge-num" x="100" y="108" text-anchor="middle" font-size="56" font-weight="800" fill="#D4AF37"
                 font-family="'Plus Jakarta Sans',sans-serif" letter-spacing="-3">—</text>
               <text x="100" y="127" text-anchor="middle" font-size="12" fill="#5A6278"
                 font-family="'Nunito',sans-serif">out of 100</text>
@@ -3832,7 +3809,7 @@
                 font-family="'Nunito',sans-serif">Critical</text>
               <text x="100" y="150" text-anchor="middle" font-size="8.5" fill="#FFAA33"
                 font-family="'Nunito',sans-serif">Average</text>
-              <text x="178" y="145" text-anchor="middle" font-size="8.5" fill="#3B82F6"
+              <text x="178" y="145" text-anchor="middle" font-size="8.5" fill="#D4AF37"
                 font-family="'Nunito',sans-serif">Excellent</text>
             </svg>
             <div id="gauge-label" style="font-size:15px;font-weight:700;margin-top:4px"></div>
@@ -3964,7 +3941,7 @@
             <span><span
                 style="width:10px;height:10px;border-radius:50%;background:var(--lime);display:inline-block;margin-right:4px"></span>You</span>
             <span><span
-                style="width:10px;height:10px;border-radius:50%;background:#3B82F6;display:inline-block;margin-right:4px"></span>You're
+                style="width:10px;height:10px;border-radius:50%;background:#D4AF37;display:inline-block;margin-right:4px"></span>You're
               ahead</span>
             <span><span
                 style="width:10px;height:10px;border-radius:50%;background:#FF5C5C;display:inline-block;margin-right:4px"></span>They're
@@ -4035,7 +4012,7 @@
         <div class="rpt-sec-hd">🧭 Strategic Recommendations — Prioritised Action Plan</div>
         <div style="margin-bottom:8px">
           <div
-            style="font-size:12px;color:#CCCCCC;line-height:1.7;padding:10px 14px;background:#1F1F1F;border-radius:8px;margin-bottom:10px;border-left:3px solid #2563EB">
+            style="font-size:12px;color:#CCCCCC;line-height:1.7;padding:10px 14px;background:#1F1F1F;border-radius:8px;margin-bottom:10px;border-left:3px solid #B38F24">
             <strong style="color:#F5F5F5">Our Assessment:</strong> Based on this audit, the following three actions
             represent the highest-leverage opportunities available to <span id="strat-biz-name-inline"></span>. They are
             sequenced by impact-to-effort ratio, benchmarked against top-performing <span id="strat-type-inline"></span>
@@ -4050,7 +4027,7 @@
           style="border-color:rgba(212,175,55,.35);background:rgba(212,175,55,.03);margin-bottom:8px;border-width:2px;position:relative;overflow:hidden"
           id="pkg-rec">
           <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3B82F6,#2563EB)">
+            style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#D4AF37,#B38F24)">
           </div>
           <div
             style="font-size:11px;color:#A3A3A3;font-style:italic;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(212,175,55,.1)">
@@ -4060,18 +4037,18 @@
           <div class="pkg-grid">
             <div>
               <div
-                style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#3B82F6;margin-bottom:5px">
+                style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#D4AF37;margin-bottom:5px">
                 🤖 AI RECOMMENDATION · <span id="pkg-badge"></span></div>
               <div id="pkg-name"
                 style="font-family:var(--fh);font-size:22px;font-weight:800;letter-spacing:-.015em;color:var(--wht);margin-bottom:8px">
               </div>
               <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
                 <div id="pkg-price"
-                  style="font-family:var(--fh);font-size:30px;font-weight:800;color:#3B82F6;letter-spacing:-.02em;line-height:1">
+                  style="font-family:var(--fh);font-size:30px;font-weight:800;color:#D4AF37;letter-spacing:-.02em;line-height:1">
                 </div>
                 <div id="pkg-orig-price" style="font-size:14px;color:var(--mt);text-decoration:line-through"></div>
                 <div
-                  style="font-size:11px;font-weight:700;background:#3B82F6;color:#000000;padding:3px 8px;border-radius:3px"
+                  style="font-size:11px;font-weight:700;background:#D4AF37;color:#000000;padding:3px 8px;border-radius:3px"
                   id="pkg-disc-badge">10% OFF</div>
               </div>
             </div>
@@ -4081,14 +4058,14 @@
                 style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#A3A3A3;margin-bottom:5px">
                 Break-Even Point</div>
               <div id="roi-num"
-                style="font-family:var(--fh);font-size:26px;font-weight:800;color:#3B82F6;letter-spacing:-.02em;line-height:1;margin-bottom:3px">
+                style="font-family:var(--fh);font-size:26px;font-weight:800;color:#D4AF37;letter-spacing:-.02em;line-height:1;margin-bottom:3px">
                 —</div>
               <div id="roi-label" style="font-size:11px;color:var(--tx2);margin-bottom:6px">new customers/month</div>
               <div id="roi-desc" style="font-size:10px;color:var(--mt);line-height:1.4"></div>
             </div>
           </div>
           <div id="pkg-why"
-            style="font-size:13px;color:#F5F5F5;line-height:1.75;padding:12px 14px;background:#0A1E1F;border-radius:8px;border-left:4px solid #3B82F6;margin-bottom:10px">
+            style="font-size:13px;color:#F5F5F5;line-height:1.75;padding:12px 14px;background:#0A1E1F;border-radius:8px;border-left:4px solid #D4AF37;margin-bottom:10px">
           </div>
           <div id="pkg-why-bullets" style="display:flex;flex-direction:column;gap:6px;margin-bottom:13px"></div>
           <div id="pkg-feats" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px"></div>
@@ -4096,7 +4073,7 @@
             style="font-size:12px;color:#CCCCCC;padding:10px 13px;background:#1F1F1F;border-radius:7px;border:1px solid rgba(212,175,55,.12);margin-bottom:13px;line-height:1.65">
           </div>
           <div id="pkg-outcome"
-            style="font-size:13px;font-weight:600;color:#3B82F6;padding:10px 13px;background:rgba(212,175,55,.06);border-radius:7px;border:1px solid rgba(212,175,55,.2);margin-bottom:16px">
+            style="font-size:13px;font-weight:600;color:#D4AF37;padding:10px 13px;background:rgba(212,175,55,.06);border-radius:7px;border:1px solid rgba(212,175,55,.2);margin-bottom:16px">
           </div>
           <div
             style="background:#0A1E1F;border:1px solid rgba(212,175,55,.2);border-radius:10px;padding:16px;margin-bottom:13px;text-align:center">
@@ -4842,7 +4819,7 @@
         '{',
         '"overallScore": 0-100,',
         '"scoreLabel": "Critical|Poor|Average|Good|Excellent",',
-        '"scoreColor": "#FF5C5C|#FFAA33|#3B82F6|#2563EB",',
+        '"scoreColor": "#FF5C5C|#FFAA33|#D4AF37|#B38F24",',
         '"estimatedMonthlyLoss": "₹X,XXX – ₹X,XXX",',
         '"keyGaps": ["specific gap with numbers","specific gap","specific gap"],',
         '',
@@ -4989,11 +4966,11 @@
       const areaD = pts.map((p, i) => (i ? 'L' : 'M') + p.x.toFixed(1) + ',' + p.y.toFixed(1)).join('') + 'Z';
       const area = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       area.setAttribute('d', areaD); area.setAttribute('fill', 'rgba(255,214,0,.15)');
-      area.setAttribute('stroke', '#3B82F6'); area.setAttribute('stroke-width', '1.5'); svg.appendChild(area);
+      area.setAttribute('stroke', '#D4AF37'); area.setAttribute('stroke-width', '1.5'); svg.appendChild(area);
       pts.forEach((p, i) => {
         const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         c.setAttribute('cx', p.x.toFixed(1)); c.setAttribute('cy', p.y.toFixed(1));
-        c.setAttribute('r', '4'); c.setAttribute('fill', platforms[i].color || '#3B82F6');
+        c.setAttribute('r', '4'); c.setAttribute('fill', platforms[i].color || '#D4AF37');
         c.setAttribute('stroke', '#000000'); c.setAttribute('stroke-width', '1.5'); svg.appendChild(c);
       });
       // Radar legend
@@ -5028,7 +5005,7 @@
         const barW = Math.max(4, Math.round(maxW * (c.score / 100)));
         const isYou = c.isYou;
         const worse = !isYou && c.score > yourScore;
-        const col = isYou ? '#3B82F6' : worse ? '#FF5C5C' : '#3B82F6';
+        const col = isYou ? '#D4AF37' : worse ? '#FF5C5C' : '#D4AF37';
         const nm = c.name.length > 22 ? c.name.substring(0, 21) + '…' : c.name;
         const lbl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         lbl.setAttribute('x', '0'); lbl.setAttribute('y', (y + barH / 2 + 1).toFixed(0));
@@ -5062,7 +5039,7 @@
           const aw = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           aw.setAttribute('x', (w - padR + 12).toFixed(0)); aw.setAttribute('y', (y + barH / 2 + 1).toFixed(0));
           aw.setAttribute('dominant-baseline', 'middle'); aw.setAttribute('font-size', '12');
-          aw.setAttribute('fill', worse ? '#FF5C5C' : '#3B82F6'); aw.setAttribute('font-family', 'Nunito,sans-serif');
+          aw.setAttribute('fill', worse ? '#FF5C5C' : '#D4AF37'); aw.setAttribute('font-family', 'Nunito,sans-serif');
           aw.textContent = worse ? '▲ Ahead' : '▼ Behind'; svg.appendChild(aw);
         }
       });
@@ -5103,7 +5080,7 @@
       // Plot dots
       const effortX = { Low: 0.15, Medium: 0.5, High: 0.85, 'Low': 0.15, 'Med': 0.5, 'High': 0.85 };
       const impactY = { Low: 0.85, Medium: 0.5, High: 0.15, 'Low': 0.85, 'Med': 0.5, 'High': 0.15 };
-      const dotColors = ['#3B82F6', '#FF6B1A', '#FFAA33', '#FF8080', '#9B8FFF', '#3B82F6'];
+      const dotColors = ['#D4AF37', '#FF6B1A', '#FFAA33', '#FF8080', '#9B8FFF', '#D4AF37'];
       const legend = document.getElementById('matrix-legend');
       if (legend) legend.innerHTML = '';
       opps.forEach((o, i) => {
@@ -5122,7 +5099,7 @@
         }
       });
       // "Best zone" star
-      const star = mk('text', { x: (pad + iW * 0.15 - 2).toFixed(0), y: (pad + iH * 0.15 - 14).toFixed(0), 'text-anchor': 'middle', 'font-size': '13', fill: '#3B82F6', opacity: '.5' });
+      const star = mk('text', { x: (pad + iW * 0.15 - 2).toFixed(0), y: (pad + iH * 0.15 - 14).toFixed(0), 'text-anchor': 'middle', 'font-size': '13', fill: '#D4AF37', opacity: '.5' });
       star.textContent = '★ Best zone'; svg.appendChild(star);
     }
 
@@ -5178,9 +5155,9 @@
           `This premium AI-powered digital audit report has been prepared exclusively for ${D.bizName} to uncover hidden growth opportunities and quantify the cost of current digital presence gaps. Our analysis indicates that ${D.bizName} is currently operating below the competitive threshold for ${D.bizType} businesses in ${D.bizCity}, with a digital presence score of ${score}/100 against an area average of ${bm.topCompetitorScore || 72}/100 for top-performing competitors. This gap may be costing the business an estimated ${rd.estimatedMonthlyLoss || '₹85,000–₹2,10,000'} per month in lost customer enquiries that are being captured by competitors with stronger online visibility.`;
 
         execBlock.innerHTML = `
-      <div style="padding:24px 28px;background:linear-gradient(135deg,#0A2828,#0C3030);border-left:5px solid #3B82F6;border-radius:0 12px 12px 0;margin-bottom:0">
+      <div style="padding:24px 28px;background:linear-gradient(135deg,#0A2828,#0C3030);border-left:5px solid #D4AF37;border-radius:0 12px 12px 0;margin-bottom:0">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:#3B82F6">Executive Summary</div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:#D4AF37">Executive Summary</div>
           <div style="flex:1;height:1px;background:rgba(212,175,55,.2)"></div>
           <div style="font-size:10px;color:#A3A3A3;font-weight:600">CONFIDENTIAL · PREPARED FOR ${D.leadName?.toUpperCase() || 'CLIENT'}</div>
         </div>
@@ -5192,7 +5169,7 @@
           </div>
           <div style="text-align:center;border-left:1px solid rgba(212,175,55,.15);border-right:1px solid rgba(212,175,55,.15)">
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#A3A3A3;margin-bottom:4px">Report Value</div>
-            <div style="font-size:12px;font-weight:700;color:#3B82F6">₹5,000 — Paid ₹199</div>
+            <div style="font-size:12px;font-weight:700;color:#D4AF37">₹5,000 — Paid ₹199</div>
           </div>
           <div style="text-align:center">
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#A3A3A3;margin-bottom:4px">Prepared By</div>
@@ -5209,7 +5186,7 @@
         brandBlock.innerHTML = `
       <div class="brand-grid">
         <div style="background:#0A2020;border:1px solid rgba(212,175,55,.15);border-radius:10px;padding:14px">
-          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#3B82F6;margin-bottom:6px">Current Positioning</div>
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#D4AF37;margin-bottom:6px">Current Positioning</div>
           <div style="font-size:12.5px;color:#F5F5F5;line-height:1.6">${bp.assessment || 'Brand positioning analysis pending live data scan.'}</div>
         </div>
         <div style="background:#1A0808;border:1px solid rgba(255,92,92,.2);border-radius:10px;padding:14px">
@@ -5217,7 +5194,7 @@
           <div style="font-size:12.5px;color:#F5F5F5;line-height:1.6">${bp.gap || 'Trust signals and social proof below competitive threshold.'}</div>
         </div>
         <div style="background:#0A1A0A;border:1px solid rgba(179,143,36,.2);border-radius:10px;padding:14px">
-          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#2563EB;margin-bottom:6px">Revenue Impact</div>
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#B38F24;margin-bottom:6px">Revenue Impact</div>
           <div style="font-size:12.5px;color:#F5F5F5;line-height:1.6">${bp.impact || 'Estimated 30–45% lower conversion rate vs top-performing competitors.'}</div>
         </div>
       </div>`;
@@ -5231,7 +5208,7 @@
           { area: 'WhatsApp Lead Capture', description: 'The absence of an automated WhatsApp funnel indicates that overnight and weekend enquiries are going unanswered — industry data suggests this converts at 23% vs 4% for cold follow-ups.', estimatedMonthlyLoss: '₹38,000', urgency: 'High' },
           { area: 'Instagram Reach', description: 'Current posting frequency and content format suggest the algorithm is suppressing organic reach. This indicates the business is reaching less than 2% of its potential local audience.', estimatedMonthlyLoss: '₹32,000', urgency: 'High' }
         ];
-        const urgencyColor = { Critical: '#FF5C5C', High: '#FFAA33', Medium: '#3B82F6' };
+        const urgencyColor = { Critical: '#FF5C5C', High: '#FFAA33', Medium: '#D4AF37' };
         missedBlock.innerHTML = mo.map((o, i) => `
       <div style="display:flex;gap:14px;padding:14px 16px;background:#0A1E1F;border:1px solid rgba(255,255,255,.06);border-left:4px solid ${urgencyColor[o.urgency] || '#FFAA33'};border-radius:0 10px 10px 0;margin-bottom:8px">
         <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:${urgencyColor[o.urgency] || '#FFAA33'};color:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">${i + 1}</div>
@@ -5256,19 +5233,19 @@
           { priority: 2, title: 'Deploy WhatsApp Automation Funnel', rationale: 'Every lead that contacts you outside business hours and receives no response converts at less than 4%. Automation changes this to 23%+ conversion.', expectedOutcome: '2× enquiry-to-booking conversion within 21 days of activation', effort: 'Medium' },
           { priority: 3, title: 'Instagram Reels Strategy (3× per week)', rationale: 'Instagram\'s algorithm currently pushes Reels to 4× more non-followers than standard posts. Current posting format is not benefiting from this reach multiplier.', expectedOutcome: '4× organic reach increase · 800–2,400 new profile visitors/month within 45 days', effort: 'Low' }
         ];
-        const effortColor = { Low: '#3B82F6', Medium: '#FFAA33', High: '#FF5C5C' };
+        const effortColor = { Low: '#D4AF37', Medium: '#FFAA33', High: '#FF5C5C' };
         const priorityLabel = ['PRIMARY', 'SECONDARY', 'TERTIARY'];
         stratBlock.innerHTML = sr.map((r, i) => `
       <div style="display:grid;grid-template-columns:100px 1fr;gap:0;border:1px solid rgba(212,175,55,.15);border-radius:10px;overflow:hidden;margin-bottom:8px">
         <div style="background:#1F1F1F;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;border-right:1px solid rgba(212,175,55,.15)">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:#3B82F6;line-height:1">${r.priority || i + 1}</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:#D4AF37;line-height:1">${r.priority || i + 1}</div>
           <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#A3A3A3;margin-top:3px">${priorityLabel[i] || 'ACTION'}</div>
-          <div style="margin-top:8px;padding:2px 6px;background:${effortColor[r.effort] || '#3B82F6'}22;border-radius:3px;font-size:9px;color:${effortColor[r.effort] || '#3B82F6'};font-weight:700">${r.effort || 'Low'} Effort</div>
+          <div style="margin-top:8px;padding:2px 6px;background:${effortColor[r.effort] || '#D4AF37'}22;border-radius:3px;font-size:9px;color:${effortColor[r.effort] || '#D4AF37'};font-weight:700">${r.effort || 'Low'} Effort</div>
         </div>
         <div style="padding:14px 16px">
           <div style="font-size:13px;font-weight:700;color:#F5F5F5;margin-bottom:5px">${r.title || 'Strategic Action'}</div>
           <div style="font-size:12px;color:#CCCCCC;line-height:1.6;margin-bottom:8px">${r.rationale || ''}</div>
-          <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.15);border-radius:5px;font-size:11px;color:#3B82F6;font-weight:600">
+          <div style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.15);border-radius:5px;font-size:11px;color:#D4AF37;font-weight:600">
             📈 ${r.expectedOutcome || 'Measurable improvement within 30–60 days'}
           </div>
         </div>
@@ -5283,7 +5260,7 @@
       <div style="padding:10px 14px;background:#0A1E1F;border:1px solid rgba(255,255,255,.06);border-radius:8px;margin-bottom:6px">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:4px">
           <div style="font-size:12px;font-weight:700;color:#F5F5F5">${c.name}</div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:${c.score > score ? '#FF5C5C' : '#3B82F6'}">${c.score}/100</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:${c.score > score ? '#FF5C5C' : '#D4AF37'}">${c.score}/100</div>
         </div>
         <div style="font-size:11.5px;color:#CCCCCC;line-height:1.55">${c.competitorInsight || 'This competitor demonstrates stronger digital presence across Google Business and social media channels.'}</div>
         <div style="display:flex;gap:12px;margin-top:6px;font-size:11px;color:#A3A3A3">
@@ -5353,7 +5330,7 @@
           const metrics = (p.metrics || []).map(m => `
         <div class="pmr">
           <div class="pmr-l">${m.label}</div>
-          <div class="pmr-v" style="color:${m.better ? '#3B82F6' : '#FF5C5C'}">${m.you}</div>
+          <div class="pmr-v" style="color:${m.better ? '#D4AF37' : '#FF5C5C'}">${m.you}</div>
           <div class="pmr-cmp">avg: ${m.benchmark} ${m.better ? '✓' : '✗'}</div>
         </div>`).join('');
           const findings = (p.findings || []).map(f => `<div class="pf-row"><span style="color:${p.color};flex-shrink:0;margin-top:1px">•</span>${f}</div>`).join('');
@@ -5378,7 +5355,7 @@
           const metrics = (p.metrics || []).map(m => `
         <div class="pmr">
           <div class="pmr-l">${m.label}</div>
-          <div class="pmr-v" style="color:${m.better ? '#3B82F6' : '#FF5C5C'}">${m.you}</div>
+          <div class="pmr-v" style="color:${m.better ? '#D4AF37' : '#FF5C5C'}">${m.you}</div>
           <div class="pmr-cmp">avg: ${m.benchmark} ${m.better ? '✓' : '✗'}</div>
         </div>`).join('');
           const findings = (p.findings || []).map(f => `<div class="pf-row"><span style="color:${p.color};flex-shrink:0;margin-top:1px">•</span>${f}</div>`).join('');
@@ -5414,9 +5391,9 @@
       <div class="mcomp ${it.better ? 'ahead' : 'behind'}">
         <span class="mcomp-icon">${it.icon}</span>
         <div class="mcomp-lbl">${it.l}</div>
-        <div class="mcomp-val" style="color:${it.better ? '#3B82F6' : '#FF5C5C'}">${it.you}</div>
+        <div class="mcomp-val" style="color:${it.better ? '#D4AF37' : '#FF5C5C'}">${it.you}</div>
         <div class="mcomp-bench">Industry avg: ${it.avg}</div>
-        <div class="mcomp-status" style="color:${it.better ? '#3B82F6' : '#FF5C5C'}">${it.better ? '✓ Ahead of avg' : '✗ Below avg'}</div>
+        <div class="mcomp-status" style="color:${it.better ? '#D4AF37' : '#FF5C5C'}">${it.better ? '✓ Ahead of avg' : '✗ Below avg'}</div>
       </div>`).join('');
       }
 
@@ -5427,8 +5404,8 @@
         tb.innerHTML = (rd.competitors || []).map(c => {
           const isYou = c.isYou;
           const worse = !isYou && c.score > score;
-          const col = isYou ? scoreColor : worse ? '#FF5C5C' : '#3B82F6';
-          const rankBadge = `<div style="width:22px;height:22px;border-radius:50%;background:${c.rank === 1 ? '#3B82F6' : c.rank === 2 ? '#9B6DFF' : c.rank === 3 ? '#FFAA33' : '#FF5C5C'};color:${c.rank === 1 ? '#000000' : '#fff'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin:0 auto">${c.rank || '—'}</div>`;
+          const col = isYou ? scoreColor : worse ? '#FF5C5C' : '#D4AF37';
+          const rankBadge = `<div style="width:22px;height:22px;border-radius:50%;background:${c.rank === 1 ? '#D4AF37' : c.rank === 2 ? '#9B6DFF' : c.rank === 3 ? '#FFAA33' : '#FF5C5C'};color:${c.rank === 1 ? '#000000' : '#fff'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin:0 auto">${c.rank || '—'}</div>`;
           return `<tr style="background:${isYou ? 'rgba(255,214,0,.04)' : 'transparent'}">
         <td style="color:${isYou ? 'var(--wht)' : 'var(--tx2)'};font-weight:${isYou ? 700 : 400}">${isYou ? '⭐ ' : ''}${c.name}${isYou ? ' (You)' : ''}</td>
         <td style="text-align:center;font-family:var(--fh);font-size:15px;font-weight:800;color:${col}">${c.score}</td>
@@ -5436,7 +5413,7 @@
         <td style="text-align:center;font-size:12px;color:var(--tx2)">${c.gmbRating ? c.gmbRating + '★' : '—'}</td>
         <td style="text-align:center;font-size:12px;color:var(--tx2)">${c.igFollowers || '—'}</td>
         <td style="text-align:center">${rankBadge}</td>
-        <td style="text-align:center;font-size:11px;font-weight:700;color:${isYou ? scoreColor : worse ? '#FF5C5C' : '#3B82F6'}">${isYou ? 'You' : worse ? '▲ Ahead' : '▼ Behind'}</td>
+        <td style="text-align:center;font-size:11px;font-weight:700;color:${isYou ? scoreColor : worse ? '#FF5C5C' : '#D4AF37'}">${isYou ? 'You' : worse ? '▲ Ahead' : '▼ Behind'}</td>
       </tr>`;
         }).join('');
       }
@@ -5451,7 +5428,7 @@
         const phases = [
           { label: 'Month 1 — Foundation', color: '#FF5C5C', items: rd.freeActions ? rd.freeActions.map(a => a.title) : ['Fix Google Business Profile', 'Start Instagram Reels (3/week)', 'Set up WhatsApp quick replies'], outcome: 'First 8–12 organic enquiries from Google Maps' },
           { label: 'Month 2 — Momentum', color: '#FFAA33', items: [(rd.recommendation || {}).packageName ? 'Start ' + rd.recommendation.packageName : 'Begin social media management', 'Build Google review count to 30+', 'Launch WhatsApp automation funnel', 'Create 15 content pieces'], outcome: '15–25 enquiries/month · WhatsApp booking automation live' },
-          { label: 'Month 3 — Growth', color: '#3B82F6', items: ['Review and optimise content strategy', 'Scale best-performing posts with ads', 'Reach top 2 on Google Maps', 'Activate re-engagement broadcasts'], outcome: (rd.recommendation || {}).outcome90Days || '25–35 enquiries/month consistently' }
+          { label: 'Month 3 — Growth', color: '#D4AF37', items: ['Review and optimise content strategy', 'Scale best-performing posts with ads', 'Reach top 2 on Google Maps', 'Activate re-engagement broadcasts'], outcome: (rd.recommendation || {}).outcome90Days || '25–35 enquiries/month consistently' }
         ];
         roadmapEl.innerHTML = `<div class="roadmap">${phases.map(p => `
       <div class="rm-phase">
@@ -5524,7 +5501,7 @@
       if (wb && rec.whyBullets && rec.whyBullets.length) {
         wb.innerHTML = rec.whyBullets.map(b => `
       <div style="display:flex;align-items:flex-start;gap:8px;padding:7px 12px;background:#0A1E1F;border-radius:6px;font-size:12.5px;color:#CCCCCC;line-height:1.6">
-        <span style="color:#3B82F6;flex-shrink:0;margin-top:1px;font-weight:700">→</span>${b}
+        <span style="color:#D4AF37;flex-shrink:0;margin-top:1px;font-weight:700">→</span>${b}
       </div>`).join('');
       }
 
@@ -5661,10 +5638,10 @@
         const yourScore = reportData.overallScore || 34;
         const lower = !isYou && c.score > yourScore;   // they rank higher = bad
         const higher = !isYou && c.score < yourScore;  // we rank higher = good
-        const col = isYou ? (reportData.scoreColor || '#3B82F6') : lower ? '#FF5C5C' : '#3B82F6';
+        const col = isYou ? (reportData.scoreColor || '#D4AF37') : lower ? '#FF5C5C' : '#D4AF37';
         const arrow = isYou ? '' : lower
           ? `<span style="color:#FF5C5C;font-size:11px;font-weight:700">▲ Ranked above you</span>`
-          : `<span style="color:#3B82F6;font-size:11px;font-weight:700">▼ You rank above</span>`;
+          : `<span style="color:#D4AF37;font-size:11px;font-weight:700">▼ You rank above</span>`;
         return `
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 80px;gap:8px;align-items:center;padding:7px 10px;background:${isYou ? '#F0F9E0' : 'transparent'};border-radius:6px;margin-bottom:3px">
       <div style="font-size:12px;font-weight:${isYou ? 700 : 400};color:${isYou ? '#111' : '#555'}">${isYou ? '⭐ ' : ''}<b>${c.name}</b>${isYou ? ' (You)' : ''}</div>
@@ -5707,10 +5684,10 @@
   ">
     <!-- HEADER -->
     <div style="background:#080B0F;padding:28px 36px 22px;position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3B82F6,#FF6B1A)"></div>
+      <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#D4AF37,#FF6B1A)"></div>
       <div style="display:flex;align-items:flex-start;justify-content:space-between">
         <div>
-          <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-.015em;margin-bottom:3px">Numero <span style="color:#3B82F6">Uno</span> Marketing</div>
+          <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-.015em;margin-bottom:3px">Numero <span style="color:#D4AF37">Uno</span> Marketing</div>
           <div style="font-size:11px;color:#6B7385;letter-spacing:.08em;text-transform:uppercase">AI Digital Presence Audit Report</div>
         </div>
         <div style="text-align:right">
@@ -5763,7 +5740,7 @@
 
       <!-- DATA POINTS VS BENCHMARKS -->
       <div style="margin-bottom:22px">
-        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #3B82F6">📊 Your Numbers vs Industry Average</div>
+        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #D4AF37">📊 Your Numbers vs Industry Average</div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
           ${[
           { label: 'Google Reviews', you: dp.gmbReviews || '0', avg: bm.gmbReviewsAvg || '80+' },
@@ -5776,7 +5753,7 @@
           { label: 'Ads Running', you: dp.adsRunning ? 'Yes' : 'No', avg: 'Recommended' }
         ].map(m => {
           const ok = m.you !== 'No' && m.you !== 'Missing' && m.you !== '—' && m.you !== '0' && m.you !== 'Poor';
-          return `<div style="background:#F8F9FA;border-radius:8px;padding:10px 12px;border-left:3px solid ${ok ? '#3B82F6' : '#FF5C5C'}">
+          return `<div style="background:#F8F9FA;border-radius:8px;padding:10px 12px;border-left:3px solid ${ok ? '#D4AF37' : '#FF5C5C'}">
               <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:#888;margin-bottom:4px">${m.label}</div>
               <div style="font-size:18px;font-weight:800;color:${ok ? '#2A7A00' : '#CC3300'};letter-spacing:-.02em;line-height:1.1">${m.you}</div>
               <div style="font-size:10px;color:#888;margin-top:2px">Avg: ${m.avg}</div>
@@ -5787,7 +5764,7 @@
 
       <!-- PLATFORM AUDIT -->
       <div style="margin-bottom:22px">
-        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #3B82F6">📱 Platform Audit</div>
+        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #D4AF37">📱 Platform Audit</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
           ${platRows}
         </div>
@@ -5795,9 +5772,9 @@
 
       <!-- COMPETITOR COMPARISON -->
       <div style="margin-bottom:22px">
-        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;padding-bottom:6px;border-bottom:2px solid #3B82F6">🏆 Local Competitor Ranking</div>
+        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;padding-bottom:6px;border-bottom:2px solid #D4AF37">🏆 Local Competitor Ranking</div>
         <div style="display:flex;gap:16px;margin-bottom:10px;font-size:11px">
-          <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#3B82F6;display:inline-block"></span>You rank above them</span>
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#D4AF37;display:inline-block"></span>You rank above them</span>
           <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#FF5C5C;display:inline-block"></span>They rank above you</span>
         </div>
         <div style="background:#F8F9FA;border-radius:10px;padding:12px 14px">
@@ -5814,19 +5791,19 @@
 
       <!-- FREE ACTIONS -->
       <div style="margin-bottom:22px">
-        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #3B82F6">⚡ 3 Free Actions You Can Take Right Now</div>
+        <div style="font-size:13px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #D4AF37">⚡ 3 Free Actions You Can Take Right Now</div>
         ${actionRows}
       </div>
 
       <!-- PACKAGE RECOMMENDATION -->
-      <div style="background:#F0F9E0;border:2px solid #3B82F6;border-radius:12px;padding:20px;margin-bottom:18px;position:relative">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3B82F6,#FF6B1A);border-radius:12px 12px 0 0"></div>
+      <div style="background:#F0F9E0;border:2px solid #D4AF37;border-radius:12px;padding:20px;margin-bottom:18px;position:relative">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#D4AF37,#FF6B1A);border-radius:12px 12px 0 0"></div>
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#5A8000;margin-bottom:4px">🤖 AI RECOMMENDATION · ${rec.packageBadge || 'Most Chosen'}</div>
         <div style="font-size:22px;font-weight:800;color:#111;margin-bottom:8px">${rec.packageName || '—'}</div>
         <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
           <span style="font-size:28px;font-weight:800;color:#3A6B00;letter-spacing:-.02em">${rec.discountedPrice || rec.price || '—'}</span>
           <span style="font-size:13px;color:#888;text-decoration:line-through">${rec.price || ''}</span>
-          <span style="font-size:11px;font-weight:700;background:#3B82F6;color:#111;padding:2px 8px;border-radius:3px">10% OFF with code ${discountCode}</span>
+          <span style="font-size:11px;font-weight:700;background:#D4AF37;color:#111;padding:2px 8px;border-radius:3px">10% OFF with code ${discountCode}</span>
         </div>
         <div style="font-size:12px;color:#3A5000;background:#E0F5B0;padding:10px 12px;border-radius:7px;margin-bottom:10px;border-left:3px solid #7AC000;line-height:1.6">${rec.why || ''}</div>
         <div style="margin-bottom:8px">${featChips}</div>
@@ -5834,8 +5811,8 @@
       </div>
 
       <!-- DISCOUNT CODE -->
-      <div style="background:#080B0F;border:2px solid #3B82F6;border-radius:12px;padding:18px;margin-bottom:18px;text-align:center">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#3B82F6;margin-bottom:8px">🎁 Your Exclusive 10% Discount Code</div>
+      <div style="background:#080B0F;border:2px solid #D4AF37;border-radius:12px;padding:18px;margin-bottom:18px;text-align:center">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#D4AF37;margin-bottom:8px">🎁 Your Exclusive 10% Discount Code</div>
         <div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:.15em;background:#0F0F14;padding:12px 24px;border-radius:8px;display:inline-block;border:1px solid #2A3A00;margin-bottom:6px">${discountCode}</div>
         <div style="font-size:12px;color:#8A94AA">Apply when booking any Numero Uno package · Valid 7 days · Saves you ${rec.discountSaving || '10%'}</div>
       </div>
@@ -5858,12 +5835,12 @@
       <!-- GUARANTEE + CTA -->
       <div style="background:#0F0F14;border-radius:10px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:16px">
         <div>
-          <div style="font-size:12px;font-weight:700;color:#3B82F6;margin-bottom:3px">📋 Results Guarantee</div>
+          <div style="font-size:12px;font-weight:700;color:#D4AF37;margin-bottom:3px">📋 Results Guarantee</div>
           <div style="font-size:11px;color:#8A94AA;line-height:1.55">Measurable improvement in customer enquiries by Month 3 — or Month 4 is completely free. In the contract, not just in the pitch.</div>
         </div>
         <div style="text-align:center;flex-shrink:0">
           <div style="font-size:11px;color:#8A94AA;margin-bottom:4px">Book your strategy call</div>
-          <div style="font-size:13px;font-weight:700;color:#3B82F6">wa.me/919632091371</div>
+          <div style="font-size:13px;font-weight:700;color:#D4AF37">wa.me/919632091371</div>
           <div style="font-size:11px;color:#5A6278">+91 96320 91371</div>
         </div>
       </div>
