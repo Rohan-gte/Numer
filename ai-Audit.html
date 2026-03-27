@@ -3655,16 +3655,7 @@
               onclick="payWithBillDesk()">📑 Pay via BillDesk</button>
           </div>
 
-          <div style="margin-top:10px;opacity:0.7;font-size:11px">
-            <button onclick="confirmPayment()"
-              style="background:none;border:none;color:var(--lime);cursor:pointer;text-decoration:underline;font-size:14px;font-weight:700">✦
-              DUMMY TEST: Skip Payment (Verify Report) →</button>
-            <br><br>
-            Or if you paid via UPI manually:<br>
-            <button onclick="confirmPayment()"
-              style="background:none;border:none;color:#A3A3A3;cursor:pointer;text-decoration:underline;font-size:11px">I've
-              already paid manually →</button>
-          </div>
+
 
           <p class="pg-note">After clicking above, our AI starts scanning your profiles. Report ready in under 3
             minutes.</p>
@@ -4496,7 +4487,7 @@
         rzp.open();
       } catch (err) {
         console.error("Razorpay Modal Error:", err);
-        alert("Payment Window failed to open. Please check your internet or try manual UPI below.");
+        alert("Payment Window failed to open. Please check your internet connection or try again.");
       }
     }
 
