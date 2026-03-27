@@ -469,31 +469,172 @@
       color: #FF3B3B
     }
 
-    /* TAGS */
-    .tag-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px
+    /* CUSTOM MULTI-SELECT DROPDOWN */
+    .ms-container {
+      position: relative;
+      width: 100%;
+      font-family: var(--fb);
+      user-select: none;
     }
 
-    .tag {
-      padding: 7px 13px;
+    .ms-box {
+      min-height: 48px;
       background: var(--g2);
       border: 1px solid var(--bd);
-      border-radius: 6px;
-      font-size: 12.5px;
-      color: var(--tx2);
+      border-radius: 12px;
+      padding: 6px 40px 6px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
       cursor: pointer;
-      transition: all .2s;
-      font-weight: 500
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
     }
 
-    .tag.on {
-      background: rgba(255, 214, 0, .1);
-      border-color: rgba(255, 214, 0, .35);
-      color: var(--lime);
-      font-weight: 600
+    .ms-box:hover {
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
     }
+
+    .ms-box.open {
+      border-color: var(--lime);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .ms-box::after {
+      content: '▾';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--tx2);
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .ms-box.open::after {
+      transform: translateY(-50%) rotate(180deg);
+      color: var(--lime);
+    }
+
+    .ms-placeholder {
+      color: var(--mt);
+      font-size: 14px;
+      padding-left: 4px;
+    }
+
+    .ms-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ms-chip {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--lime);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ms-chip-remove {
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .ms-chip-remove:hover {
+      opacity: 1;
+    }
+
+    .ms-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #161620;
+      border: 1px solid var(--lime);
+      border-top: none;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      z-index: 1000;
+      max-height: 280px;
+      overflow-y: auto;
+      display: none;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      animation: msSlideIn 0.2s ease-out;
+    }
+
+    @keyframes msSlideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ms-dropdown.show {
+      display: block;
+    }
+
+    .ms-option {
+      padding: 12px 16px;
+      color: var(--tx2);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .ms-option:last-child {
+      border-bottom: none;
+    }
+
+    .ms-option:hover {
+      background: rgba(212, 175, 55, 0.05);
+      color: var(--wht);
+      padding-left: 20px;
+    }
+
+    .ms-option.selected {
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--lime);
+      font-weight: 600;
+    }
+
+    .ms-option.selected::after {
+      content: '✓';
+      font-weight: 700;
+    }
+
+    /* Custom Scrollbar for Dropdown */
+    .ms-dropdown::-webkit-scrollbar {
+      width: 6px;
+    }
+    .ms-dropdown::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .ms-dropdown::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.2);
+      border-radius: 10px;
+    }
+    .ms-dropdown::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Keep old tag grid styles just in case, but hid them */
+    .tag-grid { display: none !important; }
+    .tag { display: none !important; }
 
     /* RANGE SLIDER */
     .slider-wrap {
@@ -3176,16 +3317,18 @@
             generic report. The more accurate you are, the more precise your audit.</div>
           <div class="fg">
             <div><label class="flbl">Business type *</label>
-              <div class="tag-grid" id="biz-type-tags">
-                <div class="tag" data-v="Dental Clinic" onclick="selTag(this,'biz-type')">🦷 Dental Clinic</div>
-                <div class="tag" data-v="Gym / Fitness" onclick="selTag(this,'biz-type')">💪 Gym / Fitness</div>
-                <div class="tag" data-v="Café / Coffee Shop" onclick="selTag(this,'biz-type')">☕ Café / Coffee</div>
-                <div class="tag" data-v="Restaurant" onclick="selTag(this,'biz-type')">🍽️ Restaurant</div>
-                <div class="tag" data-v="School / Coaching" onclick="selTag(this,'biz-type')">🎓 School / Coaching</div>
-                <div class="tag" data-v="Salon / Beauty" onclick="selTag(this,'biz-type')">💅 Salon / Beauty</div>
-                <div class="tag" data-v="Hotel / Homestay" onclick="selTag(this,'biz-type')">🏨 Hotel / Homestay</div>
-                <div class="tag" data-v="Healthcare / Clinic" onclick="selTag(this,'biz-type')">🏥 Healthcare</div>
-                <div class="tag" data-v="Other SME / MSME" onclick="selTag(this,'biz-type')">🏪 Other SME</div>
+              <div class="ms-container" data-id="biz-type" data-placeholder="Select Business Type(s) *">
+                <div class="tag-grid" id="biz-type-tags">
+                  <div class="tag" data-v="Dental Clinic">🦷 Dental Clinic</div>
+                  <div class="tag" data-v="Gym / Fitness">💪 Gym / Fitness</div>
+                  <div class="tag" data-v="Café / Coffee Shop">☕ Café / Coffee</div>
+                  <div class="tag" data-v="Restaurant">🍽️ Restaurant</div>
+                  <div class="tag" data-v="School / Coaching">🎓 School / Coaching</div>
+                  <div class="tag" data-v="Salon / Beauty">💅 Salon / Beauty</div>
+                  <div class="tag" data-v="Hotel / Homestay">🏨 Hotel / Homestay</div>
+                  <div class="tag" data-v="Healthcare / Clinic">🏥 Healthcare</div>
+                  <div class="tag" data-v="Other SME / MSME">🏪 Other SME</div>
+                </div>
               </div>
               <input type="hidden" id="biz-type">
             </div>
@@ -3224,11 +3367,13 @@
             <div><label class="flbl">🌐 Website URL (if any)</label><input class="fi" id="website-url"
                 placeholder="https://yourwebsite.com (leave blank if none)"></div>
             <div><label class="flbl">Business age</label>
-              <div class="tag-grid" id="biz-age-tags">
-                <div class="tag" data-v="New (under 1 year)" onclick="selTag(this,'biz-age')">New (under 1 yr)</div>
-                <div class="tag" data-v="1–2 years" onclick="selTag(this,'biz-age')">1–2 years</div>
-                <div class="tag" data-v="2–5 years" onclick="selTag(this,'biz-age')">2–5 years</div>
-                <div class="tag" data-v="5+ years" onclick="selTag(this,'biz-age')">5+ years</div>
+              <div class="ms-container" data-id="biz-age" data-placeholder="Select Business Age">
+                <div class="tag-grid" id="biz-age-tags">
+                  <div class="tag" data-v="New (under 1 year)">New (under 1 yr)</div>
+                  <div class="tag" data-v="1–2 years">1–2 years</div>
+                  <div class="tag" data-v="2–5 years">2–5 years</div>
+                  <div class="tag" data-v="5+ years">5+ years</div>
+                </div>
               </div>
               <input type="hidden" id="biz-age">
             </div>
@@ -3247,45 +3392,47 @@
           </div>
           <div class="fg">
             <div><label class="flbl">Primary goal right now *</label>
-              <div class="tag-grid" id="goal-tags">
-                <div class="tag" data-v="Get more new customers / enquiries" onclick="selTag(this,'goal')">🎯 More new
-                  customers</div>
-                <div class="tag" data-v="Build online presence from scratch" onclick="selTag(this,'goal')">🚀 Build
-                  presence from zero</div>
-                <div class="tag" data-v="Increase Instagram followers and engagement" onclick="selTag(this,'goal')">📱
-                  Grow on Instagram</div>
-                <div class="tag" data-v="Reduce dependency on Zomato / JustDial" onclick="selTag(this,'goal')">🔄 Reduce
-                  platform dependency</div>
-                <div class="tag" data-v="Scale and open new locations" onclick="selTag(this,'goal')">📈 Scale the
-                  business</div>
-                <div class="tag" data-v="Build brand reputation and reviews" onclick="selTag(this,'goal')">⭐ Build
-                  reputation</div>
+              <div class="ms-container" data-id="goal" data-placeholder="Select Primary Goal(s) *">
+                <div class="tag-grid" id="goal-tags">
+                  <div class="tag" data-v="Get more new customers / enquiries">🎯 More new customers</div>
+                  <div class="tag" data-v="Build online presence from scratch">🚀 Build presence from zero</div>
+                  <div class="tag" data-v="Increase Instagram followers and engagement">📱 Grow on Instagram</div>
+                  <div class="tag" data-v="Reduce dependency on Zomato / JustDial">🔄 Reduce platform dependency</div>
+                  <div class="tag" data-v="Scale and open new locations">📈 Scale the business</div>
+                  <div class="tag" data-v="Build brand reputation and reviews">⭐ Build reputation</div>
+                </div>
               </div>
               <input type="hidden" id="goal">
             </div>
             <div><label class="flbl">Current monthly customer enquiries</label>
-              <div class="tag-grid" id="enquiries-tags">
-                <div class="tag" data-v="None (just starting)" onclick="selTag(this,'enquiries')">None (starting)</div>
-                <div class="tag" data-v="1–10 enquiries/month" onclick="selTag(this,'enquiries')">1–10/month</div>
-                <div class="tag" data-v="10–30 enquiries/month" onclick="selTag(this,'enquiries')">10–30/month</div>
-                <div class="tag" data-v="30+ enquiries/month" onclick="selTag(this,'enquiries')">30+/month</div>
+              <div class="ms-container" data-id="enquiries" data-placeholder="Select Monthly Enquiries">
+                <div class="tag-grid" id="enquiries-tags">
+                  <div class="tag" data-v="None (just starting)">None (starting)</div>
+                  <div class="tag" data-v="1–10 enquiries/month">1–10/month</div>
+                  <div class="tag" data-v="10–30 enquiries/month">10–30/month</div>
+                  <div class="tag" data-v="30+ enquiries/month">30+/month</div>
+                </div>
               </div>
               <input type="hidden" id="enquiries">
             </div>
             <div><label class="flbl">Monthly budget for digital marketing</label>
-              <div class="tag-grid" id="budget-tags">
-                <div class="tag" data-v="Under ₹15,000/month" onclick="selTag(this,'budget')">Under ₹15K</div>
-                <div class="tag" data-v="₹15,000–₹25,000/month" onclick="selTag(this,'budget')">₹15K–₹25K</div>
-                <div class="tag" data-v="₹25,000–₹50,000/month" onclick="selTag(this,'budget')">₹25K–₹50K</div>
-                <div class="tag" data-v="₹50,000+/month" onclick="selTag(this,'budget')">₹50K+</div>
+              <div class="ms-container" data-id="budget" data-placeholder="Select Marketing Budget">
+                <div class="tag-grid" id="budget-tags">
+                  <div class="tag" data-v="Under ₹15,000/month">Under ₹15K</div>
+                  <div class="tag" data-v="₹15,000–₹25,000/month">₹15K–₹25K</div>
+                  <div class="tag" data-v="₹25,000–₹50,000/month">₹25K–₹50K</div>
+                  <div class="tag" data-v="₹50,000+/month">₹50K+</div>
+                </div>
               </div>
               <input type="hidden" id="budget">
             </div>
             <div><label class="flbl">Timeline to see results</label>
-              <div class="tag-grid" id="timeline-tags">
-                <div class="tag" data-v="ASAP — this month" onclick="selTag(this,'timeline')">ASAP</div>
-                <div class="tag" data-v="1–2 months" onclick="selTag(this,'timeline')">1–2 months</div>
-                <div class="tag" data-v="3–6 months" onclick="selTag(this,'timeline')">3–6 months</div>
+              <div class="ms-container" data-id="timeline" data-placeholder="Select Results Timeline">
+                <div class="tag-grid" id="timeline-tags">
+                  <div class="tag" data-v="ASAP — this month">ASAP</div>
+                  <div class="tag" data-v="1–2 months">1–2 months</div>
+                  <div class="tag" data-v="3–6 months">3–6 months</div>
+                </div>
               </div>
               <input type="hidden" id="timeline">
             </div>
@@ -3315,10 +3462,12 @@
                   placeholder="+91 9876543210" type="tel"></div>
             </div>
             <div><label class="flbl">Best time to call for follow-up</label>
-              <div class="tag-grid" id="calltime-tags">
-                <div class="tag" data-v="Morning (9AM–12PM)" onclick="selTag(this,'calltime')">Morning</div>
-                <div class="tag" data-v="Afternoon (12PM–4PM)" onclick="selTag(this,'calltime')">Afternoon</div>
-                <div class="tag" data-v="Evening (4PM–7PM)" onclick="selTag(this,'calltime')">Evening</div>
+              <div class="ms-container" data-id="calltime" data-placeholder="Select Preferred Call Time(s)">
+                <div class="tag-grid" id="calltime-tags">
+                  <div class="tag" data-v="Morning (9AM–12PM)">Morning</div>
+                  <div class="tag" data-v="Afternoon (12PM–4PM)">Afternoon</div>
+                  <div class="tag" data-v="Evening (4PM–7PM)">Evening</div>
+                </div>
               </div>
               <input type="hidden" id="calltime">
             </div>
@@ -4106,11 +4255,107 @@
     let discountCode = '', currentStep = 1, isPaid = false;
 
     // ===== TAG SELECT =====
+    // ===== CUSTOM MULTI-SELECT DROPDOWN =====
+    function setupMultiSelects() {
+      const wrappers = document.querySelectorAll('.ms-container');
+      wrappers.forEach(wrap => {
+        const inputId = wrap.dataset.id;
+        const placeholderText = wrap.dataset.placeholder || 'Select options...';
+        const optionsTags = wrap.querySelectorAll('.tag'); 
+        
+        // Create MS Box
+        const msBox = document.createElement('div');
+        msBox.className = 'ms-box';
+        msBox.innerHTML = `<span class="ms-placeholder">${placeholderText}</span><div class="ms-chips"></div>`;
+        
+        // Create MS Dropdown
+        const msDrop = document.createElement('div');
+        msDrop.className = 'ms-dropdown';
+        
+        optionsTags.forEach(tag => {
+          const val = tag.dataset.v || tag.textContent.trim();
+          const label = tag.textContent.trim();
+          const opt = document.createElement('div');
+          opt.className = 'ms-option';
+          opt.dataset.v = val;
+          opt.textContent = label;
+          opt.onclick = (e) => {
+            e.stopPropagation();
+            toggleOption(wrap, opt, inputId);
+          };
+          msDrop.appendChild(opt);
+        });
+        
+        wrap.onclick = (e) => {
+          e.stopPropagation();
+          const isOpen = msBox.classList.contains('open');
+          closeAllMultiSelects();
+          if (!isOpen) {
+            msBox.classList.add('open');
+            msDrop.classList.add('show');
+          }
+        };
+        
+        wrap.appendChild(msBox);
+        wrap.appendChild(msDrop);
+      });
+      
+      document.addEventListener('click', () => closeAllMultiSelects());
+    }
+
+    function toggleOption(wrap, opt, inputId) {
+      const val = opt.dataset.v;
+      const isSelected = opt.classList.toggle('selected');
+      const input = document.getElementById(inputId);
+      let selectedVals = input.value ? input.value.split(', ') : [];
+      
+      if (isSelected) {
+        if (!selectedVals.includes(val)) selectedVals.push(val);
+      } else {
+        selectedVals = selectedVals.filter(v => v !== val);
+      }
+      
+      input.value = selectedVals.join(', ');
+      updateChips(wrap, selectedVals);
+    }
+
+    function updateChips(wrap, selectedVals) {
+      const placeholder = wrap.querySelector('.ms-placeholder');
+      const chipContainer = wrap.querySelector('.ms-chips');
+      chipContainer.innerHTML = '';
+      
+      if (selectedVals.length > 0) {
+        placeholder.style.display = 'none';
+        selectedVals.forEach(val => {
+          const chip = document.createElement('div');
+          chip.className = 'ms-chip';
+          chip.innerHTML = `${val} <span class="ms-chip-remove" onclick="event.stopPropagation(); removeOptionFromWrap('${wrap.dataset.id}', '${val}')">×</span>`;
+          chipContainer.appendChild(chip);
+        });
+      } else {
+        placeholder.style.display = 'block';
+      }
+    }
+
+    window.removeOptionFromWrap = function(inputId, val) {
+      const input = document.getElementById(inputId);
+      const wrap = document.querySelector(`.ms-container[data-id="${inputId}"]`);
+      const opt = wrap.querySelector(`.ms-option[data-v="${val}"]`);
+      if (opt) opt.classList.remove('selected');
+      
+      let selectedVals = input.value.split(', ').filter(v => v !== val && v !== "");
+      input.value = selectedVals.join(', ');
+      updateChips(wrap, selectedVals);
+    };
+
+    function closeAllMultiSelects() {
+      document.querySelectorAll('.ms-box').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.ms-dropdown').forEach(d => d.classList.remove('show'));
+    }
+
     function selTag(el, group) {
-      const wrap = el.closest('.tag-grid') || el.parentNode;
-      wrap.querySelectorAll('.tag').forEach(t => t.classList.remove('on'));
-      el.classList.add('on');
-      document.getElementById(group).value = el.dataset.v || el.textContent.trim();
+      // Legacy support if needed, but now handled by multi-select
+      console.log('selTag called for', group);
     }
 
     // ===== NA TOGGLE =====
@@ -5817,7 +6062,10 @@
     }
 
     // Init state dropdown on load
-    document.addEventListener('DOMContentLoaded', populateStates);
+    document.addEventListener('DOMContentLoaded', () => {
+      populateStates();
+      setupMultiSelects();
+    });
 
   </script>
 
