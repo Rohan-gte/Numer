@@ -88,135 +88,24 @@
       line-height: 1.7
     }
 
-    .ann {
-      background: #D4AF37;
-      color: #000;
-      font-weight: 700;
-      text-align: center;
-      padding: 10px 20px;
-      font-size: 12.5px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 10
-    }
-
-    .ann a {
-      color: #ffffff;
-      font-weight: 700;
-      text-decoration: underline
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 36px;
-      background: rgba(8, 10, 14, .95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--bd)
-    }
-
-    .logo {
-      font-family: var(--fh);
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--wht);
-      text-decoration: none;
-      letter-spacing: -.012em
-    }
-
-    .logo b {
-      color: var(--lime)
-    }
-
-    .nm {
-      display: flex;
-      gap: 28px
-    }
-
-    .nm a {
-      font-size: 13px;
-      color: var(--tx2);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color .15s
-    }
-
-    .nm a:hover,
-    .nm a.on {
-      color: var(--lime)
-    }
-
-    .nr {
-      display: flex;
-      gap: 8px;
-      align-items: center
-    }
-
-    .nwa {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(212, 175, 55, .10);
-      border: 1px solid rgba(212, 175, 55, .18);
-      color: #D4AF37;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none
-    }
-
-    .ham {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-      padding: 6px;
-      background: none;
-      border: none
-    }
-
-    .ham span {
-      width: 18px;
-      height: 1.5px;
-      background: var(--tx);
-      display: block;
-      border-radius: 2px
-    }
-
-    .mm {
-      display: none;
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      background: var(--g1);
-      border-bottom: 1px solid var(--bd);
-      z-index: 199;
-      padding: 20px;
-      flex-direction: column;
-      gap: 14px
-    }
-
-    .mm.on {
-      display: flex
-    }
-
-    .mm a {
-      color: var(--tx2);
-      text-decoration: none;
-      font-size: 15px
-    }
+        .ann { background: #000; color: #f5f5f5; border-bottom: 2px solid var(--orange); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
+    .ann a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 2px }
+    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(10, 10, 10, .92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--bd); transition: background .2s }
+    .nav-logo { font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--wht); text-decoration: none; letter-spacing: -.012em }
+    .nav-logo b { color: var(--lime) }
+    .nav-links { display: flex; gap: 28px }
+    .nav-links a { font-size: 14px; color: var(--tx); text-decoration: none; font-weight: 500 }
+    .nav-links a:hover, .nav-links a.active { color: #D4AF37 }
+    .nav-actions { display: flex; gap: 8px; align-items: center }
+    .nav-wa { display: flex; align-items: center; gap: 6px; background: #1F1F1F; border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none }
+    .nav-wa:hover { background: #D4AF37; color: #000 }
+    .nav-cta { background: linear-gradient(135deg, #F1D06F, #D4AF37); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
+    .nav-cta:hover { background: linear-gradient(135deg, #D4AF37, #F1D06F); color: #000 }
+    .nav-ham { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 6px; background: none; border: none }
+    .nav-ham span { width: 18px; height: 1.5px; background: var(--tx); display: block; border-radius: 2px }
+    .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
+    .nav-mobile.open { display: flex }
+    .nav-mobile a { color: var(--tx2); text-decoration: none; font-size: 15px; font-weight: 500 }
 
     .c {
       max-width: 800px;
@@ -580,31 +469,172 @@
       color: #FF3B3B
     }
 
-    /* TAGS */
-    .tag-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px
+    /* CUSTOM MULTI-SELECT DROPDOWN */
+    .ms-container {
+      position: relative;
+      width: 100%;
+      font-family: var(--fb);
+      user-select: none;
     }
 
-    .tag {
-      padding: 7px 13px;
+    .ms-box {
+      min-height: 48px;
       background: var(--g2);
       border: 1px solid var(--bd);
-      border-radius: 6px;
-      font-size: 12.5px;
-      color: var(--tx2);
+      border-radius: 12px;
+      padding: 6px 40px 6px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
       cursor: pointer;
-      transition: all .2s;
-      font-weight: 500
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
     }
 
-    .tag.on {
-      background: rgba(255, 214, 0, .1);
-      border-color: rgba(255, 214, 0, .35);
-      color: var(--lime);
-      font-weight: 600
+    .ms-box:hover {
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
     }
+
+    .ms-box.open {
+      border-color: var(--lime);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .ms-box::after {
+      content: '▾';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--tx2);
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .ms-box.open::after {
+      transform: translateY(-50%) rotate(180deg);
+      color: var(--lime);
+    }
+
+    .ms-placeholder {
+      color: var(--mt);
+      font-size: 14px;
+      padding-left: 4px;
+    }
+
+    .ms-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ms-chip {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--lime);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ms-chip-remove {
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .ms-chip-remove:hover {
+      opacity: 1;
+    }
+
+    .ms-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #161620;
+      border: 1px solid var(--lime);
+      border-top: none;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      z-index: 1000;
+      max-height: 280px;
+      overflow-y: auto;
+      display: none;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      animation: msSlideIn 0.2s ease-out;
+    }
+
+    @keyframes msSlideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ms-dropdown.show {
+      display: block;
+    }
+
+    .ms-option {
+      padding: 12px 16px;
+      color: var(--tx2);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .ms-option:last-child {
+      border-bottom: none;
+    }
+
+    .ms-option:hover {
+      background: rgba(212, 175, 55, 0.05);
+      color: var(--wht);
+      padding-left: 20px;
+    }
+
+    .ms-option.selected {
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--lime);
+      font-weight: 600;
+    }
+
+    .ms-option.selected::after {
+      content: '✓';
+      font-weight: 700;
+    }
+
+    /* Custom Scrollbar for Dropdown */
+    .ms-dropdown::-webkit-scrollbar {
+      width: 6px;
+    }
+    .ms-dropdown::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .ms-dropdown::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.2);
+      border-radius: 10px;
+    }
+    .ms-dropdown::-webkit-scrollbar-thumb:hover {
+      background: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Keep old tag grid styles just in case, but hid them */
+    .tag-grid { display: none !important; }
+    .tag { display: none !important; }
 
     /* RANGE SLIDER */
     .slider-wrap {
@@ -2142,27 +2172,14 @@
       }
     }
 
-    .waf {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 999;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
-      transition: all .3s ease
-    }
-
-    .waf:hover {
-      transform: scale(1.1) rotate(5deg);
-      background: #20B857
-    }
+    .sticky-mobile-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 195; padding: 11px 14px; background: var(--g1); border-top: 1px solid var(--bd); align-items: center; justify-content: space-between; gap: 8px }
+    .smb-text { font-size: 12px; color: var(--tx2); line-height: 1.3 }
+    .smb-text strong { color: var(--wht); display: block; font-size: 13px }
+    .smb-btns { display: flex; gap: 7px; flex-shrink: 0 }
+    .smb-wa { background: #25D366; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none }
+    .smb-audit { background: var(--lime); color: var(--blk); padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
+    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(212, 175, 55, .30); transition: transform .25s }
+    .wa-float:hover { transform: scale(1.1) }
 
     .toast {
       position: fixed;
@@ -2187,18 +2204,23 @@
     }
 
     @media(max-width:768px) {
-
-      nav .nm,
-      .nr {
+      .nav-links,
+      .nav-actions {
         display: none
       }
 
-      .ham {
+      .nav-ham {
+        display: flex
+      }
+    }
+
+    @media(max-width:768px) {
+      .sticky-mobile-bar {
         display: flex
       }
 
-      .fl2 {
-        grid-template-columns: 1fr
+      .wa-float {
+        display: none
       }
 
       .platforms {
@@ -2936,29 +2958,54 @@
 </head>
 
 <body>
-  <div class="ann">🎯 ₹199 AI Audit → Instant report + <strong>10% off</strong> any package &nbsp;<a href="#start">Start
-      Audit ↓</a></div>
-  <nav>
-    <a href="index.html" class="logo">Numero <b>Uno</b></a>
-    <div class="nm"><a href="index.html">Home</a><a href="services.html">Services & Pricing</a><a
-        href="clients.html">Clients</a><a href="ai-Audit.html" class="on">AI Audit — ₹199</a></div>
-    <div class="nr"><a href="https://wa.me/919632091371" class="nwa" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4AF37" xmlns="http://www.w3.org/2000/svg" style="margin-right:6px">
-          <path d="M12.031 2C6.49 2 2 6.49 2 12.031C2 13.805 2.463 15.512 3.342 17.031L2.031 22L7.142 20.689C8.583 21.492 10.232 21.969 12.031 21.969C17.572 21.969 22.062 17.479 22.062 12.031C22.062 6.583 17.572 2.094 12.031 2.094L12.031 2ZM12.031 3.531C16.732 3.531 20.562 7.361 20.562 12.031C20.562 16.701 16.732 20.531 12.031 20.531C10.457 20.531 9.006 20.1 7.781 19.351L7.49 19.172L4.621 19.922L5.381 17.102L5.192 16.81C4.341 15.46 3.861 13.85 3.861 12.031C3.861 7.361 7.691 3.531 12.031 3.531ZM15.421 13.582C15.231 13.487 14.302 13.028 14.122 12.963C13.952 12.898 13.822 12.868 13.702 13.058C13.582 13.248 13.232 13.658 13.132 13.783C13.032 13.908 12.932 13.923 12.742 13.828C12.552 13.733 11.942 13.528 11.212 12.878C10.642 12.368 10.262 11.738 10.152 11.548C10.042 11.358 10.142 11.253 10.232 11.158C10.322 11.063 10.422 10.938 10.512 10.828C10.602 10.718 10.632 10.638 10.692 10.513C10.752 10.388 10.722 10.278 10.672 10.183C10.622 10.088 10.272 9.228 10.132 8.878C9.991 8.538 9.851 8.588 9.741 8.588C9.641 8.588 9.531 8.588 9.421 8.588C9.311 8.588 9.131 8.628 8.981 8.788C8.831 8.948 8.421 9.338 8.421 10.118C8.421 10.898 8.991 11.643 9.071 11.753C9.151 11.863 10.182 13.461 11.782 14.153C12.162 14.318 12.452 14.413 12.682 14.488C13.062 14.608 13.412 14.588 13.692 14.548C14.002 14.503 14.642 14.153 14.772 13.783C14.902 13.413 14.902 13.093 14.862 13.028C14.822 12.963 14.712 12.933 14.522 12.838L15.421 13.582Z"/>
-        </svg>
-        WhatsApp
-      </a></div>
-    <button class="ham"
-      onclick="document.getElementById('mm').classList.toggle('on')"><span></span><span></span><span></span></button>
+<!-- ===== ANNOUNCE BAR ===== -->
+<div class="ann">🎯 AI Audit ₹199 — See your exact gaps + <strong>unlock 10% off</strong> any package &nbsp;<a
+    href="ai-Audit.html">Get My Audit →</a></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav-wrap" id="main-nav">
+  <a href="index.html" class="nav-logo">Numero <b>Uno</b></a>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services & Pricing</a>
+    <a href="clients.html">Client Results</a>
+    <a href="ai-Audit.html" class="active">AI Audit — ₹199</a>
   </nav>
-  <div class="mm" id="mm"><a href="index.html">Home</a><a href="services.html">Services</a><a
-      href="clients.html">Clients</a><a href="ai-Audit.html">AI Audit</a><a href="https://wa.me/919632091371"
-      style="color:#D4AF37;font-weight:600">💬 WhatsApp</a></div>
-  <a href="https://wa.me/919632091371" class="waf" target="_blank" aria-label="WhatsApp">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.031 2C6.49 2 2 6.49 2 12.031C2 13.805 2.463 15.512 3.342 17.031L2.031 22L7.142 20.689C8.583 21.492 10.232 21.969 12.031 21.969C17.572 21.969 22.062 17.479 22.062 12.031C22.062 6.583 17.572 2.094 12.031 2.094L12.031 2ZM12.031 3.531C16.732 3.531 20.562 7.361 20.562 12.031C20.562 16.701 16.732 20.531 12.031 20.531C10.457 20.531 9.006 20.1 7.781 19.351L7.49 19.172L4.621 19.922L5.381 17.102L5.192 16.81C4.341 15.46 3.861 13.85 3.861 12.031C3.861 7.361 7.691 3.531 12.031 3.531ZM15.421 13.582C15.231 13.487 14.302 13.028 14.122 12.963C13.952 12.898 13.822 12.868 13.702 13.058C13.582 13.248 13.232 13.658 13.132 13.783C13.032 13.908 12.932 13.923 12.742 13.828C12.552 13.733 11.942 13.528 11.212 12.878C10.642 12.368 10.262 11.738 10.152 11.548C10.042 11.358 10.142 11.253 10.232 11.158C10.322 11.063 10.422 10.938 10.512 10.828C10.602 10.718 10.632 10.638 10.692 10.513C10.752 10.388 10.722 10.278 10.672 10.183C10.622 10.088 10.272 9.228 10.132 8.878C9.991 8.538 9.851 8.588 9.741 8.588C9.641 8.588 9.531 8.588 9.421 8.588C9.311 8.588 9.131 8.628 8.981 8.788C8.831 8.948 8.421 9.338 8.421 10.118C8.421 10.898 8.991 11.643 9.071 11.753C9.151 11.863 10.182 13.461 11.782 14.153C12.162 14.318 12.452 14.413 12.682 14.488C13.062 14.608 13.412 14.588 13.692 14.548C14.002 14.503 14.642 14.153 14.772 13.783C14.902 13.413 14.902 13.093 14.862 13.028C14.822 12.963 14.712 12.933 14.522 12.838L15.421 13.582Z" fill="white"/>
-    </svg>
-  </a>
+  <div class="nav-actions">
+    <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online.+Can+we+talk%3F" class="nav-wa"
+      target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a href="ai-Audit.html" class="nav-cta">AI Audit — ₹199</a>
+  </div>
+  <button class="nav-ham" aria-label="Open menu"
+    onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="nav-mobile" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services & Pricing</a>
+  <a href="clients.html">Client Results</a>
+  <a href="ai-Audit.html">AI Audit — ₹199</a>
+  <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
+</div>
+<!-- ===== WA FLOAT (desktop) ===== -->
+<a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="wa-float" target="_blank"
+  rel="noopener" aria-label="WhatsApp">
+  <svg width="34" height="34" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M12.031 2C6.49 2 2 6.49 2 12.031C2 13.805 2.463 15.512 3.342 17.031L2.031 22L7.142 20.689C8.583 21.492 10.232 21.969 12.031 21.969C17.572 21.969 22.062 17.479 22.062 12.031C22.062 6.583 17.572 2.094 12.031 2.094L12.031 2ZM12.031 3.531C16.732 3.531 20.562 7.361 20.562 12.031C20.562 16.701 16.732 20.531 12.031 20.531C10.457 20.531 9.006 20.1 7.781 19.351L7.49 19.172L4.621 19.922L5.381 17.102L5.192 16.81C4.341 15.46 3.861 13.85 3.861 12.031C3.861 7.361 7.691 3.531 12.031 3.531ZM15.421 13.582C15.231 13.487 14.302 13.028 14.122 12.963C13.952 12.898 13.822 12.868 13.702 13.058C13.582 13.248 13.232 13.658 13.132 13.783C13.032 13.908 12.932 13.923 12.742 13.828C12.552 13.733 11.942 13.528 11.212 12.878C10.642 12.368 10.262 11.738 10.152 11.548C10.042 11.358 10.142 11.253 10.232 11.158C10.322 11.063 10.422 10.938 10.512 10.828C10.602 10.718 10.632 10.638 10.692 10.513C10.752 10.388 10.722 10.278 10.672 10.183C10.622 10.088 10.272 9.228 10.132 8.878C9.991 8.538 9.851 8.588 9.741 8.588C9.641 8.588 9.531 8.588 9.421 8.588C9.311 8.588 9.131 8.628 8.981 8.788C8.831 8.948 8.421 9.338 8.421 10.118C8.421 10.898 8.991 11.643 9.071 11.753C9.151 11.863 10.182 13.461 11.782 14.153C12.162 14.318 12.452 14.413 12.682 14.488C13.062 14.608 13.412 14.588 13.692 14.548C14.002 14.503 14.642 14.153 14.772 13.783C14.902 13.413 14.902 13.093 14.862 13.028C14.822 12.963 14.712 12.933 14.522 12.838L15.421 13.582Z"
+      fill="white" />
+  </svg>
+</a>
+
+<!-- ===== STICKY MOBILE BAR ===== -->
+<div class="sticky-mobile-bar">
+  <div class="smb-text"><strong>Get more customers now</strong>Free consultation · Live in 7 days</div>
+  <div class="smb-btns">
+    <a href="https://wa.me/919632091371" class="smb-wa" target="_blank">💬</a>
+    <a href="ai-Audit.html" class="smb-audit">Audit ₹199</a>
+  </div>
+</div>
   <div id="toast" class="toast">Copied!</div>
 
   <div class="ig-landing" id="ig-top">
@@ -3270,16 +3317,18 @@
             generic report. The more accurate you are, the more precise your audit.</div>
           <div class="fg">
             <div><label class="flbl">Business type *</label>
-              <div class="tag-grid" id="biz-type-tags">
-                <div class="tag" data-v="Dental Clinic" onclick="selTag(this,'biz-type')">🦷 Dental Clinic</div>
-                <div class="tag" data-v="Gym / Fitness" onclick="selTag(this,'biz-type')">💪 Gym / Fitness</div>
-                <div class="tag" data-v="Café / Coffee Shop" onclick="selTag(this,'biz-type')">☕ Café / Coffee</div>
-                <div class="tag" data-v="Restaurant" onclick="selTag(this,'biz-type')">🍽️ Restaurant</div>
-                <div class="tag" data-v="School / Coaching" onclick="selTag(this,'biz-type')">🎓 School / Coaching</div>
-                <div class="tag" data-v="Salon / Beauty" onclick="selTag(this,'biz-type')">💅 Salon / Beauty</div>
-                <div class="tag" data-v="Hotel / Homestay" onclick="selTag(this,'biz-type')">🏨 Hotel / Homestay</div>
-                <div class="tag" data-v="Healthcare / Clinic" onclick="selTag(this,'biz-type')">🏥 Healthcare</div>
-                <div class="tag" data-v="Other SME / MSME" onclick="selTag(this,'biz-type')">🏪 Other SME</div>
+              <div class="ms-container" data-id="biz-type" data-placeholder="Select Business Type(s) *">
+                <div class="tag-grid" id="biz-type-tags">
+                  <div class="tag" data-v="Dental Clinic">🦷 Dental Clinic</div>
+                  <div class="tag" data-v="Gym / Fitness">💪 Gym / Fitness</div>
+                  <div class="tag" data-v="Café / Coffee Shop">☕ Café / Coffee</div>
+                  <div class="tag" data-v="Restaurant">🍽️ Restaurant</div>
+                  <div class="tag" data-v="School / Coaching">🎓 School / Coaching</div>
+                  <div class="tag" data-v="Salon / Beauty">💅 Salon / Beauty</div>
+                  <div class="tag" data-v="Hotel / Homestay">🏨 Hotel / Homestay</div>
+                  <div class="tag" data-v="Healthcare / Clinic">🏥 Healthcare</div>
+                  <div class="tag" data-v="Other SME / MSME">🏪 Other SME</div>
+                </div>
               </div>
               <input type="hidden" id="biz-type">
             </div>
@@ -3318,11 +3367,13 @@
             <div><label class="flbl">🌐 Website URL (if any)</label><input class="fi" id="website-url"
                 placeholder="https://yourwebsite.com (leave blank if none)"></div>
             <div><label class="flbl">Business age</label>
-              <div class="tag-grid" id="biz-age-tags">
-                <div class="tag" data-v="New (under 1 year)" onclick="selTag(this,'biz-age')">New (under 1 yr)</div>
-                <div class="tag" data-v="1–2 years" onclick="selTag(this,'biz-age')">1–2 years</div>
-                <div class="tag" data-v="2–5 years" onclick="selTag(this,'biz-age')">2–5 years</div>
-                <div class="tag" data-v="5+ years" onclick="selTag(this,'biz-age')">5+ years</div>
+              <div class="ms-container" data-id="biz-age" data-placeholder="Select Business Age">
+                <div class="tag-grid" id="biz-age-tags">
+                  <div class="tag" data-v="New (under 1 year)">New (under 1 yr)</div>
+                  <div class="tag" data-v="1–2 years">1–2 years</div>
+                  <div class="tag" data-v="2–5 years">2–5 years</div>
+                  <div class="tag" data-v="5+ years">5+ years</div>
+                </div>
               </div>
               <input type="hidden" id="biz-age">
             </div>
@@ -3341,45 +3392,47 @@
           </div>
           <div class="fg">
             <div><label class="flbl">Primary goal right now *</label>
-              <div class="tag-grid" id="goal-tags">
-                <div class="tag" data-v="Get more new customers / enquiries" onclick="selTag(this,'goal')">🎯 More new
-                  customers</div>
-                <div class="tag" data-v="Build online presence from scratch" onclick="selTag(this,'goal')">🚀 Build
-                  presence from zero</div>
-                <div class="tag" data-v="Increase Instagram followers and engagement" onclick="selTag(this,'goal')">📱
-                  Grow on Instagram</div>
-                <div class="tag" data-v="Reduce dependency on Zomato / JustDial" onclick="selTag(this,'goal')">🔄 Reduce
-                  platform dependency</div>
-                <div class="tag" data-v="Scale and open new locations" onclick="selTag(this,'goal')">📈 Scale the
-                  business</div>
-                <div class="tag" data-v="Build brand reputation and reviews" onclick="selTag(this,'goal')">⭐ Build
-                  reputation</div>
+              <div class="ms-container" data-id="goal" data-placeholder="Select Primary Goal(s) *">
+                <div class="tag-grid" id="goal-tags">
+                  <div class="tag" data-v="Get more new customers / enquiries">🎯 More new customers</div>
+                  <div class="tag" data-v="Build online presence from scratch">🚀 Build presence from zero</div>
+                  <div class="tag" data-v="Increase Instagram followers and engagement">📱 Grow on Instagram</div>
+                  <div class="tag" data-v="Reduce dependency on Zomato / JustDial">🔄 Reduce platform dependency</div>
+                  <div class="tag" data-v="Scale and open new locations">📈 Scale the business</div>
+                  <div class="tag" data-v="Build brand reputation and reviews">⭐ Build reputation</div>
+                </div>
               </div>
               <input type="hidden" id="goal">
             </div>
             <div><label class="flbl">Current monthly customer enquiries</label>
-              <div class="tag-grid" id="enquiries-tags">
-                <div class="tag" data-v="None (just starting)" onclick="selTag(this,'enquiries')">None (starting)</div>
-                <div class="tag" data-v="1–10 enquiries/month" onclick="selTag(this,'enquiries')">1–10/month</div>
-                <div class="tag" data-v="10–30 enquiries/month" onclick="selTag(this,'enquiries')">10–30/month</div>
-                <div class="tag" data-v="30+ enquiries/month" onclick="selTag(this,'enquiries')">30+/month</div>
+              <div class="ms-container" data-id="enquiries" data-placeholder="Select Monthly Enquiries">
+                <div class="tag-grid" id="enquiries-tags">
+                  <div class="tag" data-v="None (just starting)">None (starting)</div>
+                  <div class="tag" data-v="1–10 enquiries/month">1–10/month</div>
+                  <div class="tag" data-v="10–30 enquiries/month">10–30/month</div>
+                  <div class="tag" data-v="30+ enquiries/month">30+/month</div>
+                </div>
               </div>
               <input type="hidden" id="enquiries">
             </div>
             <div><label class="flbl">Monthly budget for digital marketing</label>
-              <div class="tag-grid" id="budget-tags">
-                <div class="tag" data-v="Under ₹15,000/month" onclick="selTag(this,'budget')">Under ₹15K</div>
-                <div class="tag" data-v="₹15,000–₹25,000/month" onclick="selTag(this,'budget')">₹15K–₹25K</div>
-                <div class="tag" data-v="₹25,000–₹50,000/month" onclick="selTag(this,'budget')">₹25K–₹50K</div>
-                <div class="tag" data-v="₹50,000+/month" onclick="selTag(this,'budget')">₹50K+</div>
+              <div class="ms-container" data-id="budget" data-placeholder="Select Marketing Budget">
+                <div class="tag-grid" id="budget-tags">
+                  <div class="tag" data-v="Under ₹15,000/month">Under ₹15K</div>
+                  <div class="tag" data-v="₹15,000–₹25,000/month">₹15K–₹25K</div>
+                  <div class="tag" data-v="₹25,000–₹50,000/month">₹25K–₹50K</div>
+                  <div class="tag" data-v="₹50,000+/month">₹50K+</div>
+                </div>
               </div>
               <input type="hidden" id="budget">
             </div>
             <div><label class="flbl">Timeline to see results</label>
-              <div class="tag-grid" id="timeline-tags">
-                <div class="tag" data-v="ASAP — this month" onclick="selTag(this,'timeline')">ASAP</div>
-                <div class="tag" data-v="1–2 months" onclick="selTag(this,'timeline')">1–2 months</div>
-                <div class="tag" data-v="3–6 months" onclick="selTag(this,'timeline')">3–6 months</div>
+              <div class="ms-container" data-id="timeline" data-placeholder="Select Results Timeline">
+                <div class="tag-grid" id="timeline-tags">
+                  <div class="tag" data-v="ASAP — this month">ASAP</div>
+                  <div class="tag" data-v="1–2 months">1–2 months</div>
+                  <div class="tag" data-v="3–6 months">3–6 months</div>
+                </div>
               </div>
               <input type="hidden" id="timeline">
             </div>
@@ -3409,10 +3462,12 @@
                   placeholder="+91 9876543210" type="tel"></div>
             </div>
             <div><label class="flbl">Best time to call for follow-up</label>
-              <div class="tag-grid" id="calltime-tags">
-                <div class="tag" data-v="Morning (9AM–12PM)" onclick="selTag(this,'calltime')">Morning</div>
-                <div class="tag" data-v="Afternoon (12PM–4PM)" onclick="selTag(this,'calltime')">Afternoon</div>
-                <div class="tag" data-v="Evening (4PM–7PM)" onclick="selTag(this,'calltime')">Evening</div>
+              <div class="ms-container" data-id="calltime" data-placeholder="Select Preferred Call Time(s)">
+                <div class="tag-grid" id="calltime-tags">
+                  <div class="tag" data-v="Morning (9AM–12PM)">Morning</div>
+                  <div class="tag" data-v="Afternoon (12PM–4PM)">Afternoon</div>
+                  <div class="tag" data-v="Evening (4PM–7PM)">Evening</div>
+                </div>
               </div>
               <input type="hidden" id="calltime">
             </div>
@@ -3424,11 +3479,8 @@
               3. 10% discount code delivered to your WhatsApp<br>
               4. Our team calls you within 2 hours if you'd like a free strategy call
             </div>
-            <div class="pg-note" style="margin-bottom:12px;text-align:center">Step 3 of 5: We capture your details to send the 10% discount code and full strategy guide via WhatsApp.</div>
-            <div class="btn-row" style="justify-content:center;gap:15px">
-              <button class="btn-back" onclick="goStep(2)" style="flex:1;max-width:120px">← Back</button>
-              <button class="btn-next" onclick="startAudit(false)" style="flex:2;background:linear-gradient(135deg,var(--lime),#FF6B1A);color:#000;font-weight:800">Generate My Free Audit Report →</button>
-            </div>
+            <div class="btn-row"><button class="btn-back" onclick="goStep(2)">← Back</button><button class="btn-next"
+                onclick="goStep(4)">Continue — Pay ₹199 →</button></div>
           </div>
         </div>
       </div>
@@ -3603,6 +3655,19 @@
               onclick="payWithBillDesk()">📑 Pay via BillDesk</button>
           </div>
 
+          <div style="margin-top:10px;opacity:0.7;font-size:11px">
+            <button onclick="confirmPayment()"
+              style="background:none;border:none;color:var(--lime);cursor:pointer;text-decoration:underline;font-size:14px;font-weight:700">✦
+              DUMMY TEST: Skip Payment (Verify Report) →</button>
+            <br><br>
+            Or if you paid via UPI manually:<br>
+            <button onclick="confirmPayment()"
+              style="background:none;border:none;color:#A3A3A3;cursor:pointer;text-decoration:underline;font-size:11px">I've
+              already paid manually →</button>
+          </div>
+
+          <p class="pg-note">After clicking above, our AI starts scanning your profiles. Report ready in under 3
+            minutes.</p>
           <div class="pg-secure">🔒 Secure · Your data is private · No spam</div>
           <div class="btn-row" style="justify-content:center;margin-top:14px"><button class="btn-back"
               onclick="goStep(3)">← Back</button></div>
@@ -3845,14 +3910,11 @@
             Brand Positioning Analysis</div>
           <div id="brand-positioning-block"></div>
         </div>
-        <div id="results-content">
-          <div id="platforms-grid" class="platforms" style="margin-bottom:8px"></div>
-        </div>
-        <div id="premium-content-wrapper" style="display:none">
+        <div id="platforms-grid" class="platforms" style="margin-bottom:8px"></div>
 
         <!-- ④  METRICS vs BENCHMARK -->
-        <div class="rpt-sec-hd gated-sec">📐 Your Numbers vs What Top Businesses in Your Area Are Hitting</div>
-        <div id="metrics-grid" class="gated-sec" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px"></div>
+        <div class="rpt-sec-hd">📐 Your Numbers vs What Top Businesses in Your Area Are Hitting</div>
+        <div id="metrics-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px"></div>
 
         <!-- ⑤  COMPETITIVE INTELLIGENCE -->
         <div class="rpt-sec-hd">🏆 Competitive Intelligence — Who's Winning in <span id="comp-city-label"
@@ -3920,20 +3982,21 @@
           </div>
         </div>
 
-        <div class="rpt-sec-hd gated-sec">🕸️ How Visible Are You Across Every Platform?</div>
-        <div class="gated-sec rpt-card" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:8px">
+        <!-- ⑥  PLATFORM RADAR -->
+        <div class="rpt-sec-hd">🕸️ How Visible Are You Across Every Platform?</div>
+        <div class="rpt-card" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:8px">
           <div style="flex:0 0 200px;display:flex;justify-content:center"><svg id="radar-chart" viewBox="0 0 200 200"
               width="200" height="200"></svg></div>
           <div style="flex:1;min-width:180px" id="radar-legend"></div>
         </div>
 
         <!-- ⑦  90-DAY ROADMAP -->
-        <div class="rpt-sec-hd gated-sec">🗓️ Your Personalised 90-Day Recovery Roadmap</div>
-        <div id="roadmap-section" class="gated-sec" style="margin-bottom:8px"></div>
+        <div class="rpt-sec-hd">🗓️ Your Personalised 90-Day Recovery Roadmap</div>
+        <div id="roadmap-section" style="margin-bottom:8px"></div>
 
         <!-- ⑧  PRIORITY MATRIX -->
-        <div class="rpt-sec-hd gated-sec">🎯 What to Fix First — Effort vs Impact Priority Matrix</div>
-        <div class="rpt-card gated-sec" style="margin-bottom:8px">
+        <div class="rpt-sec-hd">🎯 What to Fix First — Effort vs Impact Priority Matrix</div>
+        <div class="rpt-card" style="margin-bottom:8px">
           <div style="font-size:12px;color:var(--tx2);margin-bottom:12px">Each opportunity is plotted by effort required
             vs impact delivered. <strong style="color:var(--lime)">Focus on top-right first</strong> — high impact, low
             effort.</div>
@@ -3942,12 +4005,12 @@
         </div>
 
         <!-- ⑨  FREE ACTIONS -->
-        <div class="rpt-sec-hd gated-sec">⚡ 3 Things You Can Do This Week for Free — That Will Move the Needle</div>
-        <div id="action-list" class="gated-sec" style="display:flex;flex-direction:column;gap:10px;margin-bottom:8px"></div>
+        <div class="rpt-sec-hd">⚡ 3 Things You Can Do This Week for Free — That Will Move the Needle</div>
+        <div id="action-list" style="display:flex;flex-direction:column;gap:10px;margin-bottom:8px"></div>
 
         <!-- ══ STRATEGIC RECOMMENDATIONS ══ -->
-        <div class="rpt-sec-hd gated-sec">🧭 Strategic Recommendations — Prioritised Action Plan</div>
-        <div class="gated-sec" style="margin-bottom:8px">
+        <div class="rpt-sec-hd">🧭 Strategic Recommendations — Prioritised Action Plan</div>
+        <div style="margin-bottom:8px">
           <div
             style="font-size:12px;color:#CCCCCC;line-height:1.7;padding:10px 14px;background:#1F1F1F;border-radius:8px;margin-bottom:10px;border-left:3px solid #B38F24">
             <strong style="color:#F5F5F5">Our Assessment:</strong> Based on this audit, the following three actions
@@ -3959,8 +4022,8 @@
         </div>
 
         <!-- ⑩  PACKAGE RECOMMENDATION -->
-        <div class="rpt-sec-hd gated-sec">📦 The Exact Package That Fixes Your Specific Gaps</div>
-        <div class="rpt-card gated-sec"
+        <div class="rpt-sec-hd">📦 The Exact Package That Fixes Your Specific Gaps</div>
+        <div class="rpt-card"
           style="border-color:rgba(212,175,55,.35);background:rgba(212,175,55,.03);margin-bottom:8px;border-width:2px;position:relative;overflow:hidden"
           id="pkg-rec">
           <div
@@ -4170,7 +4233,6 @@
           <a href="https://wa.me/919632091371?text=Hi%2C+I+just+ran+my+AI+audit.+Can+we+talk%3F"
             style="font-size:13px;color:var(--lime);text-decoration:none" target="_blank">+91 96320 91371 →</a>
         </div>
-        </div><!-- /#premium-content-wrapper -->
 
       </div><!-- /.c -->
     </div><!-- /#results -->
@@ -4193,11 +4255,107 @@
     let discountCode = '', currentStep = 1, isPaid = false;
 
     // ===== TAG SELECT =====
+    // ===== CUSTOM MULTI-SELECT DROPDOWN =====
+    function setupMultiSelects() {
+      const wrappers = document.querySelectorAll('.ms-container');
+      wrappers.forEach(wrap => {
+        const inputId = wrap.dataset.id;
+        const placeholderText = wrap.dataset.placeholder || 'Select options...';
+        const optionsTags = wrap.querySelectorAll('.tag'); 
+        
+        // Create MS Box
+        const msBox = document.createElement('div');
+        msBox.className = 'ms-box';
+        msBox.innerHTML = `<span class="ms-placeholder">${placeholderText}</span><div class="ms-chips"></div>`;
+        
+        // Create MS Dropdown
+        const msDrop = document.createElement('div');
+        msDrop.className = 'ms-dropdown';
+        
+        optionsTags.forEach(tag => {
+          const val = tag.dataset.v || tag.textContent.trim();
+          const label = tag.textContent.trim();
+          const opt = document.createElement('div');
+          opt.className = 'ms-option';
+          opt.dataset.v = val;
+          opt.textContent = label;
+          opt.onclick = (e) => {
+            e.stopPropagation();
+            toggleOption(wrap, opt, inputId);
+          };
+          msDrop.appendChild(opt);
+        });
+        
+        wrap.onclick = (e) => {
+          e.stopPropagation();
+          const isOpen = msBox.classList.contains('open');
+          closeAllMultiSelects();
+          if (!isOpen) {
+            msBox.classList.add('open');
+            msDrop.classList.add('show');
+          }
+        };
+        
+        wrap.appendChild(msBox);
+        wrap.appendChild(msDrop);
+      });
+      
+      document.addEventListener('click', () => closeAllMultiSelects());
+    }
+
+    function toggleOption(wrap, opt, inputId) {
+      const val = opt.dataset.v;
+      const isSelected = opt.classList.toggle('selected');
+      const input = document.getElementById(inputId);
+      let selectedVals = input.value ? input.value.split(', ') : [];
+      
+      if (isSelected) {
+        if (!selectedVals.includes(val)) selectedVals.push(val);
+      } else {
+        selectedVals = selectedVals.filter(v => v !== val);
+      }
+      
+      input.value = selectedVals.join(', ');
+      updateChips(wrap, selectedVals);
+    }
+
+    function updateChips(wrap, selectedVals) {
+      const placeholder = wrap.querySelector('.ms-placeholder');
+      const chipContainer = wrap.querySelector('.ms-chips');
+      chipContainer.innerHTML = '';
+      
+      if (selectedVals.length > 0) {
+        placeholder.style.display = 'none';
+        selectedVals.forEach(val => {
+          const chip = document.createElement('div');
+          chip.className = 'ms-chip';
+          chip.innerHTML = `${val} <span class="ms-chip-remove" onclick="event.stopPropagation(); removeOptionFromWrap('${wrap.dataset.id}', '${val}')">×</span>`;
+          chipContainer.appendChild(chip);
+        });
+      } else {
+        placeholder.style.display = 'block';
+      }
+    }
+
+    window.removeOptionFromWrap = function(inputId, val) {
+      const input = document.getElementById(inputId);
+      const wrap = document.querySelector(`.ms-container[data-id="${inputId}"]`);
+      const opt = wrap.querySelector(`.ms-option[data-v="${val}"]`);
+      if (opt) opt.classList.remove('selected');
+      
+      let selectedVals = input.value.split(', ').filter(v => v !== val && v !== "");
+      input.value = selectedVals.join(', ');
+      updateChips(wrap, selectedVals);
+    };
+
+    function closeAllMultiSelects() {
+      document.querySelectorAll('.ms-box').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.ms-dropdown').forEach(d => d.classList.remove('show'));
+    }
+
     function selTag(el, group) {
-      const wrap = el.closest('.tag-grid') || el.parentNode;
-      wrap.querySelectorAll('.tag').forEach(t => t.classList.remove('on'));
-      el.classList.add('on');
-      document.getElementById(group).value = el.dataset.v || el.textContent.trim();
+      // Legacy support if needed, but now handled by multi-select
+      console.log('selTag called for', group);
     }
 
     // ===== NA TOGGLE =====
@@ -4251,40 +4409,11 @@
         D.leadName = document.getElementById('lead-name').value.trim();
         D.leadPhone = document.getElementById('lead-phone').value.trim();
         if (!D.leadName || !D.leadPhone) { alert('Please enter your name and WhatsApp number.'); return; }
-        
-        // Log lead immediately
-        console.log('Lead captured (WhatsApp):', D.leadPhone, D.leadName);
       }
-      
-      const parts = ['step1', 'step2', 'step3', 'step4', 'loadingSection', 'results'];
-      parts.forEach(p => { const el = document.getElementById(p); if(el) el.style.display = 'none'; });
-      
-      document.getElementById('step' + currentStep)?.style.setProperty('display', 'none');
+      document.getElementById('step' + currentStep).style.display = 'none';
       currentStep = n;
-      const nextEl = document.getElementById('step' + n);
-      if (nextEl) nextEl.style.display = 'block';
+      if (n <= 4) document.getElementById('step' + n).style.display = 'block';
       updateStepUI(n);
-    }
-
-    function startAudit(paid) {
-      // Validate Step 3 inputs
-      D.leadName = document.getElementById('lead-name').value.trim();
-      D.leadPhone = document.getElementById('lead-phone').value.trim();
-      if (!D.leadName || !D.leadPhone) { alert('Please enter your name and WhatsApp number to generate your report.'); return; }
-      
-      // LOG LEAD IMMEDIATELY
-      const leadMsg = `🔔 NEW AUDIT LEAD (Step 3)
-Name: ${D.leadName}
-Phone: ${D.leadPhone}
-Business: ${D.bizName} | ${D.bizCity} | ${D.bizType}
-Budget: ${D.budget} | Goal: ${D.goal}
-Time: ${new Date().toLocaleString('en-IN')}`;
-      console.log(leadMsg);
-
-      isPaid = paid;
-      document.getElementById('step3').style.display = 'none';
-      updateStepUI(5); // Move indicator to "Your Report"
-      runAudit();
     }
 
     // ===== PAYMENT METHODS =====
@@ -5007,49 +5136,22 @@ Time: ${new Date().toLocaleString('en-IN')}`;
       window.scrollTo({ top: 0, behavior: 'auto' });
 
       // Reset restricted view
+      const premiumOverlay = document.getElementById('premium-overlay');
       const premiumSections = [
         'platforms-grid', 'metrics-grid', 'comp-section', 'roadmap-section',
         'matrix-chart', 'strat-recs-block', 'pkg-rec', 'quote-box', 'missed-opps-block'
       ];
 
-      // Hide/Show sections based on isPaid
-      const gatedElements = document.querySelectorAll('.gated-sec');
-      gatedElements.forEach(el => {
-        el.style.display = isPaid ? 'block' : 'none';
-      });
+      if (premiumOverlay) premiumOverlay.style.display = isPaid ? 'none' : 'block';
 
-      // Handle Gating Banner
-      let banner = document.getElementById('premium-banner');
-      if (!isPaid) {
-        if (!banner) {
-          banner = document.createElement('div');
-          banner.id = 'premium-banner';
-          banner.style.cssText = 'padding:40px 0;background:linear-gradient(to bottom, transparent, #080B0F 20%);text-align:center;position:relative;margin-top:-20px;z-index:90';
-          banner.innerHTML = `
-            <div style="background:rgba(18,22,28,.95);border:2px solid var(--lime);border-radius:20px;padding:32px;max-width:600px;margin:0 auto;box-shadow:0 0 60px rgba(212,175,55,.2);backdrop-filter:blur(10px)">
-              <div style="font-size:48px;margin-bottom:16px">🔒</div>
-              <h2 style="font-family:var(--fh);font-size:28px;font-weight:800;color:var(--wht);margin-bottom:12px;letter-spacing:-.02em">Unlock Your Full AI Audit</h2>
-              <p style="font-size:15px;color:var(--tx2);margin-bottom:24px;line-height:1.6">You've seen your score and revenue impact. Unlocking the <strong>Full Report</strong> gives you access to:</p>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin-bottom:28px;font-size:13px;color:var(--tx)">
-                <div>✅ Deep Platform Audits (FB, GMB)</div>
-                <div>✅ Competitive Intelligence Data</div>
-                <div>✅ 90-Day Growth Roadmap</div>
-                <div>✅ Strategic Recommendations</div>
-                <div>✅ 10% Package Discount Code</div>
-                <div>✅ Downloadable PDF Report</div>
-              </div>
-              <div style="font-family:var(--fh);font-size:52px;font-weight:800;color:var(--lime);margin-bottom:20px;letter-spacing:-.03em">₹199</div>
-              <button class="paid-btn" style="background:linear-gradient(135deg,#D4AF37,#B38F24);color:#000;width:100%;justify-content:center;padding:18px;font-size:18px;margin-bottom:12px" onclick="goStep(4)">✦ Unlock Full Strategy Now</button>
-              <div style="font-size:11px;color:var(--mt)">One-time Payment · Secure · Instant Access</div>
-            </div>
-          `;
-          document.getElementById('results-content').appendChild(banner);
-        } else {
-          banner.style.display = 'block';
+      premiumSections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.filter = isPaid ? 'none' : 'blur(8px)';
+          el.style.pointerEvents = isPaid ? 'auto' : 'none';
+          el.style.userSelect = isPaid ? 'auto' : 'none';
         }
-      } else if (banner) {
-        banner.style.display = 'none';
-      }
+      });
 
       const score = rd.overallScore || 34;
       const scoreColor = rd.scoreColor || '#FF5C5C';
@@ -5246,8 +5348,7 @@ Time: ${new Date().toLocaleString('en-IN')}`;
       // ── PLATFORM CARDS (premium) ──
       const pg = document.getElementById('platforms-grid');
       if (pg) {
-        pg.innerHTML = '';
-        // First platform is free
+        <!-- First platform is free -->
         (rd.platforms || []).slice(0, 1).forEach(p => {
           const ringR = 28, circ = 2 * Math.PI * ringR, filled = circ * (p.score / 10);
           const svgRing = `<svg width="68" height="68" viewBox="0 0 68 68"><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="5"/><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="${p.color}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${filled} ${circ}" transform="rotate(-90 34 34)" style="transition:stroke-dasharray 1.2s ease .3s"/><text x="34" y="38" text-anchor="middle" font-size="15" font-weight="800" fill="${p.color}" font-family="'Plus Jakarta Sans',sans-serif">${p.score}</text><text x="34" y="48" text-anchor="middle" font-size="8" fill="#5A6278" font-family="'Nunito',sans-serif">/10</text></svg>`;
@@ -5272,18 +5373,18 @@ Time: ${new Date().toLocaleString('en-IN')}`;
         });
 
         // Wrap the rest in premium-content
-        if (isPaid) {
-          (rd.platforms || []).slice(1).forEach(p => {
-            const ringR = 28, circ = 2 * Math.PI * ringR, filled = circ * (p.score / 10);
-            const svgRing = `<svg width="68" height="68" viewBox="0 0 68 68"><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="5"/><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="${p.color}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${filled} ${circ}" transform="rotate(-90 34 34)" style="transition:stroke-dasharray 1.2s ease .3s"/><text x="34" y="38" text-anchor="middle" font-size="15" font-weight="800" fill="${p.color}" font-family="'Plus Jakarta Sans',sans-serif">${p.score}</text><text x="34" y="48" text-anchor="middle" font-size="8" fill="#5A6278" font-family="'Nunito',sans-serif">/10</text></svg>`;
-            const metrics = (p.metrics || []).map(m => `
+        pg.innerHTML += '<div id="premium-content" style="display:contents">';
+        (rd.platforms || []).slice(1).forEach(p => {
+          const ringR = 28, circ = 2 * Math.PI * ringR, filled = circ * (p.score / 10);
+          const svgRing = `<svg width="68" height="68" viewBox="0 0 68 68"><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="5"/><circle cx="34" cy="34" r="${ringR}" fill="none" stroke="${p.color}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${filled} ${circ}" transform="rotate(-90 34 34)" style="transition:stroke-dasharray 1.2s ease .3s"/><text x="34" y="38" text-anchor="middle" font-size="15" font-weight="800" fill="${p.color}" font-family="'Plus Jakarta Sans',sans-serif">${p.score}</text><text x="34" y="48" text-anchor="middle" font-size="8" fill="#5A6278" font-family="'Nunito',sans-serif">/10</text></svg>`;
+          const metrics = (p.metrics || []).map(m => `
         <div class="pmr">
           <div class="pmr-l">${m.label}</div>
           <div class="pmr-v" style="color:${m.better ? '#D4AF37' : '#FF5C5C'}">${m.you}</div>
           <div class="pmr-cmp">avg: ${m.benchmark} ${m.better ? '✓' : '✗'}</div>
         </div>`).join('');
-            const findings = (p.findings || []).map(f => `<div class="pf-row"><span style="color:${p.color};flex-shrink:0;margin-top:1px">•</span>${f}</div>`).join('');
-            pg.innerHTML += `<div class="plat-premium">
+          const findings = (p.findings || []).map(f => `<div class="pf-row"><span style="color:${p.color};flex-shrink:0;margin-top:1px">•</span>${f}</div>`).join('');
+          pg.innerHTML += `<div class="plat-premium">
         <div class="plat-score-ring">
           <div class="plat-ring-wrap">${svgRing}</div>
           <div>
@@ -5294,8 +5395,8 @@ Time: ${new Date().toLocaleString('en-IN')}`;
         <div class="plat-metric-row">${metrics}</div>
         <div class="plat-findings">${findings}</div>
       </div>`;
-          });
-        }
+        });
+        pg.innerHTML += '</div>'; // close premium-content
       }
 
       // ── METRICS GRID ──
@@ -5379,11 +5480,27 @@ Time: ${new Date().toLocaleString('en-IN')}`;
       }
 
       // ── PREMIUM OVERLAY & GATE ──
-      const pWrapper = document.getElementById('premium-content-wrapper');
-      if (pWrapper) {
-        pWrapper.style.display = isPaid ? 'block' : 'none';
+      if (!isPaid) {
+        const resEl = document.getElementById('results');
+        // Ensure the overlay exists or recreate it
+        let overlay = document.getElementById('premium-overlay');
+        if (!overlay) {
+          overlay = document.createElement('div');
+          overlay.id = 'premium-overlay';
+          overlay.style.cssText = 'position:relative;margin-top:-400px;background:linear-gradient(to bottom, transparent, var(--blk) 10%, var(--blk));padding:100px 24px;text-align:center;z-index:100;border-top:1px solid var(--bd)';
+          overlay.innerHTML = `
+        <div class="glass-panel" style="max-width:600px;margin:0 auto;border:2px solid var(--lime);box-shadow:0 0 50px rgba(212,175,55,.2)">
+          <div style="font-size:40px;margin-bottom:20px">🔒</div>
+          <h2 style="font-family:var(--fh);font-size:28px;font-weight:800;color:var(--wht);margin-bottom:12px">Unlock Your Full AI Audit Report</h2>
+          <p style="font-size:15px;color:var(--tx2);margin-bottom:24px;line-height:1.6">You've seen the preview. Pay ₹199 to unlock the full 13-section deep-dive report, competitor insights, and your personalized growth roadmap.</p>
+          <div style="font-family:var(--fh);font-size:48px;font-weight:800;color:var(--lime);margin-bottom:24px">₹199</div>
+          <button class="paid-btn" style="background:var(--lime);color:var(--blk);width:100%;justify-content:center;padding:18px;font-size:18px" onclick="startRazorpay()">✦ Unlock Full Report Now</button>
+          <p style="font-size:12px;color:var(--mt);margin-top:16px">Instant Unlock · PDF Download Included · 10% Discount Code</p>
+        </div>
+      `;
+          resEl.appendChild(overlay);
+        }
       }
-
 
       // ── STRATEGIC RECS INLINE LABELS ──
       const sbiEl = document.getElementById('strat-biz-name-inline');
@@ -5970,7 +6087,10 @@ Time: ${new Date().toLocaleString('en-IN')}`;
     }
 
     // Init state dropdown on load
-    document.addEventListener('DOMContentLoaded', populateStates);
+    document.addEventListener('DOMContentLoaded', () => {
+      populateStates();
+      setupMultiSelects();
+    });
 
   </script>
 
