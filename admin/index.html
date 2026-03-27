@@ -323,6 +323,70 @@
       background: var(--tx);
       display: block;
     }
+
+    /* MODAL */
+    .modal-ov {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal {
+      background: var(--g1);
+      border: 1px solid var(--bd);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 500px;
+      padding: 40px;
+      position: relative;
+      animation: modalIn 0.3s ease-out;
+    }
+
+    @keyframes modalIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .m-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--mt);
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .m-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      color: var(--wht);
+    }
+
+    .det-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .det-lbl { color: var(--mt); font-weight: 600; }
+    .det-val { color: var(--tx); font-weight: 700; text-align: right; }
+
   </style>
 </head>
 
@@ -455,7 +519,9 @@
               <th>Method</th>
               <th>Date</th>
               <th>Status</th>
+              <th>Action</th>
             </tr>
+
           </thead>
           <tbody id="payments-body"></tbody>
         </table>
@@ -492,6 +558,15 @@
     </div>
 
   </div> <!-- main -->
+  
+  <!-- PAYMENT DETAILS MODAL -->
+  <div id="p-modal" class="modal-ov">
+    <div class="modal">
+      <button class="m-close" onclick="closeModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
 
   <script>
     // ADMIN AUTH CHECK
@@ -639,7 +714,9 @@
             <td><span class="method-tag">${l.method}</span></td>
             <td><small>${new Date(l.date).toLocaleDateString()}</small></td>
             <td><span class="status paid">SUCCESS</span></td>
+            <td><button class="action-btn" onclick="viewPaymentDetails(${l.id})">View</button></td>
           </tr>
+
         `).join('');
       }
     }
@@ -661,6 +738,39 @@
       loadLeads();
     }
     initDashboard();
+
+    function viewPaymentDetails(id) {
+      const leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const l = leads.find(item => item.id == id);
+      if (!l) return;
+
+      const html = `
+        <div class="m-title">Payment Details</div>
+        <div class="det-row"><span class="det-lbl">Business:</span><span class="det-val">${l.bizName}</span></div>
+        <div class="det-row"><span class="det-lbl">Location:</span><span class="det-val">${l.city || 'Bangalore'}</span></div>
+        <div class="det-row"><span class="det-lbl">Customer:</span><span class="det-val">${l.name}</span></div>
+        <div class="det-row"><span class="det-lbl">Phone:</span><span class="det-val">+91 ${l.phone}</span></div>
+        <div class="det-row"><span class="det-lbl">Amount Paid:</span><span class="det-val" style="color:var(--lime)">₹${(l.amount || 0).toLocaleString('en-IN')}</span></div>
+        <div class="det-row"><span class="det-lbl">Method:</span><span class="det-val">${l.method}</span></div>
+        <div class="det-row"><span class="det-lbl">Date:</span><span class="det-val">${new Date(l.date).toLocaleString()}</span></div>
+        <div class="det-row" style="border:none"><span class="det-lbl">Status:</span><span class="det-val">VERIFIED ✓</span></div>
+        <button class="action-btn" onclick="closeModal()" style="width:100%;margin-top:20px;padding:12px">Close Details</button>
+      `;
+      
+      document.getElementById('modal-content').innerHTML = html;
+      document.getElementById('p-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('p-modal').style.display = 'none';
+    }
+
+    // Modal overlay click to close
+    window.onclick = function(e) {
+      const modal = document.getElementById('p-modal');
+      if (e.target == modal) closeModal();
+    }
+
 
   </script>
 
