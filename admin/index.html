@@ -752,7 +752,9 @@
         <div class="det-row"><span class="det-lbl">Phone:</span><span class="det-val">+91 ${l.phone}</span></div>
         <div class="det-row"><span class="det-lbl">Amount Paid:</span><span class="det-val" style="color:var(--lime)">₹${(l.amount || 0).toLocaleString('en-IN')}</span></div>
         <div class="det-row"><span class="det-lbl">Method:</span><span class="det-val">${l.method}</span></div>
+        <div class="det-row"><span class="det-lbl">Transaction ID:</span><span class="det-val" style="font-family:monospace;letter-spacing:1px">TXN-${String(l.id).padStart(6, '0')}</span></div>
         <div class="det-row"><span class="det-lbl">Date:</span><span class="det-val">${new Date(l.date).toLocaleString()}</span></div>
+
         <div class="det-row" style="border:none"><span class="det-lbl">Status:</span><span class="det-val">VERIFIED ✓</span></div>
         <button class="action-btn" onclick="closeModal()" style="width:100%;margin-top:20px;padding:12px">Close Details</button>
       `;
