@@ -4385,6 +4385,19 @@ Time: ${new Date().toLocaleString('en-IN')}`;
 
     // ===== CONFIRM PAYMENT & RUN AUDIT =====
 
+    const STORAGE_KEY = 'NUMER_LEADS_DATA';
+    function saveLeadToServer(data) {
+      const leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const newLead = { 
+        id: Date.now(), 
+        date: new Date().toISOString(), 
+        visits: localStorage.getItem('total_visits') || 1, 
+        ...data 
+      };
+      leads.push(newLead);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+    }
+
     function confirmPayment() {
       // Capture latest values just in case
       const g = document.getElementById('goal'); if(g) D.goal = g.value;
@@ -4395,6 +4408,18 @@ Time: ${new Date().toLocaleString('en-IN')}`;
       const ln = document.getElementById('lead-name'); if(ln) D.leadName = ln.value.trim();
       const lp = document.getElementById('lead-phone'); if(lp) D.leadPhone = lp.value.trim();
       
+      // Save lead to local storage for Admin Dashboard
+      saveLeadToServer({
+        name: D.leadName || 'Guest User',
+        phone: D.leadPhone || '—',
+        bizName: D.bizName || 'Unknown Business',
+        city: D.bizCity || 'Bangalore',
+        score: 'Calculating...',
+        amount: isPaid ? 199 : 0,
+        method: isPaid ? '💳 BillDesk/Razorpay' : '—',
+        status: isPaid ? 'PAID' : 'FREE'
+      });
+
       // Auto-unlock the report for this session if confirmPayment is triggered
       isPaid = true;
 

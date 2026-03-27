@@ -360,6 +360,13 @@ function sendLead(){
   const msg=`Hi! I saw your client results page on alphanumerouno.in and want to discuss how you can help my business.\n\nName: ${n}\nWhatsApp: ${p}\nBusiness type: ${t||'—'}\n\nI'd like to book a free consultation.`;
   window.open('https://wa.me/919632091371?text='+encodeURIComponent(msg),'_blank');
 }
+
+// Track Website Visits
+(function trackVisit() {
+  let visits = localStorage.getItem('total_visits') || 0;
+  visits = parseInt(visits) + 1;
+  localStorage.setItem('total_visits', visits);
+})();
 </script>
 </body>
 </html>

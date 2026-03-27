@@ -108,7 +108,7 @@ function handleLogin() {
   // For production, this should ideally be handled via a backend
   if(u === 'admin' && p === 'numero-uno') {
     sessionStorage.setItem('adminAuth', 'true');
-    location.href = 'admin.html';
+    location.href = 'admin/';
   } else {
     err.style.display = 'block';
   }

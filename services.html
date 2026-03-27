@@ -499,6 +499,13 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 function wa(pkg){window.open('https://wa.me/919632091371?text='+encodeURIComponent(`Hi! I'm interested in the ${pkg} package. I saw it on your website. Can we discuss?\n\nI would also like to run the AI audit for the 10% discount.`),'_blank');}
+
+// Track Website Visits
+(function trackVisit() {
+  let visits = localStorage.getItem('total_visits') || 0;
+  visits = parseInt(visits) + 1;
+  localStorage.setItem('total_visits', visits);
+})();
 </script>
 </body>
 </html>
