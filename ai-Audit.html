@@ -3349,21 +3349,16 @@
               </select>
               <input type="hidden" id="biz-city-display">
             </div>
-            <div><label class="flbl">📸 Instagram handle</label>
-              <div class="social-row"><input class="fi" id="ig-handle"
-                  placeholder="@yourhandle or instagram.com/handle"><button class="na-btn" id="ig-na"
-                  onclick="toggleNA('ig')">Not on Instagram</button></div>
+            <div><label class="flbl">📸 Instagram handle *</label>
+              <input class="fi" id="ig-handle" placeholder="@yourhandle or instagram.com/handle">
             </div>
-            <div><label class="flbl">📘 Facebook page</label>
-              <div class="social-row"><input class="fi" id="fb-handle"
-                  placeholder="facebook.com/yourpage or page name"><button class="na-btn" id="fb-na"
-                  onclick="toggleNA('fb')">Not on Facebook</button></div>
+            <div><label class="flbl">📘 Facebook page *</label>
+              <input class="fi" id="fb-handle" placeholder="facebook.com/yourpage or page name">
             </div>
-            <div><label class="flbl">📍 Google Business / Maps listing</label>
-              <div class="social-row"><input class="fi" id="gmb-handle"
-                  placeholder="Business name on Google Maps"><button class="na-btn" id="gmb-na"
-                  onclick="toggleNA('gmb')">Not listed on Google</button></div>
+            <div><label class="flbl">📍 Google Business / Maps listing *</label>
+              <input class="fi" id="gmb-handle" placeholder="Business name on Google Maps">
             </div>
+
             <div><label class="flbl">🌐 Website URL (if any)</label><input class="fi" id="website-url"
                 placeholder="https://yourwebsite.com (leave blank if none)"></div>
             <div><label class="flbl">Business age</label>
@@ -3655,16 +3650,7 @@
               onclick="payWithBillDesk()">📑 Pay via BillDesk</button>
           </div>
 
-          <div style="margin-top:10px;opacity:0.7;font-size:11px">
-            <button onclick="confirmPayment()"
-              style="background:none;border:none;color:var(--lime);cursor:pointer;text-decoration:underline;font-size:14px;font-weight:700">✦
-              DUMMY TEST: Skip Payment (Verify Report) →</button>
-            <br><br>
-            Or if you paid via UPI manually:<br>
-            <button onclick="confirmPayment()"
-              style="background:none;border:none;color:#A3A3A3;cursor:pointer;text-decoration:underline;font-size:11px">I've
-              already paid manually →</button>
-          </div>
+
 
           <p class="pg-note">After clicking above, our AI starts scanning your profiles. Report ready in under 3
             minutes.</p>
@@ -4358,16 +4344,7 @@
       console.log('selTag called for', group);
     }
 
-    // ===== NA TOGGLE =====
-    function toggleNA(plat) {
-      const btn = document.getElementById(plat + '-na');
-      const inp = document.getElementById(plat + '-handle') || document.getElementById(plat + '-handle');
-      const on = !btn.classList.contains('on');
-      btn.classList.toggle('on', on);
-      btn.textContent = on ? '✓ Not on this platform' : 'Not on ' + { ig: 'Instagram', fb: 'Facebook', gmb: 'Google' }[plat];
-      if (inp) { inp.disabled = on; inp.style.opacity = on ? '.4' : '1'; inp.style.pointerEvents = on ? 'none' : 'auto'; }
-      D[plat + 'NA'] = on;
-    }
+
 
     // ===== STEPS =====
     function updateStepUI(n) {
@@ -4388,14 +4365,18 @@
         const stateName = stateEl ? stateEl.options[stateEl.selectedIndex]?.text : '';
         const cityName = cityEl && cityEl.value ? cityEl.options[cityEl.selectedIndex]?.text : '';
         D.bizCity = (cityName && cityName !== 'Select State first' ? cityName + ', ' : '') + stateName || 'Bangalore, Karnataka';
-        D.ig = D.igNA ? 'NOT ON INSTAGRAM' : document.getElementById('ig-handle').value.trim();
-        D.fb = D.fbNA ? 'NOT ON FACEBOOK' : document.getElementById('fb-handle').value.trim();
-        D.gmb = D.gmbNA ? 'NOT ON GOOGLE' : document.getElementById('gmb-handle').value.trim();
+        D.ig = document.getElementById('ig-handle').value.trim();
+        D.fb = document.getElementById('fb-handle').value.trim();
+        D.gmb = document.getElementById('gmb-handle').value.trim();
         D.website = document.getElementById('website-url').value.trim();
         D.bizAge = document.getElementById('biz-age').value;
         if (!D.bizType) { alert('Please select your business type.'); return; }
         if (!D.bizName) { alert('Please enter your business name.'); return; }
         if (!stateEl || !stateEl.value) { alert('Please select your state.'); return; }
+        if (!D.ig) { alert('Please enter your Instagram handle.'); return; }
+        if (!D.fb) { alert('Please enter your Facebook page URL.'); return; }
+        if (!D.gmb) { alert('Please enter your Google Business/Maps listing name.'); return; }
+
       }
       if (n === 3) {
         D.goal = document.getElementById('goal').value;
@@ -4496,7 +4477,7 @@
         rzp.open();
       } catch (err) {
         console.error("Razorpay Modal Error:", err);
-        alert("Payment Window failed to open. Please check your internet or try manual UPI below.");
+        alert("Payment Window failed to open. Please check your internet connection or try again.");
       }
     }
 
