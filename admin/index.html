@@ -335,10 +335,9 @@
   <div class="sidebar">
     <a href="../index.html" class="logo">Numero <b>Uno</b></a>
     <nav>
-      <a href="#" class="nav-item active"><span>📊 Dashboard</span></a>
-      <a href="#" class="nav-item"><span>📋 Audit Leads</span></a>
-      <a href="#" class="nav-item"><span>📦 Packages</span></a>
-      <a href="#" class="nav-item"><span>📈 Analytics</span></a>
+      <a href="javascript:void(0)" class="nav-item active" onclick="showSection('dashboard', this)"><span>📊 Dashboard</span></a>
+      <a href="javascript:void(0)" class="nav-item" onclick="showSection('leads', this)"><span>📋 Audit Leads</span></a>
+      <a href="javascript:void(0)" class="nav-item" onclick="showSection('payments', this)"><span>💳 Payments</span></a>
       <a href="#" class="nav-item"><span>⚙️ Settings</span></a>
       <a href="#" class="nav-item" onclick="logout()" style="margin-top:auto;color:#FF5C5C"><span>🚪 Logout</span></a>
     </nav>
@@ -347,7 +346,7 @@
   <div class="main">
     <div class="header">
       <div class="h-title">
-        <h1>Welcome back, Admin</h1>
+        <h1 id="page-title">Welcome back, Admin</h1>
         <p id="current-date"></p>
       </div>
       <div class="h-actions">
@@ -355,7 +354,8 @@
       </div>
     </div>
 
-    <div class="stats-grid">
+    <div id="dashboard-section">
+      <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-label">Total Leads <span>📈</span></div>
         <div class="stat-val" id="total-leads">124</div>
@@ -381,9 +381,11 @@
         <div class="stat-val" id="total-visits-stat">0</div>
         <div class="stat-change up">Live counter</div>
       </div>
+      </div>
     </div>
 
-    <div class="table-container">
+    <div id="leads-section" style="display:none">
+      <div class="table-container">
       <div class="table-header">
         <h2>Recent Audit Leads</h2>
         <div style="font-size:12px;color:var(--mt)">Showing last 10 entries</div>
@@ -435,13 +437,48 @@
           </tr>
         </tbody>
       </table>
+      </div> <!-- table-container -->
+    </div> <!-- leads-section -->
+
+    <div id="payments-section" style="display:none">
+      <div class="table-container">
+        <div class="table-header">
+          <h2>Verified Payments</h2>
+          <div style="font-size:12px;color:var(--mt)">Only showing successful transactions</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Business</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="payments-body"></tbody>
+        </table>
+      </div>
     </div>
-  </div>
+  </div> <!-- main -->
 
   <script>
     // ADMIN AUTH CHECK
     if (sessionStorage.getItem('adminAuth') !== 'true') {
       window.location.href = '../login.html';
+    }
+
+    function showSection(id, el) {
+      document.getElementById('dashboard-section').style.display = id === 'dashboard' ? 'block' : 'none';
+      document.getElementById('leads-section').style.display = id === 'leads' ? 'block' : 'none';
+      document.getElementById('payments-section').style.display = id === 'payments' ? 'block' : 'none';
+      
+      const titles = { dashboard: 'Welcome back, Admin', leads: 'Audit Leads', payments: 'Recent Payments' };
+      document.getElementById('page-title').textContent = titles[id] || 'Admin Panel';
+      
+      document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
     }
 
     function logout() {
@@ -509,6 +546,25 @@
           <td><button class="action-btn" onclick="window.open('https://wa.me/${l.phone.replace(/\D/g,'')}')">WhatsApp</button></td>
         </tr>
       `).join('');
+
+      // Render Payments View
+      const paymentsBody = document.getElementById('payments-body');
+      const paidLeads = leads.filter(l => l.status === 'PAID').reverse();
+      
+      if (paidLeads.length === 0) {
+        paymentsBody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--mt)">No payments recorded yet.</td></tr>';
+      } else {
+        paymentsBody.innerHTML = paidLeads.map(l => `
+          <tr>
+            <td><b>${l.bizName}</b><br><small>${l.city || 'Bangalore'}</small></td>
+            <td>${l.name}<br><small>${l.phone}</small></td>
+            <td><b style="color:var(--lime)">₹${(l.amount || 0).toLocaleString('en-IN')}</b></td>
+            <td><span class="method-tag">${l.method}</span></td>
+            <td><small>${new Date(l.date).toLocaleDateString()}</small></td>
+            <td><span class="status paid">SUCCESS</span></td>
+          </tr>
+        `).join('');
+      }
     }
 
     // Refresh function
