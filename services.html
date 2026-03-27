@@ -21,22 +21,67 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--blk:#0A0A0A;--wht:#F5F5F5;--lime:#D4AF37;--lime2:#B38F24;--g1:#1F1F1F;--g2:#000000;--mt:#A3A3A3;--bd:rgba(212,175,55,.12);--tx:#F5F5F5;--tx2:#CCCCCC;--yellow:#D4AF37;--orange:#D4AF37;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif}
+:root {
+  --bg-dark: #020617;
+  --bg-navy: #0B1F3A;
+  --gradient-start: #0A2540;
+  --gradient-end: #0F3B6E;
+
+  --primary: #2563EB;
+  --primary-bright: #3B82F6;
+  --primary-soft: #60A5FA;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --text-main: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  --success: #22C55E;
+  --danger: #EF4444;
+  --warning: #F97316;
+  --accent: #FACC15;
+
+  /* Legacy compatibility mappings */
+  --blk: var(--bg-dark);
+  --wht: var(--text-main);
+  --lime: var(--primary);
+  --lime2: var(--primary-bright);
+  --g1: var(--bg-navy);
+  --g2: #0F172A;
+  --mt: var(--text-muted);
+  --bd: var(--glass-border);
+  --tx: var(--text-main);
+  --tx2: var(--text-secondary);
+  --fh: 'Plus Jakarta Sans', sans-serif;
+  --fb: 'Nunito', sans-serif
+}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--blk);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7}
-    .ann { background: #000; color: #f5f5f5; border-bottom: 2px solid var(--orange); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
+body {
+  font-family: var(--fb);
+  background: var(--bg-dark);
+  background-image: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 100% 100%, rgba(15, 59, 110, 0.1) 0%, transparent 50%);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7
+}
+    .ann { background: var(--bg-dark); color: var(--text-main); border-bottom: 1px solid var(--glass-border); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
     .ann a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 2px }
-    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(10, 10, 10, .92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--bd); transition: background .2s }
-    .nav-logo { font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--wht); text-decoration: none; letter-spacing: -.012em }
-    .nav-logo b { color: var(--lime) }
+    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border); transition: all 0.3s ease }
+    .nav-logo { font-family: var(--fh); font-size: 22px; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -.02em }
+    .nav-logo em { font-style: normal; color: var(--primary-bright); }
     .nav-links { display: flex; gap: 28px }
-    .nav-links a { font-size: 14px; color: var(--tx); text-decoration: none; font-weight: 500 }
-    .nav-links a:hover, .nav-links a.active { color: #D4AF37 }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: all 0.2s }
+    .nav-links a:hover { color: var(--primary-soft) }
+    .nav-links a.active { color: var(--primary-bright); font-weight: 700 }
     .nav-actions { display: flex; gap: 8px; align-items: center }
-    .nav-wa { display: flex; align-items: center; gap: 6px; background: #1F1F1F; border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none }
-    .nav-wa:hover { background: #D4AF37; color: #000 }
-    .nav-cta { background: linear-gradient(135deg, #F1D06F, #D4AF37); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
-    .nav-cta:hover { background: linear-gradient(135deg, #D4AF37, #F1D06F); color: #000 }
+    .nav-wa { color: var(--text-main); background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 10px 18px; border-radius: 99px; font-size: 13.5px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 7px; transition: all 0.3s ease }
+    .nav-wa:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+    .nav-cta { background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 99px; font-size: 13.5px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); transition: all 0.3s ease }
+    .nav-cta:hover { background: var(--primary-bright); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
     .nav-ham { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 6px; background: none; border: none }
     .nav-ham span { width: 18px; height: 1.5px; background: var(--tx); display: block; border-radius: 2px }
     .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
@@ -51,32 +96,32 @@ section{padding:80px 0;position:relative}.alt{background:var(--g1)}
 .ph h1{font-family:var(--fh);font-size:clamp(30px,4.5vw,56px);font-weight:800;letter-spacing:-.02em;line-height:1.04;color:var(--wht);margin-bottom:12px}
 .ph h1 em{font-style:normal;color:var(--lime)}
 .ph p{font-size:15px;color:var(--tx2);max-width:500px;margin:0 auto 20px;line-height:1.75}
-.ph-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.2);border-radius:6px;font-size:13px;color:var(--lime);font-weight:600;margin-bottom:10px}
+.ph-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:rgba(37, 99, 235, 0.1);border:1px solid rgba(37, 99, 235, 0.2);border-radius:6px;font-size:13px;color:var(--primary-soft);font-weight:600;margin-bottom:10px;backdrop-filter:blur(4px)}
 /* CATEGORY */
 .cat-hd{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--bd);margin-bottom:24px}
 .cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .cat-title{font-family:var(--fh);font-size:18px;font-weight:800;letter-spacing:-.012em;color:var(--wht)}
 .cat-sub{font-size:13px;color:var(--mt);margin-left:auto}
 /* INSIGHT BOX */
-.ib{background:rgba(255,214,0,.05);border:1px solid rgba(255,214,0,.15);border-radius:12px;padding:20px 24px;margin-bottom:24px;position:relative;overflow:hidden}
-.ib::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),#FF6B1A)}
+.ib{background:rgba(37, 99, 235, 0.05);border:1px solid rgba(255, 255, 255, 0.1);border-radius:12px;padding:20px 24px;margin-bottom:24px;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.ib::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--primary-bright))}
 .ib-title{font-size:13px;font-weight:600;color:var(--wht);margin-bottom:5px}
 .ib-text{font-size:13px;color:var(--tx2);line-height:1.65;margin-bottom:8px}
 .ib-tags{display:flex;flex-wrap:wrap;gap:5px}
 .ib-tag{font-size:11.5px;color:rgba(255,214,0,.6);font-weight:500}
 /* PACKAGE GRID */
 .pkg-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.pk{background:var(--g1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:all .2s}
-.pk.feat{border-color:rgba(255,214,0,.4);background:rgba(255,214,0,.03)}
-.pk.hot{border-color:rgba(255,96,64,.3)}
-.pk:hover{transform:translateY(-4px);border-color:rgba(255,214,0,.25)}
+.pk{background:rgba(15, 23, 42, 0.4);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:all 0.3s ease;backdrop-filter:blur(10px)}
+.pk.feat{border-color:rgba(37, 99, 235, 0.4);background:rgba(37, 99, 235, 0.05)}
+.pk.hot{border-color:rgba(239, 68, 68, 0.3)}
+.pk:hover{transform:translateY(-6px);border-color:rgba(37, 99, 235, 0.3);box-shadow:0 15px 30px rgba(0,0,0,0.3)}
 .pk-top{padding:20px 20px 0}
 .pk-badges{display:flex;gap:5px;margin-bottom:9px;min-height:20px;flex-wrap:wrap}
 .badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px}
 .bg{background:rgba(255,255,255,.06);color:var(--tx2)}
-.bl{background:rgba(255,214,0,.1);color:var(--lime);border:1px solid rgba(255,214,0,.2)}
-.ba{background:rgba(255,180,55,.1);color:#FFAA33;border:1px solid rgba(255,180,55,.2)}
-.bt{background:rgba(46,232,208,.08);color:#4AFFE4;border:1px solid rgba(46,232,208,.2)}
+.bl{background:rgba(37,99,235,0.1);color:var(--primary-soft);border:1px solid rgba(37,99,235,0.2)}
+.ba{background:rgba(249,115,22,0.1);color:var(--warning);border:1px solid rgba(249,115,22,0.2)}
+.bt{background:rgba(34,197,94,0.08);color:var(--success);border:1px solid rgba(34,197,94,0.2)}
 .pk-nm{font-family:var(--fh);font-size:15px;font-weight:800;letter-spacing:-.012em;margin-bottom:4px;color:var(--wht)}
 .pk-tg{font-size:12px;color:var(--mt);margin-bottom:12px;line-height:1.45}
 .pk-pr{padding:11px 20px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
@@ -95,12 +140,12 @@ section{padding:80px 0;position:relative}.alt{background:var(--g1)}
 .pk-disc{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--lime);background:rgba(255,214,0,.08);padding:3px 9px;border-radius:3px;border:1px solid rgba(255,214,0,.15);margin-bottom:8px}
 .pk-orig{font-size:11px;color:var(--mt);text-decoration:line-through;margin-left:4px}
 .btn-cta{display:block;text-align:center;padding:11px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--fb);width:100%;transition:all .2s}
-.btn-primary{background:var(--lime);color:var(--blk)}.btn-primary:hover{background:var(--lime2)}
-.btn-default{background:transparent;color:var(--tx2);border:1px solid var(--bd)}.btn-default:hover{border-color:rgba(255,214,0,.3);color:var(--lime)}
-.btn-amber{background:rgba(255,180,55,.12);color:#FFAA33;border:1px solid rgba(255,180,55,.25)}.btn-amber:hover{background:rgba(255,180,55,.22)}
+.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-bright);box-shadow:0 4px 15px rgba(37, 99, 235, 0.3)}
+.btn-default{background:var(--glass-bg);color:var(--text-main);border:1px solid var(--glass-border);backdrop-filter:blur(4px)}.btn-default:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.08)}
+.btn-amber{background:rgba(249,115,22,0.12);color:var(--warning);border:1px solid rgba(249,115,22,0.25)}.btn-amber:hover{background:rgba(249,115,22,0.22)}
 /* DISCOUNT CALLOUT */
 .disc-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:rgba(255,214,0,.06);border:1px solid rgba(255,214,0,.2);border-radius:12px;margin-bottom:24px;flex-wrap:wrap}
-.db-text h4{font-family:var(--fh);font-size:15px;font-weight:800;letter-spacing:-.02em;color:#D4AF37;margin-bottom:3px}
+.db-text h4{font-family:var(--fh);font-size:15px;font-weight:800;letter-spacing:-.02em;color:#3B82F6;margin-bottom:3px}
 .db-text p{font-size:13px;color:var(--tx2)}
 .db-cta{background:var(--lime);color:var(--blk);padding:10px 20px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0}
 /* GUARANTEE */
@@ -122,7 +167,7 @@ section{padding:80px 0;position:relative}.alt{background:var(--g1)}
     .smb-btns { display: flex; gap: 7px; flex-shrink: 0 }
     .smb-wa { background: #25D366; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none }
     .smb-audit { background: var(--lime); color: var(--blk); padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
-    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(212, 175, 55, .30); transition: transform .25s }
+    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(37, 99, 235, .30); transition: transform .25s }
     .wa-float:hover { transform: scale(1.1) }
 @media(max-width:768px) {
   .nav-links, .nav-actions { display: none }
@@ -173,7 +218,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <!-- ===== NAV ===== -->
 <header class="nav-wrap" id="main-nav">
-  <a href="index.html" class="nav-logo">Numero <b>Uno</b></a>
+  <a href="index.html" class="nav-logo">Numero <em>Uno</em></a>
   <nav class="nav-links" aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="services.html" class="active">Services & Pricing</a>
@@ -195,7 +240,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   <a href="services.html">Services & Pricing</a>
   <a href="clients.html">Client Results</a>
   <a href="ai-Audit.html">AI Audit — ₹199</a>
-  <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
+  <a href="https://wa.me/919632091371" style="color:#3B82F6;font-weight:600">💬 WhatsApp Us Now</a>
 </div>
 <!-- ===== WA FLOAT (desktop) ===== -->
 <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="wa-float" target="_blank"
@@ -224,7 +269,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div class="ph-pill rv">✦ Run ₹199 AI audit first → unlock 10% off any package automatically</div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px" class="rv">
       <a href="ai-Audit.html" style="background:var(--lime);color:var(--blk);padding:11px 22px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none">✦ Get AI Audit — ₹199</a>
-      <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+know+which+package+is+right+for+me" style="background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.18);color:#D4AF37;padding:11px 22px;border-radius:7px;font-size:13px;font-weight:500;text-decoration:none" target="_blank">💬 Ask on WhatsApp</a>
+      <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+know+which+package+is+right+for+me" style="background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.18);color:#3B82F6;padding:11px 22px;border-radius:7px;font-size:13px;font-weight:500;text-decoration:none" target="_blank">💬 Ask on WhatsApp</a>
     </div>
   </div>
 </div>

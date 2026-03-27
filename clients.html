@@ -20,22 +20,67 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--blk:#0A0A0A;--wht:#F5F5F5;--lime:#D4AF37;--lime2:#B38F24;--g1:#1F1F1F;--g2:#000000;--mt:#A3A3A3;--bd:rgba(212,175,55,.12);--tx:#F5F5F5;--tx2:#CCCCCC;--yellow:#D4AF37;--orange:#D4AF37;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif}
+:root {
+  --bg-dark: #020617;
+  --bg-navy: #0B1F3A;
+  --gradient-start: #0A2540;
+  --gradient-end: #0F3B6E;
+
+  --primary: #2563EB;
+  --primary-bright: #3B82F6;
+  --primary-soft: #60A5FA;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --text-main: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  --success: #22C55E;
+  --danger: #EF4444;
+  --warning: #F97316;
+  --accent: #FACC15;
+
+  /* Legacy compatibility mappings */
+  --blk: var(--bg-dark);
+  --wht: var(--text-main);
+  --lime: var(--primary);
+  --lime2: var(--primary-bright);
+  --g1: var(--bg-navy);
+  --g2: #0F172A;
+  --mt: var(--text-muted);
+  --bd: var(--glass-border);
+  --tx: var(--text-main);
+  --tx2: var(--text-secondary);
+  --fh: 'Plus Jakarta Sans', sans-serif;
+  --fb: 'Nunito', sans-serif
+}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--blk);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7}
-    .ann { background: #000; color: #f5f5f5; border-bottom: 2px solid var(--orange); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
+body {
+  font-family: var(--fb);
+  background: var(--bg-dark);
+  background-image: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 100% 100%, rgba(15, 59, 110, 0.1) 0%, transparent 50%);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7
+}
+    .ann { background: var(--bg-dark); color: var(--text-main); border-bottom: 1px solid var(--glass-border); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
     .ann a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 2px }
-    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(10, 10, 10, .92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--bd); transition: background .2s }
-    .nav-logo { font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--wht); text-decoration: none; letter-spacing: -.012em }
-    .nav-logo b { color: var(--lime) }
+    .nav-wrap { position: sticky; top: 0; z-index: 200; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border); transition: all 0.3s ease }
+    .nav-logo { font-family: var(--fh); font-size: 22px; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -.02em }
+    .nav-logo em { font-style: normal; color: var(--primary-bright); }
     .nav-links { display: flex; gap: 28px }
-    .nav-links a { font-size: 14px; color: var(--tx); text-decoration: none; font-weight: 500 }
-    .nav-links a:hover, .nav-links a.active { color: #D4AF37 }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14.5px; font-weight: 500; transition: all 0.2s }
+    .nav-links a:hover { color: var(--primary-soft) }
+    .nav-links a.active { color: var(--primary-bright); font-weight: 700 }
     .nav-actions { display: flex; gap: 8px; align-items: center }
-    .nav-wa { display: flex; align-items: center; gap: 6px; background: #1F1F1F; border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none }
-    .nav-wa:hover { background: #D4AF37; color: #000 }
-    .nav-cta { background: linear-gradient(135deg, #F1D06F, #D4AF37); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
-    .nav-cta:hover { background: linear-gradient(135deg, #D4AF37, #F1D06F); color: #000 }
+    .nav-wa { color: var(--text-main); background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 10px 18px; border-radius: 99px; font-size: 13.5px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 7px; transition: all 0.3s ease }
+    .nav-wa:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+    .nav-cta { background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 99px; font-size: 13.5px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); transition: all 0.3s ease }
+    .nav-cta:hover { background: var(--primary-bright); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
     .nav-ham { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 6px; background: none; border: none }
     .nav-ham span { width: 18px; height: 1.5px; background: var(--tx); display: block; border-radius: 2px }
     .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
@@ -51,10 +96,9 @@ section{padding:80px 0}.alt{background:var(--g1)}
 .ph h1 em{font-style:normal;color:var(--lime)}
 .ph p{font-size:15px;color:var(--tx2);max-width:500px;margin:0 auto 20px;line-height:1.75}
 /* STATS BAR */
-.stats-bar{display:flex;justify-content:center;gap:0;background:var(--g2);border:1px solid var(--bd);border-radius:12px;overflow:hidden;max-width:700px;margin:0 auto}
-.sb-i{flex:1;padding:18px 12px;text-align:center;border-right:1px solid var(--bd)}
-.sb-i:last-child{border-right:none}
-.sb-n{font-family:var(--fh);font-size:26px;font-weight:800;color:var(--yellow);letter-spacing:-.02em;line-height:1}
+.stats-bar{display:flex;justify-content:center;gap:0;background:rgba(15, 23, 42, 0.5);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;max-width:700px;margin:0 auto;backdrop-filter:blur(8px)}
+.sb-i{flex:1;padding:18px 12px;text-align:center;border-right:1px solid var(--glass-border)}
+.sb-n{font-family:var(--fh);font-size:26px;font-weight:800;color:var(--primary-bright);letter-spacing:-.02em;line-height:1}
 .sb-l{font-size:11px;color:var(--mt);margin-top:3px}
 /* INDUSTRY SECTION */
 .ind-header{display:flex;align-items:center;gap:10px;margin-bottom:28px}
@@ -63,20 +107,20 @@ section{padding:80px 0}.alt{background:var(--g1)}
 .ind-count{font-size:12px;color:var(--mt);margin-left:auto}
 /* CLIENT CARDS */
 .client-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.cc{background:var(--g1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;transition:all .2s}
-.cc:hover{border-color:rgba(255,214,0,.25);transform:translateY(-4px)}
-.cc.featured{border-color:rgba(255,214,0,.3);background:rgba(255,214,0,.02)}
+.cc{background:rgba(15, 23, 42, 0.4);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;transition:all 0.3s ease;backdrop-filter:blur(10px)}
+.cc:hover{border-color:rgba(37, 99, 235, 0.3);transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,0,0,0.3)}
+.cc.featured{border-color:rgba(37, 99, 235, 0.4);background:rgba(37, 99, 235, 0.05)}
 .cc-top{padding:20px 20px 0}
 .cc-badge{display:flex;gap:5px;margin-bottom:8px}
 .badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px}
-.bl{background:rgba(255,214,0,.1);color:var(--lime);border:1px solid rgba(255,214,0,.2)}
+.bl{background:rgba(37,99,235,0.1);color:var(--primary-soft);border:1px solid rgba(37,99,235,0.2)}
 .bg{background:rgba(255,255,255,.06);color:var(--tx2)}
-.ba{background:rgba(255,180,55,.1);color:#FFAA33}
+.ba{background:rgba(249,115,22,0.1);color:var(--warning)}
 .cc-name{font-family:var(--fh);font-size:16px;font-weight:800;letter-spacing:-.012em;margin-bottom:3px;color:var(--wht)}
 .cc-loc{font-size:12px;color:var(--mt);margin-bottom:12px;display:flex;align-items:center;gap:5px}
 .cc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:0 -20px}
 .cm{background:var(--g2);padding:12px 14px;text-align:center}
-.cm-n{font-family:var(--fh);font-size:22px;font-weight:800;color:var(--lime);letter-spacing:-.02em;line-height:1}
+.cm-n{font-family:var(--fh);font-size:22px;font-weight:800;color:var(--primary-bright);letter-spacing:-.02em;line-height:1}
 .cm-l{font-size:11px;color:var(--mt);margin-top:2px;line-height:1.35}
 .cc-body{padding:16px 20px}
 .cc-quote{font-size:13px;color:var(--tx2);line-height:1.65;font-style:italic;margin-bottom:8px}
@@ -86,9 +130,9 @@ section{padding:80px 0}.alt{background:var(--g1)}
 .cc-pkg{padding:0 20px 16px}
 .pkg-chip{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:4px;font-size:11px;color:var(--mt)}
 /* RESULTS STRIP */
-.results-strip{background:rgba(255,214,0,.05);border:1px solid rgba(255,214,0,.15);border-radius:14px;padding:24px 28px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px}
+.results-strip{background:rgba(37, 99, 235, 0.05);border:1px solid var(--glass-border);border-radius:16px;padding:24px 28px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;backdrop-filter:blur(8px)}
 .rs-item{text-align:center}
-.rs-n{font-family:var(--fh);font-size:28px;font-weight:800;color:var(--yellow);letter-spacing:-.02em;line-height:1}
+.rs-n{font-family:var(--fh);font-size:28px;font-weight:800;color:var(--primary-bright);letter-spacing:-.02em;line-height:1}
 .rs-l{font-size:12px;color:var(--tx2);margin-top:3px;line-height:1.4}
 /* ABOUT / CTA */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
@@ -119,7 +163,7 @@ section{padding:80px 0}.alt{background:var(--g1)}
     .smb-btns { display: flex; gap: 7px; flex-shrink: 0 }
     .smb-wa { background: #25D366; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none }
     .smb-audit { background: var(--lime); color: var(--blk); padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
-    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(212, 175, 55, .30); transition: transform .25s }
+    .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 195; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 22px; text-decoration: none; box-shadow: 0 4px 24px rgba(37, 99, 235, .30); transition: transform .25s }
     .wa-float:hover { transform: scale(1.1) }
 @media(max-width:768px) {
   .nav-links, .nav-actions { display: none }
@@ -170,7 +214,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <!-- ===== NAV ===== -->
 <header class="nav-wrap" id="main-nav">
-  <a href="index.html" class="nav-logo">Numero <b>Uno</b></a>
+  <a href="index.html" class="nav-logo">Numero <em>Uno</em></a>
   <nav class="nav-links" aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="services.html">Services & Pricing</a>
@@ -192,7 +236,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   <a href="services.html">Services & Pricing</a>
   <a href="clients.html">Client Results</a>
   <a href="ai-Audit.html">AI Audit — ₹199</a>
-  <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
+  <a href="https://wa.me/919632091371" style="color:#3B82F6;font-weight:600">💬 WhatsApp Us Now</a>
 </div>
 <!-- ===== WA FLOAT (desktop) ===== -->
 <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="wa-float" target="_blank"
@@ -230,7 +274,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <!-- DENTAL -->
 <section id="dental">
   <div class="c">
-    <div class="ind-header rv"><div class="ind-dot" style="background:#D4AF37"></div><div class="ind-title">🦷 Dental Clinics</div><div class="ind-count">4 clients active</div></div>
+    <div class="ind-header rv"><div class="ind-dot" style="background:#3B82F6"></div><div class="ind-title">🦷 Dental Clinics</div><div class="ind-count">4 clients active</div></div>
     <div class="results-strip rv">
       <div class="rs-item"><div class="rs-n">38</div><div class="rs-l">Peak new patient enquiries / month</div></div>
       <div class="rs-item"><div class="rs-n">375%</div><div class="rs-l">Avg. enquiry growth in 60 days</div></div>
