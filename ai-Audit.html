@@ -3125,8 +3125,8 @@
             </a>
             
             <!-- Secondary Buttons below CTA -->
-            <div class="ig-extra-btns">
-              <button class="btn-ghost" onclick="document.getElementById('popup-overlay').classList.add('open')" style="flex:1;font-size:12px;padding:10px">Free Consultation</button>
+            <div style="display:flex;gap:10px;margin-top:10px">
+              <!-- Free Consultation button removed -->
               <a href="https://wa.me/919632091371" class="btn-ghost" target="_blank" style="flex:1;font-size:12px;padding:10px;border-color:#25D366;color:#25D366;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12.031 2C6.49 2 2 6.49 2 12.031C2 13.805 2.463 15.512 3.342 17.031L2.031 22L7.142 20.689C8.583 21.492 10.232 21.969 12.031 21.969C17.572 21.969 22.062 17.479 22.062 12.031C22.062 6.583 17.572 2.094 12.031 2.094L12.031 2ZM12.031 3.531C16.732 3.531 20.562 7.361 20.562 12.031C20.562 16.701 16.732 20.531 12.031 20.531C10.457 20.531 9.006 20.1 7.781 19.351L7.49 19.172L4.621 19.922L5.381 17.102L5.192 16.81C4.341 15.46 3.861 13.85 3.861 12.031C3.861 7.361 7.691 3.531 12.031 3.531ZM15.421 13.582C15.231 13.487 14.302 13.028 14.122 12.963C13.952 12.898 13.822 12.868 13.702 13.058C13.582 13.248 13.232 13.658 13.132 13.783C13.032 13.908 12.932 13.923 12.742 13.828C12.552 13.733 11.942 13.528 11.212 12.878C10.642 12.368 10.262 11.738 10.152 11.548C10.042 11.158 10.142 11.253 10.232 11.158C10.322 11.063 10.422 10.938 10.512 10.828C10.602 10.718 10.632 10.638 10.692 10.513C10.752 10.388 10.722 10.278 10.672 10.183C10.622 10.088 10.272 9.228 10.132 8.878C9.991 8.538 9.851 8.588 9.741 8.588C9.641 8.588 9.531 8.588 9.421 8.588C9.311 8.588 9.131 8.628 8.981 8.788C8.831 8.948 8.421 9.338 8.421 10.118C8.421 10.898 8.991 11.643 9.071 11.753C9.151 11.863 10.182 13.461 11.782 14.153C12.162 14.318 12.452 14.413 12.682 14.488C13.062 14.608 13.412 14.588 13.692 14.548C14.002 14.503 14.642 14.153 14.772 13.783C14.902 13.413 14.902 13.093 14.862 13.028C14.822 12.963 14.712 12.933 14.522 12.838L15.421 13.582Z"/>
@@ -3322,7 +3322,7 @@
             generic report. The more accurate you are, the more precise your audit.</div>
           <div class="fg">
             <div><label class="flbl">Business type *</label>
-              <div class="ms-container" data-id="biz-type" data-placeholder="Select Business Type(s) *">
+              <div class="ms-container" data-id="biz-type" data-single="true" data-placeholder="Select Business Type *">
                 <div class="tag-grid" id="biz-type-tags">
                   <div class="tag" data-v="Dental Clinic">🦷 Dental Clinic</div>
                   <div class="tag" data-v="Gym / Fitness">💪 Gym / Fitness</div>
@@ -3366,8 +3366,11 @@
 
             <div><label class="flbl">🌐 Website URL (if any)</label><input class="fi" id="website-url"
                 placeholder="https://yourwebsite.com (leave blank if none)"></div>
+            <div><label class="flbl">📧 Business email *</label>
+              <input class="fi" type="email" id="biz-email" placeholder="email@business.com">
+            </div>
             <div><label class="flbl">Business age</label>
-              <div class="ms-container" data-id="biz-age" data-placeholder="Select Business Age">
+              <div class="ms-container" data-id="biz-age" data-single="true" data-placeholder="Select Business Age">
                 <div class="tag-grid" id="biz-age-tags">
                   <div class="tag" data-v="New (under 1 year)">New (under 1 yr)</div>
                   <div class="tag" data-v="1–2 years">1–2 years</div>
@@ -3392,7 +3395,7 @@
           </div>
           <div class="fg">
             <div><label class="flbl">Primary goal right now *</label>
-              <div class="ms-container" data-id="goal" data-placeholder="Select Primary Goal(s) *">
+              <div class="ms-container" data-id="goal" data-single="true" data-placeholder="Select Primary Goal *">
                 <div class="tag-grid" id="goal-tags">
                   <div class="tag" data-v="Get more new customers / enquiries">🎯 More new customers</div>
                   <div class="tag" data-v="Build online presence from scratch">🚀 Build presence from zero</div>
@@ -3405,7 +3408,7 @@
               <input type="hidden" id="goal">
             </div>
             <div><label class="flbl">Current monthly customer enquiries</label>
-              <div class="ms-container" data-id="enquiries" data-placeholder="Select Monthly Enquiries">
+              <div class="ms-container" data-id="enquiries" data-single="true" data-placeholder="Select Monthly Enquiries">
                 <div class="tag-grid" id="enquiries-tags">
                   <div class="tag" data-v="None (just starting)">None (starting)</div>
                   <div class="tag" data-v="1–10 enquiries/month">1–10/month</div>
@@ -3416,7 +3419,7 @@
               <input type="hidden" id="enquiries">
             </div>
             <div><label class="flbl">Monthly budget for digital marketing</label>
-              <div class="ms-container" data-id="budget" data-placeholder="Select Marketing Budget">
+              <div class="ms-container" data-id="budget" data-single="true" data-placeholder="Select Marketing Budget">
                 <div class="tag-grid" id="budget-tags">
                   <div class="tag" data-v="Under ₹15,000/month">Under ₹15K</div>
                   <div class="tag" data-v="₹15,000–₹25,000/month">₹15K–₹25K</div>
@@ -3427,7 +3430,7 @@
               <input type="hidden" id="budget">
             </div>
             <div><label class="flbl">Timeline to see results</label>
-              <div class="ms-container" data-id="timeline" data-placeholder="Select Results Timeline">
+              <div class="ms-container" data-id="timeline" data-single="true" data-placeholder="Select Results Timeline">
                 <div class="tag-grid" id="timeline-tags">
                   <div class="tag" data-v="ASAP — this month">ASAP</div>
                   <div class="tag" data-v="1–2 months">1–2 months</div>
@@ -3662,6 +3665,26 @@
           <div class="pg-secure">🔒 Secure · Your data is private · No spam</div>
           <div class="btn-row" style="justify-content:center;margin-top:14px"><button class="btn-back"
               onclick="goStep(3)">← Back</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 7: SUCCESS MESSAGE (Post-payment) -->
+    <div id="step7" class="step-container" style="display:none; text-align:center; padding:60px 20px;">
+      <div class="c">
+        <div style="font-size:64px; margin-bottom:24px;">✅</div>
+        <h2 style="font-family:var(--fh); font-size:32px; font-weight:800; color:var(--wht); margin-bottom:16px;">Payment Successful!</h2>
+        <p style="font-size:18px; color:var(--tx2); margin-bottom:32px; line-height:1.6; max-width:600px; margin-left:auto; margin-right:auto;">
+          Thank you for choosing Numero Uno. Your AI Audit is now being finalized. 
+          <br><br>
+          Our senior strategist is personally reviewing your results to provide additional human insights. Your full 13-section PDF report will be delivered to <strong><span id="success-email-display"></span></strong> within the next 2-4 hours.
+        </p>
+        <div style="background:rgba(212,175,55,0.1); border:1px solid var(--bd); padding:20px; border-radius:12px; display:inline-block; margin-bottom:32px;">
+          <div style="font-size:12px; color:var(--mt); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Reference Number</div>
+          <div style="font-family:var(--fh); font-size:24px; font-weight:800; color:var(--lime);" id="success-ref-display"></div>
+        </div>
+        <div style="margin-top:20px">
+          <a href="index.html" class="paid-btn" style="display:inline-flex; text-decoration:none; justify-content:center;">Return to Homepage</a>
         </div>
       </div>
     </div>
@@ -4242,8 +4265,47 @@
 
   <script>
     // ===== STATE =====
-    const D = { bizType: '', bizName: '', bizCity: '', ig: '', fb: '', gmb: '', website: '', bizAge: '', igNA: false, fbNA: false, gmbNA: false, goal: '', enquiries: '', budget: '', timeline: '', context: '', leadName: '', leadPhone: '', calltime: '' };
-    let discountCode = '', currentStep = 1, isPaid = false;
+    const D = { bizType: '', bizName: '', bizEmail: '', bizCity: '', ig: '', fb: '', gmb: '', website: '', bizAge: '', igNA: false, fbNA: false, gmbNA: false, goal: '', enquiries: '', budget: '', timeline: '', context: '', leadName: '', leadPhone: '', calltime: '' };
+    let discountCode = '', currentStep = 1, isPaid = false, isViewMode = false;
+
+    // Detect Auto-Send (Admin Approved) Mode or Direct View
+    const urlParams = new URLSearchParams(window.location.search);
+    const dParam = urlParams.get('d');
+    
+    // IMMEDIATE UI BYPASS: Hide the form as soon as we know a payload exists
+    if (dParam) {
+      const initialStartEl = document.getElementById('start');
+      if (initialStartEl) initialStartEl.style.display = 'none';
+      
+      try {
+        console.log("Reconstructing lead data...");
+        const decoded = JSON.parse(decodeURIComponent(escape(atob(dParam))));
+        Object.assign(D, decoded);
+        isViewMode = true; // Bypasses the payment gate
+        
+        // If autoSend is 1, we are in worker mode (Admin Approve & Mail)
+        if (urlParams.get('autoSend') === '1') {
+           isPaid = true;
+           document.addEventListener('DOMContentLoaded', () => {
+              // Double-check visibility
+              const startEl = document.getElementById('start');
+              if (startEl) startEl.style.display = 'none';
+              runAudit(); // Trigger the audit automatically
+           });
+        } else {
+           // Direct view mode (Admin clicking preview)
+           document.addEventListener('DOMContentLoaded', () => {
+              const startEl = document.getElementById('start');
+              if (startEl) startEl.style.display = 'none';
+              setTimeout(runAudit, 500); 
+           });
+        }
+      } catch (e) { 
+        console.error("CRITICAL: Lead data reconstruction failed", e);
+        alert("System Error: Could not reconstruct lead data. This usually happens due to a corrupted link. Please try processing the lead again from the dashboard.");
+      }
+    }
+
 
     // ===== TAG SELECT =====
     // ===== CUSTOM MULTI-SELECT DROPDOWN =====
@@ -4296,18 +4358,31 @@
 
     function toggleOption(wrap, opt, inputId) {
       const val = opt.dataset.v;
-      const isSelected = opt.classList.toggle('selected');
-      const input = document.getElementById(inputId);
-      let selectedVals = input.value ? input.value.split(', ') : [];
+      const isSingle = wrap.dataset.single === 'true';
       
-      if (isSelected) {
-        if (!selectedVals.includes(val)) selectedVals.push(val);
+      if (isSingle) {
+        // Deselect all others
+        wrap.querySelectorAll('.ms-option').forEach(o => {
+          if (o !== opt) o.classList.remove('selected');
+        });
+        opt.classList.add('selected');
+        const input = document.getElementById(inputId);
+        input.value = val;
+        updateChips(wrap, [val]);
       } else {
-        selectedVals = selectedVals.filter(v => v !== val);
+        const isSelected = opt.classList.toggle('selected');
+        const input = document.getElementById(inputId);
+        let selectedVals = input.value ? input.value.split(', ') : [];
+        
+        if (isSelected) {
+          if (!selectedVals.includes(val)) selectedVals.push(val);
+        } else {
+          selectedVals = selectedVals.filter(v => v !== val);
+        }
+        
+        input.value = selectedVals.join(', ');
+        updateChips(wrap, selectedVals);
       }
-      
-      input.value = selectedVals.join(', ');
-      updateChips(wrap, selectedVals);
     }
 
     function updateChips(wrap, selectedVals) {
@@ -4374,6 +4449,7 @@
         D.fb = document.getElementById('fb-handle').value.trim();
         D.gmb = document.getElementById('gmb-handle').value.trim();
         D.website = document.getElementById('website-url').value.trim();
+        D.bizEmail = document.getElementById('biz-email').value.trim();
         D.bizAge = document.getElementById('biz-age').value;
         if (!D.bizType) { alert('Please select your business type.'); return; }
         if (!D.bizName) { alert('Please enter your business name.'); return; }
@@ -4381,6 +4457,9 @@
         if (!D.ig) { alert('Please enter your Instagram handle.'); return; }
         if (!D.fb) { alert('Please enter your Facebook page URL.'); return; }
         if (!D.gmb) { alert('Please enter your Google Business/Maps listing name.'); return; }
+        if (!D.bizEmail) { alert('Please enter your business email.'); return; }
+        const emailRex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRex.test(D.bizEmail)) { alert('Please enter a valid business email address.'); return; }
 
       }
       if (n === 3) {
@@ -4511,6 +4590,65 @@
       };
       leads.push(newLead);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+
+      // NEW: Send email notification via Web3Forms
+      sendLeadToWeb3Forms(newLead);
+    }
+
+    function sendLeadToWeb3Forms(data) {
+      const ACCESS_KEY = '755601c0-26d7-40ac-b68f-2a37639b2513';
+      const formData = new FormData();
+      const isPaid = data.status === 'PAID';
+      formData.append('access_key', ACCESS_KEY);
+      formData.append('from_name', 'Numero Uno ' + (isPaid ? '💰 PAID AUDIT' : '🆓 FREE LEAD'));
+      formData.append('subject', (isPaid ? '💰 PAID AUDIT COMPLETE: ' : 'New Lead: ') + (data.bizName || 'Unknown Business'));
+      
+      let message = `
+        ${isPaid ? '🚀 SUCCESS! A customer has just PAID for an AI Audit.' : 'New potential lead captured through the AI Audit tool.'}
+
+        --- BUSINESS DETAILS ---
+        Business name: ${data.bizName || '—'}
+        Business type: ${D.bizType || '—'}
+        Business email: ${D.bizEmail || '—'}
+        Location: ${data.city || '—'}
+        Website: ${D.website || '—'}
+        Business age: ${D.bizAge || '—'}
+
+        --- OWNER / CONTACT ---
+        Contact name: ${data.name || '—'}
+        WhatsApp number: ${data.phone || '—'}
+
+        --- SOCIAL MEDIA ---
+        Instagram: ${D.ig || '—'}
+        Facebook: ${D.fb || '—'}
+        Google Maps: ${D.gmb || '—'}
+
+        --- GOALS & BUDGET ---
+        Goal: ${D.goal || '—'}
+        Monthly enquiries: ${D.enquiries || '—'}
+        Marketing budget: ${D.budget || '—'}
+        Timeline: ${D.timeline || '—'}
+        Additional context: ${D.context || '—'}
+
+        --- SYSTEM & PAYMENT ---
+        Audit Status: ${data.status || '—'}
+        Payment Amount: ₹${data.amount || 0} ${isPaid ? '✅ (VERIFIED)' : ''}
+        Payment Method: ${data.method || '—'}
+        Internal ID: ${data.id || '—'}
+
+      `;
+      formData.append('message', message.replace(/^\s+/gm, ''));
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(res => res.json())
+      .then(res => console.log('Web3Forms success:', res))
+      .catch(err => console.error('Web3Forms error:', err));
     }
 
     function confirmPayment() {
@@ -4527,16 +4665,28 @@
       saveLeadToServer({
         name: D.leadName || 'Guest User',
         phone: D.leadPhone || '—',
+        email: D.bizEmail || '—',
         bizName: D.bizName || 'Unknown Business',
+        bizType: D.bizType || '—',
         city: D.bizCity || 'Bangalore',
         score: 'Calculating...',
         amount: isPaid ? 199 : 0,
         method: isPaid ? '💳 BillDesk/Razorpay' : '—',
-        status: isPaid ? 'PAID' : 'FREE'
+        status: isPaid ? 'PAID' : 'FREE',
+        // Critical: Store all session data for reconstruction with URI-safe encoding
+        payload: btoa(unescape(encodeURIComponent(JSON.stringify(D))))
       });
 
-      // Auto-unlock the report for this session if confirmPayment is triggered
-      isPaid = true;
+
+      // User Flow: SHOW SUCCESS MESSAGE INSTEAD OF REPORT
+      if (isPaid) {
+        document.getElementById('step4').style.display = 'none';
+        document.getElementById('success-email-display').textContent = D.bizEmail;
+        document.getElementById('success-ref-display').textContent = 'AUDIT-' + Date.now().toString().slice(-6).toUpperCase();
+        updateStepUI(7); // Show success step
+        document.getElementById('step7').style.display = 'block';
+        return;
+      }
 
       document.getElementById('step4').style.display = 'none';
       updateStepUI(6);
@@ -4919,8 +5069,76 @@
         reportData = rd;
         stopLoading();
         renderResults(rd);
+        
+        // Auto-Send PDF if triggered by admin
+        if (urlParams.get('autoSend') === '1') {
+           setTimeout(autoSendPDFFlow, 2000);
+        }
       }
     }
+
+    async function autoSendPDFFlow() {
+      const gatewayUrl = urlParams.get('gw');
+      if (!gatewayUrl) return;
+      
+      console.log("Worker: Generating PDF...");
+      showToast("⏳ Generating PDF Report...");
+      
+      const blob = await generatePDF();
+      if (!blob) {
+         alert("❌ PDF Generation Failed. Current browser may have blocked canvas capture.");
+         return;
+      }
+
+      const targetEmail = D.bizEmail || D.email;
+      if (!targetEmail || targetEmail === '—') {
+         alert("❌ Missing Business Email in lead data. Please update the lead or check the form.");
+         return;
+      }
+
+      showToast("🚀 Sending PDF Attachment...");
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = async function() {
+        const base64data = reader.result.split(',')[1];
+        
+        const message = `Hi ${D.leadName || 'valued customer'},
+
+Great news! Your comprehensive AI Digital Audit for ${D.bizName} has been reviewed and approved by our strategy team.
+
+Please find your full 13-section digital audit report attached as a PDF file.
+
+Our team will follow up with you shortly on WhatsApp (+91 ${D.leadPhone || ''}) to discuss your 90-day roadmap.
+
+Best regards,
+Numero Uno Marketing Team`;
+
+        try {
+          const res = await fetch(gatewayUrl, {
+            method: 'POST',
+            body: JSON.stringify({
+              to: targetEmail,
+              subject: `Your AI Audit Report for ${D.bizName} is Ready!`,
+              body: message,
+              pdfData: base64data,
+              pdfName: `AI_Audit_${D.bizName.replace(/\s+/g, '_')}.pdf`
+            })
+          });
+          const result = await res.json();
+          if (result.success) {
+            showToast("✅ Report Sent! Closing...");
+            setTimeout(() => window.close(), 1500);
+          } else {
+            alert("❌ Google Script Error: " + (result.error || "Unknown error"));
+          }
+        } catch (err) {
+          alert("❌ Connection Failed. Make sure your Google Script URL is correct and deployed as 'Anyone'.");
+          console.error(err);
+        }
+      };
+    }
+
+
 
     // ===== SVG HELPERS =====
     function pxy(cx, cy, r, deg) { const rad = (deg - 90) * Math.PI / 180; return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) }; }
@@ -5466,10 +5684,18 @@
       }
 
       // ── PREMIUM OVERLAY & GATE ──
-      if (!isPaid) {
+      if (!isPaid || isViewMode) {
         const resEl = document.getElementById('results');
         // Ensure the overlay exists or recreate it
         let overlay = document.getElementById('premium-overlay');
+        
+        // In view mode (admin approved), we hide the gate entirely
+        if (isViewMode) {
+           if (overlay) overlay.style.display = 'none';
+           document.getElementById('premium-content').style.display = 'contents';
+           return;
+        }
+
         if (!overlay) {
           overlay = document.createElement('div');
           overlay.id = 'premium-overlay';
@@ -5537,7 +5763,7 @@
       setText('roi-desc', 'At avg ₹' + avgCustomerVal.toLocaleString('en-IN') + '/customer · Our clients avg ' + (breakEven * 4) + '+/month by Month 3');
 
       // Premium WhatsApp message
-      const waMsg = `🔔 AI AUDIT COMPLETED — STRATEGY CALL REQUEST\n\nBusiness: ${D.bizName}\nType: ${D.bizType} · City: ${D.bizCity}\nAudit Score: ${score}/100 (${rd.scoreLabel})\nRecommended Package: ${rec.packageName}\nMonthly Revenue at Risk: ${rd.estimatedMonthlyLoss || '—'}\nAudit Ref: ${refNum}\nDiscount Code: ${discountCode}\n\nI've reviewed my audit report and would like to book a free strategy call to discuss next steps.\n\nKey gaps identified:\n${(rd.keyGaps || []).map(g => '• ' + g).join('\n')}`;
+      const waMsg = `🔔 AI AUDIT COMPLETED — STRATEGY CALL REQUEST\n\nBusiness: ${D.bizName}\nEmail: ${D.bizEmail}\nType: ${D.bizType} · City: ${D.bizCity}\nAudit Score: ${score}/100 (${rd.scoreLabel})\nRecommended Package: ${rec.packageName}\nMonthly Revenue at Risk: ${rd.estimatedMonthlyLoss || '—'}\nAudit Ref: ${refNum}\nDiscount Code: ${discountCode}\n\nI've reviewed my audit report and would like to book a free strategy call to discuss next steps.\n\nKey gaps identified:\n${(rd.keyGaps || []).map(g => '• ' + g).join('\n')}`;
       const waBtn = document.getElementById('pkg-wa-btn');
       if (waBtn) waBtn.href = 'https://wa.me/919632091371?text=' + encodeURIComponent(waMsg);
 
@@ -5570,7 +5796,7 @@
       setText('qb-total', rec.discountedPrice || rec.price || '—');
 
       // ── SALES TEAM ALERT ──
-      const salesMsg = `🔔 NEW AUDIT LEAD — CALL NOW\n\nName: ${D.leadName} | Phone: ${D.leadPhone}\nBusiness: ${D.bizName} | ${D.bizCity} | ${D.bizType}\nBudget: ${D.budget} | Goal: ${D.goal}\nScore: ${score}/100 | Rec: ${rec.packageName}\nValue: ${rec.price} | Code: ${discountCode}\nRef: ${refNum}\nGaps: ${(rd.keyGaps || []).join(' · ')}\n\n⚡ HOT — call within 30 min`;
+      const salesMsg = `🔔 NEW AUDIT LEAD — CALL NOW\n\nName: ${D.leadName} | Phone: ${D.leadPhone}\nBusiness: ${D.bizName} | ${D.bizCity} | ${D.bizType}\nEmail: ${D.bizEmail}\nBudget: ${D.budget} | Goal: ${D.goal}\nScore: ${score}/100 | Rec: ${rec.packageName}\nValue: ${rec.price} | Code: ${discountCode}\nRef: ${refNum}\nGaps: ${(rd.keyGaps || []).join(' · ')}\n\n⚡ HOT — call within 30 min`;
       console.log('Lead captured:', salesMsg);
     }
 

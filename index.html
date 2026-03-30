@@ -1686,75 +1686,7 @@
       color: var(--lime)
     }
 
-    /* ============================
-   POPUP
-   ============================ */
-    .popup-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .78);
-      z-index: 300;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px
-    }
-
-    .popup-overlay.open {
-      display: flex
-    }
-
-    .popup-box {
-      background: var(--g1);
-      border: 1px solid var(--bd);
-      border-radius: 16px;
-      width: 100%;
-      max-width: 400px;
-      overflow: hidden;
-      position: relative;
-      border-top: 3px solid var(--lime)
-    }
-
-    .popup-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: none;
-      border: none;
-      color: var(--mt);
-      font-size: 22px;
-      cursor: pointer;
-      padding: 4px;
-      line-height: 1;
-      font-family: var(--fb)
-    }
-
-    .popup-head {
-      padding: 22px 22px 0
-    }
-
-    .popup-head h3 {
-      font-family: var(--fh);
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -.015em;
-      margin-bottom: 5px;
-      color: var(--wht)
-    }
-
-    .popup-head p {
-      font-size: 13px;
-      color: var(--tx2);
-      margin-bottom: 16px;
-      line-height: 1.7
-    }
-
-    .popup-form {
-      padding: 0 22px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 9px
-    }
+    /* Popup removed */
 
     /* ============================
    STICKY MOBILE BAR
@@ -3017,33 +2949,7 @@
     </div>
   </div>
 
-  <!-- ===== LEAD POPUP ===== -->
-  <div class="popup-overlay" id="popup-overlay" onclick="if(event.target===this)this.classList.remove('open')">
-    <div class="popup-box">
-      <button class="popup-close" onclick="document.getElementById('popup-overlay').classList.remove('open')">×</button>
-      <div class="popup-head">
-        <h3>Book a free consultation</h3>
-        <p>Tell us about your business. We'll call within 2 hours with honest advice on what will work — no pitch, no
-          pressure.</p>
-      </div>
-      <div class="popup-form">
-        <input class="form-input" type="text" id="popup-name" placeholder="Your name *">
-        <input class="form-input" type="tel" id="popup-phone" placeholder="WhatsApp number *">
-        <select class="form-input form-select" id="popup-biz" style="background:#161620">
-          <option value="">Business type</option>
-          <option>Dental Clinic</option>
-          <option>Gym / Fitness Studio</option>
-          <option>Café / Restaurant</option>
-          <option>School / Coaching</option>
-          <option>Salon / Beauty</option>
-          <option>Hotel / Homestay</option>
-          <option>Other SME / MSME</option>
-        </select>
-        <button class="form-btn" onclick="sendPopupLead()">💬 Send on WhatsApp</button>
-        <p class="form-footnote">Or call: <a href="tel:+919632091371" style="color:var(--lime)">+91 96320 91371</a></p>
-      </div>
-    </div>
-  </div>
+  <!-- Lead Popup Removal -->
 
   <!-- ===== HERO ===== -->
   <section id="hero">
@@ -3093,8 +2999,8 @@
           </div>
           <div class="hero-btns rv d3" style="display:flex;gap:12px;flex-wrap:wrap">
             <span class="cta-pulse"><a href="ai-Audit.html" class="btn-lime">✦ Get AI Audit — ₹199</a></span>
-            <button class="btn-ghost" onclick="document.getElementById('popup-overlay').classList.add('open')">Free
-              Consultation</button>
+            <a href="ai-Audit.html" class="btn-ghost">Free AI Audit</a>
+
             <a href="https://wa.me/919632091371" class="btn-ghost" target="_blank"
               style="border-color:#25D366;color:#25D366;display:flex;align-items:center;gap:8px">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
@@ -4018,8 +3924,10 @@
           <p class="form-note">This isn't a sales call — it's a working session. Sends directly to our founder's
             WhatsApp. No CRM, no junior account manager, no delays.</p>
           <input class="form-input" type="text" id="cf-name" placeholder="Your name *">
+          <input class="form-input" type="email" id="cf-email" placeholder="Business Email *">
           <input class="form-input" type="tel" id="cf-phone" placeholder="WhatsApp number *">
           <input class="form-input" type="text" id="cf-bizname" placeholder="Business name">
+
           <select class="form-select" id="cf-type">
             <option value="">Business type</option>
             <option>Dental Clinic</option>
@@ -4145,21 +4053,58 @@
     const STORAGE_KEY = 'NUMER_LEADS_DATA';
     function saveLeadToServer(data) {
       const leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      leads.push({ id: Date.now(), date: new Date().toISOString(), visits: localStorage.getItem('total_visits') || 1, ...data });
+      const newLead = { 
+        id: Date.now(), 
+        date: new Date().toISOString(), 
+        visits: localStorage.getItem('total_visits') || 1, 
+        ...data 
+      };
+      leads.push(newLead);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+      
+      // Send email alert to admin
+      sendLeadToWeb3Forms(newLead);
     }
 
-    // Popup lead form → WhatsApp
-    function sendPopupLead() {
-      const name = document.getElementById('popup-name').value.trim();
-      const phone = document.getElementById('popup-phone').value.trim();
-      const biz = document.getElementById('popup-biz').value;
-      if (!name || !phone) { alert('Please enter your name and WhatsApp number.'); return; }
-      saveLeadToServer({ name, phone, bizName: biz, status: 'FREE', amount: 0, method: '—', score: '—' });
-      const msg = `Hi! I filled out the consultation form on alphanumerouno.in.\n\nName: ${name}\nPhone: ${phone}\nBusiness type: ${biz || 'Not specified'}\n\nPlease call me — I want to grow my business online.`;
-      window.open('https://wa.me/919632091371?text=' + encodeURIComponent(msg), '_blank');
-      document.getElementById('popup-overlay').classList.remove('open');
+    function sendLeadToWeb3Forms(data) {
+      const ACCESS_KEY = '755601c0-26d7-40ac-b68f-2a37639b2513';
+      const formData = new FormData();
+      formData.append('access_key', ACCESS_KEY);
+      formData.append('from_name', 'Numero Uno ' + (data.status === 'PAID' ? '💰 PAID AUDIT' : '🆓 FREE LEAD'));
+      formData.append('subject', 'New Website Inquiry: ' + (data.name || 'Unknown'));
+
+      
+      let message = `
+        New Lead Captured via Website Contact Form!
+
+        --- DETAILS ---
+        Name: ${data.name || '—'}
+        Email: ${data.email || '—'}
+        WhatsApp: ${data.phone || '—'}
+        Business: ${data.bizName || '—'}
+        Biz Type: ${data.bizType || '—'}
+        ${data.notes || ''}
+
+        --- SYSTEM ---
+        Internal ID: ${data.id || '—'}
+        Visits: ${data.visits || '—'}
+      `;
+      formData.append('message', message.replace(/^\s+/gm, ''));
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(res => res.json())
+      .then(res => console.log('Web3Forms (Contact) success:', res))
+      .catch(err => console.error('Web3Forms (Contact) error:', err));
     }
+
+
+    /* Popup lead logic removed */
 
     // Track Website Visits
     (function trackVisit() {
@@ -4171,13 +4116,41 @@
     // Contact form → WhatsApp
     function sendContactLead() {
       const name = document.getElementById('cf-name').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
       const phone = document.getElementById('cf-phone').value.trim();
       const biz = document.getElementById('cf-bizname').value.trim();
-      if (!name || !phone) { alert('Please enter your name and WhatsApp number.'); return; }
-      saveLeadToServer({ name, phone, bizName: biz, status: 'FREE', amount: 0, method: '—', score: '—' });
-      const msg = `Hi! I submitted the contact form on alphanumerouno.in.\n\nName: ${name}\nWhatsApp: ${phone}\nBusiness: ${biz || '—'}\n\nI want to book a free consultation call.`;
+      const type = document.getElementById('cf-type').value;
+      const budget = document.getElementById('cf-budget').value;
+      
+      if (!name || !phone || !email) { alert('Please enter your name, email and WhatsApp number.'); return; }
+      
+      const payloadObj = {
+        bizName: biz,
+        bizType: type,
+        bizEmail: email,
+        leadName: name,
+        leadPhone: phone,
+        bizCity: 'Bangalore, Karnataka' // default city for contact form
+      };
+
+      saveLeadToServer({ 
+        name, 
+        email,
+        phone, 
+        bizName: biz, 
+        bizType: type,
+        status: 'FREE', 
+        amount: 0, 
+        method: '—', 
+        score: '—',
+        notes: `Budget: ${budget}`,
+        payload: btoa(unescape(encodeURIComponent(JSON.stringify(payloadObj))))
+      });
+      
+      const msg = `Hi! I submitted the contact form on alphanumerouno.in.\n\nName: ${name}\nEmail: ${email}\nWhatsApp: ${phone}\nBusiness: ${biz || '—'}\nType: ${type}\n\nI want to book a free strategy call.`;
       window.open('https://wa.me/919632091371?text=' + encodeURIComponent(msg), '_blank');
     }
+
 
 
     // ── HERO PARTICLE FIELD ──────────────────────────────────────────
@@ -4297,15 +4270,7 @@
     const heroSection = document.getElementById('hero');
     if (heroSection) notifObs.observe(heroSection);
 
-    // Exit intent popup (desktop)
-    let popupShown = false;
-    document.addEventListener('mouseleave', e => {
-      if (e.clientY < 10 && !popupShown && !sessionStorage.getItem('popup_shown')) {
-        popupShown = true;
-        sessionStorage.setItem('popup_shown', '1');
-        document.getElementById('popup-overlay').classList.add('open');
-      }
-    });
+    /* Exit intent removed */
   </script>
 </body>
 

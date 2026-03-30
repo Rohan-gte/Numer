@@ -387,7 +387,30 @@
     .det-lbl { color: var(--mt); font-weight: 600; }
     .det-val { color: var(--tx); font-weight: 700; text-align: right; }
 
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--g2);
+      border: 1px solid var(--bd);
+      padding: 12px 24px;
+      border-radius: 12px;
+      color: var(--wht);
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 9999;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
   </style>
+
 </head>
 
 <body>
@@ -464,6 +487,7 @@
             <th>Payment</th>
             <th>Method</th>
             <th>Status</th>
+            <th>Review</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -610,10 +634,11 @@
 
     const ADMIN_KEY = 'NUMER_ADMIN_CONFIG';
     function getAdmin() {
-      const def = { username: 'admin', password: 'numero-uno', name: 'Admin', email: 'admin@numerouno.in', phone: '9632091371' };
+      const def = { username: 'admin', password: 'numero-uno', name: 'Admin', email: 'yogeshyogi2707@gmail.com', phone: '9632091371' };
       const saved = localStorage.getItem(ADMIN_KEY);
       return saved ? JSON.parse(saved) : def;
     }
+
 
     function loadAdminDetails() {
       const a = getAdmin();
@@ -649,6 +674,8 @@
     }
 
     const STORAGE_KEY = 'NUMER_LEADS_DATA';
+    const MAIL_GATEWAY_URL = 'https://script.google.com/macros/s/AKfycbxZ-e45iZIfDtysLk76JGhlEUkrqsWipdVKns_jn0_v-fpE4NnNYSj5fXPSO_cS4N1m/exec';
+ // PASTE YOUR URL HERE
 
 
     function seedDemoData() {
@@ -688,27 +715,29 @@
       const displayLeads = [...leads].reverse().slice(0, 10);
       leadsBody.innerHTML = displayLeads.map(l => `
         <tr>
-          <td><b>${l.bizName || '—'}</b><br><small>${l.city || 'Bangalore'}</small></td>
-          <td>${l.name}<br><small>${l.phone}</small></td>
+          <td><b>${l.bizName || '—'}</b><br><small style="color:var(--lime)">${l.bizType || '—'}</small><br><small>${l.city || 'Bangalore'}</small></td>
+          <td>${l.name}<br><small>${l.phone}</small><br><small>${l.email || '—'}</small></td>
           <td><span class="visit-badge">${l.visits || 1}</span></td>
           <td><span style="color:${l.score < 50 ? 'var(--red)' : (typeof l.score === 'number' ? 'var(--lime)' : 'var(--mt)')};font-weight:800">${l.score || '—'}</span></td>
           <td><b>₹${(l.amount || 0).toLocaleString('en-IN')}</b></td>
           <td><span class="method-tag">${l.method || '—'}</span></td>
-          <td><span class="status ${l.status === 'PAID' ? 'paid' : (l.status === 'FREE' ? 'pending' : 'pending')}">${l.status}</span></td>
-          <td><button class="action-btn" onclick="window.open('https://wa.me/${l.phone.replace(/\D/g,'')}')">WhatsApp</button></td>
+          <td><span class="status ${l.status === 'PAID' ? 'paid' : 'pending'}">${l.status}</span></td>
+          <td><button class="action-btn" style="border-color:var(--lime);color:var(--lime)" onclick="reviewLead(${l.id})">Process</button></td>
+          <td><button class="action-btn" onclick="window.open('https://wa.me/${l.phone.replace(/\D/g,'')}')">WA</button></td>
         </tr>
       `).join('');
+
 
       // Render Payments View
       const paymentsBody = document.getElementById('payments-body');
       const paidLeads = leads.filter(l => l.status === 'PAID').reverse();
       
       if (paidLeads.length === 0) {
-        paymentsBody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--mt)">No payments recorded yet.</td></tr>';
+        paymentsBody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--mt)">No payments recorded yet.</td></tr>';
       } else {
         paymentsBody.innerHTML = paidLeads.map(l => `
           <tr>
-            <td><b>${l.bizName}</b><br><small>${l.city || 'Bangalore'}</small></td>
+            <td><b>${l.bizName}</b><br><small style="color:var(--lime)">${l.bizType || '—'}</small><br><small>${l.city || 'Bangalore'}</small></td>
             <td>${l.name}<br><small>${l.phone}</small></td>
             <td><b style="color:var(--lime)">₹${(l.amount || 0).toLocaleString('en-IN')}</b></td>
             <td><span class="method-tag">${l.method}</span></td>
@@ -716,9 +745,142 @@
             <td><span class="status paid">SUCCESS</span></td>
             <td><button class="action-btn" onclick="viewPaymentDetails(${l.id})">View</button></td>
           </tr>
-
         `).join('');
       }
+    }
+
+    function reviewLead(id) {
+      const leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const l = leads.find(item => item.id == id);
+      if (!l) return;
+
+      const reportLink = window.location.origin + window.location.pathname.replace('admin/index.html', 'ai-Audit.html') + '?d=' + encodeURIComponent(l.payload || '');
+      
+      const html = `
+        <div class="m-title">Review & Process Lead</div>
+        <div style="font-size:11px; color:var(--lime); margin-bottom:15px; padding:10px; background:rgba(212,175,55,0.05); border-radius:8px; border:1px solid var(--bd)">
+          ⚠️ <b>Action Required:</b> Ensure "Autoresponder" is enabled in your Web3Forms dashboard for this to send automatically.
+        </div>
+        
+        <div class="det-row"><span class="det-lbl">Business:</span><span class="det-val">${l.bizName} (${l.bizType || '—'})</span></div>
+        <div class="det-row"><span class="det-lbl">Owner:</span><span class="det-val">${l.name}</span></div>
+
+
+        <div class="det-row"><span class="det-lbl">Email:</span><span class="det-val" style="color:var(--lime)">${l.email || '—'}</span></div>
+        <div class="det-row"><span class="det-lbl">Contact:</span><span class="det-val">+91 ${l.phone}</span></div>
+        <div class="det-row" style="margin-bottom:20px;"><span class="det-lbl">Payment Status:</span><span class="det-val">${l.status} (₹${l.amount})</span></div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px;">
+          <button class="action-btn" onclick="window.open('${reportLink}', '_blank')" style="background:rgba(255,255,255,0.05); border-color:var(--mt); color:var(--wht)">👁️ Preview Report</button>
+          <button class="action-btn" onclick="approveLead(${l.id})" style="background:var(--lime); color:var(--blk); font-weight:800; border:none">✅ Approve & Mail</button>
+        </div>
+        <button class="action-btn" onclick="rejectLead(${l.id})" style="width:100%; margin-top:10px; border-color:#FF5C5C; color:#FF5C5C">❌ Reject Lead</button>
+      `;
+      
+      document.getElementById('modal-content').innerHTML = html;
+      document.getElementById('p-modal').style.display = 'flex';
+    }
+
+    async function approveLead(id) {
+       const leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+       const l = leads.find(item => item.id == id);
+       if (!l) return;
+
+       if (MAIL_GATEWAY_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+         showToast("❌ Setup Required: Paste your Google Script URL in the code (Line 676).", true);
+         return;
+       }
+
+       let payload = l.payload;
+       if (!payload) {
+         // Create a fallback payload for leads without one (e.g., from landing page contact form)
+         const fallbackD = {
+           bizName: l.bizName || 'Unknown Business',
+           bizType: l.bizType || 'Business',
+           bizEmail: l.email || l.bizEmail || '',
+           leadName: l.name || 'Valued Customer',
+           leadPhone: l.phone || '',
+           bizCity: l.city || 'Bangalore, Karnataka'
+         };
+         payload = btoa(unescape(encodeURIComponent(JSON.stringify(fallbackD))));
+       }
+
+       const reportLink = '../ai-Audit.html?d=' + encodeURIComponent(payload) + '&autoSend=1&gw=' + encodeURIComponent(MAIL_GATEWAY_URL);
+
+       
+       showToast("🚀 Opening PDF Generator Worker...");
+       
+       // Open the report in a new tab which will handle the PDF generation and sending
+       const worker = window.open(reportLink, '_blank');
+       
+       if (worker) {
+         showToast("✅ Worker started. PDF will be sent automatically.");
+         closeModal();
+       } else {
+         showToast("❌ Popup blocked! Please allow popups for this site.", true);
+       }
+    }
+
+
+
+    async function rejectLead(id) {
+       const leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+       const l = leads.find(item => item.id == id);
+       if (!l) return;
+
+       if (MAIL_GATEWAY_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+         showToast("❌ Setup Required: Paste your Script URL in settings.", true);
+         return;
+       }
+
+       showToast("Sending rejection...");
+       const message = `Hi ${l.name},
+
+Thank you for your interest in our AI Digital Audit. Unfortunately, we are unable to process your audit request at this time. 
+
+If a payment was made, our team will contact you for a refund manually within 24 hours.
+
+Regards,
+Numero Uno Marketing`;
+
+       try {
+         const res = await fetch(MAIL_GATEWAY_URL, {
+           method: 'POST',
+           body: JSON.stringify({
+             to: l.email,
+             subject: `Update regarding your Audit for ${l.bizName}`,
+             body: message
+           })
+         });
+         const result = await res.json();
+         if (result.success) {
+           showToast("✅ Rejection Sent Successfully");
+           closeModal();
+         } else {
+           showToast("❌ Gateway error.", true);
+         }
+       } catch (err) {
+         showToast("❌ Error sending rejection.", true);
+       }
+    }
+
+    function showToast(msg, isError = false) {
+      let t = document.getElementById('admin-toast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'admin-toast';
+        t.className = 'toast';
+        document.body.appendChild(t);
+      }
+      t.innerHTML = (isError ? '❌ ' : '✨ ') + msg;
+      t.style.borderColor = isError ? '#FF5C5C' : 'var(--bd)';
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+
+    function closeModal() {
+      document.getElementById('p-modal').style.display = 'none';
     }
 
     // Refresh function
@@ -731,14 +893,6 @@
       setTimeout(() => btn.innerHTML = oldTxt, 2000);
     };
 
-    function initDashboard() {
-      const a = getAdmin();
-      const adminName = a.name || 'Admin';
-      document.getElementById('page-title').textContent = 'Welcome back, ' + adminName;
-      loadLeads();
-    }
-    initDashboard();
-
     function viewPaymentDetails(id) {
       const leads = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
       const l = leads.find(item => item.id == id);
@@ -746,13 +900,12 @@
 
       const html = `
         <div class="m-title">Payment Details</div>
-        <div class="det-row"><span class="det-lbl">Business:</span><span class="det-val">${l.bizName}</span></div>
+        <div class="det-row"><span class="det-lbl">Business:</span><span class="det-val">${l.bizName} (${l.bizType || '—'})</span></div>
         <div class="det-row"><span class="det-lbl">Location:</span><span class="det-val">${l.city || 'Bangalore'}</span></div>
         <div class="det-row"><span class="det-lbl">Customer:</span><span class="det-val">${l.name}</span></div>
         <div class="det-row"><span class="det-lbl">Phone:</span><span class="det-val">+91 ${l.phone}</span></div>
         <div class="det-row"><span class="det-lbl">Amount Paid:</span><span class="det-val" style="color:var(--lime)">₹${(l.amount || 0).toLocaleString('en-IN')}</span></div>
         <div class="det-row"><span class="det-lbl">Method:</span><span class="det-val">${l.method}</span></div>
-        <div class="det-row"><span class="det-lbl">Transaction ID:</span><span class="det-val" style="font-family:monospace;letter-spacing:1px">TXN-${String(l.id).padStart(6, '0')}</span></div>
         <div class="det-row"><span class="det-lbl">Date:</span><span class="det-val">${new Date(l.date).toLocaleString()}</span></div>
 
         <div class="det-row" style="border:none"><span class="det-lbl">Status:</span><span class="det-val">VERIFIED ✓</span></div>
@@ -763,9 +916,13 @@
       document.getElementById('p-modal').style.display = 'flex';
     }
 
-    function closeModal() {
-      document.getElementById('p-modal').style.display = 'none';
+    function initDashboard() {
+      const a = getAdmin();
+      const adminName = a.name || 'Admin';
+      document.getElementById('page-title').textContent = 'Welcome back, ' + adminName;
+      loadLeads();
     }
+    initDashboard();
 
     // Modal overlay click to close
     window.onclick = function(e) {
