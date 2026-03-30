@@ -1,16 +1,17 @@
 /* --- CSS Reset & Variables --- */
 :root {
-  --primary: #000000;
-  --secondary: #1F1F1F;
-  --accent: #D4AF37;
-  --accent-light: #F1D06F;
-  --bg-color: #0A0A0A;
-  --text-main: #F5F5F5;
-  --text-muted: #A3A3A3;
+  --primary: #05080a;
+  --secondary: #0a1118;
+  --accent: #20c997;
+  --accent-light: #39ffea;
+  --bg-color: #05080a;
+  --text-main: #ffffff;
+  --text-muted: #8899a6;
   --font-main: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
-  --glass-bg: rgba(31, 31, 31, 0.6);
-  --glass-border: rgba(212, 175, 55, 0.15);
+  --glass-bg: rgba(10, 17, 24, 0.7);
+  --glass-border: rgba(32, 201, 151, 0.2);
+  --whatsapp-green: #25d366;
 }
 
 * {
@@ -66,6 +67,7 @@ p {
   color: var(--accent);
   background: linear-gradient(135deg, var(--accent-light), var(--accent));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -96,10 +98,10 @@ p {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent), #B38F24);
+  background: linear-gradient(135deg, var(--accent), #19a97d);
   color: var(--primary);
   border: none;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 15px rgba(32, 201, 151, 0.3);
 }
 
 .btn-primary:hover {

@@ -34,7 +34,7 @@ if (window.innerWidth > 768) {
       gsap.to(cursor, { scale: 0, duration: 0.3 });
       gsap.to(follower, { 
         scale: 1.5, 
-        backgroundColor: 'rgba(212, 175, 55, 0.2)', 
+        backgroundColor: 'rgba(32, 201, 151, 0.2)', 
         borderColor: 'transparent',
         duration: 0.3 
       });
@@ -44,7 +44,7 @@ if (window.innerWidth > 768) {
       gsap.to(follower, { 
         scale: 1, 
         backgroundColor: 'transparent', 
-        borderColor: 'rgba(212, 175, 55, 0.5)',
+        borderColor: 'rgba(32, 201, 151, 0.5)',
         duration: 0.3 
       });
     });

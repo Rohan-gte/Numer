@@ -20,7 +20,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--blk:#0A0A0A;--wht:#F5F5F5;--lime:#D4AF37;--lime2:#B38F24;--g1:#1F1F1F;--g2:#000000;--mt:#A3A3A3;--bd:rgba(212,175,55,.12);--tx:#F5F5F5;--tx2:#CCCCCC;--yellow:#D4AF37;--orange:#D4AF37;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif}
+:root{--blk:#05080a;--wht:#ffffff;--lime:#20c997;--lime2:#19a97d;--g1:#0a1118;--g2:#05080a;--mt:#8899a6;--bd:rgba(32, 201, 151, .2);--tx:#ffffff;--tx2:#8899a6;--yellow:#20c997;--orange:#20c997;--fh:'Plus Jakarta Sans',sans-serif;--fb:'Nunito',sans-serif;--whatsapp-green:#25d366}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--blk);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7}
     .ann { background: #000; color: #f5f5f5; border-bottom: 2px solid var(--orange); text-align: center; padding: 10px 20px; font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 10 }
@@ -30,12 +30,12 @@ body{font-family:var(--fb);background:var(--blk);color:var(--tx);overflow-x:hidd
     .nav-logo b { color: var(--lime) }
     .nav-links { display: flex; gap: 28px }
     .nav-links a { font-size: 14px; color: var(--tx); text-decoration: none; font-weight: 500 }
-    .nav-links a:hover, .nav-links a.active { color: #D4AF37 }
+    .nav-links a:hover, .nav-links a.active { color: #20c997 }
     .nav-actions { display: flex; gap: 8px; align-items: center }
-    .nav-wa { display: flex; align-items: center; gap: 6px; background: #1F1F1F; border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none }
-    .nav-wa:hover { background: #D4AF37; color: #000 }
-    .nav-cta { background: linear-gradient(135deg, #F1D06F, #D4AF37); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
-    .nav-cta:hover { background: linear-gradient(135deg, #D4AF37, #F1D06F); color: #000 }
+    .nav-wa { display: flex; align-items: center; gap: 6px; background: #1F1F1F; border: 1px solid #20c997; color: #20c997; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none }
+    .nav-wa:hover { background: #20c997; color: #000 }
+    .nav-cta { background: linear-gradient(135deg, #F1D06F, #20c997); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none }
+    .nav-cta:hover { background: linear-gradient(135deg, #20c997, #F1D06F); color: #000 }
     .nav-ham { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 6px; background: none; border: none }
     .nav-ham span { width: 18px; height: 1.5px; background: var(--tx); display: block; border-radius: 2px }
     .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
@@ -105,9 +105,9 @@ section{padding:80px 0}.alt{background:var(--g1)}
 .fi{background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:7px;padding:11px 13px;font-size:14px;color:var(--wht);font-family:var(--fb);outline:none;transition:border-color .2s;width:100%;margin-bottom:8px}
 .fi:focus{border-color:rgba(255,214,0,.4)}.fi::placeholder{color:var(--mt)}
 .fs-sel{background:#161620;border:1px solid var(--bd);border-radius:7px;padding:11px 13px;font-size:14px;color:var(--tx2);font-family:var(--fb);outline:none;width:100%;cursor:pointer;margin-bottom:8px}
-.btn-lime{background:linear-gradient(135deg,#F1D06F,#D4AF37);color:#000;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;border:none;cursor:pointer;font-family:var(--fb)}
-.btn-lime:hover{background:#D4AF37;transform:translateY(-2px)}
-.btn-ghost{background:transparent;color:#D4AF37;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid #D4AF37;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;cursor:pointer;font-family:var(--fb)}
+.btn-lime{background:linear-gradient(135deg,#F1D06F,#20c997);color:#000;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;border:none;cursor:pointer;font-family:var(--fb)}
+.btn-lime:hover{background:#20c997;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#20c997;padding:12px 24px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid #20c997;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;cursor:pointer;font-family:var(--fb)}
 .btn-ghost:hover{background:rgba(212,175,55,.1);transform:translateY(-2px)}
 .cf-btn{background:var(--lime);color:var(--blk);border:none;border-radius:7px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);transition:background .15s;width:100%;display:flex;align-items:center;justify-content:center;gap:6px}
 .cf-btn:hover{background:var(--lime2)}
@@ -219,7 +219,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <a href="services.html">Services & Pricing</a>
     <a href="clients.html" class="active">Client Results</a>
     <a href="ai-Audit.html" class="active">AI Audit — ₹199</a>
-    <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
+    <a href="https://wa.me/919632091371" style="color:#20c997;font-weight:600">💬 WhatsApp Us Now</a>
   </div>
 
 <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="wa-float" target="_blank"
@@ -256,7 +256,7 @@ body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <!-- DENTAL -->
 <section id="dental">
   <div class="container">
-    <div class="ind-header rv"><div class="ind-dot" style="background:#D4AF37"></div><div class="ind-title">🦷 Dental Clinics</div><div class="ind-count">4 clients active</div></div>
+    <div class="ind-header rv"><div class="ind-dot" style="background:#20c997"></div><div class="ind-title">🦷 Dental Clinics</div><div class="ind-count">4 clients active</div></div>
     <div class="results-strip rv">
       <div class="rs-item"><div class="rs-n">38</div><div class="rs-l">Peak new patient enquiries / month</div></div>
       <div class="rs-item"><div class="rs-n">375%</div><div class="rs-l">Avg. enquiry growth in 60 days</div></div>

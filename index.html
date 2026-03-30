@@ -47,40 +47,41 @@
    VARIABLES & RESET
    ============================ */
     :root {
-      --bg-dark: #0A0A0A;
-      --bg-navy: #1F1F1F;
-      --gradient-start: #1F1F1F;
-      --gradient-end: #000000;
+      --bg-dark: #05080a;
+      --bg-navy: #0a1118;
+      --gradient-start: #0a1118;
+      --gradient-end: #05080a;
 
-      --primary: #D4AF37;
-      --primary-bright: #B38F24;
-      --primary-soft: #D4AF37;
+      --primary: #20c997;
+      --primary-bright: #39ffea;
+      --primary-soft: #20c997;
 
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(212, 175, 55, 0.12);
+      --glass-bg: rgba(10, 17, 24, 0.7);
+      --glass-border: rgba(32, 201, 151, 0.2);
 
-      --text-main: #F5F5F5;
-      --text-secondary: #CCCCCC;
-      --text-muted: #A3A3A3;
+      --text-main: #ffffff;
+      --text-secondary: #8899a6;
+      --text-muted: #6b7280;
 
-      --success: #D4AF37;
+      --success: #20c997;
       --danger: #FF5C5C;
       --warning: #FFAA33;
-      --accent: #D4AF37;
+      --accent: #20c997;
 
       /* Legacy compatibility mappings */
-      --blk: #0A0A0A;
-      --wht: #F5F5F5;
-      --lime: #D4AF37;
-      --lime2: #B38F24;
-      --g1: #1F1F1F;
-      --g2: #000000;
-      --mt: #A3A3A3;
-      --bd: rgba(212, 175, 55, .12);
-      --tx: #F5F5F5;
-      --tx2: #CCCCCC;
+      --blk: #05080a;
+      --wht: #ffffff;
+      --lime: #20c997;
+      --lime2: #19a97d;
+      --g1: #0a1118;
+      --g2: #05080a;
+      --mt: #8899a6;
+      --bd: rgba(32, 201, 151, .2);
+      --tx: #ffffff;
+      --tx2: #8899a6;
       --fh: 'Plus Jakarta Sans', sans-serif;
-      --fb: 'Nunito', sans-serif
+      --fb: 'Nunito', sans-serif;
+      --whatsapp-green: #25d366;
     }
 
     * {
@@ -97,8 +98,8 @@
     body {
       font-family: var(--fb);
       background: var(--bg-dark);
-      background-image: radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(179, 143, 36, 0.05) 0%, transparent 50%);
+      background-image: radial-gradient(circle at 0% 0%, rgba(32, 201, 151, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(57, 255, 234, 0.05) 0%, transparent 50%);
       color: var(--text-main);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -239,14 +240,14 @@
       font-size: 13.5px;
       font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 14px rgba(32, 201, 151, 0.3);
       transition: all 0.3s ease
     }
 
     .nav-cta:hover {
       background: var(--primary-bright);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 6px 20px rgba(32, 201, 151, 0.4);
     }
 
     .nav-ham {
@@ -317,7 +318,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .14em;
-      color: #D4AF37;
+      color: #20c997;
       margin-bottom: 9px;
       display: block
     }
@@ -334,11 +335,11 @@
 
     .section-h2 em {
       font-style: normal;
-      color: #D4AF37
+      color: #20c997
     }
 
     .hero-h1 em {
-      color: #D4AF37
+      color: #20c997
     }
 
     .section-sub {
@@ -385,6 +386,14 @@
     /* ============================
    BUTTONS
    ============================ */
+    .gold-text {
+      color: var(--accent);
+      background: linear-gradient(135deg, var(--primary-bright), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .btn-lime {
       background: linear-gradient(135deg, var(--primary), var(--primary-bright));
       color: #fff;
@@ -396,14 +405,14 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 4px 20px rgba(32, 201, 151, 0.25);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn-lime:hover {
       background: var(--primary-bright);
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 8px 25px rgba(32, 201, 151, 0.4);
     }
 
     .btn-ghost {
@@ -450,8 +459,8 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 99px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.2);
+      background: rgba(32, 201, 151, 0.1);
+      border: 1px solid rgba(32, 201, 151, 0.2);
       font-size: 11px;
       font-weight: 700;
       color: var(--primary-soft);
@@ -904,7 +913,7 @@
       font-family: var(--fh);
       font-size: 44px;
       font-weight: 800;
-      color: #D4AF37;
+      color: #20c997;
       letter-spacing: -.02em;
       line-height: 1;
       margin-bottom: 3px
@@ -929,7 +938,7 @@
       font-style: italic;
       margin-bottom: 10px;
       padding-left: 18px;
-      border-left: 2px solid rgba(255, 214, 0, .3)
+      border-left: 2px solid rgba(32, 201, 151, .3)
     }
 
     .bento-author {
@@ -1002,9 +1011,9 @@
     }
 
     .wb-lime {
-      background: rgba(255, 214, 0, .09);
+      background: rgba(32, 201, 151, .09);
       color: var(--lime);
-      border: 1px solid rgba(255, 214, 0, .2)
+      border: 1px solid rgba(32, 201, 151, .2)
     }
 
     .wb-gray {
@@ -1034,14 +1043,14 @@
     }
 
     .price-card:hover {
-      border-color: rgba(255, 214, 0, .3);
+      border-color: rgba(32, 201, 151, .3);
       transform: translateY(-4px);
       background: var(--g2)
     }
 
     .price-card.featured {
-      border-color: rgba(255, 214, 0, .35);
-      background: rgba(255, 214, 0, .03)
+      border-color: rgba(32, 201, 151, .35);
+      background: rgba(32, 201, 151, .03)
     }
 
     .pc-icon {
@@ -1091,11 +1100,11 @@
       margin-top: 7px;
       font-size: 10px;
       font-weight: 700;
-      background: rgba(255, 214, 0, .1);
+      background: rgba(32, 201, 151, .1);
       color: var(--lime);
       padding: 2px 7px;
       border-radius: 3px;
-      border: 1px solid rgba(255, 214, 0, .2)
+      border: 1px solid rgba(32, 201, 151, .2)
     }
 
     /* ============================
@@ -1116,7 +1125,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--lime), #FF6B1A)
+      background: linear-gradient(90deg, var(--lime), #20c997)
     }
 
     .apromo-grid {
@@ -1186,7 +1195,7 @@
       font-family: var(--fh);
       font-size: 36px;
       font-weight: 800;
-      color: var(--yellow);
+      color: var(--lime);
       letter-spacing: -.02em
     }
 
@@ -1199,7 +1208,7 @@
     .apromo-save {
       font-size: 12px;
       font-weight: 700;
-      background: rgba(255, 214, 0, .1);
+      background: rgba(32, 201, 151, .1);
       color: var(--lime);
       padding: 2px 8px;
       border-radius: 3px
@@ -1218,7 +1227,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: rgba(255, 214, 0, .025)
+      background: rgba(32, 201, 151, .025)
     }
 
     .apromo-num {
@@ -1263,8 +1272,8 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: rgba(255, 214, 0, .12);
-      border: 1px solid rgba(255, 214, 0, .25);
+      background: rgba(32, 201, 151, .12);
+      border: 1px solid rgba(32, 201, 151, .25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1292,7 +1301,7 @@
     }
 
     .feed-card:hover {
-      border-color: rgba(255, 214, 0, .2)
+      border-color: rgba(32, 201, 151, .2)
     }
 
     .feed-handle {
@@ -1321,7 +1330,7 @@
 
     .feed-tag {
       font-size: 11.5px;
-      color: rgba(255, 214, 0, .55);
+      color: rgba(32, 201, 151, .55);
       font-weight: 500
     }
 
@@ -1491,7 +1500,7 @@
     }
 
     .channel-link:hover {
-      border-color: rgba(255, 214, 0, .25)
+      border-color: rgba(32, 201, 151, .25)
     }
 
     .channel-icon {
@@ -1557,7 +1566,7 @@
     }
 
     .form-input:focus {
-      border-color: rgba(255, 214, 0, .4)
+      border-color: rgba(32, 201, 151, .4)
     }
 
     .form-input::placeholder {
@@ -1578,7 +1587,7 @@
     }
 
     .form-btn {
-      background: linear-gradient(135deg, #D4AF37, #D4AF37);
+      background: linear-gradient(135deg, #20c997, #20c997);
       color: #000;
       border: none;
       border-radius: 7px;
@@ -1656,13 +1665,13 @@
     }
 
     .side-tab-audit {
-      background: var(--orange);
+      background: var(--lime);
       color: #fff
     }
 
     .side-tab-audit:hover {
       padding-right: 14px;
-      background: #FF8540;
+      background: #19a97d;
       color: #fff
     }
 
@@ -1830,11 +1839,11 @@
 
     .contact-left h2.section-h2 em {
       font-style: normal;
-      color: #D4AF37
+      color: #20c997
     }
 
     .hero-h1 em {
-      color: #D4AF37
+      color: #20c997
     }
 
     .contact-left h2 {
@@ -2407,7 +2416,7 @@
       font-family: var(--fh);
       font-size: 14px;
       font-weight: 800;
-      color: #D4AF37;
+      color: #20c997;
       margin-left: auto;
       flex-shrink: 0
     }
@@ -2705,28 +2714,28 @@
     .spark1 {
       top: 10%;
       right: 15%;
-      background: #D4AF37;
+      background: #20c997;
       animation: sparkle 2.2s ease-in-out infinite
     }
 
     .spark2 {
       top: 30%;
       left: 8%;
-      background: #D4AF37;
+      background: #20c997;
       animation: sparkle 1.8s ease-in-out infinite .5s
     }
 
     .spark3 {
       bottom: 20%;
       right: 10%;
-      background: #D4AF37;
+      background: #20c997;
       animation: sparkle 2.5s ease-in-out infinite 1s
     }
 
     .spark4 {
       bottom: 35%;
       left: 20%;
-      background: #D4AF37;
+      background: #20c997;
       animation: sparkle 2s ease-in-out infinite .3s;
       width: 6px;
       height: 6px
@@ -2958,19 +2967,21 @@
   <div class="ann">🎯 AI Audit ₹199 — See your exact gaps + <strong>unlock 10% off</strong> any package &nbsp;<a
       href="ai-Audit.html">Get My Audit →</a></div>
 
-  <!-- ===== NAV ===== -->
   <header class="nav-wrap" id="main-nav">
     <a href="index.html" class="nav-logo">Numero <em>Uno</em></a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="index.html" class="active">Home</a>
       <a href="services.html">Services & Pricing</a>
       <a href="clients.html">Client Results</a>
-      <a href="ai-Audit.html">AI Audit — ₹199</a>
+      <a href="about.html">About Us</a>
+      <a href="ai-Audit.html">AI Audit</a>
     </nav>
     <div class="nav-actions">
-      <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online.+Can+we+talk%3F" class="nav-wa"
-        target="_blank" rel="noopener">💬 WhatsApp</a>
-      <a href="ai-Audit.html" class="nav-cta">AI Audit — ₹199</a>
+      <a href="https://wa.me/919632091371" class="nav-wa" target="_blank" rel="noopener" style="border-color:var(--whatsapp-green);color:var(--whatsapp-green)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M12.031 2C6.49 2 2 6.49 2 12.031C2 13.805 2.463 15.512 3.342 17.031L2.031 22L7.142 20.689C8.583 21.492 10.232 21.969 12.031 21.969C17.572 21.969 22.062 17.479 22.062 12.031C22.062 6.583 17.572 2.094 12.031 2.094L12.031 2ZM12.031 3.531C16.732 3.531 20.562 7.361 20.562 12.031C20.562 16.701 16.732 20.531 12.031 20.531C10.457 20.531 9.006 20.1 7.781 19.351L7.49 19.172L4.621 19.922L5.381 17.102L5.192 16.81C4.341 15.46 3.861 13.85 3.861 12.031C3.861 7.361 7.691 3.531 12.031 3.531ZM15.421 13.582C15.231 13.487 14.302 13.028 14.122 12.963C13.952 12.898 13.822 12.868 13.702 13.058C13.582 13.248 13.232 13.658 13.132 13.783C13.032 13.908 12.932 13.923 12.742 13.828C12.552 13.733 11.942 13.528 11.212 12.878C10.642 12.368 10.262 11.738 10.152 11.548C10.042 11.358 10.142 11.253 10.232 11.158C10.322 11.063 10.422 10.938 10.512 10.828C10.602 10.718 10.632 10.638 10.692 10.513C10.752 10.388 10.722 10.278 10.672 10.183C10.622 10.088 10.272 9.228 10.132 8.878C9.991 8.538 9.851 8.588 9.741 8.588C9.641 8.588 9.531 8.588 9.421 8.588C9.311 8.588 9.131 8.628 8.981 8.788C8.831 8.948 8.421 9.338 8.421 10.118C8.421 10.898 8.991 11.643 9.071 11.753C9.151 11.863 10.182 13.461 11.782 14.153C12.162 14.318 12.452 14.413 12.682 14.488C13.062 14.608 13.412 14.588 13.692 14.548C14.002 14.503 14.642 14.153 14.772 13.783C14.902 13.413 14.902 13.093 14.862 13.028C14.822 12.963 14.712 12.933 14.522 12.838L15.421 13.582Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="ai-Audit.html" class="nav-cta" style="background:var(--accent);color:var(--blk)">Get Started</a>
     </div>
     <button class="nav-ham" aria-label="Open menu"
       onclick="document.getElementById('mobile-nav').classList.toggle('open')">
@@ -2982,7 +2993,7 @@
     <a href="services.html">Services & Pricing</a>
     <a href="clients.html">Client Results</a>
     <a href="ai-Audit.html">AI Audit — ₹199</a>
-    <a href="https://wa.me/919632091371" style="color:#D4AF37;font-weight:600">💬 WhatsApp Us Now</a>
+    <a href="https://wa.me/919632091371" style="color:#20c997;font-weight:600">💬 WhatsApp Us Now</a>
   </div>
 
   <!-- ===== FIXED SIDE LEAD TABS (desktop) ===== -->
@@ -3044,29 +3055,29 @@
       preserveAspectRatio="xMidYMid slice">
       <defs>
         <pattern id="dot-matrix" width="24" height="24" patternUnits="userSpaceOnUse">
-          <circle cx="12" cy="12" r="1.5" fill="#D4AF37" opacity=".35" />
+          <circle cx="12" cy="12" r="1.5" fill="#20c997" opacity=".35" />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#dot-matrix)" />
     </svg>
     <!-- Floating teal orbs -->
     <div
-      style="position:absolute;top:15%;left:8%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.08) 0%,transparent 70%);animation:floatY 7s ease-in-out infinite;pointer-events:none">
+      style="position:absolute;top:15%;left:8%;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(32, 201, 151,.08) 0%,transparent 70%);animation:floatY 7s ease-in-out infinite;pointer-events:none">
     </div>
     <div
-      style="position:absolute;top:50%;right:5%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(179,143,36,.06) 0%,transparent 70%);animation:floatY 9s ease-in-out infinite reverse;pointer-events:none">
+      style="position:absolute;top:50%;right:5%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(32, 201, 151,.06) 0%,transparent 70%);animation:floatY 9s ease-in-out infinite reverse;pointer-events:none">
     </div>
     <div
-      style="position:absolute;bottom:10%;left:30%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.05) 0%,transparent 70%);animation:floatY 5s ease-in-out infinite;pointer-events:none">
+      style="position:absolute;bottom:10%;left:30%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(32, 201, 151,.05) 0%,transparent 70%);animation:floatY 5s ease-in-out infinite;pointer-events:none">
     </div>
     <div class="container">
       <div class="hero-grid">
         <!-- Left -->
         <div>
           <div class="hero-pill rv">
-            <div class="hero-pulse"></div>Bangalore's SME Growth Agency · Est. 2022
+            <div class="hero-pulse"></div> REAL BUSINESSES • REAL NUMBERS • REAL MONEY
           </div>
-          <h1 class="hero-h1 rv d1">Unbeatable Rankings.<br><em>Real Business Growth.</em></h1>
+          <h1 class="hero-h1 rv d1">These Aren't Vanity Metrics.<br>These Are <em>Booked Appointments.</em></h1>
           <p class="hero-sub rv d2">We help dental clinics, gyms, cafés, restaurants and schools in Bangalore get
             <strong>15–40 new customer enquiries every month</strong> — through Instagram, Google Business and WhatsApp
             automation. Starting from ₹15,000/month.
@@ -3180,33 +3191,33 @@
               <circle cx="45" cy="32" r="20" fill="#1F1F1F" />
               <circle cx="45" cy="32" r="17" fill="#333333" />
               <!-- Eyes -->
-              <ellipse cx="38" cy="30" rx="5" ry="6" fill="#D4AF37" />
-              <ellipse cx="52" cy="30" rx="5" ry="6" fill="#D4AF37" />
+              <ellipse cx="38" cy="30" rx="5" ry="6" fill="#20c997" />
+              <ellipse cx="52" cy="30" rx="5" ry="6" fill="#20c997" />
               <circle class="mascot-eye" cx="39" cy="30" r="3" fill="#0A0A0A" />
               <circle class="mascot-eye" cx="53" cy="30" r="3" fill="#0A0A0A" />
               <circle cx="40" cy="29" r="1" fill="white" />
               <circle cx="54" cy="29" r="1" fill="white" />
               <!-- Smile -->
-              <path d="M38 38 Q45 44 52 38" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path d="M38 38 Q45 44 52 38" stroke="#20c997" stroke-width="2" stroke-linecap="round" fill="none" />
               <!-- Antenna -->
-              <line x1="45" y1="12" x2="45" y2="4" stroke="#D4AF37" stroke-width="2" />
-              <circle cx="45" cy="3" r="3" fill="#D4AF37" />
+              <line x1="45" y1="12" x2="45" y2="4" stroke="#20c997" stroke-width="2" />
+              <circle cx="45" cy="3" r="3" fill="#20c997" />
               <!-- Hands -->
               <ellipse cx="22" cy="58" rx="6" ry="8" fill="#1F1F1F" />
               <ellipse cx="68" cy="55" rx="6" ry="8" fill="#1F1F1F" class="mascot-hand" />
               <!-- Phone in right hand -->
-              <rect x="62" y="46" width="10" height="16" rx="2" fill="#D4AF37" />
+              <rect x="62" y="46" width="10" height="16" rx="2" fill="#20c997" />
               <rect x="63.5" y="48" width="7" height="10" rx="1" fill="#0A0A0A" />
-              <text x="65" y="56" font-size="5" fill="#D4AF37">📈</text>
+              <text x="65" y="56" font-size="5" fill="#20c997">📈</text>
               <!-- Teal shirt detail -->
-              <path d="M30 52 Q45 60 60 52" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" fill="none"
+              <path d="M30 52 Q45 60 60 52" stroke="#20c997" stroke-width="1.5" stroke-linecap="round" fill="none"
                 opacity=".5" />
               <!-- Legs -->
               <rect x="36" y="78" width="9" height="10" rx="3" fill="#1F1F1F" />
               <rect x="47" y="78" width="9" height="10" rx="3" fill="#1F1F1F" />
             </svg>
             <div
-              style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#D4AF37;color:#000000;font-size:9px;font-weight:800;padding:3px 8px;border-radius:8px;white-space:nowrap;animation:bounce2 2s ease-in-out infinite">
+              style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#20c997;color:#000000;font-size:9px;font-weight:800;padding:3px 8px;border-radius:8px;white-space:nowrap;animation:bounce2 2s ease-in-out infinite">
               I scan profiles! 🔍
             </div>
           </div>
@@ -3256,21 +3267,21 @@
               <defs>
                 <radialGradient id="tg" cx="50%" cy="30%">
                   <stop offset="0%" stop-color="#F5F5F5" />
-                  <stop offset="100%" stop-color="#D4AF37" />
+                  <stop offset="100%" stop-color="#20c997" />
                 </radialGradient>
               </defs>
               <!-- Tooth body -->
               <path
                 d="M20,14 C14,14 12,20 12,26 C12,34 16,44 20,52 C21,55 23,55 24,52 C26,46 28,42 32,42 C36,42 38,46 40,52 C41,55 43,55 44,52 C48,44 52,34 52,26 C52,20 50,14 44,14 C40,14 36,16 32,16 C28,16 24,14 20,14Z"
-                fill="url(#tg)" stroke="#D4AF37" stroke-width="1.5" />
+                fill="url(#tg)" stroke="#20c997" stroke-width="1.5" />
               <!-- Roots outline -->
               <path d="M26,42 L24,56 M38,42 L40,56" stroke="rgba(212,175,55,.4)" stroke-width="1.5"
                 stroke-linecap="round" />
               <!-- Sparkle stars -->
               <g style="animation:glowPulse 2s ease-in-out infinite">
-                <text x="6" y="18" font-size="8" fill="#D4AF37" opacity=".9">✦</text>
-                <text x="50" y="22" font-size="6" fill="#D4AF37" opacity=".8">✦</text>
-                <text x="10" y="38" font-size="5" fill="#D4AF37" opacity=".7">✦</text>
+                <text x="6" y="18" font-size="8" fill="#20c997" opacity=".9">✦</text>
+                <text x="50" y="22" font-size="6" fill="#20c997" opacity=".8">✦</text>
+                <text x="10" y="38" font-size="5" fill="#20c997" opacity=".7">✦</text>
               </g>
             </svg>
           </div>
@@ -3287,8 +3298,8 @@
             <svg viewBox="0 0 64 64" width="64" height="64" style="animation:dumbbellLift 2.5s ease-in-out infinite">
               <defs>
                 <linearGradient id="dbg" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#D4AF37" />
-                  <stop offset="100%" stop-color="#D4AF37" />
+                  <stop offset="0%" stop-color="#20c997" />
+                  <stop offset="100%" stop-color="#20c997" />
                 </linearGradient>
               </defs>
               <!-- Left plate outer -->
@@ -3299,18 +3310,18 @@
               <rect x="48" y="22" width="10" height="20" rx="3" fill="url(#dbg)" opacity=".9" />
               <rect x="50" y="25" width="4" height="14" rx="2" fill="#0A0A0A" opacity=".5" />
               <!-- Bar -->
-              <rect x="16" y="30" width="32" height="4" rx="2" fill="#D4AF37" />
+              <rect x="16" y="30" width="32" height="4" rx="2" fill="#20c997" />
               <!-- Handle grip lines -->
               <line x1="24" y1="30" x2="24" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5" />
               <line x1="30" y1="30" x2="30" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5" />
               <line x1="36" y1="30" x2="36" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5" />
               <line x1="42" y1="30" x2="42" y2="34" stroke="rgba(6,14,16,.4)" stroke-width="1.5" />
               <!-- Energy lines -->
-              <line x1="32" y1="14" x2="32" y2="20" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"
+              <line x1="32" y1="14" x2="32" y2="20" stroke="#20c997" stroke-width="1.5" stroke-linecap="round"
                 opacity=".7" style="animation:arrowRise 1.5s ease-in-out infinite" />
-              <line x1="26" y1="16" x2="26" y2="20" stroke="#D4AF37" stroke-width="1" stroke-linecap="round"
+              <line x1="26" y1="16" x2="26" y2="20" stroke="#20c997" stroke-width="1" stroke-linecap="round"
                 opacity=".5" style="animation:arrowRise 1.5s ease-in-out infinite;animation-delay:.2s" />
-              <line x1="38" y1="16" x2="38" y2="20" stroke="#D4AF37" stroke-width="1" stroke-linecap="round"
+              <line x1="38" y1="16" x2="38" y2="20" stroke="#20c997" stroke-width="1" stroke-linecap="round"
                 opacity=".5" style="animation:arrowRise 1.5s ease-in-out infinite;animation-delay:.4s" />
             </svg>
           </div>
@@ -3327,30 +3338,30 @@
             <svg viewBox="0 0 64 64" width="64" height="64">
               <defs>
                 <linearGradient id="cg" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#D4AF37" />
+                  <stop offset="0%" stop-color="#20c997" />
                   <stop offset="100%" stop-color="#1F1F1F" />
                 </linearGradient>
               </defs>
               <!-- Cup body -->
-              <path d="M14,24 L18,54 Q18,58 22,58 L42,58 Q46,58 46,54 L50,24Z" fill="url(#cg)" stroke="#D4AF37"
+              <path d="M14,24 L18,54 Q18,58 22,58 L42,58 Q46,58 46,54 L50,24Z" fill="url(#cg)" stroke="#20c997"
                 stroke-width="1.5" />
               <!-- Cup highlight -->
               <path d="M16,24 L18,40" stroke="rgba(255,255,255,.2)" stroke-width="3" stroke-linecap="round" />
               <!-- Handle -->
-              <path d="M50,32 Q60,32 60,42 Q60,52 50,52" fill="none" stroke="#D4AF37" stroke-width="3"
+              <path d="M50,32 Q60,32 60,42 Q60,52 50,52" fill="none" stroke="#20c997" stroke-width="3"
                 stroke-linecap="round" />
               <!-- Coffee surface -->
-              <ellipse cx="32" cy="24" rx="18" ry="4" fill="#D4AF37" opacity=".6" />
+              <ellipse cx="32" cy="24" rx="18" ry="4" fill="#20c997" opacity=".6" />
               <!-- Saucer -->
               <ellipse cx="32" cy="58" rx="22" ry="3" fill="rgba(212,175,55,.3)" />
               <!-- Steam 1 -->
-              <path d="M24,18 Q26,12 24,8" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"
+              <path d="M24,18 Q26,12 24,8" fill="none" stroke="#20c997" stroke-width="2" stroke-linecap="round"
                 style="animation:steamRise 2s ease-in-out infinite" />
               <!-- Steam 2 -->
-              <path d="M32,16 Q34,10 32,6" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"
+              <path d="M32,16 Q34,10 32,6" fill="none" stroke="#20c997" stroke-width="2" stroke-linecap="round"
                 style="animation:steamRise 2s ease-in-out infinite;animation-delay:.5s" />
               <!-- Steam 3 -->
-              <path d="M40,18 Q42,12 40,8" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"
+              <path d="M40,18 Q42,12 40,8" fill="none" stroke="#20c997" stroke-width="2" stroke-linecap="round"
                 style="animation:steamRise 2s ease-in-out infinite;animation-delay:1s" />
             </svg>
           </div>
@@ -3368,24 +3379,24 @@
             <svg viewBox="0 0 64 64" width="64" height="64" style="animation:capFloat 3.5s ease-in-out infinite">
               <defs>
                 <linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#D4AF37" />
-                  <stop offset="100%" stop-color="#D4AF37" />
+                  <stop offset="0%" stop-color="#20c997" />
+                  <stop offset="100%" stop-color="#20c997" />
                 </linearGradient>
               </defs>
               <!-- Diamond/board top -->
               <polygon points="32,10 58,22 32,34 6,22" fill="url(#gg)" stroke="rgba(255,255,255,.2)" stroke-width="1" />
               <!-- Cap crown -->
-              <rect x="22" y="22" width="20" height="16" rx="2" fill="#1F1F1F" stroke="#D4AF37" stroke-width="1.5" />
+              <rect x="22" y="22" width="20" height="16" rx="2" fill="#1F1F1F" stroke="#20c997" stroke-width="1.5" />
               <!-- Cap top shine -->
               <rect x="22" y="22" width="20" height="4" rx="2" fill="rgba(212,175,55,.4)" />
               <!-- Tassel string -->
-              <line x1="50" y1="22" x2="52" y2="38" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+              <line x1="50" y1="22" x2="52" y2="38" stroke="#20c997" stroke-width="2" stroke-linecap="round" />
               <!-- Tassel end -->
-              <circle cx="52" cy="40" r="4" fill="#D4AF37" />
+              <circle cx="52" cy="40" r="4" fill="#20c997" />
               <!-- Stars -->
-              <text x="26" y="42" font-size="7" fill="#D4AF37"
+              <text x="26" y="42" font-size="7" fill="#20c997"
                 style="animation:pulse-dot 2s ease-in-out infinite">★</text>
-              <text x="36" y="42" font-size="5" fill="#D4AF37"
+              <text x="36" y="42" font-size="5" fill="#20c997"
                 style="animation:pulse-dot 2s ease-in-out infinite;animation-delay:.4s">★</text>
             </svg>
           </div>
@@ -3414,12 +3425,12 @@
         <div
           style="background:var(--g1);border:1px solid rgba(212,175,55,.15);border-radius:16px;padding:20px 24px;position:relative;overflow:hidden">
           <div
-            style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#D4AF37,#D4AF37)">
+            style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#20c997,#20c997)">
           </div>
           <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:4px;margin-bottom:10px">
             <div style="font-size:11px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.08em">
               Client Growth · Avg. enquiries/month</div>
-            <div style="font-size:11px;color:#D4AF37;font-weight:700">📈 +380% avg</div>
+            <div style="font-size:11px;color:#20c997;font-weight:700">📈 +380% avg</div>
           </div>
           <svg viewBox="0 0 560 100" width="100%" style="overflow:visible">
             <!-- Grid lines -->
@@ -3429,11 +3440,11 @@
             <!-- Defs -->
             <defs>
               <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#D4AF37" stop-opacity=".9" />
+                <stop offset="0%" stop-color="#20c997" stop-opacity=".9" />
                 <stop offset="100%" stop-color="#1F1F1F" stop-opacity=".3" />
               </linearGradient>
               <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#D4AF37" stop-opacity=".9" />
+                <stop offset="0%" stop-color="#20c997" stop-opacity=".9" />
                 <stop offset="100%" stop-color="#1F1F1F" stop-opacity=".3" />
               </linearGradient>
               <clipPath id="barClip1">
@@ -3485,8 +3496,8 @@
             <!-- Before/After legend -->
             <rect x="0" y="108" width="10" height="6" rx="2" fill="rgba(212,175,55,.25)" />
             <text x="14" y="115" font-size="8" fill="#A3A3A3" font-family="Nunito,sans-serif">Before Numero Uno</text>
-            <rect x="120" y="108" width="10" height="6" rx="2" fill="#D4AF37" />
-            <text x="134" y="115" font-size="8" fill="#D4AF37" font-family="Nunito,sans-serif">After Numero Uno</text>
+            <rect x="120" y="108" width="10" height="6" rx="2" fill="#20c997" />
+            <text x="134" y="115" font-size="8" fill="#20c997" font-family="Nunito,sans-serif">After Numero Uno</text>
           </svg>
         </div>
       </div>
@@ -3540,15 +3551,15 @@
           <ellipse cx="80" cy="40" rx="70" ry="30" fill="none" stroke="rgba(212,175,55,.15)" stroke-width="1"
             stroke-dasharray="4 4" class="orbit-ring" />
           <!-- Center -->
-          <circle cx="80" cy="40" r="16" fill="rgba(212,175,55,.1)" stroke="#D4AF37" stroke-width="1.5" />
-          <text x="80" y="45" text-anchor="middle" font-size="13" font-family="Nunito,sans-serif" fill="#D4AF37"
+          <circle cx="80" cy="40" r="16" fill="rgba(212,175,55,.1)" stroke="#20c997" stroke-width="1.5" />
+          <text x="80" y="45" text-anchor="middle" font-size="13" font-family="Nunito,sans-serif" fill="#20c997"
             font-weight="800">NU</text>
           <!-- Orbiting dots -->
           <g transform="translate(80,40)">
-            <circle cx="0" cy="-42" r="6" fill="#D4AF37" style="animation:orbitDot 5s linear infinite" />
+            <circle cx="0" cy="-42" r="6" fill="#20c997" style="animation:orbitDot 5s linear infinite" />
           </g>
           <g transform="translate(80,40)">
-            <circle cx="0" cy="42" r="4" fill="#D4AF37"
+            <circle cx="0" cy="42" r="4" fill="#20c997"
               style="animation:orbitDot 5s linear infinite reverse;animation-delay:-2.5s" />
           </g>
           <!-- Labels -->
@@ -3706,19 +3717,19 @@
                   <rect x="40" y="90" width="60" height="36" rx="6" fill="#0A0A0A" />
                   <rect x="42" y="92" width="56" height="32" rx="5" fill="#0A1E1F" />
                   <!-- Screen graph animation -->
-                  <rect x="46" y="114" width="6" height="6" rx="1" fill="#D4AF37" opacity=".7" />
-                  <rect x="54" y="108" width="6" height="12" rx="1" fill="#D4AF37" opacity=".85" />
-                  <rect x="62" y="104" width="6" height="16" rx="1" fill="#D4AF37" />
-                  <rect x="70" y="100" width="6" height="20" rx="1" fill="#D4AF37" />
-                  <rect x="78" y="97" width="6" height="23" rx="1" fill="#D4AF37" />
-                  <rect x="86" y="93" width="6" height="27" rx="1" fill="#D4AF37" />
+                  <rect x="46" y="114" width="6" height="6" rx="1" fill="#20c997" opacity=".7" />
+                  <rect x="54" y="108" width="6" height="12" rx="1" fill="#20c997" opacity=".85" />
+                  <rect x="62" y="104" width="6" height="16" rx="1" fill="#20c997" />
+                  <rect x="70" y="100" width="6" height="20" rx="1" fill="#20c997" />
+                  <rect x="78" y="97" width="6" height="23" rx="1" fill="#20c997" />
+                  <rect x="86" y="93" width="6" height="27" rx="1" fill="#20c997" />
                   <!-- Screen label -->
-                  <text x="70" y="102" font-size="6" fill="#D4AF37" text-anchor="middle" opacity=".6">AUDIT SCORE</text>
+                  <text x="70" y="102" font-size="6" fill="#20c997" text-anchor="middle" opacity=".6">AUDIT SCORE</text>
                   <!-- Body buttons -->
-                  <circle cx="50" cy="134" r="5" fill="#0C2828" stroke="#D4AF37" stroke-width="1.2" />
-                  <circle cx="65" cy="134" r="5" fill="#D4AF37" class="robot-screen-text" />
-                  <circle cx="80" cy="134" r="5" fill="#0C2828" stroke="#D4AF37" stroke-width="1.2" />
-                  <circle cx="95" cy="134" r="5" fill="#0C2828" stroke="#D4AF37" stroke-width="1.2" />
+                  <circle cx="50" cy="134" r="5" fill="#0C2828" stroke="#20c997" stroke-width="1.2" />
+                  <circle cx="65" cy="134" r="5" fill="#20c997" class="robot-screen-text" />
+                  <circle cx="80" cy="134" r="5" fill="#0C2828" stroke="#20c997" stroke-width="1.2" />
+                  <circle cx="95" cy="134" r="5" fill="#0C2828" stroke="#20c997" stroke-width="1.2" />
                   <!-- Head -->
                   <rect x="22" y="26" width="96" height="58" rx="18" fill="#1F1F1F" />
                   <rect x="26" y="30" width="88" height="50" rx="14" fill="#333333" />
@@ -3727,22 +3738,22 @@
                   <rect x="32" y="38" width="76" height="26" rx="8" fill="#081818" />
                   <!-- Left eye -->
                   <rect x="36" y="42" width="28" height="18" rx="8" fill="#0C2828" />
-                  <circle cx="50" cy="51" r="7" fill="#D4AF37" opacity=".9" />
+                  <circle cx="50" cy="51" r="7" fill="#20c997" opacity=".9" />
                   <circle cx="50" cy="51" r="4" fill="#0A0A0A" />
                   <circle cx="52" cy="49" r="1.5" fill="white" />
                   <!-- Right eye -->
                   <rect x="76" y="42" width="28" height="18" rx="8" fill="#0C2828" />
-                  <circle cx="90" cy="51" r="7" fill="#D4AF37" opacity=".9" />
+                  <circle cx="90" cy="51" r="7" fill="#20c997" opacity=".9" />
                   <circle cx="90" cy="51" r="4" fill="#0A0A0A" />
                   <circle cx="92" cy="49" r="1.5" fill="white" />
                   <!-- Mouth LED strip -->
                   <rect x="38" y="72" width="64" height="6" rx="3" fill="#0C2828" />
-                  <rect x="40" y="73" width="20" height="4" rx="2" fill="#D4AF37" opacity=".8" />
-                  <rect x="62" y="73" width="8" height="4" rx="2" fill="#D4AF37" opacity=".6" />
-                  <rect x="72" y="73" width="16" height="4" rx="2" fill="#D4AF37" opacity=".8" />
+                  <rect x="40" y="73" width="20" height="4" rx="2" fill="#20c997" opacity=".8" />
+                  <rect x="62" y="73" width="8" height="4" rx="2" fill="#20c997" opacity=".6" />
+                  <rect x="72" y="73" width="16" height="4" rx="2" fill="#20c997" opacity=".8" />
                   <!-- Antenna -->
-                  <line x1="70" y1="26" x2="70" y2="10" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" />
-                  <circle cx="70" cy="8" r="5" fill="#D4AF37" />
+                  <line x1="70" y1="26" x2="70" y2="10" stroke="#20c997" stroke-width="2.5" stroke-linecap="round" />
+                  <circle cx="70" cy="8" r="5" fill="#20c997" />
                   <circle cx="70" cy="8" r="2.5" fill="#0A0A0A" />
                   <!-- Side ear panels -->
                   <rect x="10" y="38" width="12" height="28" rx="6" fill="#1F1F1F" />
@@ -3750,16 +3761,16 @@
                   <rect x="118" y="38" width="12" height="28" rx="6" fill="#1F1F1F" />
                   <rect x="118" y="42" width="8" height="20" rx="4" fill="#000000" />
                   <!-- Gear on ear -->
-                  <circle cx="16" cy="52" r="4" fill="none" stroke="#D4AF37" stroke-width="1.5" class="robot-gear" />
+                  <circle cx="16" cy="52" r="4" fill="none" stroke="#20c997" stroke-width="1.5" class="robot-gear" />
                   <!-- Arms -->
                   <rect x="8" y="88" width="22" height="42" rx="10" fill="#1F1F1F" />
                   <rect x="10" y="90" width="18" height="38" rx="8" fill="#000000" />
                   <rect x="110" y="88" width="22" height="42" rx="10" fill="#1F1F1F" />
                   <rect x="112" y="90" width="18" height="38" rx="8" fill="#000000" />
                   <!-- Left hand holding magnifier -->
-                  <circle cx="19" cy="122" r="9" fill="none" stroke="#D4AF37" stroke-width="2.5" />
+                  <circle cx="19" cy="122" r="9" fill="none" stroke="#20c997" stroke-width="2.5" />
                   <circle cx="19" cy="122" r="5" fill="#0A1E1F" />
-                  <line x1="26" y1="129" x2="32" y2="135" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" />
+                  <line x1="26" y1="129" x2="32" y2="135" stroke="#20c997" stroke-width="3" stroke-linecap="round" />
                   <!-- Right hand thumbs up -->
                   <ellipse cx="121" cy="126" rx="7" ry="9" fill="#1F1F1F" />
                   <path
@@ -3773,7 +3784,7 @@
                 </svg>
                 <!-- Speech bubble -->
                 <div
-                  style="position:absolute;top:-8px;right:-15px;background:#D4AF37;color:#000000;font-size:10px;font-weight:800;padding:6px 10px;border-radius:10px 10px 10px 2px;animation:bounce2 2s ease-in-out infinite;white-space:nowrap;line-height:1.4">
+                  style="position:absolute;top:-8px;right:-15px;background:#20c997;color:#000000;font-size:10px;font-weight:800;padding:6px 10px;border-radius:10px 10px 10px 2px;animation:bounce2 2s ease-in-out infinite;white-space:nowrap;line-height:1.4">
                   Scanning<br>your profiles… 🔍
                 </div>
                 <!-- Sparkles around robot -->
@@ -3981,7 +3992,7 @@
           <p>Tell us about your business. We give you an honest, specific assessment of what will actually work for your
             industry, your city, and your budget. No pitch decks. No generic advice. No pressure. Most clients see first
             results within 3 weeks of going live.</p>
-          <p style="font-size:13px;color:#D4AF37;margin-bottom:22px;font-weight:600">⚡ Maximum 3 new clients per month —
+          <p style="font-size:13px;color:#20c997;margin-bottom:22px;font-weight:600">⚡ Maximum 3 new clients per month —
             not as a marketing trick, but because Month 1 requires founder-level attention. If you're reading this
             today, there may be a slot available.</p>
           <div class="contact-channels">
