@@ -105,7 +105,7 @@
     .nav-cta:hover { background: linear-gradient(135deg, #20c997, #F1D06F); color: #000 }
     .nav-ham { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 6px; background: none; border: none }
     .nav-ham span { width: 18px; height: 1.5px; background: var(--tx); display: block; border-radius: 2px }
-    .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
+    .nav-mobile { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--g1); border-bottom: 1px solid var(--bd); z-index: 199; padding: 20px; flex-direction: column; gap: 14px }
     .nav-mobile.open { display: flex }
     .nav-mobile a { color: var(--tx2); text-decoration: none; font-size: 15px; font-weight: 500 }
 
@@ -2988,14 +2988,14 @@
     onclick="document.getElementById('mobile-nav').classList.toggle('open')">
     <span></span><span></span><span></span>
   </button>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services & Pricing</a>
+    <a href="clients.html">Client Results</a>
+    <a href="ai-Audit.html">AI Audit — ₹199</a>
+    <a href="https://wa.me/919632091371" style="color:#20c997;font-weight:600">💬 WhatsApp Us Now</a>
+  </div>
 </header>
-<div class="nav-mobile" id="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services & Pricing</a>
-  <a href="clients.html">Client Results</a>
-  <a href="ai-Audit.html">AI Audit — ₹199</a>
-  <a href="https://wa.me/919632091371" style="color:#20c997;font-weight:600">💬 WhatsApp Us Now</a>
-</div>
 <!-- ===== WA FLOAT (desktop) ===== -->
 <a href="https://wa.me/919632091371?text=Hi%2C+I+want+to+grow+my+business+online" class="wa-float" target="_blank"
   rel="noopener" aria-label="WhatsApp">
