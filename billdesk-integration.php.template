@@ -14,7 +14,7 @@
 // 1. COLLECT DATA FROM POST
 $customer_name = $_POST['name'] ?? 'Customer';
 $customer_phone = $_POST['phone'] ?? '';
-$amount = "199.00";
+$amount = "299.00";
 $order_id = "AUDIT_" . time(); // Generate a unique order ID
 $callback_url = "https://alphanumerouno.in/payment-success.html"; // Redirect here after payment
 
