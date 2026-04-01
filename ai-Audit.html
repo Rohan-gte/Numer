@@ -5432,6 +5432,10 @@ Numero Uno Marketing Team`;
 
     // ===== RENDER RESULTS =====
     function renderResults(rd) {
+      if (document.getElementById('step7').style.display === 'block') {
+         console.log("On Success page — keeping report hidden.");
+         return; 
+      }
       document.getElementById('results').style.display = 'block';
       const gt = document.getElementById('ig-top'); if(gt) gt.style.display = 'none';
       const si = document.getElementById('step-indicator'); if(si) si.style.display = 'none';
