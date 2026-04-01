@@ -622,16 +622,7 @@
         <div class="stat-val" id="total-revenue">₹0</div>
         <div class="stat-change up">+₹4,200 this week</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Avg Audit Score <span>📊</span></div>
-        <div class="stat-val" id="avg-audit-score">—</div>
-        <div class="stat-change">Area Benchmark: 72</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Conv. Rate <span>⚡</span></div>
-        <div class="stat-val">18.4%</div>
-        <div class="stat-change up">+3.2% vs last month</div>
-      </div>
+
       <div class="stat-card">
         <div class="stat-label">Website Visits <span>🌏</span></div>
         <div class="stat-val" id="total-visits-stat">0</div>
@@ -871,9 +862,7 @@
       const revenue = leads.reduce((sum, l) => sum + (parseInt(l.amount) || 0), 0);
       document.getElementById('total-revenue').textContent = '₹' + revenue.toLocaleString('en-IN');
       
-      const scores = leads.filter(l => typeof l.score === 'number').map(l => l.score);
-      const avgScore = scores.length > 0 ? Math.round(scores.reduce((a,b)=>a+b,0) / scores.length) : 0;
-      document.getElementById('avg-audit-score').textContent = avgScore > 0 ? avgScore + '/100' : '—';
+
 
       const totalVisits = localStorage.getItem('total_visits') || 0;
       document.getElementById('total-visits-stat').textContent = totalVisits;
