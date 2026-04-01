@@ -4749,16 +4749,7 @@
         setTimeout(() => {
           showToast("⏳ Generating your report and PDF...");
           runAudit().then(() => {
-            // After generation, automatically show the report as well
-            setTimeout(() => {
-               document.getElementById('step7').style.display = 'none';
-               updateStepUI(6);
-               // Ensure Step 6 is visible
-               const s6 = document.getElementById('step6') || document.getElementById('resultsSection');
-               if (s6) s6.style.display = 'block';
-            }, 3000);
-            
-            autoSendReportFlow();
+             autoSendReportFlow();
           });
         }, 1000);
 
